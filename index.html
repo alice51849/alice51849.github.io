@@ -50,6 +50,26 @@ img{display:block;max-width:100%}
 .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .grad{background:linear-gradient(105deg,var(--amber) 8%,var(--gold) 60%,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
 h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+.bi-m{display:block}
+.bi-s{display:block;font-weight:500;color:var(--muted);-webkit-text-fill-color:var(--muted);margin-top:.4em;font-size:.56em;letter-spacing:.02em;line-height:1.45}
+h1 .bi-s{font-size:.3em;margin-top:.7em;font-weight:600;letter-spacing:.05em}
+.head h2 .bi-s,.spot-copy h3 .bi-s{font-size:.46em;margin-top:.5em;font-weight:600}
+.hero-copy .sub .bi-s{font-size:.82em;margin-top:.5em}
+.card .ch h3 .bi-s{font-size:.82em;margin-top:.15em;font-weight:600}
+.card .st .bi-s{font-size:.92em;margin-top:.1em}
+.tcard b .bi-s{font-size:.84em;margin-top:.1em;font-weight:600}
+.vc h4 .bi-s{font-size:.82em;margin-top:.15em;font-weight:600}
+.spot-copy .lead .bi-s{font-size:.82em;margin-top:.3em}
+
+/* preloader */
+#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 38%,#fff7e6,#fdeaca)}
+#loader.done{opacity:0;visibility:hidden;transition:opacity .65s var(--ease),visibility .65s}
+#loader .lmark{width:78px;height:78px;animation:lpop 1.15s var(--ease) both;filter:drop-shadow(0 10px 24px rgba(243,137,90,.45))}
+#loader .lname{margin-top:18px;font-family:var(--serif);font-weight:800;font-size:1.55rem;letter-spacing:-.01em;color:var(--ink);animation:lfade .8s .4s var(--ease) both;text-align:center}
+#loader .lsub{margin-top:4px;font-size:.74rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-ink);font-weight:700;animation:lfade .8s .55s var(--ease) both;text-align:center}
+@keyframes lpop{0%{opacity:0;transform:scale(.4) rotate(-35deg)}55%{opacity:1}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes lfade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#loader{display:none}}
 
 /* scroll progress + cursor glow */
 #prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;
@@ -258,6 +278,7 @@ footer{border-top:1px solid var(--line);background:var(--panel2);padding:56px 0 
 </style>
 </head>
 <body>
+<div id="loader"><div><svg class="lmark" viewBox="0 0 24 24" fill="none"><path d="M12 1.5c.6 5.4 3.6 8.4 9 9-5.4.6-8.4 3.6-9 9-.6-5.4-3.6-8.4-9-9 5.4-.6 8.4-3.6 9-9Z" fill="url(#lg)"/><defs><linearGradient id="lg" x1="3" y1="3" x2="21" y2="21"><stop stop-color="#ffc24e"/><stop offset="1" stop-color="#f3895a"/></linearGradient></defs></svg><div class="lname">Lumi&nbsp;Studio</div><div class="lsub">做一束剛剛好的光</div></div></div>
 <div id="prog"></div>
 <div id="glow"></div>
 
@@ -467,22 +488,29 @@ function card(a){
     ?`<div class="visual shot"><div class="halo"></div><div class="ph"><img src="${a.shot}" alt="" loading="lazy"></div></div>`
     :`<div class="visual"><div class="halo"></div><img class="bigicon" src="${a.icon}" alt="" loading="lazy"></div>`;
   el.innerHTML=`${bd}${vis}<div class="body"><div class="ch"><img src="${a.icon}" alt="" loading="lazy"><div><h3></h3><div class="st"></div></div></div><p class="bl"></p><span class="lk">${t.app_cta} ${ARR}</span></div>`;
-  el.querySelector("h3").textContent=a.name[lang];
-  el.querySelector(".st").textContent=a.sub[lang];
+  biInto(el.querySelector("h3"),a.name[lang],altv(a.name));
+  biInto(el.querySelector(".st"),a.sub[lang],altv(a.sub));
   el.querySelector(".bl").textContent=a.blurb[lang];
   return el;
 }
+function strip(s){const d=document.createElement("div");d.innerHTML=s;return d.textContent;}
+function altv(o){const a=lang==="en"?o.zh:o.en;return(a&&a!==o[lang])?a:"";}
+function biInto(el,mainHTML,secText){el.innerHTML='<span class="bi-m">'+mainHTML+'</span>';if(secText){const s=document.createElement("span");s.className="bi-s";s.textContent=secText;el.appendChild(s);}}
+const BI=new Set(["hero_title","hero_sub","kids_title","kids_sub","tools_title","tools_sub","values_title","values_sub","band_title","band_sub","story_lead"]);
 function render(){
-  const t=I18N[lang];
+  const t=I18N[lang],sec=lang==="en"?I18N.zh:I18N.en;
   document.documentElement.lang=HL[lang];
-  document.querySelectorAll("[data-i]").forEach(e=>{const k=e.getAttribute("data-i");if(t[k]!=null)e.innerHTML=t[k];});
+  document.querySelectorAll("[data-i]").forEach(e=>{const k=e.getAttribute("data-i");if(t[k]==null)return;
+    if(BI.has(k)&&e.tagName!=="A"&&sec[k]&&strip(sec[k])!==strip(t[k]))biInto(e,t[k],strip(sec[k]));else e.innerHTML=t[k];});
   // stats
   const s=document.getElementById("stats");s.innerHTML="";
   t.stats.forEach(([n,l])=>{const d=document.createElement("div");d.className="stat";d.innerHTML=`<div class="n" data-num="${n}">${n}</div><div class="l">${l}</div>`;s.appendChild(d);});
   // trust
   const tr=document.getElementById("trust");tr.innerHTML="";
-  t.trust.forEach(([ic,h,p])=>{const d=document.createElement("div");d.className="tcard";
-    d.innerHTML=`<div class="ti"><svg viewBox="0 0 24 24">${TI[ic]}</svg></div><b>${h}</b><span>${p}</span>`;tr.appendChild(d);});
+  t.trust.forEach((it,idx)=>{const ic=it[0],h=it[1],p=it[2];const d=document.createElement("div");d.className="tcard";
+    d.innerHTML=`<div class="ti"><svg viewBox="0 0 24 24">${TI[ic]}</svg></div><b></b><span></span>`;
+    const eh=sec.trust&&sec.trust[idx]?sec.trust[idx][1]:"";biInto(d.querySelector("b"),h,(eh&&eh!==h)?eh:"");
+    d.querySelector("span").textContent=p;tr.appendChild(d);});
   // story
   const sb=document.getElementById("storyBody");sb.innerHTML="";
   t.story.forEach(p=>{const el=document.createElement("p");el.innerHTML=p;sb.appendChild(el);});
@@ -494,22 +522,23 @@ function render(){
   ["hp1","hp2","hp3"].forEach((id,i)=>{const a=by[HEROES[i]];if(a&&a.shot)document.getElementById(id).src=a.shot;});
   // flagship spotlight
   document.getElementById("spotK").textContent=SPOTXT[lang].k;
-  document.getElementById("spotT").textContent=SPOTXT[lang].t;
+  biInto(document.getElementById("spotT"),SPOTXT[lang].t,lang!=="en"?SPOTXT.en.t:SPOTXT.zh.t);
   document.getElementById("spotS").textContent=SPOTXT[lang].s;
   const sr=document.getElementById("spotRows");sr.innerHTML="";
   SPOT.forEach((slug,i)=>{const a=by[slug];if(!a||!a.shot)return;
     const row=document.createElement("div");row.className="spot rv"+(i%2?" rev":"");
     row.innerHTML='<div class="spot-media"><div class="floor"></div><div class="device"><span class="island"></span><img src="'+a.shot+'" alt="" loading="lazy"></div></div><div class="spot-copy"><div class="sk"></div><h3></h3><p class="lead"></p><p class="bl"></p><a class="lk" target="_blank" rel="noopener" href="'+a.url+'">'+I18N[lang].app_cta+' '+ARR+'</a></div>';
     row.querySelector(".sk").textContent=a.cat==="kids"?I18N[lang].kids_title:I18N[lang].tools_title;
-    row.querySelector("h3").textContent=a.name[lang];
-    row.querySelector(".lead").textContent=a.sub[lang];
+    biInto(row.querySelector("h3"),a.name[lang],altv(a.name));
+    biInto(row.querySelector(".lead"),a.sub[lang],altv(a.sub));
     row.querySelector(".bl").textContent=a.blurb[lang];
     sr.appendChild(row);});
   // values
   const vg=document.getElementById("vGrid");vg.innerHTML="";
   t.values.forEach(([h,p],i)=>{const d=document.createElement("div");d.className="vc";
     d.innerHTML=`<div class="vi"><svg viewBox="0 0 24 24">${VI[i%VI.length]}</svg></div><h4></h4><p></p>`;
-    d.querySelector("h4").textContent=h;d.querySelector("p").textContent=p;vg.appendChild(d);});
+    const eh=sec.values&&sec.values[i]?sec.values[i][0]:"";biInto(d.querySelector("h4"),h,(eh&&eh!==h)?eh:"");
+    d.querySelector("p").textContent=p;vg.appendChild(d);});
   // lang
   document.getElementById("langCur").textContent=I18N[lang]._n;
   const lm=document.getElementById("langMenu");lm.innerHTML="";
@@ -569,6 +598,13 @@ if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
   addEventListener("resize",()=>requestAnimationFrame(spar));
 }
 render();setup();onScroll();
+// preloader fade out
+function hideLoader(){const l=document.getElementById("loader");if(l&&!l.classList.contains("done")){l.classList.add("done");setTimeout(()=>l.remove(),720);}}
+addEventListener("load",()=>setTimeout(hideLoader,900));setTimeout(hideLoader,2600);
+// magnetic hero buttons
+if(fine){document.querySelectorAll(".hero .btn").forEach(b=>{
+  b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.25).toFixed(1)+"px,"+((e.clientY-r.top-r.height/2)*.4).toFixed(1)+"px)";});
+  b.addEventListener("mouseleave",()=>{b.style.transform="";});});}
 </script>
 </body>
 </html>
