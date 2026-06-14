@@ -23,7 +23,7 @@ window.APPS=[
    "ja": "親が信頼するフォニックス：文字の名前と音、なぞり書き、12種の読みゲーム、印刷できるPDFプリント。",
    "ko": "부모가 신뢰하는 파닉스: 글자 이름과 소리, 따라쓰기, 12가지 읽기 게임, 인쇄용 PDF 학습지."
   },
-  "shot": "assets/shots/lumi-letters-pro.png"
+  "shot": "assets/shots/lumi-letters-pro.jpg"
  },
  {
   "slug": "lumi-letters-lite",
@@ -49,7 +49,7 @@ window.APPS=[
    "ja": "無料で遊べる！くまのLumiとゆめかわ星空で星をつくり、文字をなぞり、なかまを集めながらA〜Dを覚えよう。",
    "ko": "무료로 놀자! 곰돌이 Lumi와 꿈같은 별하늘에서 행성을 만들고 글자를 따라쓰고 친구를 모으며 A부터 D까지."
   },
-  "shot": "assets/shots/lumi-letters-lite.png"
+  "shot": "assets/shots/lumi-letters-lite.jpg"
  },
  {
   "slug": "lumi-math-planet",
@@ -127,7 +127,7 @@ window.APPS=[
    "ja": "Lumi Bopomofo is a gentle, playful way for young children to learn the Bopomofo (Zhuyin) phone…",
    "ko": "Lumi Bopomofo is a gentle, playful way for young children to learn the Bopomofo (Zhuyin) phone…"
   },
-  "shot": "assets/shots/lumi-bopomofo.png"
+  "shot": "assets/shots/lumi-bopomofo.jpg"
  },
  {
   "slug": "lumi-bopomofo-pro",
@@ -179,7 +179,7 @@ window.APPS=[
    "ja": "はみがき、ごはん、おかたづけ、ねんねが「やりたい遊び」に変わります。",
    "ko": "양치, 식사, 정리, 잠자기가 아이가 먼저 하고 싶은 놀이로 바뀝니다."
   },
-  "shot": "assets/shots/lumi-mission-planet.png"
+  "shot": "assets/shots/lumi-mission-planet.jpg"
  },
  {
   "slug": "lumi-mission-planet-pro",
@@ -231,7 +231,7 @@ window.APPS=[
    "ja": "おでかけ前のあの小さな迷いに、やさしく答えます。",
    "ko": "문 앞에서 망설이는 그 순간에, 다정하게 답해요."
   },
-  "shot": "assets/shots/lumi-weather.png"
+  "shot": "assets/shots/lumi-weather.jpg"
  },
  {
   "slug": "lockhour-pro",
@@ -257,7 +257,7 @@ window.APPS=[
    "ja": "気が散るアプリを遮断し、集中や勉強のセッションを開始。",
    "ko": "주의를 흩트리는 앱을 차단하고 집중 또는 공부 세션을 시작하세요."
   },
-  "shot": "assets/shots/lockhour-pro.png"
+  "shot": "assets/shots/lockhour-pro.jpg"
  },
  {
   "slug": "scanto-pro",
@@ -283,7 +283,7 @@ window.APPS=[
    "ja": "書類を鮮明なPDFにして、その中の文字まで検索。",
    "ko": "선명한 PDF로 스캔하고, 그 안의 글자까지 검색하세요."
   },
-  "shot": "assets/shots/scanto-pro.png"
+  "shot": "assets/shots/scanto-pro.jpg"
  },
  {
   "slug": "hourstag",

@@ -9,20 +9,24 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lumi Studio — 做一束剛剛好的光">
 <meta property="og:description" content="為孩子與家庭打造溫暖、值得信任的 app。隱私優先、無廣告、一次買斷。">
-<meta property="og:image" content="https://alice51849.github.io/assets/icons/lumi-letters-pro.png">
+<meta property="og:image" content="https://alice51849.github.io/assets/og.png">
+<meta name="twitter:image" content="https://alice51849.github.io/assets/og.png">
 <meta property="og:url" content="https://alice51849.github.io/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icons/lumi-letters-pro.png">
 <link rel="apple-touch-icon" href="assets/icons/lumi-letters-pro.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/shots/lumi-letters-pro.jpg">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap"></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Lumi Studio","url":"https://alice51849.github.io/","description":"An independent studio crafting warm, trustworthy apps for children and families.","slogan":"Light, made just right.","foundingLocation":"Taiwan"}
 </script>
 <style>
 :root{
-  --ink:#3c3119; --ink2:#6a5a39; --muted:#9c8a63;
+  --ink:#3c3119; --ink2:#665436; --muted:#857049;
   --line:#f1e7cf; --line2:#ecdfbf;
   --bg:#fffaf0; --panel:#ffffff; --panel2:#fffdf7;
   --gold:#fb9a26; --gold-ink:#d57e15; --gold-soft:#fff2d6; --amber:#ffc24e; --coral:#f3895a;
@@ -58,11 +62,12 @@ h1 .bi-s{font-size:.3em;margin-top:.7em;font-weight:600;letter-spacing:.05em}
 .card .ch h3 .bi-s{font-size:.82em;margin-top:.15em;font-weight:600}
 .card .st .bi-s{font-size:.92em;margin-top:.1em}
 .tcard b .bi-s{font-size:.84em;margin-top:.1em;font-weight:600}
-.vc h4 .bi-s{font-size:.82em;margin-top:.15em;font-weight:600}
+.vc h3 .bi-s{font-size:.82em;margin-top:.15em;font-weight:600}
 .spot-copy .lead .bi-s{font-size:.82em;margin-top:.3em}
 
 /* preloader */
-#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 38%,#fff7e6,#fdeaca)}
+#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 38%,#fff7e6,#fdeaca);animation:loaderGone .5s 1.2s forwards}
+@keyframes loaderGone{to{opacity:0;visibility:hidden;pointer-events:none}}
 #loader.done{opacity:0;visibility:hidden;transition:opacity .65s var(--ease),visibility .65s}
 #loader .lmark{width:78px;height:78px;animation:lpop 1.15s var(--ease) both;filter:drop-shadow(0 10px 24px rgba(243,137,90,.45))}
 #loader .lname{margin-top:18px;font-family:var(--serif);font-weight:800;font-size:1.55rem;letter-spacing:-.01em;color:var(--ink);animation:lfade .8s .4s var(--ease) both;text-align:center}
@@ -176,6 +181,11 @@ section{padding:clamp(78px,11vh,130px) 0;position:relative}
   box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s;
   display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
 .card:hover{box-shadow:var(--shadow-lg);border-color:var(--line2)}
+.visual .ph img,.visual .bigicon{transition:transform .45s var(--ease)}
+.card:hover .visual .ph img{transform:scale(1.05)}
+.card:hover .visual .bigicon{transform:scale(1.07) rotate(-2deg)}
+.spot-media .device img{transition:transform .5s var(--ease)}
+.spot:hover .spot-media .device img{transform:scale(1.03)}
 .visual{position:relative;height:230px;overflow:hidden;display:grid;place-items:center;
   background:radial-gradient(120% 100% at 50% 0%,#fff7e6,#fdeaca)}
 .visual.shot{align-items:flex-end}
@@ -211,7 +221,7 @@ section{padding:clamp(78px,11vh,130px) 0;position:relative}
 .vc .vi{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;margin-bottom:15px;
   background:linear-gradient(140deg,var(--amber),var(--gold));box-shadow:0 12px 22px -10px var(--gold)}
 .vc .vi svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2}
-.vc h4{font-family:var(--serif);font-weight:700;font-size:1.1rem;margin-bottom:6px;color:var(--ink)}
+.vc h3{font-family:var(--serif);font-weight:700;font-size:1.1rem;margin-bottom:6px;color:var(--ink)}
 .vc p{font-size:.93rem;color:var(--ink2)}
 @media(max-width:820px){.vgrid{grid-template-columns:1fr}}
 
@@ -536,8 +546,8 @@ function render(){
   // values
   const vg=document.getElementById("vGrid");vg.innerHTML="";
   t.values.forEach(([h,p],i)=>{const d=document.createElement("div");d.className="vc";
-    d.innerHTML=`<div class="vi"><svg viewBox="0 0 24 24">${VI[i%VI.length]}</svg></div><h4></h4><p></p>`;
-    const eh=sec.values&&sec.values[i]?sec.values[i][0]:"";biInto(d.querySelector("h4"),h,(eh&&eh!==h)?eh:"");
+    d.innerHTML=`<div class="vi"><svg viewBox="0 0 24 24">${VI[i%VI.length]}</svg></div><h3></h3><p></p>`;
+    const eh=sec.values&&sec.values[i]?sec.values[i][0]:"";biInto(d.querySelector("h3"),h,(eh&&eh!==h)?eh:"");
     d.querySelector("p").textContent=p;vg.appendChild(d);});
   // lang
   document.getElementById("langCur").textContent=I18N[lang]._n;
@@ -599,8 +609,7 @@ if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
 }
 render();setup();onScroll();
 // preloader fade out
-function hideLoader(){const l=document.getElementById("loader");if(l&&!l.classList.contains("done")){l.classList.add("done");setTimeout(()=>l.remove(),720);}}
-addEventListener("load",()=>setTimeout(hideLoader,900));setTimeout(hideLoader,2600);
+setTimeout(()=>{const l=document.getElementById("loader");if(l)l.remove();},2100);
 // magnetic hero buttons
 if(fine){document.querySelectorAll(".hero .btn").forEach(b=>{
   b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.25).toFixed(1)+"px,"+((e.clientY-r.top-r.height/2)*.4).toFixed(1)+"px)";});
