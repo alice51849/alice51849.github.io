@@ -2,550 +2,518 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lumi Studio — 做一束剛剛好的光</title>
-<meta name="description" content="Lumi Studio is an independent studio crafting warm, trustworthy apps for children and families. Privacy-first, no ads, pay once.">
-<meta property="og:title" content="Lumi Studio">
-<meta property="og:description" content="做一束剛剛好的光。為孩子與家庭打造溫暖、值得信任的 app。">
+<meta name="description" content="Lumi Studio — 一間獨立工作室,為孩子與家庭打造溫暖、值得信任的 app。隱私優先、無廣告、一次買斷。An independent studio crafting warm, trustworthy apps for kids & families.">
+<meta name="theme-color" content="#fffaf0">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#FCF7EF">
+<meta property="og:title" content="Lumi Studio — 做一束剛剛好的光">
+<meta property="og:description" content="為孩子與家庭打造溫暖、值得信任的 app。隱私優先、無廣告、一次買斷。">
+<meta property="og:image" content="https://alice51849.github.io/assets/icons/lumi-letters-pro.png">
+<meta property="og:url" content="https://alice51849.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icons/lumi-letters-pro.png">
+<link rel="apple-touch-icon" href="assets/icons/lumi-letters-pro.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Lumi Studio","url":"https://alice51849.github.io/","description":"An independent studio crafting warm, trustworthy apps for children and families.","slogan":"Light, made just right.","foundingLocation":"Taiwan"}
+</script>
 <style>
 :root{
-  --bg:#FCF7EF; --bg2:#F6ECDC; --card:#FFFFFF; --card2:#FFFBF4;
-  --ink:#2E2620; --ink-soft:#6E5D4C; --ink-mute:#9A8975;
-  --gold:#C98A3C; --gold-2:#E6B567; --gold-deep:#A86E28;
-  --coral:#E0876A; --rose:#E9A98C; --cream:#FFF4E2;
-  --line:rgba(120,90,50,.13); --line-2:rgba(120,90,50,.08);
-  --shadow:0 18px 50px -22px rgba(150,100,40,.45);
-  --shadow-soft:0 8px 26px -14px rgba(150,100,40,.32);
-  --radius:26px; --radius-lg:34px;
-  --serif:'Fraunces','Noto Serif TC',Georgia,serif;
-  --sans:'Plus Jakarta Sans','Noto Sans TC','Noto Sans JP','Noto Sans KR',system-ui,sans-serif;
+  --ink:#3c3119; --ink2:#6a5a39; --muted:#9c8a63;
+  --line:#f1e7cf; --line2:#ecdfbf;
+  --bg:#fffaf0; --panel:#ffffff; --panel2:#fffdf7;
+  --gold:#fb9a26; --gold-ink:#d57e15; --gold-soft:#fff2d6; --amber:#ffc24e; --coral:#f3895a;
+  --shadow:0 1px 2px rgba(120,90,20,.05), 0 14px 36px -18px rgba(180,130,30,.30);
+  --shadow-lg:0 4px 10px rgba(120,90,20,.08), 0 44px 80px -34px rgba(180,130,30,.46);
+  --radius:22px; --radius-lg:30px; --maxw:1160px;
+  --serif:"Plus Jakarta Sans","Noto Sans TC","Noto Sans JP","Noto Sans KR",-apple-system,system-ui,sans-serif;
+  --sans:"Inter","Noto Sans TC","Noto Sans JP","Noto Sans KR",-apple-system,BlinkMacSystemFont,"PingFang TC","Segoe UI",sans-serif;
 }
-html[lang="ja"]{ --sans:'Plus Jakarta Sans','Noto Sans JP','Noto Sans TC',system-ui,sans-serif; }
-html[lang="ko"]{ --sans:'Plus Jakarta Sans','Noto Sans KR','Noto Sans TC',system-ui,sans-serif; }
+html[lang="ja"]{--sans:"Inter","Noto Sans JP","Noto Sans TC",-apple-system,sans-serif;--serif:"Plus Jakarta Sans","Noto Sans JP","Noto Sans TC",sans-serif}
+html[lang="ko"]{--sans:"Inter","Noto Sans KR","Noto Sans TC",-apple-system,sans-serif;--serif:"Plus Jakarta Sans","Noto Sans KR","Noto Sans TC",sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  font-family:var(--sans);color:var(--ink);background:var(--bg);
-  line-height:1.7;letter-spacing:.005em;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-}
-::selection{background:var(--gold-2);color:#fff}
-a{color:inherit;text-decoration:none}
+body{color:var(--ink);background:var(--bg);font-family:var(--sans);font-size:16.5px;line-height:1.72;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+::selection{background:var(--amber);color:#fff}
+a{color:var(--gold-ink);text-decoration:none}
 img{display:block;max-width:100%}
-.wrap{width:min(1180px,92vw);margin-inline:auto}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
 .serif{font-family:var(--serif)}
-.eyebrow{font:600 .82rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
+.eyebrow{font-size:.74rem;font-weight:800;letter-spacing:2.8px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.grad{background:linear-gradient(105deg,var(--amber) 8%,var(--gold) 60%,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* ---------- Header ---------- */
-header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.4s}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:.9rem 0;}
-.navbar{position:relative;}
-header.scrolled .navbar::before{
-  content:"";position:absolute;inset:0;background:rgba(252,247,239,.78);
-  backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
-  border-bottom:1px solid var(--line-2);box-shadow:0 6px 24px -18px rgba(150,100,40,.5);
-}
-.navbar>.wrap{position:relative}
-.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);
-  font-weight:900;font-size:1.32rem;color:var(--ink);letter-spacing:-.01em}
-.brand .spark{width:26px;height:26px;flex:none}
-.menu{display:flex;align-items:center;gap:.4rem}
-.menu a{padding:.5rem .9rem;border-radius:99px;font-weight:600;font-size:.95rem;
-  color:var(--ink-soft);transition:.25s}
-.menu a:hover{color:var(--ink);background:rgba(201,138,60,.1)}
-.langbtn{position:relative}
-.langbtn>button{display:flex;align-items:center;gap:.45rem;border:1px solid var(--line);
-  background:var(--card2);color:var(--ink);padding:.5rem .85rem;border-radius:99px;
-  font-family:var(--sans);font-weight:600;font-size:.9rem;cursor:pointer;transition:.25s}
-.langbtn>button:hover{border-color:var(--gold-2);box-shadow:var(--shadow-soft)}
-.langbtn svg{width:16px;height:16px;opacity:.75}
-.langmenu{position:absolute;right:0;top:calc(100% + .5rem);background:var(--card);
-  border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
-  padding:.4rem;min-width:148px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.22s}
-.langmenu.open{opacity:1;visibility:visible;transform:none}
-.langmenu button{display:flex;width:100%;align-items:center;justify-content:space-between;
-  gap:.5rem;background:none;border:0;padding:.6rem .75rem;border-radius:12px;cursor:pointer;
-  font-family:var(--sans);font-size:.92rem;color:var(--ink);transition:.18s}
-.langmenu button:hover{background:rgba(201,138,60,.12)}
-.langmenu button.active{color:var(--gold-deep);font-weight:700}
-.langmenu button .tick{opacity:0}
-.langmenu button.active .tick{opacity:1}
-.burger{display:none;border:1px solid var(--line);background:var(--card2);border-radius:12px;
-  width:42px;height:42px;cursor:pointer}
+/* scroll progress + cursor glow */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;
+  background:linear-gradient(90deg,var(--amber),var(--gold),var(--coral));box-shadow:0 0 12px rgba(251,154,38,.6)}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;z-index:0;pointer-events:none;left:0;top:0;
+  transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;
+  background:radial-gradient(circle,rgba(255,201,120,.28),transparent 62%);filter:blur(14px)}
 
-/* ---------- Hero ---------- */
-.hero{position:relative;padding:11rem 0 6rem;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:-2;background:
-  radial-gradient(60% 50% at 18% 12%,rgba(230,181,103,.55),transparent 60%),
-  radial-gradient(55% 55% at 88% 8%,rgba(224,135,106,.42),transparent 62%),
-  radial-gradient(70% 60% at 70% 95%,rgba(255,221,170,.55),transparent 60%),
-  linear-gradient(180deg,#FFF7EA,#FCF7EF 60%)}
-.blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.55;z-index:-1;animation:float 14s ease-in-out infinite}
-.blob.b1{width:340px;height:340px;left:-60px;top:60px;background:radial-gradient(circle,#F4C572,transparent 70%)}
-.blob.b2{width:300px;height:300px;right:-40px;top:30px;background:radial-gradient(circle,#EE9F84,transparent 70%);animation-delay:-4s}
-.blob.b3{width:260px;height:260px;left:46%;bottom:-60px;background:radial-gradient(circle,#FFD9A0,transparent 70%);animation-delay:-8s}
-@keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-26px) translateX(16px)}}
-.hero-inner{max-width:880px}
-.hero .eyebrow{opacity:0;animation:rise .8s .05s forwards}
-.hero h1{font-family:var(--serif);font-weight:900;letter-spacing:-.025em;line-height:1.04;
-  font-size:clamp(2.7rem,7vw,5.2rem);margin:.5rem 0 .1rem;
-  background:linear-gradient(180deg,#3a2c1d,#7a5326 120%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero h1 em{font-style:italic;font-weight:500;color:var(--gold-deep);-webkit-text-fill-color:var(--gold-deep)}
-.hero .lead{font-size:clamp(1.05rem,2.2vw,1.32rem);color:var(--ink-soft);max-width:620px;margin:1.3rem 0 2.2rem}
-.hero h1,.hero .lead,.hero .cta-row,.hero .stats{opacity:0;animation:rise .9s forwards}
-.hero h1{animation-delay:.12s}.hero .lead{animation-delay:.24s}
-.hero .cta-row{animation-delay:.36s}.hero .stats{animation-delay:.5s}
-@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-.cta-row{display:flex;flex-wrap:wrap;gap:.85rem}
-.btn{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:1rem;
-  padding:.95rem 1.7rem;border-radius:99px;cursor:pointer;transition:.28s;border:1px solid transparent}
-.btn.primary{background:linear-gradient(135deg,var(--gold),var(--coral));color:#fff;
-  box-shadow:0 14px 30px -12px rgba(201,120,60,.7)}
-.btn.primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(201,120,60,.8)}
-.btn.ghost{background:var(--card2);color:var(--ink);border-color:var(--line)}
-.btn.ghost:hover{border-color:var(--gold-2);transform:translateY(-3px);box-shadow:var(--shadow-soft)}
-.stats{display:flex;flex-wrap:wrap;gap:2.6rem;margin-top:3.2rem}
-.stat .n{font-family:var(--serif);font-weight:900;font-size:2.3rem;color:var(--ink);line-height:1}
-.stat .l{font-size:.85rem;color:var(--ink-mute);margin-top:.3rem;font-weight:600;letter-spacing:.02em}
+/* nav */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:.4s}
+header.nav .bar{position:relative;transition:.4s}
+header.nav.scrolled .bar{background:rgba(255,250,240,.78);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);box-shadow:0 6px 26px -20px rgba(180,130,30,.7)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:800;font-size:1.16rem;letter-spacing:-.01em;color:var(--ink)}
+.brand .mark{width:34px;height:34px}
+.nav-links{display:flex;align-items:center;gap:3px}
+.nav-links a{color:var(--ink2);font-weight:600;font-size:.93rem;padding:9px 15px;border-radius:11px;transition:.18s}
+.nav-links a:hover{color:var(--gold-ink);background:var(--gold-soft)}
+.lang{position:relative;margin-left:6px}
+.lang>button{display:flex;align-items:center;gap:7px;border:1px solid var(--line2);background:var(--panel);
+  color:var(--ink);font-family:var(--sans);font-weight:700;font-size:.86rem;padding:9px 14px;border-radius:99px;cursor:pointer;transition:.18s;box-shadow:var(--shadow)}
+.lang>button:hover{border-color:#e2c98f;color:var(--gold-ink)}
+.lang>button svg{width:15px;height:15px;opacity:.7}
+.lang-menu{position:absolute;right:0;top:calc(100% + 8px);background:var(--panel);border:1px solid var(--line);
+  border-radius:16px;box-shadow:var(--shadow-lg);padding:6px;min-width:150px;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.97);transform-origin:top right;transition:.2s}
+.lang-menu.open{opacity:1;visibility:visible;transform:none}
+.lang-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;background:none;border:0;
+  padding:10px 12px;border-radius:10px;cursor:pointer;font-family:var(--sans);font-size:.92rem;color:var(--ink2);transition:.15s}
+.lang-menu button:hover{background:var(--gold-soft);color:var(--gold-ink)}
+.lang-menu button.on{color:var(--gold-ink);font-weight:800;background:var(--gold-soft)}
+.lang-menu button .ck{opacity:0;color:var(--gold)}
+.lang-menu button.on .ck{opacity:1}
+@media(max-width:860px){.nav-links a.nl{display:none}}
 
-/* ---------- Sections ---------- */
-section{padding:6rem 0;position:relative}
-.sec-head{max-width:680px;margin-bottom:3rem}
-.sec-head.center{margin-inline:auto;text-align:center}
-.sec-head h2{font-family:var(--serif);font-weight:900;letter-spacing:-.02em;line-height:1.1;
-  font-size:clamp(2rem,4.6vw,3.2rem);margin:.7rem 0 .6rem;color:var(--ink)}
-.sec-head p{color:var(--ink-soft);font-size:1.08rem}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:150px 0 90px}
+.hero-bg{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(760px 480px at 14% 4%,#fff7e2,transparent 60%),
+    radial-gradient(860px 540px at 94% -6%,#ffe7c6,transparent 62%),
+    radial-gradient(700px 700px at 70% 110%,#fff0d2,transparent 60%),
+    linear-gradient(180deg,#fffdf7,#fdf1d6)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,250,240,0) 76%,var(--bg))}
+.blob{position:absolute;border-radius:50%;filter:blur(54px);opacity:.5;z-index:0}
+.blob.a{width:360px;height:360px;background:#ffd98a;left:-90px;top:90px;animation:float 13s ease-in-out infinite}
+.blob.b{width:320px;height:320px;background:#ffd0a6;right:-70px;top:60px;animation:float 16s ease-in-out infinite reverse}
+.blob.c{width:280px;height:280px;background:#ffe6ad;left:44%;bottom:-80px;animation:float 19s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,-22px)}}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:36px;align-items:center}
+.hero-copy h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.5rem,5.4vw,4.1rem);line-height:1.05;
+  letter-spacing:-1.6px;margin:6px 0 18px}
+.hero-copy .sub{font-size:1.17rem;color:var(--ink2);max-width:31em;font-weight:450}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:1rem;padding:14px 27px;border-radius:14px;
+  transition:.2s cubic-bezier(.2,.7,.2,1);border:1px solid transparent;cursor:pointer}
+.btn svg{width:18px;height:18px}
+.btn.primary{color:#fff;background:linear-gradient(135deg,var(--amber),var(--gold));
+  box-shadow:0 16px 34px -14px var(--gold);text-shadow:0 1px 1.5px rgba(150,90,20,.35)}
+.btn.primary:hover{transform:translateY(-3px);filter:brightness(1.06);box-shadow:0 22px 44px -14px var(--gold)}
+.btn.ghost{color:var(--ink2);background:rgba(255,255,255,.9);border-color:var(--line2);box-shadow:var(--shadow)}
+.btn.ghost:hover{border-color:#e2c98f;color:var(--gold-ink);transform:translateY(-3px)}
+.stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+.stat .n{font-family:var(--serif);font-weight:800;font-size:2.4rem;line-height:1;color:var(--ink)}
+.stat .l{font-size:.82rem;color:var(--muted);font-weight:600;margin-top:5px;letter-spacing:.02em}
 
-/* About */
-.about{background:
-  radial-gradient(80% 120% at 50% -10%,rgba(255,238,205,.7),transparent 60%);}
-.story{max-width:760px;margin-inline:auto;text-align:center}
-.story .lead{font-family:var(--serif);font-style:italic;font-weight:500;
-  font-size:clamp(1.5rem,3.4vw,2.2rem);color:var(--gold-deep);line-height:1.4;margin-bottom:1.6rem}
-.story p{color:var(--ink-soft);font-size:1.1rem;margin:1.1rem 0}
+/* hero phones */
+.stage{position:relative;height:560px;perspective:1400px}
+.phone{position:absolute;width:240px;border-radius:38px;padding:8px;will-change:transform;
+  background:linear-gradient(150deg,#fff6e3 0%,#ffd896 52%,#f9c878 100%);
+  box-shadow:var(--shadow-lg),inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -2px 3px rgba(190,120,30,.22),inset 0 0 0 1px rgba(255,201,120,.6)}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:74px;height:20px;
+  background:#3c3119;border-radius:0 0 14px 14px;z-index:3;opacity:.92}
+.phone img{width:100%;border-radius:30px;display:block}
+.phone.p1{left:calc(50% - 120px);top:18px;z-index:3;animation:floaty 7s ease-in-out infinite}
+.phone.p2{left:calc(50% - 250px);top:96px;transform:rotate(-9deg);z-index:2;width:212px;animation:floaty 9s ease-in-out infinite}
+.phone.p3{left:calc(50% + 38px);top:100px;transform:rotate(9deg);z-index:1;width:212px;animation:floaty 8s ease-in-out infinite reverse}
+@keyframes floaty{0%,100%{transform:translateY(0) var(--rot,)}50%{transform:translateY(-16px) var(--rot,)}}
+.phone.p2{--rot:rotate(-9deg)}.phone.p3{--rot:rotate(9deg)}
+.spark{position:absolute;z-index:4;color:var(--amber);filter:drop-shadow(0 4px 10px rgba(251,154,38,.5));animation:twinkle 3s ease-in-out infinite}
+.spark.s1{left:6%;top:8%;width:30px}.spark.s2{right:10%;top:30%;width:22px;animation-delay:1s}.spark.s3{left:18%;bottom:10%;width:18px;animation-delay:.5s}
+@keyframes twinkle{0%,100%{opacity:.4;transform:scale(.85)}50%{opacity:1;transform:scale(1.1)}}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-copy .sub{margin:0 auto}.actions,.stats{justify-content:center}.stage{height:500px;margin-top:20px}}
+
+/* trust strip */
+.trust{margin-top:-44px;position:relative;z-index:5}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);text-align:center}
+.tcard .ti{width:46px;height:46px;margin:0 auto 12px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--gold-soft),#fff);border:1px solid var(--line2)}
+.tcard .ti svg{width:24px;height:24px;stroke:var(--gold-ink);fill:none;stroke-width:2}
+.tcard b{display:block;font-size:1rem;color:var(--ink)}
+.tcard span{font-size:.82rem;color:var(--muted)}
+@media(max-width:820px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:84px 0;position:relative}
+.head{max-width:680px;margin:0 auto 48px;text-align:center}
+.head h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.9rem,4vw,2.7rem);letter-spacing:-.8px;line-height:1.12;margin:8px 0 10px;color:var(--ink)}
+.head p{color:var(--ink2);font-size:1.06rem}
+
+/* app cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s;
+  display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
+.card:hover{box-shadow:var(--shadow-lg);border-color:var(--line2)}
+.visual{position:relative;height:230px;overflow:hidden;display:grid;place-items:center;
+  background:radial-gradient(120% 100% at 50% 0%,#fff7e6,#fdeaca)}
+.visual.shot{align-items:flex-end}
+.visual .ph{width:150px;border-radius:24px 24px 8px 8px;padding:6px 6px 0;margin-bottom:-8px;
+  background:linear-gradient(150deg,#fff6e3,#ffd896 60%,#f9c878);
+  box-shadow:0 26px 50px -22px rgba(180,120,30,.6),inset 0 0 0 1px rgba(255,201,120,.6)}
+.visual .ph img{border-radius:20px 20px 0 0;width:100%}
+.visual .bigicon{width:118px;height:118px;border-radius:28px;box-shadow:0 24px 44px -18px rgba(180,120,30,.62),inset 0 0 0 1px rgba(255,255,255,.5)}
+.visual .halo{position:absolute;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,201,120,.5),transparent 60%);filter:blur(20px);z-index:0}
+.visual .bigicon,.visual .ph{position:relative;z-index:1}
+.card .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:11px;flex:1}
+.card .ch{display:flex;align-items:center;gap:12px}
+.card .ch img{width:46px;height:46px;border-radius:13px;box-shadow:0 6px 14px -6px rgba(180,120,30,.5)}
+.card .ch h3{font-family:var(--serif);font-weight:700;font-size:1.06rem;line-height:1.2;color:var(--ink)}
+.card .ch .st{font-size:.84rem;color:var(--gold-ink);font-weight:600;margin-top:2px}
+.card .bl{font-size:.93rem;color:var(--ink2);flex:1}
+.card .lk{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.9rem;color:var(--ink);transition:.2s;margin-top:2px}
+.card .lk svg{width:16px;height:16px;transition:.2s}
+.card .lk:hover{color:var(--gold-ink)}
+.card .lk:hover svg{transform:translateX(4px)}
+.bdg{position:absolute;top:14px;right:14px;z-index:2;font-size:.7rem;font-weight:800;letter-spacing:.5px;
+  padding:5px 11px;border-radius:99px;background:rgba(255,255,255,.92);color:var(--gold-ink);box-shadow:var(--shadow);border:1px solid var(--line2)}
+.bdg.lite{color:var(--coral)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+/* values */
+.values{background:linear-gradient(180deg,#fffdf7,#fdf0d6)}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vc{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow);transition:.25s}
+.vc:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--line2)}
+.vc .vi{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;margin-bottom:15px;
+  background:linear-gradient(140deg,var(--amber),var(--gold));box-shadow:0 12px 22px -10px var(--gold)}
+.vc .vi svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2}
+.vc h4{font-family:var(--serif);font-weight:700;font-size:1.1rem;margin-bottom:6px;color:var(--ink)}
+.vc p{font-size:.93rem;color:var(--ink2)}
+@media(max-width:820px){.vgrid{grid-template-columns:1fr}}
+
+/* story */
+.story{max-width:780px;margin:0 auto;text-align:center}
+.story .halo{width:74px;height:74px;margin:0 auto 18px;animation:twinkle 4s ease-in-out infinite}
+.story .lead{font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.5rem,3.4vw,2.15rem);
+  color:transparent;line-height:1.4;margin-bottom:22px;
+  background:linear-gradient(105deg,var(--gold-ink),var(--coral));-webkit-background-clip:text;background-clip:text}
+.story p{color:var(--ink2);font-size:1.1rem;margin:16px 0}
 .story p strong{color:var(--ink);font-weight:700}
-.halo{width:70px;height:70px;margin:0 auto 1.4rem}
 
-/* App grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.appcard{position:relative;background:var(--card);border:1px solid var(--line-2);
-  border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;gap:1rem;
-  box-shadow:var(--shadow-soft);transition:.35s cubic-bezier(.2,.7,.2,1);overflow:hidden}
-.appcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(135deg,rgba(255,221,170,.0),rgba(255,221,170,.18));opacity:0;transition:.35s}
-.appcard:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:rgba(201,138,60,.28)}
-.appcard:hover::after{opacity:1}
-.appcard .top{display:flex;align-items:center;gap:1rem}
-.appcard .ic{width:74px;height:74px;border-radius:19px;flex:none;
-  box-shadow:0 10px 22px -10px rgba(120,80,30,.5);background:#fff;object-fit:cover}
-.appcard h3{font-weight:700;font-size:1.12rem;line-height:1.25;color:var(--ink);letter-spacing:-.01em}
-.appcard .sub{font-size:.9rem;color:var(--gold-deep);font-weight:600;margin-top:.2rem}
-.appcard .blurb{font-size:.96rem;color:var(--ink-soft);flex:1}
-.badge{position:absolute;top:1.2rem;right:1.2rem;font-size:.7rem;font-weight:700;letter-spacing:.06em;
-  padding:.28rem .6rem;border-radius:99px;background:rgba(201,138,60,.14);color:var(--gold-deep)}
-.badge.lite{background:rgba(224,135,106,.16);color:#b85e42}
-.applink{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.92rem;
-  color:var(--ink);padding:.6rem 0;width:fit-content;transition:.25s}
-.applink svg{width:18px;height:18px;transition:.25s}
-.applink:hover{color:var(--gold-deep)}
-.applink:hover svg{transform:translateX(4px)}
-
-/* Values */
-.values{background:linear-gradient(180deg,#FFF7EA,#FBF1E1)}
-.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.vcard{background:var(--card2);border:1px solid var(--line-2);border-radius:var(--radius);
-  padding:1.8rem;transition:.3s}
-.vcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);background:#fff}
-.vcard .vi{width:50px;height:50px;display:grid;place-items:center;border-radius:15px;
-  background:linear-gradient(135deg,var(--gold-2),var(--coral));margin-bottom:1rem;
-  box-shadow:0 10px 20px -10px rgba(201,120,60,.7)}
-.vcard .vi svg{width:26px;height:26px;stroke:#fff}
-.vcard h4{font-size:1.12rem;font-weight:700;margin-bottom:.4rem;color:var(--ink)}
-.vcard p{font-size:.96rem;color:var(--ink-soft)}
-
-/* CTA band */
-.band{margin:2rem 0 0}
-.band-in{background:linear-gradient(135deg,#3a2c1d,#7a5326);border-radius:var(--radius-lg);
-  padding:clamp(2.4rem,5vw,3.6rem);text-align:center;color:#fff;position:relative;overflow:hidden}
+/* band */
+.band{padding:0 0 90px}
+.band-in{max-width:var(--maxw);margin:0 auto;background:linear-gradient(150deg,#4a3a22,#7c5626);border-radius:34px;
+  padding:clamp(2.6rem,5vw,4rem);text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
 .band-in::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(50% 80% at 20% 0%,rgba(230,181,103,.5),transparent 60%),
-  radial-gradient(50% 80% at 90% 100%,rgba(224,135,106,.5),transparent 60%)}
+  radial-gradient(60% 90% at 18% 0%,rgba(255,201,120,.5),transparent 60%),
+  radial-gradient(60% 90% at 92% 100%,rgba(243,137,90,.45),transparent 60%)}
 .band-in>*{position:relative}
-.band-in h2{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.6rem}
-.band-in p{color:rgba(255,245,230,.85);max-width:520px;margin:0 auto 1.6rem}
-.band-in .btn.primary{background:#fff;color:var(--gold-deep)}
+.band-in h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.7rem,3.8vw,2.6rem);margin-bottom:10px}
+.band-in p{color:rgba(255,245,230,.86);max-width:30em;margin:0 auto 26px}
+.band-in .btn{background:#fff;color:var(--gold-ink)}
+.band-in .btn:hover{background:#fff;filter:brightness(1)}
 
-/* Footer */
-footer{padding:4rem 0 2.5rem;border-top:1px solid var(--line);background:var(--bg2)}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:flex-start}
-.foot .brand{font-size:1.4rem}
-.foot p{color:var(--ink-soft);font-size:.95rem;max-width:340px;margin-top:.8rem}
-.foot .cols{display:flex;gap:3.5rem;flex-wrap:wrap}
-.fcol h5{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:.9rem}
-.fcol a{display:block;color:var(--ink-soft);font-size:.95rem;padding:.25rem 0;transition:.2s}
-.fcol a:hover{color:var(--gold-deep)}
-.copy{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);
-  display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;color:var(--ink-mute);font-size:.88rem}
+/* footer */
+footer{border-top:1px solid var(--line);background:var(--panel2);padding:56px 0 40px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px}
+.foot .brand{font-size:1.3rem}
+.foot .tag{color:var(--ink2);font-size:.94rem;max-width:300px;margin-top:12px}
+.fcols{display:flex;gap:60px;flex-wrap:wrap}
+.fcol h5{font-size:.74rem;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.fcol a{display:block;color:var(--ink2);font-size:.93rem;padding:4px 0;transition:.18s}
+.fcol a:hover{color:var(--gold-ink)}
+.copy{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:var(--muted);font-size:.85rem}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(28px);transition:.8s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.stagger>*{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
-.stagger.in>*{opacity:1;transform:none}
-
-@media(max-width:900px){
-  .grid,.vgrid{grid-template-columns:repeat(2,1fr)}
-  .menu .navlink{display:none}
-}
-@media(max-width:620px){
-  .grid,.vgrid{grid-template-columns:1fr}
-  .hero{padding-top:9rem}
-  .stats{gap:1.6rem}
-  .stat .n{font-size:1.9rem}
-  .burger{display:block}
-  .foot .cols{gap:2rem}
-}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.stagger>*{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(26px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.stag>*{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.stag.in>*{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.stag>*{opacity:1;transform:none}#glow{display:none}}
 </style>
 </head>
 <body>
-<header id="hd">
-  <div class="navbar"><div class="wrap nav">
-    <a href="#top" class="brand"><svg class="spark" viewBox="0 0 24 24" fill="none"><path d="M12 2c.5 4.5 2.9 6.9 7.4 7.4-4.5.5-6.9 2.9-7.4 7.4-.5-4.5-2.9-6.9-7.4-7.4C9.1 8.9 11.5 6.5 12 2Z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#E6B567"/><stop offset="1" stop-color="#E0876A"/></linearGradient></defs></svg>Lumi&nbsp;Studio</a>
-    <nav class="menu">
-      <a class="navlink" href="#about" data-i="nav_about"></a>
-      <a class="navlink" href="#kids" data-i="nav_apps"></a>
-      <a class="navlink" href="#values" data-i="nav_values"></a>
-      <div class="langbtn">
-        <button id="langToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span id="langCur">中文</span></button>
-        <div class="langmenu" id="langMenu"></div>
-      </div>
-    </nav>
-  </div></div>
-</header>
+<div id="prog"></div>
+<div id="glow"></div>
+
+<header class="nav" id="nav"><div class="bar"><div class="wrap">
+  <a href="#top" class="brand"><svg class="mark" viewBox="0 0 24 24" fill="none"><path d="M12 1.5c.6 5.4 3.6 8.4 9 9-5.4.6-8.4 3.6-9 9-.6-5.4-3.6-8.4-9-9 5.4-.6 8.4-3.6 9-9Z" fill="url(#bm)"/><defs><linearGradient id="bm" x1="3" y1="3" x2="21" y2="21"><stop stop-color="#ffc24e"/><stop offset="1" stop-color="#f3895a"/></linearGradient></defs></svg>Lumi&nbsp;Studio</a>
+  <nav class="nav-links">
+    <a class="nl" href="#about" data-i="nav_about"></a>
+    <a class="nl" href="#kids" data-i="nav_apps"></a>
+    <a class="nl" href="#values" data-i="nav_values"></a>
+    <div class="lang">
+      <button id="langBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span id="langCur">中文</span></button>
+      <div class="lang-menu" id="langMenu"></div>
+    </div>
+  </nav>
+</div></div></header>
 
 <main id="top">
 <section class="hero" id="home">
   <div class="hero-bg"></div>
-  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
-  <div class="wrap hero-inner">
-    <p class="eyebrow" data-i="hero_kicker"></p>
-    <h1 data-i="hero_title"></h1>
-    <p class="lead" data-i="hero_sub"></p>
-    <div class="cta-row">
-      <a href="#kids" class="btn primary" data-i="hero_cta1"></a>
-      <a href="#about" class="btn ghost" data-i="hero_cta2"></a>
+  <span class="blob a"></span><span class="blob b"></span><span class="blob c"></span>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow rv" data-i="hero_kicker"></p>
+      <h1 class="rv" data-i="hero_title"></h1>
+      <p class="sub rv" data-i="hero_sub"></p>
+      <div class="actions rv">
+        <a class="btn primary" href="#kids" data-i="hero_cta1"></a>
+        <a class="btn ghost" href="#about" data-i="hero_cta2"></a>
+      </div>
+      <div class="stats rv" id="stats"></div>
     </div>
-    <div class="stats" id="stats"></div>
+    <div class="stage rv" id="stage">
+      <svg class="spark s1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c.5 5 3 7.5 8 8-5 .5-7.5 3-8 8-.5-5-3-7.5-8-8 5-.5 7.5-3 8-8Z"/></svg>
+      <svg class="spark s2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c.5 5 3 7.5 8 8-5 .5-7.5 3-8 8-.5-5-3-7.5-8-8 5-.5 7.5-3 8-8Z"/></svg>
+      <svg class="spark s3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1c.5 5 3 7.5 8 8-5 .5-7.5 3-8 8-.5-5-3-7.5-8-8 5-.5 7.5-3 8-8Z"/></svg>
+      <div class="phone p2" data-depth="22"><img id="hp2" alt="" loading="eager"></div>
+      <div class="phone p3" data-depth="18"><img id="hp3" alt="" loading="eager"></div>
+      <div class="phone p1" data-depth="34"><img id="hp1" alt="" loading="eager"></div>
+    </div>
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="story reveal">
-      <svg class="halo" viewBox="0 0 24 24" fill="none"><path d="M12 2c.5 4.5 2.9 6.9 7.4 7.4-4.5.5-6.9 2.9-7.4 7.4-.5-4.5-2.9-6.9-7.4-7.4C9.1 8.9 11.5 6.5 12 2Z" fill="url(#g2)"/><defs><linearGradient id="g2" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#E6B567"/><stop offset="1" stop-color="#E0876A"/></linearGradient></defs></svg>
-      <p class="eyebrow" data-i="story_kicker" style="text-align:center"></p>
-      <p class="lead" data-i="story_lead"></p>
-      <div id="storyBody"></div>
-    </div>
-  </div>
-</section>
+<div class="wrap trust"><div class="trust-grid rv stag" id="trust"></div></div>
 
 <section id="kids">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-i="kids_kicker"></p>
-      <h2 data-i="kids_title"></h2>
-      <p data-i="kids_sub"></p>
-    </div>
-    <div class="grid stagger" id="gridKids"></div>
+    <div class="head rv"><p class="eyebrow" data-i="kids_kicker"></p><h2 data-i="kids_title"></h2><p data-i="kids_sub"></p></div>
+    <div class="grid stag" id="gKids"></div>
   </div>
 </section>
 
 <section id="tools" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-i="tools_kicker"></p>
-      <h2 data-i="tools_title"></h2>
-      <p data-i="tools_sub"></p>
-    </div>
-    <div class="grid stagger" id="gridTools"></div>
+    <div class="head rv"><p class="eyebrow" data-i="tools_kicker"></p><h2 data-i="tools_title"></h2><p data-i="tools_sub"></p></div>
+    <div class="grid stag" id="gTools"></div>
   </div>
 </section>
 
 <section class="values" id="values">
   <div class="wrap">
-    <div class="sec-head center reveal">
-      <p class="eyebrow" data-i="values_kicker"></p>
-      <h2 data-i="values_title"></h2>
-      <p data-i="values_sub"></p>
-    </div>
-    <div class="vgrid stagger" id="vgrid"></div>
-    <div class="band reveal"><div class="band-in">
-      <h2 data-i="band_title"></h2>
-      <p data-i="band_sub"></p>
-    </div></div>
+    <div class="head rv"><p class="eyebrow" data-i="values_kicker"></p><h2 data-i="values_title"></h2><p data-i="values_sub"></p></div>
+    <div class="vgrid stag" id="vGrid"></div>
   </div>
 </section>
+
+<section id="about">
+  <div class="wrap story">
+    <svg class="halo" viewBox="0 0 24 24" fill="none"><path d="M12 1.5c.6 5.4 3.6 8.4 9 9-5.4.6-8.4 3.6-9 9-.6-5.4-3.6-8.4-9-9 5.4-.6 8.4-3.6 9-9Z" fill="url(#bm2)"/><defs><linearGradient id="bm2" x1="3" y1="3" x2="21" y2="21"><stop stop-color="#ffc24e"/><stop offset="1" stop-color="#f3895a"/></linearGradient></defs></svg>
+    <p class="eyebrow rv" data-i="story_kicker" style="text-align:center"></p>
+    <p class="lead rv" data-i="story_lead"></p>
+    <div class="rv" id="storyBody"></div>
+  </div>
+</section>
+
+<div class="band"><div class="band-in rv">
+  <h2 data-i="band_title"></h2>
+  <p data-i="band_sub"></p>
+  <a class="btn" href="#kids" data-i="band_cta"></a>
+</div></div>
 </main>
 
 <footer>
   <div class="wrap">
     <div class="foot">
       <div>
-        <div class="brand"><svg class="spark" viewBox="0 0 24 24" fill="none"><path d="M12 2c.5 4.5 2.9 6.9 7.4 7.4-4.5.5-6.9 2.9-7.4 7.4-.5-4.5-2.9-6.9-7.4-7.4C9.1 8.9 11.5 6.5 12 2Z" fill="url(#g3)"/><defs><linearGradient id="g3" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#E6B567"/><stop offset="1" stop-color="#E0876A"/></linearGradient></defs></svg>Lumi&nbsp;Studio</div>
-        <p data-i="foot_tag"></p>
+        <div class="brand"><svg class="mark" viewBox="0 0 24 24" fill="none"><path d="M12 1.5c.6 5.4 3.6 8.4 9 9-5.4.6-8.4 3.6-9 9-.6-5.4-3.6-8.4-9-9 5.4-.6 8.4-3.6 9-9Z" fill="url(#bm3)"/><defs><linearGradient id="bm3" x1="3" y1="3" x2="21" y2="21"><stop stop-color="#ffc24e"/><stop offset="1" stop-color="#f3895a"/></linearGradient></defs></svg>Lumi&nbsp;Studio</div>
+        <p class="tag" data-i="foot_tag"></p>
       </div>
-      <div class="cols">
-        <div class="fcol"><h5 data-i="foot_apps"></h5>
-          <a href="#kids" data-i="kids_title_s"></a>
-          <a href="#tools" data-i="tools_title_s"></a>
-        </div>
-        <div class="fcol"><h5 data-i="foot_studio"></h5>
-          <a href="#about" data-i="nav_about"></a>
-          <a href="#values" data-i="nav_values"></a>
-        </div>
+      <div class="fcols">
+        <div class="fcol"><h5 data-i="foot_apps"></h5><a href="#kids" data-i="kids_title"></a><a href="#tools" data-i="tools_title"></a></div>
+        <div class="fcol"><h5 data-i="foot_studio"></h5><a href="#about" data-i="nav_about"></a><a href="#values" data-i="nav_values"></a></div>
       </div>
     </div>
-    <div class="copy">
-      <span>© 2026 Cait518. All rights reserved.</span>
-      <span data-i="foot_made"></span>
-    </div>
+    <div class="copy"><span>© 2026 Cait518. All rights reserved.</span><span data-i="foot_made"></span></div>
   </div>
 </footer>
 
 <script src="assets/data.js"></script>
 <script>
 const I18N={
- zh:{_name:"中文",
+ zh:{_n:"中文",
   nav_about:"關於",nav_apps:"作品",nav_values:"理念",
-  hero_kicker:"LUMI STUDIO",
-  hero_title:"做一束<em>剛剛好</em>的光。",
-  hero_sub:"我們是一間獨立工作室,為孩子與家庭打造溫暖、乾淨、值得信任的 app。不放廣告、不做追蹤,把每一分用心都留給體驗本身。",
-  hero_cta1:"探索作品",hero_cta2:"關於 Lumi",
-  stats:[["13","上架作品"],["4","介面語言"],["0","廣告・追蹤"],["∞","一次買斷"]],
-  story_kicker:"我們的故事",
-  story_lead:"Lumi,在拉丁文裡是「光」。",
-  story:[
-   "Lumi Studio 始於一個簡單的相信:<strong>科技不該奪走注意力,而該點亮它。</strong>",
+  hero_kicker:"LUMI STUDIO · 獨立工作室",
+  hero_title:'做一束<span class="grad">剛剛好</span>的光。',
+  hero_sub:"我們為孩子與家庭打造溫暖、乾淨、值得信任的 app。不放廣告、不做追蹤,把每一分用心都留給體驗本身。",
+  hero_cta1:"探索 13 款作品",hero_cta2:"關於 Lumi",
+  stats:[["13","上架作品"],["4","介面語言"],["0","廣告・追蹤"],["100%","本機運作"]],
+  trust:[["privacy","隱私優先","資料留在你的裝置"],["noads","無廣告","乾淨．不打擾孩子"],["globe","四語介面","中・英・日・韓"],["pay","一次買斷","沒有訂閱陷阱"]],
+  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"兒童學習・親子",kids_sub:"和小熊 Lumi 一起,把學習變成一場溫柔的星球冒險。",
+  tools_kicker:"EVERYDAY TOOLS",tools_title:"生活效率・工具",tools_sub:"同一束光,延伸成大人世界裡安靜好用的工具。",
+  values_kicker:"OUR PROMISE",values_title:"我們的堅持",values_sub:"做得慢一點、細一點——這是我們對每位用戶與每個孩子的承諾。",
+  values:[["隱私優先","不追蹤、不分析,資料只留在你的裝置上。"],["無廣告干擾","乾淨的體驗,孩子永遠不會看到廣告。"],["四語介面","中英日韓,自動偵測、隨時切換。"],["一次買斷","沒有訂閱,買了就一直是你的。"],["家長閘門","重要操作都有家長守門,安心交給孩子。"],["用心設計","暖色、手感,每個細節都反覆打磨。"]],
+  story_kicker:"我們的故事",story_lead:"Lumi,在拉丁文裡是「光」。",
+  story:["Lumi Studio 始於一個簡單的相信:<strong>科技不該奪走注意力,而該點亮它。</strong>",
    "從第一個產品開始,我們就選了比較難的那條路——不放廣告、不做追蹤、不蒐集孩子的個資,把每一分用心都留給體驗本身。",
-   "小熊 Lumi 是這道光的化身。牠陪孩子描下第一個字母、念出第一個注音、算出第一道題、養成第一個好習慣。而在大人的世界裡,同樣的光延伸成各種工具:幫你奪回專注的 LockHour、守護隱私的 ScanTo、讓你看見時間價值的 HoursTag、陪你安心旅行的 G+Money。",
-   "它們看起來各不相同,卻共享同一個信念:<strong>做得慢一點、細一點,讓每個產品都像一束剛剛好的光——溫暖,但不刺眼。</strong>"
-  ],
-  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"兒童學習・親子系列",kids_title_s:"兒童學習・親子",
-  kids_sub:"和小熊 Lumi 一起,把學習變成一場溫柔的星球冒險。",
-  tools_kicker:"EVERYDAY TOOLS",tools_title:"生活效率・工具系列",tools_title_s:"生活效率・工具",
-  tools_sub:"同一束光,延伸成大人世界裡安靜好用的工具。",
-  values_kicker:"OUR PROMISE",values_title:"我們的堅持",values_sub:"做得慢一點、細一點。這些是我們對每一位用戶與每一個孩子的承諾。",
-  values:[
-   ["隱私優先","不追蹤、不分析,資料留在你的裝置上。"],
-   ["無廣告干擾","乾淨的體驗,孩子永遠不會看到廣告。"],
-   ["四語介面","中英日韓,自動偵測、隨時切換。"],
-   ["一次買斷","沒有訂閱,買了就一直是你的。"],
-   ["家長閘門","重要操作都有家長守門,安心交給孩子。"],
-   ["用心設計","暖色、手感、每一個細節都反覆打磨。"]
-  ],
-  band_title:"在 App Store 認識 Lumi",band_sub:"13 款用心打造的作品,正在 App Store 等你。",
+   "小熊 Lumi 是這道光的化身。牠陪孩子描下第一個字母、念出第一個注音、算出第一道題、養成第一個好習慣。而在大人的世界裡,同樣的光延伸成各種工具:奪回專注的 LockHour、守護隱私的 ScanTo、看見時間價值的 HoursTag、安心旅行的 G+Money。",
+   "它們看起來各不相同,卻共享同一個信念:<strong>做得慢一點、細一點,讓每個產品都像一束剛剛好的光——溫暖,但不刺眼。</strong>"],
+  band_title:"在 App Store 認識 Lumi",band_sub:"13 款用心打造的作品,正在 App Store 等你。",band_cta:"瀏覽全部作品",
   app_cta:"App Store",
   foot_tag:"做一束剛剛好的光。為孩子與家庭打造溫暖、值得信任的 app。",
-  foot_apps:"作品",foot_studio:"工作室",foot_made:"用心做於台灣 · Crafted with care in Taiwan"
- },
- en:{_name:"English",
+  foot_apps:"作品",foot_studio:"工作室",foot_made:"用心做於台灣 · Crafted with care in Taiwan"},
+ en:{_n:"English",
   nav_about:"About",nav_apps:"Apps",nav_values:"Values",
-  hero_kicker:"LUMI STUDIO",
-  hero_title:"Light, made <em>just right</em>.",
-  hero_sub:"An independent studio crafting warm, clean, trustworthy apps for children and families. No ads, no tracking — every bit of care goes into the experience itself.",
-  hero_cta1:"Explore Apps",hero_cta2:"About Lumi",
-  stats:[["13","Apps shipped"],["4","Languages"],["0","Ads & trackers"],["∞","Pay once"]],
-  story_kicker:"Our Story",
-  story_lead:"Lumi means “light” in Latin.",
-  story:[
-   "Lumi Studio began with a simple belief: <strong>technology shouldn’t steal attention — it should spark it.</strong>",
-   "From our very first product, we chose the harder path — no ads, no tracking, no collecting children’s data — and poured every bit of care into the experience itself.",
+  hero_kicker:"LUMI STUDIO · INDEPENDENT STUDIO",
+  hero_title:'Light, made <span class="grad">just right</span>.',
+  hero_sub:"We craft warm, clean, trustworthy apps for children and families. No ads, no tracking — every bit of care goes into the experience itself.",
+  hero_cta1:"Explore 13 Apps",hero_cta2:"About Lumi",
+  stats:[["13","Apps shipped"],["4","Languages"],["0","Ads & trackers"],["100%","On-device"]],
+  trust:[["privacy","Privacy first","Your data stays on device"],["noads","No ads","Clean. Kid-safe."],["globe","Four languages","EN・中・日・한"],["pay","Pay once","No subscription traps"]],
+  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"For Kids & Families",kids_sub:"Turn learning into a gentle journey across the stars with Lumi the bear.",
+  tools_kicker:"EVERYDAY TOOLS",tools_title:"Everyday Tools",tools_sub:"The same light, shaped into quiet, useful tools for grown-up life.",
+  values_kicker:"OUR PROMISE",values_title:"What We Stand For",values_sub:"Slower and finer — our promise to every user and every child.",
+  values:[["Privacy first","No tracking, no analytics. Your data stays on your device."],["No ads, ever","A clean experience — children never see an ad."],["Four languages","EN / 中 / 日 / 한 — auto-detected, switch anytime."],["Pay once","No subscriptions. Buy it once, it's yours."],["Parent gate","Important actions sit behind a parent gate."],["Crafted with care","Warm colors, real feel — every detail polished."]],
+  story_kicker:"Our Story",story_lead:"Lumi means \u201Clight\u201D in Latin.",
+  story:["Lumi Studio began with a simple belief: <strong>technology shouldn't steal attention — it should spark it.</strong>",
+   "From our very first product, we chose the harder path — no ads, no tracking, no collecting children's data — and poured every bit of care into the experience itself.",
    "Our little bear, Lumi, is that light made real. He helps a child trace a first letter, sound out a first syllable, solve a first problem, build a first good habit. In the grown-up world, the same light becomes tools: LockHour to win back focus, ScanTo to guard privacy, HoursTag to see the value of time, G+Money to travel with ease.",
-   "They look different, yet share one belief: <strong>go slower, go finer — so every product feels like a beam of light that’s just right: warm, never harsh.</strong>"
-  ],
-  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"For Kids & Families",kids_title_s:"For Kids & Families",
-  kids_sub:"Turn learning into a gentle journey across the stars with Lumi the bear.",
-  tools_kicker:"EVERYDAY TOOLS",tools_title:"Everyday Tools",tools_title_s:"Everyday Tools",
-  tools_sub:"The same light, shaped into quiet, useful tools for grown-up life.",
-  values_kicker:"OUR PROMISE",values_title:"What We Stand For",values_sub:"Slower and finer. These are our promises to every user and every child.",
-  values:[
-   ["Privacy first","No tracking, no analytics. Your data stays on your device."],
-   ["No ads, ever","A clean experience — children never see an ad."],
-   ["Four languages","English, Chinese, Japanese, Korean — auto-detected, switch anytime."],
-   ["Pay once","No subscriptions. Buy it once, it’s yours."],
-   ["Parent gate","Important actions sit behind a parent gate."],
-   ["Crafted with care","Warm colors, real feel — every detail polished."]
-  ],
-  band_title:"Meet Lumi on the App Store",band_sub:"13 lovingly crafted apps are waiting for you on the App Store.",
+   "They look different, yet share one belief: <strong>go slower, go finer — so every product feels like a beam of light that's just right: warm, never harsh.</strong>"],
+  band_title:"Meet Lumi on the App Store",band_sub:"13 lovingly crafted apps are waiting for you.",band_cta:"Browse all apps",
   app_cta:"App Store",
   foot_tag:"Light, made just right. Warm, trustworthy apps for children and families.",
-  foot_apps:"Apps",foot_studio:"Studio",foot_made:"Crafted with care in Taiwan"
- },
- ja:{_name:"日本語",
+  foot_apps:"Apps",foot_studio:"Studio",foot_made:"Crafted with care in Taiwan"},
+ ja:{_n:"日本語",
   nav_about:"私たちについて",nav_apps:"アプリ",nav_values:"理念",
-  hero_kicker:"LUMI STUDIO",
-  hero_title:"ちょうどいい<em>光</em>を。",
-  hero_sub:"子どもと家族のために、あたたかく、クリーンで、信頼できるアプリをつくる独立スタジオです。広告なし、トラッキングなし。すべての心遣いを体験そのものに。",
-  hero_cta1:"アプリを見る",hero_cta2:"Lumiについて",
-  stats:[["13","アプリ"],["4","対応言語"],["0","広告・追跡"],["∞","買い切り"]],
-  story_kicker:"私たちの物語",
-  story_lead:"Lumi はラテン語で「光」を意味します。",
-  story:[
-   "Lumi Studio は、ひとつのシンプルな信念から始まりました——<strong>テクノロジーは注意を奪うのではなく、灯すべきだ。</strong>",
+  hero_kicker:"LUMI STUDIO · 独立スタジオ",
+  hero_title:'ちょうどいい<span class="grad">光</span>を。',
+  hero_sub:"子どもと家族のために、あたたかくクリーンで信頼できるアプリをつくります。広告なし、トラッキングなし。すべての心遣いを体験そのものに。",
+  hero_cta1:"13のアプリを見る",hero_cta2:"Lumiについて",
+  stats:[["13","アプリ"],["4","対応言語"],["0","広告・追跡"],["100%","端末内で完結"]],
+  trust:[["privacy","プライバシー優先","データは端末の中に"],["noads","広告なし","クリーン・子どもに安心"],["globe","4言語対応","日・英・中・韓"],["pay","買い切り","サブスクなし"]],
+  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"子ども・ファミリー",kids_sub:"クマの Lumi と一緒に、学びをやさしい星の冒険に。",
+  tools_kicker:"EVERYDAY TOOLS",tools_title:"暮らしのツール",tools_sub:"同じ光が、大人の毎日に静かに役立つ道具になります。",
+  values_kicker:"OUR PROMISE",values_title:"私たちのこだわり",values_sub:"もっとゆっくり、もっと丁寧に——すべてのユーザーと子どもへの約束です。",
+  values:[["プライバシー優先","追跡も分析もなし。データは端末の中だけに。"],["広告なし","クリーンな体験。子どもが広告を見ることはありません。"],["4言語対応","日英中韓。自動検出、いつでも切り替え。"],["買い切り","サブスクなし。一度の購入でずっとあなたのもの。"],["ペアレンタルゲート","大切な操作は保護者ゲートの内側に。"],["丁寧なデザイン","あたたかな色と手ざわり。細部まで磨きました。"]],
+  story_kicker:"私たちの物語",story_lead:"Lumi はラテン語で「光」を意味します。",
+  story:["Lumi Studio は、ひとつのシンプルな信念から始まりました——<strong>テクノロジーは注意を奪うのではなく、灯すべきだ。</strong>",
    "最初の製品から、広告なし・トラッキングなし・子どものデータを集めないという難しい道を選び、すべての心遣いを体験そのものに注いできました。",
-   "小さなクマの Lumi は、その光の化身です。最初の文字をなぞり、最初の音を読み、最初の問題を解き、最初のよい習慣を育てる——その隣にはいつも Lumi がいます。そして大人の世界では、同じ光がツールになります:集中を取り戻す LockHour、プライバシーを守る ScanTo、時間の価値を映す HoursTag、安心して旅する G+Money。",
-   "見た目は違っても、ひとつの信念を分かち合っています:<strong>もっとゆっくり、もっと丁寧に。すべての製品が、ちょうどいい光のように——あたたかく、まぶしすぎない。</strong>"
-  ],
-  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"子ども・ファミリー",kids_title_s:"子ども・ファミリー",
-  kids_sub:"クマの Lumi と一緒に、学びをやさしい星の冒険に。",
-  tools_kicker:"EVERYDAY TOOLS",tools_title:"暮らしのツール",tools_title_s:"暮らしのツール",
-  tools_sub:"同じ光が、大人の毎日に静かに役立つ道具になります。",
-  values_kicker:"OUR PROMISE",values_title:"私たちのこだわり",values_sub:"もっとゆっくり、もっと丁寧に。すべてのユーザーと子どもへの約束です。",
-  values:[
-   ["プライバシー第一","追跡も分析もなし。データは端末の中だけに。"],
-   ["広告なし","クリーンな体験。子どもが広告を見ることはありません。"],
-   ["4言語対応","日英中韓。自動検出、いつでも切り替え。"],
-   ["買い切り","サブスクなし。一度の購入でずっとあなたのもの。"],
-   ["ペアレンタルゲート","大切な操作は保護者ゲートの内側に。"],
-   ["丁寧なデザイン","あたたかな色と手ざわり。細部まで磨きました。"]
-  ],
-  band_title:"App Store で Lumi に会う",band_sub:"心を込めてつくった 13 のアプリが、App Store で待っています。",
+   "小さなクマの Lumi は、その光の化身です。最初の文字をなぞり、最初の音を読み、最初の問題を解き、最初のよい習慣を育てる——そのとなりにいつも Lumi がいます。大人の世界では、同じ光がツールになります:集中を取り戻す LockHour、プライバシーを守る ScanTo、時間の価値を映す HoursTag、安心して旅する G+Money。",
+   "見た目は違っても、ひとつの信念を分かち合っています:<strong>もっとゆっくり、もっと丁寧に。すべての製品が、ちょうどいい光のように——あたたかく、まぶしすぎない。</strong>"],
+  band_title:"App Store で Lumi に会う",band_sub:"心を込めてつくった 13 のアプリが待っています。",band_cta:"すべてのアプリを見る",
   app_cta:"App Store",
   foot_tag:"ちょうどいい光を。子どもと家族のための、あたたかく信頼できるアプリ。",
-  foot_apps:"アプリ",foot_studio:"スタジオ",foot_made:"台湾で、心を込めて"
- },
- ko:{_name:"한국어",
+  foot_apps:"アプリ",foot_studio:"スタジオ",foot_made:"台湾で、心を込めて"},
+ ko:{_n:"한국어",
   nav_about:"소개",nav_apps:"앱",nav_values:"가치",
-  hero_kicker:"LUMI STUDIO",
-  hero_title:"꼭 알맞은 <em>빛</em>을.",
-  hero_sub:"아이와 가족을 위해 따뜻하고 깨끗하며 믿을 수 있는 앱을 만드는 독립 스튜디오입니다. 광고도, 추적도 없이 모든 정성을 경험 그 자체에 담습니다.",
-  hero_cta1:"앱 둘러보기",hero_cta2:"Lumi 소개",
-  stats:[["13","출시 앱"],["4","지원 언어"],["0","광고・추적"],["∞","한 번 결제"]],
-  story_kicker:"우리의 이야기",
-  story_lead:"Lumi는 라틴어로 ‘빛’을 뜻합니다.",
-  story:[
-   "Lumi Studio는 단순한 믿음에서 시작했습니다 — <strong>기술은 주의를 빼앗는 것이 아니라, 밝혀야 한다는 것.</strong>",
+  hero_kicker:"LUMI STUDIO · 독립 스튜디오",
+  hero_title:'꼭 알맞은 <span class="grad">빛</span>을.',
+  hero_sub:"아이와 가족을 위해 따뜻하고 깨끗하며 믿을 수 있는 앱을 만듭니다. 광고도 추적도 없이, 모든 정성을 경험 그 자체에.",
+  hero_cta1:"13개 앱 둘러보기",hero_cta2:"Lumi 소개",
+  stats:[["13","출시 앱"],["4","지원 언어"],["0","광고・추적"],["100%","기기 내 처리"]],
+  trust:[["privacy","프라이버시 우선","데이터는 기기 안에"],["noads","광고 없음","깨끗・아이에게 안전"],["globe","4개 언어","한・영・중・일"],["pay","한 번 결제","구독 없음"]],
+  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"아이・가족",kids_sub:"곰돌이 Lumi와 함께, 배움을 별을 향한 부드러운 모험으로.",
+  tools_kicker:"EVERYDAY TOOLS",tools_title:"일상의 도구",tools_sub:"같은 빛이 어른의 하루에 조용히 쓸모 있는 도구가 됩니다.",
+  values_kicker:"OUR PROMISE",values_title:"우리의 약속",values_sub:"조금 더 천천히, 조금 더 섬세하게 — 모든 사용자와 아이에게 드리는 약속입니다.",
+  values:[["프라이버시 우선","추적도 분석도 없이. 데이터는 기기 안에만."],["광고 없음","깨끗한 경험. 아이는 광고를 보지 않습니다."],["4개 언어","한·영·중·일. 자동 감지, 언제든 전환."],["한 번 결제","구독 없음. 한 번 사면 계속 당신의 것."],["부모 게이트","중요한 동작은 부모 게이트 안에."],["정성스런 디자인","따뜻한 색과 감촉. 디테일까지 다듬었습니다."]],
+  story_kicker:"우리의 이야기",story_lead:"Lumi는 라틴어로 \u2018빛\u2019을 뜻합니다.",
+  story:["Lumi Studio는 단순한 믿음에서 시작했습니다 — <strong>기술은 주의를 빼앗는 것이 아니라, 밝혀야 한다는 것.</strong>",
    "첫 제품부터 광고 없음, 추적 없음, 아이의 개인정보를 모으지 않음이라는 어려운 길을 택했고, 모든 정성을 경험 그 자체에 쏟았습니다.",
-   "작은 곰 Lumi는 그 빛의 화신입니다. 아이가 첫 글자를 따라 쓰고, 첫 소리를 읽고, 첫 문제를 풀고, 첫 좋은 습관을 기르는 곁에 늘 Lumi가 있습니다. 그리고 어른의 세계에서 같은 빛은 도구가 됩니다: 집중을 되찾는 LockHour, 프라이버시를 지키는 ScanTo, 시간의 가치를 보여주는 HoursTag, 안심하고 여행하는 G+Money.",
-   "서로 달라 보여도 하나의 믿음을 나눕니다: <strong>조금 더 천천히, 조금 더 섬세하게 — 모든 제품이 꼭 알맞은 빛처럼, 따뜻하지만 눈부시지 않게.</strong>"
-  ],
-  kids_kicker:"FOR KIDS & FAMILIES",kids_title:"아이・가족",kids_title_s:"아이・가족",
-  kids_sub:"곰돌이 Lumi와 함께, 배움을 별을 향한 부드러운 모험으로.",
-  tools_kicker:"EVERYDAY TOOLS",tools_title:"일상의 도구",tools_title_s:"일상의 도구",
-  tools_sub:"같은 빛이 어른의 하루에 조용히 쓸모 있는 도구가 됩니다.",
-  values_kicker:"OUR PROMISE",values_title:"우리의 약속",values_sub:"조금 더 천천히, 조금 더 섬세하게. 모든 사용자와 아이에게 드리는 약속입니다.",
-  values:[
-   ["프라이버시 우선","추적도 분석도 없이. 데이터는 기기 안에만."],
-   ["광고 없음","깨끗한 경험. 아이는 광고를 보지 않습니다."],
-   ["4개 언어","한·영·중·일. 자동 감지, 언제든 전환."],
-   ["한 번 결제","구독 없음. 한 번 사면 계속 당신의 것."],
-   ["부모 게이트","중요한 동작은 부모 게이트 안에."],
-   ["정성스런 디자인","따뜻한 색과 감촉. 디테일까지 다듬었습니다."]
-  ],
-  band_title:"App Store에서 Lumi를 만나요",band_sub:"정성껏 만든 13개의 앱이 App Store에서 기다립니다.",
+   "작은 곰 Lumi는 그 빛의 화신입니다. 아이가 첫 글자를 따라 쓰고, 첫 소리를 읽고, 첫 문제를 풀고, 첫 좋은 습관을 기르는 곁에 늘 Lumi가 있습니다. 어른의 세계에서 같은 빛은 도구가 됩니다: 집중을 되찾는 LockHour, 프라이버시를 지키는 ScanTo, 시간의 가치를 보여주는 HoursTag, 안심하고 여행하는 G+Money.",
+   "서로 달라 보여도 하나의 믿음을 나눕니다: <strong>조금 더 천천히, 조금 더 섬세하게 — 모든 제품이 꼭 알맞은 빛처럼, 따뜻하지만 눈부시지 않게.</strong>"],
+  band_title:"App Store에서 Lumi를 만나요",band_sub:"정성껏 만든 13개의 앱이 기다립니다.",band_cta:"모든 앱 보기",
   app_cta:"App Store",
   foot_tag:"꼭 알맞은 빛을. 아이와 가족을 위한 따뜻하고 믿을 수 있는 앱.",
-  foot_apps:"앱",foot_studio:"스튜디오",foot_made:"대만에서 정성을 담아"
- }
+  foot_apps:"앱",foot_studio:"스튜디오",foot_made:"대만에서 정성을 담아"}
 };
-const LANGS=["zh","en","ja","ko"];
-const HTMLLANG={zh:"zh-Hant",en:"en",ja:"ja",ko:"ko"};
-const ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const LANGS=["zh","en","ja","ko"], HL={zh:"zh-Hant",en:"en",ja:"ja",ko:"ko"};
+const ARR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const TI={privacy:'<path d="M12 3 5 6v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>',noads:'<circle cx="12" cy="12" r="9"/><path d="M8 8l8 8"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',pay:'<path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/>'};
+const VI=['<path d="M12 3 5 6v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>','<circle cx="12" cy="12" r="9"/><path d="M8 8l8 8"/>','<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>','<path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/>','<path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10Z"/>','<path d="m12 2 2.6 6.5L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.4-.5L12 2Z"/>'];
+let lang=(function(){const s=localStorage.getItem("lumi-lang");if(s&&I18N[s])return s;const n=(navigator.language||"en").toLowerCase();if(n.startsWith("zh"))return"zh";if(n.startsWith("ja"))return"ja";if(n.startsWith("ko"))return"ko";return"en";})();
+const HEROES=["lumi-letters-pro","lumi-weather","lumi-bopomofo"];
 
-function detect(){
-  const s=localStorage.getItem("lumi-lang");
-  if(s&&I18N[s])return s;
-  const n=(navigator.language||"en").toLowerCase();
-  if(n.startsWith("zh"))return "zh";
-  if(n.startsWith("ja"))return "ja";
-  if(n.startsWith("ko"))return "ko";
-  return "en";
-}
-let lang=detect();
-
-function vicon(i){
-  const ic=['<path d="M12 2 4 5v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V5l-8-3Z"/>','<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>','<circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>','<path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/>','<path d="M12 3 3 7v5c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-4Z"/><path d="m9 12 2 2 4-4"/>','<path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10Z"/>'];
-  return '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+ic[i%ic.length]+'</svg>';
-}
-function appCard(a){
-  const t=I18N[lang];
-  const el=document.createElement("a");
-  el.className="appcard";el.href=a.url;el.target="_blank";el.rel="noopener";
-  const badge=a.badge?`<span class="badge ${a.badge==='Lite'?'lite':''}">${a.badge}</span>`:"";
-  el.innerHTML=`${badge}
-    <div class="top">
-      <img class="ic" src="${a.icon}" alt="" loading="lazy" width="74" height="74">
-      <div><h3></h3><div class="sub"></div></div>
-    </div>
-    <p class="blurb"></p>
-    <span class="applink">${t.app_cta} ${ARROW}</span>`;
+function card(a){
+  const t=I18N[lang], el=document.createElement("a");
+  el.className="card";el.href=a.url;el.target="_blank";el.rel="noopener";
+  const bd=a.badge?`<span class="bdg ${a.badge==='Lite'?'lite':''}">${a.badge}</span>`:"";
+  const vis=a.shot
+    ?`<div class="visual shot"><div class="halo"></div><div class="ph"><img src="${a.shot}" alt="" loading="lazy"></div></div>`
+    :`<div class="visual"><div class="halo"></div><img class="bigicon" src="${a.icon}" alt="" loading="lazy"></div>`;
+  el.innerHTML=`${bd}${vis}<div class="body"><div class="ch"><img src="${a.icon}" alt="" loading="lazy"><div><h3></h3><div class="st"></div></div></div><p class="bl"></p><span class="lk">${t.app_cta} ${ARR}</span></div>`;
   el.querySelector("h3").textContent=a.name[lang];
-  el.querySelector(".sub").textContent=a.sub[lang];
-  el.querySelector(".blurb").textContent=a.blurb[lang];
+  el.querySelector(".st").textContent=a.sub[lang];
+  el.querySelector(".bl").textContent=a.blurb[lang];
   return el;
 }
 function render(){
   const t=I18N[lang];
-  document.documentElement.lang=HTMLLANG[lang];
-  document.querySelectorAll("[data-i]").forEach(e=>{
-    const k=e.getAttribute("data-i");
-    if(t[k]!=null) e.innerHTML=t[k];
-  });
+  document.documentElement.lang=HL[lang];
+  document.querySelectorAll("[data-i]").forEach(e=>{const k=e.getAttribute("data-i");if(t[k]!=null)e.innerHTML=t[k];});
   // stats
-  const st=document.getElementById("stats");st.innerHTML="";
-  t.stats.forEach(([n,l])=>{const d=document.createElement("div");d.className="stat";
-    d.innerHTML=`<div class="n">${n}</div><div class="l">${l}</div>`;st.appendChild(d);});
+  const s=document.getElementById("stats");s.innerHTML="";
+  t.stats.forEach(([n,l])=>{const d=document.createElement("div");d.className="stat";d.innerHTML=`<div class="n" data-num="${n}">${n}</div><div class="l">${l}</div>`;s.appendChild(d);});
+  // trust
+  const tr=document.getElementById("trust");tr.innerHTML="";
+  t.trust.forEach(([ic,h,p])=>{const d=document.createElement("div");d.className="tcard";
+    d.innerHTML=`<div class="ti"><svg viewBox="0 0 24 24">${TI[ic]}</svg></div><b>${h}</b><span>${p}</span>`;tr.appendChild(d);});
   // story
   const sb=document.getElementById("storyBody");sb.innerHTML="";
   t.story.forEach(p=>{const el=document.createElement("p");el.innerHTML=p;sb.appendChild(el);});
   // apps
-  const gk=document.getElementById("gridKids"),gt=document.getElementById("gridTools");
-  gk.innerHTML="";gt.innerHTML="";
-  window.APPS.forEach(a=>{(a.cat==="kids"?gk:gt).appendChild(appCard(a));});
+  const gk=document.getElementById("gKids"),gt=document.getElementById("gTools");gk.innerHTML="";gt.innerHTML="";
+  window.APPS.forEach(a=>{(a.cat==="kids"?gk:gt).appendChild(card(a));});
+  // hero phones
+  const by={};window.APPS.forEach(a=>by[a.slug]=a);
+  ["hp1","hp2","hp3"].forEach((id,i)=>{const a=by[HEROES[i]];if(a&&a.shot)document.getElementById(id).src=a.shot;});
   // values
-  const vg=document.getElementById("vgrid");vg.innerHTML="";
-  t.values.forEach(([h,p],i)=>{const d=document.createElement("div");d.className="vcard";
-    d.innerHTML=`<div class="vi">${vicon(i)}</div><h4></h4><p></p>`;
+  const vg=document.getElementById("vGrid");vg.innerHTML="";
+  t.values.forEach(([h,p],i)=>{const d=document.createElement("div");d.className="vc";
+    d.innerHTML=`<div class="vi"><svg viewBox="0 0 24 24">${VI[i%VI.length]}</svg></div><h4></h4><p></p>`;
     d.querySelector("h4").textContent=h;d.querySelector("p").textContent=p;vg.appendChild(d);});
-  // lang menu
-  document.getElementById("langCur").textContent=I18N[lang]._name;
+  // lang
+  document.getElementById("langCur").textContent=I18N[lang]._n;
   const lm=document.getElementById("langMenu");lm.innerHTML="";
-  LANGS.forEach(l=>{const b=document.createElement("button");
-    b.className=l===lang?"active":"";
-    b.innerHTML=`<span>${I18N[l]._name}</span><span class="tick">✓</span>`;
-    b.onclick=()=>{lang=l;localStorage.setItem("lumi-lang",l);lm.classList.remove("open");render();observe();};
-    lm.appendChild(b);});
-  document.title = (lang==="en")?"Lumi Studio — Light, made just right":
-                   (lang==="ja")?"Lumi Studio — ちょうどいい光を":
-                   (lang==="ko")?"Lumi Studio — 꼭 알맞은 빛을":
-                   "Lumi Studio — 做一束剛剛好的光";
+  LANGS.forEach(l=>{const b=document.createElement("button");b.className=l===lang?"on":"";
+    b.innerHTML=`<span>${I18N[l]._n}</span><span class="ck">✓</span>`;
+    b.onclick=()=>{lang=l;localStorage.setItem("lumi-lang",l);lm.classList.remove("open");render();setup();};lm.appendChild(b);});
+  document.title=(lang==="en")?"Lumi Studio — Light, made just right":(lang==="ja")?"Lumi Studio — ちょうどいい光を":(lang==="ko")?"Lumi Studio — 꼭 알맞은 빛을":"Lumi Studio — 做一束剛剛好的光";
 }
-// reveal on scroll
+
 let io;
-function observe(){
+function setup(){
+  // reveal + count-up
   if(io)io.disconnect();
-  io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){
+  io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
     const el=e.target;
-    if(el.classList.contains("stagger")){[...el.children].forEach((c,j)=>{c.style.transitionDelay=(j*70)+"ms";});}
-    el.classList.add("in");io.unobserve(el);
+    if(el.classList.contains("stag"))[...el.children].forEach((c,j)=>c.style.transitionDelay=(j*65)+"ms");
+    el.classList.add("in");
+    if(el.id==="stats")countUp();
+    io.unobserve(el);
   }});},{threshold:.12});
-  document.querySelectorAll(".reveal,.stagger").forEach(e=>io.observe(e));
+  document.querySelectorAll(".rv,.stag").forEach(e=>io.observe(e));
+  // tilt
+  document.querySelectorAll(".card").forEach(c=>{
+    c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      c.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-6px)`;};
+    c.onmouseleave=()=>c.style.transform="";
+  });
 }
-// header + lang interactions
-addEventListener("scroll",()=>{document.getElementById("hd").classList.toggle("scrolled",scrollY>20);});
-document.getElementById("langToggle").onclick=(e)=>{e.stopPropagation();document.getElementById("langMenu").classList.toggle("open");};
+let cuDone=false;
+function countUp(){if(cuDone)return;cuDone=true;
+  document.querySelectorAll("#stats .n").forEach(el=>{const raw=el.getAttribute("data-num");const m=raw.match(/^(\d+)/);if(!m){return;}
+    const end=+m[1],suf=raw.slice(m[1].length);let cur=0;const step=Math.max(1,Math.round(end/28));
+    const t=setInterval(()=>{cur+=step;if(cur>=end){cur=end;clearInterval(t);}el.textContent=cur+suf;},26);});
+}
+
+// interactions
+const nav=document.getElementById("nav"),prog=document.getElementById("prog"),glow=document.getElementById("glow");
+function onScroll(){const h=document.documentElement;const sc=h.scrollTop,mx=h.scrollHeight-h.clientHeight;
+  prog.style.width=(mx>0?sc/mx*100:0)+"%";nav.classList.toggle("scrolled",sc>16);}
+addEventListener("scroll",onScroll,{passive:true});
+const fine=matchMedia("(pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(fine){
+  addEventListener("mousemove",e=>{glow.style.opacity=".9";glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";
+    const st=document.getElementById("stage");if(st){const dx=(e.clientX-innerWidth/2)/(innerWidth/2),dy=(e.clientY-innerHeight/2)/(innerHeight/2);
+      st.style.transform="translate("+(dx*16).toFixed(1)+"px,"+(dy*12).toFixed(1)+"px)";}},{passive:true});
+}
+document.getElementById("langBtn").onclick=e=>{e.stopPropagation();document.getElementById("langMenu").classList.toggle("open");};
 addEventListener("click",()=>document.getElementById("langMenu").classList.remove("open"));
 
-render();observe();
-document.getElementById("hd").classList.toggle("scrolled",scrollY>20);
+render();setup();onScroll();
 </script>
 </body>
 </html>

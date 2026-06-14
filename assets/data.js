@@ -22,7 +22,8 @@ window.APPS=[
    "zh": "最受家長信任的英文啟蒙：字母名與字母音、筆順描寫、12種拼讀闖關，還能匯出PDF學習單。",
    "ja": "親が信頼するフォニックス：文字の名前と音、なぞり書き、12種の読みゲーム、印刷できるPDFプリント。",
    "ko": "부모가 신뢰하는 파닉스: 글자 이름과 소리, 따라쓰기, 12가지 읽기 게임, 인쇄용 PDF 학습지."
-  }
+  },
+  "shot": "assets/shots/lumi-letters-pro.png"
  },
  {
   "slug": "lumi-letters-lite",
@@ -47,7 +48,8 @@ window.APPS=[
    "zh": "免費玩！和小熊 Lumi 在夢幻星空裡蓋星球、描字母、收集夥伴，邊玩邊認得 A 到 D。",
    "ja": "無料で遊べる！くまのLumiとゆめかわ星空で星をつくり、文字をなぞり、なかまを集めながらA〜Dを覚えよう。",
    "ko": "무료로 놀자! 곰돌이 Lumi와 꿈같은 별하늘에서 행성을 만들고 글자를 따라쓰고 친구를 모으며 A부터 D까지."
-  }
+  },
+  "shot": "assets/shots/lumi-letters-lite.png"
  },
  {
   "slug": "lumi-math-planet",
@@ -72,7 +74,8 @@ window.APPS=[
    "zh": "有些App教數學，這款讓孩子「愛上」數學。",
    "ja": "算数を「教える」アプリは多い。",
    "ko": "수학을 '가르치는' 앱은 많아요."
-  }
+  },
+  "shot": null
  },
  {
   "slug": "lumi-math-pro",
@@ -97,7 +100,8 @@ window.APPS=[
    "zh": "搭火箭飛越 14 顆星球，把國際數學競賽等級的思維變成最好玩的冒險！",
    "ja": "ロケットで14の星をめぐり、国際数学大会レベルの思考力をいちばん楽しい冒険に！",
    "ko": "로켓을 타고 14개 행성을 누비며 국제 수학대회 수준의 사고력을 가장 재미있는 모험으로!"
-  }
+  },
+  "shot": null
  },
  {
   "slug": "lumi-bopomofo",
@@ -122,7 +126,8 @@ window.APPS=[
    "zh": "Lumi 注音星球 是一款專為學齡前與低年級孩子（約 4–7 歲）設計的注音符號學習遊戲。",
    "ja": "Lumi Bopomofo is a gentle, playful way for young children to learn the Bopomofo (Zhuyin) phone…",
    "ko": "Lumi Bopomofo is a gentle, playful way for young children to learn the Bopomofo (Zhuyin) phone…"
-  }
+  },
+  "shot": "assets/shots/lumi-bopomofo.png"
  },
  {
   "slug": "lumi-bopomofo-pro",
@@ -147,7 +152,8 @@ window.APPS=[
    "zh": "讓孩子愛上注音, 從一場可愛的星球冒險開始.",
    "ja": "Help your child fall in love with Chinese phonics through one adorable space adventure.",
    "ko": "Help your child fall in love with Chinese phonics through one adorable space adventure."
-  }
+  },
+  "shot": null
  },
  {
   "slug": "lumi-mission-planet",
@@ -172,7 +178,8 @@ window.APPS=[
    "zh": "把刷牙、吃飯、收玩具、睡覺變成孩子主動想玩的任務。",
    "ja": "はみがき、ごはん、おかたづけ、ねんねが「やりたい遊び」に変わります。",
    "ko": "양치, 식사, 정리, 잠자기가 아이가 먼저 하고 싶은 놀이로 바뀝니다."
-  }
+  },
+  "shot": "assets/shots/lumi-mission-planet.png"
  },
  {
   "slug": "lumi-mission-planet-pro",
@@ -197,7 +204,8 @@ window.APPS=[
    "zh": "完整版,第一天就全部解鎖。刷牙、吃飯、收玩具、睡覺變成孩子主動想玩的任務,每完成一小步就點一下,夥伴立刻歡呼。",
    "ja": "完全版。最初からすべて使えます。",
    "ko": "완전판. 첫날부터 전부 사용."
-  }
+  },
+  "shot": null
  },
  {
   "slug": "lumi-weather",
@@ -222,7 +230,8 @@ window.APPS=[
    "zh": "每個爸媽出門前的那一個猶豫，Lumi 用最溫柔的方式幫你看懂天空。",
    "ja": "おでかけ前のあの小さな迷いに、やさしく答えます。",
    "ko": "문 앞에서 망설이는 그 순간에, 다정하게 답해요."
-  }
+  },
+  "shot": "assets/shots/lumi-weather.png"
  },
  {
   "slug": "lockhour-pro",
@@ -247,7 +256,8 @@ window.APPS=[
    "zh": "封鎖會讓你分心的 App，開始一段專注或讀書時段，看著省下的時間一點一滴累積。",
    "ja": "気が散るアプリを遮断し、集中や勉強のセッションを開始。",
    "ko": "주의를 흩트리는 앱을 차단하고 집중 또는 공부 세션을 시작하세요."
-  }
+  },
+  "shot": "assets/shots/lockhour-pro.png"
  },
  {
   "slug": "scanto-pro",
@@ -272,7 +282,8 @@ window.APPS=[
    "zh": "掃成清晰 PDF，還能搜尋文件「裡面的字」——全程在你手機上完成。",
    "ja": "書類を鮮明なPDFにして、その中の文字まで検索。",
    "ko": "선명한 PDF로 스캔하고, 그 안의 글자까지 검색하세요."
-  }
+  },
+  "shot": "assets/shots/scanto-pro.png"
  },
  {
   "slug": "hourstag",
@@ -297,7 +308,8 @@ window.APPS=[
    "zh": "買之前，先算它要花你幾小時人生。",
    "ja": "HoursTagは、あなたの時間の価値を見える化するアプリです。",
    "ko": "Before you buy, see the hours behind the price."
-  }
+  },
+  "shot": null
  },
  {
   "slug": "g-money",
@@ -322,6 +334,7 @@ window.APPS=[
    "zh": "一次設定匯率，旅程中的每一筆消費都能秒算成本國貨幣。",
    "ja": "レートを一度設定するだけで、旅先の支出をすべて自分の基準通貨で把握。",
    "ko": "환율을 한 번만 설정하면, 여행 중 모든 지출을 내 기준 통화로 바로 확인할 수 있습니다."
-  }
+  },
+  "shot": null
  }
 ];
