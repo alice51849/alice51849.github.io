@@ -331,6 +331,18 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
 #egg-toast{position:fixed;left:50%;bottom:42px;transform:translate(-50%,30px);background:linear-gradient(135deg,var(--amber),var(--gold));color:#fff;font-weight:700;padding:14px 28px;border-radius:99px;box-shadow:var(--shadow-lg);z-index:320;opacity:0;transition:.42s cubic-bezier(.16,1,.3,1);text-shadow:0 1px 2px rgba(150,90,20,.4);white-space:nowrap}
 #egg-toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:700px){#egg-toast{font-size:.85rem;padding:12px 18px;white-space:normal;text-align:center;width:80%}}
+
+/* ====== TEXT FX · cinematic typography ====== */
+.grad{background:linear-gradient(100deg,var(--amber) 0%,var(--gold) 26%,var(--coral) 50%,var(--gold) 74%,var(--amber) 100%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  animation:gradFlow 6.5s linear infinite;filter:drop-shadow(0 3px 14px rgba(251,154,38,.18))}
+@keyframes gradFlow{0%{background-position:0% 50%}100%{background-position:220% 50%}}
+.hero-copy h1{perspective:840px}
+.ltr{display:inline-block;opacity:0;transform:translateY(.6em) rotateX(-82deg);transform-origin:50% 100%;filter:blur(6px);
+  animation:ltrIn .74s cubic-bezier(.2,.9,.3,1) forwards;backface-visibility:hidden;will-change:transform,opacity,filter}
+@keyframes ltrIn{to{opacity:1;transform:none;filter:blur(0)}}
+.hero-copy h1.lit .ltr{animation:none;opacity:1;filter:none;transform:none;transition:transform .5s var(--ease2),text-shadow .4s}
+@media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}}
 </style>
 </head>
 <body>
@@ -440,9 +452,9 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
   </div>
 </footer>
 
-<script src="assets/data.js?v=20260615b"></script>
-<script src="assets/fx.js?v=20260615b"></script>
-<script type="module" src="assets/hero3d.js?v=20260615b"></script>
+<script src="assets/data.js?v=20260615c"></script>
+<script src="assets/fx.js?v=20260615c"></script>
+<script type="module" src="assets/hero3d.js?v=20260615c"></script>
 <script>
 const I18N={
  zh:{_n:"中文",

@@ -98,4 +98,50 @@
     setTimeout(()=> toast.classList.add('show'), 50);
     setTimeout(()=>{ toast.classList.remove('show'); setTimeout(()=> toast.remove(), 400); }, 2800);
   }
+
+  /* 5 ── kinetic magnetic hero letters (cursor pushes the headline) ── */
+  if(fine && !reduce){
+    setTimeout(()=>{
+      const h1 = document.querySelector('.hero-copy h1'); if(!h1) return;
+      h1.classList.add('lit');
+      const letters = [...h1.querySelectorAll('.ltr')]; if(!letters.length) return;
+      const hero = document.querySelector('.hero'); if(!hero) return;
+      const R = 130; let cx = 0, cy = 0, on = false, raf = 0;
+      function frame(){ raf = 0;
+        for(const l of letters){
+          const r = l.getBoundingClientRect();
+          const lx = r.left + r.width/2, ly = r.top + r.height/2;
+          const dx = lx - cx, dy = ly - cy, d = Math.hypot(dx, dy);
+          if(on && d < R){ const f = 1 - d/R, a = Math.atan2(dy, dx);
+            l.style.transform = `translate(${Math.cos(a)*f*22}px,${Math.sin(a)*f*22}px) scale(${1 + f*0.13})`;
+            l.style.textShadow = `0 6px 20px rgba(251,154,38,${0.4*f})`;
+          } else { l.style.transform = ''; l.style.textShadow = ''; }
+        }
+      }
+      hero.addEventListener('mousemove', e=>{ cx = e.clientX; cy = e.clientY; on = true; if(!raf) raf = requestAnimationFrame(frame); }, {passive:true});
+      hero.addEventListener('mouseleave', ()=>{ on = false; if(!raf) raf = requestAnimationFrame(frame); });
+    }, 1500);
+  }
+
+  /* 6 ── decode / scramble reveal for section eyebrows ── */
+  if(!reduce){
+    const seen = new WeakSet();
+    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·•※★◇—';
+    function scramble(el){
+      const final = el.textContent; if(!final) return;
+      const arr = [...final], dur = 700 + arr.length*24, start = performance.now();
+      (function tick(now){
+        const p = Math.min(1, (now - start)/dur), reveal = p * arr.length;
+        let out = '';
+        for(let i=0;i<arr.length;i++){ const ch = arr[i];
+          out += (ch === ' ' || ch === '\u00a0') ? ch : (i < reveal ? ch : charset[(Math.random()*charset.length)|0]); }
+        el.textContent = out;
+        if(p < 1) requestAnimationFrame(tick); else el.textContent = final;
+      })(start);
+    }
+    const sio = new IntersectionObserver(es=> es.forEach(e=>{
+      if(e.isIntersecting && !seen.has(e.target)){ seen.add(e.target); scramble(e.target); sio.unobserve(e.target); }
+    }), {threshold:.6});
+    setTimeout(()=> document.querySelectorAll('.eyebrow').forEach(el=> sio.observe(el)), 320);
+  }
 })();
