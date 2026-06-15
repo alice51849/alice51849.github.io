@@ -55,10 +55,22 @@ function boot(){
     const rad = Math.sqrt(Math.max(0,1-y*y));
     const phi = i * Math.PI * (3 - Math.sqrt(5));
     const base = new THREE.Vector3(Math.cos(phi)*rad*R, y*R, Math.sin(phi)*rad*R);
-    const tex = loader.load(a.icon);
-    if('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
-    tex.anisotropy = 4;
-    const mat = new THREE.MeshBasicMaterial({ map:tex, transparent:true, side:THREE.DoubleSide });
+    const mat = new THREE.MeshBasicMaterial({ transparent:true, side:THREE.DoubleSide });
+    (function(material, src){
+      const img = new Image();
+      img.onload = function(){
+        const S = 512, cv = document.createElement('canvas'); cv.width = cv.height = S;
+        const cx = cv.getContext('2d'); const r = S * 0.224; // iOS-style squircle radius
+        cx.beginPath();
+        cx.moveTo(r,0); cx.arcTo(S,0,S,S,r); cx.arcTo(S,S,0,S,r); cx.arcTo(0,S,0,0,r); cx.arcTo(0,0,S,0,r);
+        cx.closePath(); cx.clip();
+        cx.drawImage(img, 0, 0, S, S);
+        const tex = new THREE.CanvasTexture(cv);
+        if('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
+        tex.anisotropy = 4; material.map = tex; material.needsUpdate = true;
+      };
+      img.src = src;
+    })(mat, a.icon);
     const m = new THREE.Mesh(new THREE.PlaneGeometry(CARD, CARD), mat);
     m.userData = { base, url:a.url, sc:1 };
     scene.add(m);
