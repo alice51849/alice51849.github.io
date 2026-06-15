@@ -290,7 +290,7 @@ window.APPS=[
   "cat": "tools",
   "icon": "assets/icons/hourstag.png",
   "url": "https://apps.apple.com/tw/app/hourstag-%E5%83%B9%E6%A0%BC%E6%8F%9B%E5%B7%A5%E6%99%82/id6754218117?uo=4",
-  "badge": "",
+  "badge": "Pro",
   "name": {
    "en": "HoursTag: Hours to Buy",
    "zh": "HoursTag：價格換工時",
@@ -316,7 +316,7 @@ window.APPS=[
   "cat": "tools",
   "icon": "assets/icons/g-money.png",
   "url": "https://apps.apple.com/tw/app/g-money/id6755782939?uo=4",
-  "badge": "",
+  "badge": "Pro",
   "name": {
    "en": "G+Money",
    "zh": "G+Money",

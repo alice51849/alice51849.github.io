@@ -93,7 +93,7 @@ async function main() {
     }
     const genres = (it.genres || []).concat(it.primaryGenreName || []);
     const cat = genres.some((g) => /education|kids|family/i.test(g)) ? 'kids' : 'tools';
-    const badge = /\bpro\b/i.test(it.trackName) ? 'Pro' : /\blite\b/i.test(it.trackName) ? 'Lite' : '';
+    const badge = (it.price > 0) ? 'Pro' : (/\blite\b/i.test(it.trackName) ? 'Lite' : (/\bpro\b/i.test(it.trackName) ? 'Pro' : ''));  // paid apps → Pro
     let slug = slugify(it.trackName || app.attributes.name);
     while (existingSlugs.has(slug)) slug += '-' + appleId.slice(-3);
     existingSlugs.add(slug);
