@@ -342,7 +342,15 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
   animation:ltrIn .74s cubic-bezier(.2,.9,.3,1) forwards;backface-visibility:hidden;will-change:transform,opacity,filter}
 @keyframes ltrIn{to{opacity:1;transform:none;filter:blur(0)}}
 .hero-copy h1.lit .ltr{animation:none;opacity:1;filter:none;transform:none;transition:transform .5s var(--ease2),text-shadow .4s}
-@media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}}
+/* glossy sheen sweep + glow on app cards (game-grade hover) */
+.visual .halo{transition:background .45s var(--ease),filter .45s var(--ease)}
+.visual::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(115deg,transparent 33%,rgba(255,255,255,.55) 48%,rgba(255,255,255,0) 63%);
+  transform:translateX(-130%) skewX(-12deg);opacity:0}
+.card:hover .visual::after{animation:cardSheen 1.05s var(--ease)}
+@keyframes cardSheen{0%{transform:translateX(-130%) skewX(-12deg);opacity:0}18%{opacity:1}100%{transform:translateX(130%) skewX(-12deg);opacity:0}}
+.card:hover .visual .halo{background:radial-gradient(circle,rgba(255,201,120,.75),transparent 62%);filter:blur(16px)}
+@media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}.card:hover .visual::after{animation:none}}
 </style>
 </head>
 <body>
