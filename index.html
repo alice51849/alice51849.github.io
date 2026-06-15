@@ -394,6 +394,12 @@ section[id],.band{scroll-margin-top:86px}
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
   mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:0;transition:opacity .35s}
 .card:hover::after{opacity:1}
+.card .idx{position:absolute;top:13px;left:13px;z-index:6;min-width:30px;height:30px;padding:0 7px;border-radius:30px;
+  display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:.8rem;letter-spacing:.03em;color:var(--gold-ink);
+  background:linear-gradient(180deg,rgba(255,253,247,.93),rgba(255,247,233,.86));-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
+  border:1px solid rgba(255,255,255,.72);box-shadow:0 6px 16px -6px rgba(180,120,30,.5),inset 0 1px 0 rgba(255,255,255,.9);
+  transition:transform .4s var(--ease2)}
+.card:hover .idx{transform:scale(1.08)}
 .fcol a{position:relative}
 .fcol a::before{content:"";position:absolute;left:0;top:50%;width:0;height:2px;border-radius:2px;background:var(--gold);transform:translateY(-50%);transition:width .25s var(--ease)}
 .fcol a:hover{padding-left:9px}
@@ -508,9 +514,9 @@ section[id],.band{scroll-margin-top:86px}
   </div>
 </footer>
 
-<script src="assets/data.js?v=20260615j"></script>
-<script src="assets/fx.js?v=20260615j"></script>
-<script type="module" src="assets/hero3d.js?v=20260615j"></script>
+<script src="assets/data.js?v=20260615k"></script>
+<script src="assets/fx.js?v=20260615k"></script>
+<script type="module" src="assets/hero3d.js?v=20260615k"></script>
 <script>
 const I18N={
  zh:{_n:"中文",
@@ -607,12 +613,13 @@ const HEROES=["lumi-letters-pro","lumi-weather","lumi-bopomofo"];
 const SPOT=["lumi-letters-pro","lumi-weather","lumi-bopomofo","lockhour-pro","scanto-pro"];
 const SPOTXT={zh:{k:"FLAGSHIP · 精選",t:"幾個我們特別自豪的作品",s:"放大每一個畫面——都是反覆打磨的結果。"},en:{k:"FLAGSHIP",t:"A few we're especially proud of",s:"Look closer — every screen, polished over and over."},ja:{k:"FLAGSHIP",t:"特に自信のある作品",s:"拡大しても——すべての画面を、何度も磨きました。"},ko:{k:"FLAGSHIP",t:"특히 자랑스러운 작품들",s:"확대해도 — 모든 화면을 거듭 다듬었습니다."}};
 
-function card(a){
+function card(a,num){
   const t=I18N[lang], el=document.createElement("a");
   el.className="card";el.href=a.url;el.target="_blank";el.rel="noopener";
   const bd=a.badge?`<span class="bdg ${a.badge==='Lite'?'lite':''}">${a.badge}</span>`:"";
+  const ix=num?`<span class="idx">${String(num).padStart(2,"0")}</span>`:"";
   const vis=`<div class="visual"><div class="tile"><img class="bigicon" src="${a.icon}" alt="" loading="lazy"><span class="gloss"></span></div></div>`;
-  el.innerHTML=`${bd}${vis}<div class="body"><div class="ch"><img src="${a.icon}" alt="" loading="lazy"><div><h3></h3><div class="st"></div></div></div><p class="bl"></p><span class="lk">${t.app_cta} ${ARR}</span></div>`;
+  el.innerHTML=`${ix}${bd}${vis}<div class="body"><div class="ch"><img src="${a.icon}" alt="" loading="lazy"><div><h3></h3><div class="st"></div></div></div><p class="bl"></p><span class="lk">${t.app_cta} ${ARR}</span></div>`;
   biInto(el.querySelector("h3"),a.name[lang],altv(a.name));
   biInto(el.querySelector(".st"),a.sub[lang],altv(a.sub));
   el.querySelector(".bl").textContent=a.blurb[lang];
@@ -641,7 +648,7 @@ function render(){
   t.story.forEach(p=>{const el=document.createElement("p");el.innerHTML=p;sb.appendChild(el);});
   // apps
   const gk=document.getElementById("gKids"),gt=document.getElementById("gTools");gk.innerHTML="";gt.innerHTML="";
-  window.APPS.forEach(a=>{(a.cat==="kids"?gk:gt).appendChild(card(a));});
+  window.APPS.forEach((a,i)=>{(a.cat==="kids"?gk:gt).appendChild(card(a,i+1));});
   // hero phones
   const by={};window.APPS.forEach(a=>by[a.slug]=a);
   ["hp1","hp2","hp3"].forEach((id,i)=>{const a=by[HEROES[i]];if(a&&a.shot)document.getElementById(id).src=a.shot;});
