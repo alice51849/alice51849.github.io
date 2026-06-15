@@ -370,7 +370,36 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
 .nav-links a.nl.active::after{content:"";position:absolute;left:15px;right:15px;bottom:5px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--amber),var(--gold))}
 a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:10px}
 section[id],.band{scroll-margin-top:86px}
-@media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}.card:hover .visual::after{animation:none}#sound-toggle.hint{animation:none}}
+
+/* ============ premium element details ============ */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.5) 48%,transparent 62%);
+  transform:translateX(-135%) skewX(-14deg)}
+.btn:hover::after{animation:btnSheen .9s var(--ease)}
+@keyframes btnSheen{to{transform:translateX(135%) skewX(-14deg)}}
+.btn.primary{background:linear-gradient(135deg,var(--amber),var(--gold) 68%,var(--coral));
+  box-shadow:0 16px 34px -14px var(--gold),inset 0 1px 0 rgba(255,255,255,.55)}
+.btn:active{transform:translateY(-1px) scale(.985)}
+.brand .mark{transition:transform .55s var(--ease2),filter .4s}
+.brand:hover .mark{transform:rotate(18deg) scale(1.12);filter:drop-shadow(0 5px 12px rgba(243,137,90,.5))}
+.tcard,.vc{transform-style:preserve-3d;transition:transform .3s var(--ease),box-shadow .35s,border-color .35s;will-change:transform}
+.tcard:hover,.vc:hover{box-shadow:var(--shadow-lg);border-color:#ecd9a8}
+.tcard .ti,.vc .vi{transition:transform .45s var(--ease2),box-shadow .4s}
+.tcard:hover .ti{transform:scale(1.1) rotate(-5deg);box-shadow:0 12px 24px -10px var(--gold)}
+.vc:hover .vi{transform:scale(1.08) rotate(5deg);box-shadow:0 16px 28px -10px var(--gold)}
+.card{position:relative}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:4;padding:1.2px;
+  background:linear-gradient(135deg,rgba(251,154,38,.6),rgba(243,137,90,.16) 42%,transparent 72%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:0;transition:opacity .35s}
+.card:hover::after{opacity:1}
+.fcol a{position:relative}
+.fcol a::before{content:"";position:absolute;left:0;top:50%;width:0;height:2px;border-radius:2px;background:var(--gold);transform:translateY(-50%);transition:width .25s var(--ease)}
+.fcol a:hover{padding-left:9px}
+.fcol a:hover::before{width:5px}
+.stat .n{background:linear-gradient(125deg,var(--ink),#7a5a26);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}.card:hover .visual::after,.btn:hover::after{animation:none}#sound-toggle.hint{animation:none}}
 </style>
 </head>
 <body>
@@ -479,9 +508,9 @@ section[id],.band{scroll-margin-top:86px}
   </div>
 </footer>
 
-<script src="assets/data.js?v=20260615i"></script>
-<script src="assets/fx.js?v=20260615i"></script>
-<script type="module" src="assets/hero3d.js?v=20260615i"></script>
+<script src="assets/data.js?v=20260615j"></script>
+<script src="assets/fx.js?v=20260615j"></script>
+<script type="module" src="assets/hero3d.js?v=20260615j"></script>
 <script>
 const I18N={
  zh:{_n:"中文",
@@ -657,9 +686,10 @@ function setup(){
   }});},{threshold:.12});
   document.querySelectorAll(".rv,.stag").forEach(e=>io.observe(e));
   // tilt
-  document.querySelectorAll(".card").forEach(c=>{
+  document.querySelectorAll(".card,.tcard,.vc").forEach(c=>{
+    const big=c.classList.contains("card"),amt=big?7:5,lift=big?6:5;
     c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-      c.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-6px)`;};
+      c.style.transform=`perspective(900px) rotateY(${x*amt}deg) rotateX(${-y*amt}deg) translateY(-${lift}px)`;};
     c.onmouseleave=()=>c.style.transform="";
   });
 }
