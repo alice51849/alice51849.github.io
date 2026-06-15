@@ -364,6 +364,12 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
 @media(max-width:700px){#sound-toggle{width:44px;height:44px;left:16px;bottom:16px}}
 /* keep hero text crisp: fade the 3D galaxy on the left where the copy sits */
 @media(min-width:881px){.has3d #bg3d{-webkit-mask-image:linear-gradient(104deg,transparent 0%,transparent 42%,#000 58%);mask-image:linear-gradient(104deg,transparent 0%,transparent 42%,#000 58%)}}
+/* active nav section + accessible focus */
+.nav-links a.nl{position:relative}
+.nav-links a.nl.active{color:var(--gold-ink)}
+.nav-links a.nl.active::after{content:"";position:absolute;left:15px;right:15px;bottom:5px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--amber),var(--gold))}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:10px}
+section[id],.band{scroll-margin-top:86px}
 @media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}.card:hover .visual::after{animation:none}#sound-toggle.hint{animation:none}}
 </style>
 </head>
@@ -473,9 +479,9 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
   </div>
 </footer>
 
-<script src="assets/data.js?v=20260615d"></script>
-<script src="assets/fx.js?v=20260615d"></script>
-<script type="module" src="assets/hero3d.js?v=20260615d"></script>
+<script src="assets/data.js?v=20260615e"></script>
+<script src="assets/fx.js?v=20260615e"></script>
+<script type="module" src="assets/hero3d.js?v=20260615e"></script>
 <script>
 const I18N={
  zh:{_n:"中文",
@@ -688,6 +694,16 @@ if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
   addEventListener("resize",()=>requestAnimationFrame(spar));
 }
 render();setup();onScroll();
+// scrollspy: highlight the nav link for the section currently in view
+(function(){const links=[...document.querySelectorAll('.nav-links .nl')];if(!links.length)return;
+  const order=[["about","#about"],["values","#values"],["kids","#kids"]];
+  let tick=false;
+  function spy(){tick=false;const line=scrollY+innerHeight*0.4;let cur=null;
+    for(const [id,href] of order){const s=document.getElementById(id);
+      if(s&&line>=s.getBoundingClientRect().top+scrollY){cur=href;break;}}
+    links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===cur));}
+  addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(spy);}},{passive:true});
+  addEventListener("resize",spy);spy();})();
 // (opening preloader removed for a cleaner, more premium entrance)
 // magnetic hero buttons
 if(fine){document.querySelectorAll(".hero .btn").forEach(b=>{

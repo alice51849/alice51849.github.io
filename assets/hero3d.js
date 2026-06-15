@@ -42,10 +42,8 @@ function boot(){
     const rim = new THREE.DirectionalLight(0xffd2a0, 0.6);  rim.position.set(-7, -3, 4);  scene.add(rim);
     const cursorLight = new THREE.PointLight(0xffdca6, 0.6, 70, 2); cursorLight.position.set(3, 0, 13); scene.add(cursorLight);
 
-    // ── atmosphere: nebula glow + layered particles ──
+    // ── atmosphere: layered warm particles ──
     const glow   = makeGlowTexture();
-    const nebula = new THREE.Sprite(new THREE.SpriteMaterial({ map:glow, color:0xffd79a, transparent:true, opacity:0.5, depthWrite:false, blending:THREE.AdditiveBlending }));
-    nebula.scale.set(48, 32, 1); nebula.position.set(3, 0.5, -15); scene.add(nebula);
 
     const N  = small ? 300 : 540;
     const pg = new THREE.BufferGeometry();
@@ -108,6 +106,7 @@ function boot(){
     function animate(){
       requestAnimationFrame(animate);
       const t = clock.getElapsedTime();
+      if(scrollFade <= 0.001){ renderer.domElement.style.opacity = 0; return; }  // hero offscreen → pause heavy work
       intro += (1-intro)*0.018;
       mx += (tmx-mx)*0.05; my += (tmy-my)*0.05;
       spin += 0.0016;
@@ -121,7 +120,6 @@ function boot(){
       cursorLight.intensity = 0.55 + Math.min(Math.abs(mx)+Math.abs(my), 0.6);
 
       points.rotation.y = t*0.02; pointsB.rotation.y = t*0.02; points.rotation.x = pointsB.rotation.x = my*0.12;
-      nebula.material.opacity = 0.44 + Math.sin(t*0.6)*0.06;
 
       const ca=Math.cos(spin), sa=Math.sin(spin);
       for(const c of cards){
