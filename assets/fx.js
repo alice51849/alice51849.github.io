@@ -23,44 +23,8 @@
     addEventListener('mouseenter', ()=>{ dot.style.opacity = ring.style.opacity = 1; });
   }
 
-  /* 2 ── hero headline letter-by-letter reveal ── */
-  if(!reduce){
-    setTimeout(()=>{
-      const h1 = document.querySelector('.hero-copy h1');
-      const target = h1 ? (h1.querySelector('.bi-m') || h1) : null;
-      if(target && !target.dataset.split){
-        target.dataset.split = '1';
-        splitNodes(target);
-        const ltrs = target.querySelectorAll('.ltr');
-        ltrs.forEach((s,i)=> s.style.animationDelay = (i*0.035)+'s');
-        setTimeout(()=>{ if(h1) h1.classList.add('lit'); }, ltrs.length*35 + 840); // settle: drop filter/transform layers → no glyph clipping
-      }
-    }, 240);
-  }
-  function splitNodes(el){
-    [...el.childNodes].forEach(node=>{
-      if(node.nodeType === 3){
-        const frag = document.createDocumentFragment();
-        node.textContent.split(/(\s+)/).forEach(tok=>{
-          if(tok === '') return;
-          if(/^\s+$/.test(tok)){ frag.appendChild(document.createTextNode(tok)); return; }
-          const word = document.createElement('span');
-          word.className = 'word';
-          [...tok].forEach(ch=>{
-            const s = document.createElement('span');
-            s.className = 'ltr';
-            s.textContent = ch;
-            word.appendChild(s);
-          });
-          frag.appendChild(word);
-        });
-        node.replaceWith(frag);
-      } else if(node.nodeType === 1){
-        if(node.classList && node.classList.contains('grad')) node.classList.add('ltr');
-        else splitNodes(node);
-      }
-    });
-  }
+  /* 2 ── hero headline reveal: handled by the refined .rv blur-rise (no per-letter gimmick) ── */
+
 
   /* 3 ── back-to-top button ── */
   const toTop = document.createElement('button');
@@ -108,29 +72,8 @@
     setTimeout(()=>{ toast.classList.remove('show'); setTimeout(()=> toast.remove(), 400); }, 2800);
   }
 
-  /* 5 ── kinetic magnetic hero letters (cursor pushes the headline) ── */
-  if(fine && !reduce){
-    setTimeout(()=>{
-      const h1 = document.querySelector('.hero-copy h1'); if(!h1) return;
-      h1.classList.add('lit');
-      const letters = [...h1.querySelectorAll('.ltr')]; if(!letters.length) return;
-      const hero = document.querySelector('.hero'); if(!hero) return;
-      const R = 130; let cx = 0, cy = 0, on = false, raf = 0;
-      function frame(){ raf = 0;
-        for(const l of letters){
-          const r = l.getBoundingClientRect();
-          const lx = r.left + r.width/2, ly = r.top + r.height/2;
-          const dx = lx - cx, dy = ly - cy, d = Math.hypot(dx, dy);
-          if(on && d < R){ const f = 1 - d/R, a = Math.atan2(dy, dx);
-            l.style.transform = `translate(${Math.cos(a)*f*22}px,${Math.sin(a)*f*22}px) scale(${1 + f*0.13})`;
-            l.style.textShadow = `0 6px 20px rgba(251,154,38,${0.4*f})`;
-          } else { l.style.transform = ''; l.style.textShadow = ''; }
-        }
-      }
-      hero.addEventListener('mousemove', e=>{ cx = e.clientX; cy = e.clientY; on = true; if(!raf) raf = requestAnimationFrame(frame); }, {passive:true});
-      hero.addEventListener('mouseleave', ()=>{ on = false; if(!raf) raf = requestAnimationFrame(frame); });
-    }, 1500);
-  }
+  /* 5 ── (per-letter magnetic headline removed — refined enterprise typography) ── */
+
 
   /* 6 ── decode / scramble reveal for section eyebrows ── */
   if(!reduce){

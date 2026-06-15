@@ -42,17 +42,7 @@ function boot(){
     const rim = new THREE.DirectionalLight(0xffd2a0, 0.6);  rim.position.set(-7, -3, 4);  scene.add(rim);
     const cursorLight = new THREE.PointLight(0xffdca6, 0.6, 70, 2); cursorLight.position.set(3, 0, 13); scene.add(cursorLight);
 
-    // ── atmosphere: layered warm particles ──
-    const glow   = makeGlowTexture();
-
-    const N  = small ? 300 : 540;
-    const pg = new THREE.BufferGeometry();
-    const pos = new Float32Array(N*3);
-    for(let i=0;i<N;i++){ pos[i*3]=(Math.random()-0.5)*54; pos[i*3+1]=(Math.random()-0.5)*32; pos[i*3+2]=(Math.random()-0.5)*38; }
-    pg.setAttribute('position', new THREE.BufferAttribute(pos,3));
-    const points  = new THREE.Points(pg, new THREE.PointsMaterial({ color:0xefa53a, size:0.10, map:glow, transparent:true, opacity:0.9,  depthWrite:false, blending:THREE.AdditiveBlending }));
-    const pointsB = new THREE.Points(pg, new THREE.PointsMaterial({ color:0xf6c66e, size:0.6,  map:glow, transparent:true, opacity:0.16, depthWrite:false, blending:THREE.AdditiveBlending }));
-    scene.add(points, pointsB);
+    // (minimalist scene — particles removed for a clean, enterprise look)
 
     // ── glossy icon tiles on a fibonacci sphere ──
     const OFFX = 5.6, R = 4.7, CARD = 1.5;
@@ -115,8 +105,6 @@ function boot(){
 
       cursorLight.position.set(OFFX + mx*16, -my*12, 12);
       cursorLight.intensity = 0.55 + Math.min(Math.abs(mx)+Math.abs(my), 0.6);
-
-      points.rotation.y = t*0.02; pointsB.rotation.y = t*0.02; points.rotation.x = pointsB.rotation.x = my*0.12;
 
       const ca=Math.cos(spin), sa=Math.sin(spin);
       for(const c of cards){
