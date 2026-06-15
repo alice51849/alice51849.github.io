@@ -65,23 +65,12 @@ h1 .bi-s{font-size:.3em;margin-top:.7em;font-weight:600;letter-spacing:.05em}
 .vc h3 .bi-s{font-size:.82em;margin-top:.15em;font-weight:600}
 .spot-copy .lead .bi-s{font-size:.82em;margin-top:.3em}
 
-/* preloader */
-#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 38%,#fff7e6,#fdeaca);animation:loaderGone .5s 1.2s forwards}
-@keyframes loaderGone{to{opacity:0;visibility:hidden;pointer-events:none}}
-#loader.done{opacity:0;visibility:hidden;transition:opacity .65s var(--ease),visibility .65s}
-#loader .lmark{width:78px;height:78px;animation:lpop 1.15s var(--ease) both;filter:drop-shadow(0 10px 24px rgba(243,137,90,.45))}
-#loader .lname{margin-top:18px;font-family:var(--serif);font-weight:800;font-size:1.55rem;letter-spacing:-.01em;color:var(--ink);animation:lfade .8s .4s var(--ease) both;text-align:center}
-#loader .lsub{margin-top:4px;font-size:.74rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-ink);font-weight:700;animation:lfade .8s .55s var(--ease) both;text-align:center}
-@keyframes lpop{0%{opacity:0;transform:scale(.4) rotate(-35deg)}55%{opacity:1}100%{opacity:1;transform:scale(1) rotate(0)}}
-@keyframes lfade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){#loader{display:none}}
-
 /* scroll progress + cursor glow */
 #prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;
   background:linear-gradient(90deg,var(--amber),var(--gold),var(--coral));box-shadow:0 0 12px rgba(251,154,38,.6)}
-#glow{position:fixed;width:520px;height:520px;border-radius:50%;z-index:0;pointer-events:none;left:0;top:0;
-  transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;
-  background:radial-gradient(circle,rgba(255,201,120,.28),transparent 62%);filter:blur(14px)}
+#glow{position:fixed;width:340px;height:340px;border-radius:50%;z-index:0;pointer-events:none;left:0;top:0;
+  transform:translate(-50%,-50%);transition:opacity .5s;opacity:0;
+  background:radial-gradient(circle,rgba(255,206,140,.14),transparent 66%);filter:blur(22px)}
 
 /* nav */
 header.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:.4s}
@@ -338,7 +327,8 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
   animation:gradFlow 6.5s linear infinite;filter:drop-shadow(0 3px 14px rgba(251,154,38,.18))}
 @keyframes gradFlow{0%{background-position:0% 50%}100%{background-position:220% 50%}}
 .hero-copy h1{perspective:840px}
-.ltr{display:inline-block;opacity:0;transform:translateY(.6em) rotateX(-82deg);transform-origin:50% 100%;filter:blur(6px);
+.hero-copy h1 .word{display:inline-block;white-space:nowrap}
+.ltr{display:inline-block;white-space:nowrap;opacity:0;transform:translateY(.6em) rotateX(-82deg);transform-origin:50% 100%;filter:blur(6px);
   animation:ltrIn .74s cubic-bezier(.2,.9,.3,1) forwards;backface-visibility:hidden;will-change:transform,opacity,filter}
 @keyframes ltrIn{to{opacity:1;transform:none;filter:blur(0)}}
 .hero-copy h1.lit .ltr{animation:none;opacity:1;filter:none;transform:none;transition:transform .5s var(--ease2),text-shadow .4s}
@@ -350,11 +340,34 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
 .card:hover .visual::after{animation:cardSheen 1.05s var(--ease)}
 @keyframes cardSheen{0%{transform:translateX(-130%) skewX(-12deg);opacity:0}18%{opacity:1}100%{transform:translateX(130%) skewX(-12deg);opacity:0}}
 .card:hover .visual .halo{background:radial-gradient(circle,rgba(255,201,120,.75),transparent 62%);filter:blur(16px)}
-@media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}.card:hover .visual::after{animation:none}}
+
+/* ====== uniform glossy app tiles (grid) ====== */
+.visual .tile{position:relative;width:136px;height:136px;border-radius:31px;z-index:1;transition:transform .5s var(--ease)}
+.visual .tile img{width:100%;height:100%;border-radius:31px;object-fit:cover;display:block;
+  box-shadow:0 30px 54px -20px rgba(180,120,30,.6),0 6px 14px -6px rgba(180,120,30,.4),inset 0 0 0 1px rgba(255,255,255,.55)}
+.visual .tile .gloss{position:absolute;inset:0;border-radius:31px;pointer-events:none;
+  background:linear-gradient(157deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.06) 38%,rgba(255,255,255,0) 60%)}
+.visual .tile::after{content:"";position:absolute;left:10%;right:10%;bottom:-13%;height:20%;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(170,115,30,.42),transparent 70%);filter:blur(9px);z-index:-1}
+.card:hover .visual .tile{transform:translateY(-5px) scale(1.045) rotate(-1.5deg)}
+.card:hover .visual .tile img{transform:none}
+
+/* ====== ambient sound toggle ====== */
+#sound-toggle{position:fixed;left:24px;bottom:24px;width:50px;height:50px;border-radius:50%;border:1px solid var(--line2);
+  background:var(--panel);color:var(--gold-ink);box-shadow:var(--shadow);display:grid;place-items:center;z-index:80;cursor:pointer;
+  transition:transform .3s var(--ease),background .3s,box-shadow .3s,color .3s}
+#sound-toggle:hover{background:var(--gold-soft);transform:translateY(-3px)}
+#sound-toggle svg{width:22px;height:22px}
+#sound-toggle.playing{color:#fff;background:linear-gradient(135deg,var(--amber),var(--gold));border-color:transparent;box-shadow:0 14px 30px -12px var(--gold)}
+#sound-toggle.hint{animation:sndHint 2.4s var(--ease) infinite}
+@keyframes sndHint{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:0 0 0 8px rgba(251,154,38,.14),var(--shadow)}}
+@media(max-width:700px){#sound-toggle{width:44px;height:44px;left:16px;bottom:16px}}
+/* keep hero text crisp: fade the 3D galaxy on the left where the copy sits */
+@media(min-width:881px){.has3d #bg3d{-webkit-mask-image:linear-gradient(104deg,transparent 0%,transparent 42%,#000 58%);mask-image:linear-gradient(104deg,transparent 0%,transparent 42%,#000 58%)}}
+@media(prefers-reduced-motion:reduce){.grad{animation:none}.ltr{animation:none;opacity:1;transform:none;filter:none}.card:hover .visual::after{animation:none}#sound-toggle.hint{animation:none}}
 </style>
 </head>
 <body>
-<div id="loader"><div><svg class="lmark" viewBox="0 0 24 24" fill="none"><path d="M12 1.5c.6 5.4 3.6 8.4 9 9-5.4.6-8.4 3.6-9 9-.6-5.4-3.6-8.4-9-9 5.4-.6 8.4-3.6 9-9Z" fill="url(#lg)"/><defs><linearGradient id="lg" x1="3" y1="3" x2="21" y2="21"><stop stop-color="#ffc24e"/><stop offset="1" stop-color="#f3895a"/></linearGradient></defs></svg><div class="lname">Lumi&nbsp;Studio</div><div class="lsub">做一束剛剛好的光</div></div></div>
 <div id="prog"></div>
 <div id="glow"></div>
 
@@ -460,9 +473,9 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
   </div>
 </footer>
 
-<script src="assets/data.js?v=20260615c"></script>
-<script src="assets/fx.js?v=20260615c"></script>
-<script type="module" src="assets/hero3d.js?v=20260615c"></script>
+<script src="assets/data.js?v=20260615d"></script>
+<script src="assets/fx.js?v=20260615d"></script>
+<script type="module" src="assets/hero3d.js?v=20260615d"></script>
 <script>
 const I18N={
  zh:{_n:"中文",
@@ -554,7 +567,7 @@ const LANGS=["zh","en","ja","ko"], HL={zh:"zh-Hant",en:"en",ja:"ja",ko:"ko"};
 const ARR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const TI={privacy:'<path d="M12 3 5 6v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>',noads:'<circle cx="12" cy="12" r="9"/><path d="M8 8l8 8"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',pay:'<path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/>'};
 const VI=['<path d="M12 3 5 6v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>','<circle cx="12" cy="12" r="9"/><path d="M8 8l8 8"/>','<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>','<path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/>','<path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10Z"/>','<path d="m12 2 2.6 6.5L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.4-.5L12 2Z"/>'];
-let lang=(function(){const s=localStorage.getItem("lumi-lang");if(s&&I18N[s])return s;const n=(navigator.language||"en").toLowerCase();if(n.startsWith("zh"))return"zh";if(n.startsWith("ja"))return"ja";if(n.startsWith("ko"))return"ko";return"en";})();
+let lang=(function(){const s=localStorage.getItem("lumi-lang");return (s&&I18N[s])?s:"en";})();
 const HEROES=["lumi-letters-pro","lumi-weather","lumi-bopomofo"];
 const SPOT=["lumi-letters-pro","lumi-weather","lumi-bopomofo","lockhour-pro","scanto-pro"];
 const SPOTXT={zh:{k:"FLAGSHIP · 精選",t:"幾個我們特別自豪的作品",s:"放大每一個畫面——都是反覆打磨的結果。"},en:{k:"FLAGSHIP",t:"A few we're especially proud of",s:"Look closer — every screen, polished over and over."},ja:{k:"FLAGSHIP",t:"特に自信のある作品",s:"拡大しても——すべての画面を、何度も磨きました。"},ko:{k:"FLAGSHIP",t:"특히 자랑스러운 작품들",s:"확대해도 — 모든 화면을 거듭 다듬었습니다."}};
@@ -563,9 +576,7 @@ function card(a){
   const t=I18N[lang], el=document.createElement("a");
   el.className="card";el.href=a.url;el.target="_blank";el.rel="noopener";
   const bd=a.badge?`<span class="bdg ${a.badge==='Lite'?'lite':''}">${a.badge}</span>`:"";
-  const vis=a.shot
-    ?`<div class="visual shot"><div class="halo"></div><div class="ph"><img src="${a.shot}" alt="" loading="lazy"></div></div>`
-    :`<div class="visual"><div class="halo"></div><img class="bigicon" src="${a.icon}" alt="" loading="lazy"></div>`;
+  const vis=`<div class="visual"><div class="halo"></div><div class="tile"><img class="bigicon" src="${a.icon}" alt="" loading="lazy"><span class="gloss"></span></div></div>`;
   el.innerHTML=`${bd}${vis}<div class="body"><div class="ch"><img src="${a.icon}" alt="" loading="lazy"><div><h3></h3><div class="st"></div></div></div><p class="bl"></p><span class="lk">${t.app_cta} ${ARR}</span></div>`;
   biInto(el.querySelector("h3"),a.name[lang],altv(a.name));
   biInto(el.querySelector(".st"),a.sub[lang],altv(a.sub));
@@ -677,8 +688,7 @@ if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
   addEventListener("resize",()=>requestAnimationFrame(spar));
 }
 render();setup();onScroll();
-// preloader fade out
-setTimeout(()=>{const l=document.getElementById("loader");if(l)l.remove();},2100);
+// (opening preloader removed for a cleaner, more premium entrance)
 // magnetic hero buttons
 if(fine){document.querySelectorAll(".hero .btn").forEach(b=>{
   b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.25).toFixed(1)+"px,"+((e.clientY-r.top-r.height/2)*.4).toFixed(1)+"px)";});

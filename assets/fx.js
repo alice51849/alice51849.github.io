@@ -39,11 +39,18 @@
     [...el.childNodes].forEach(node=>{
       if(node.nodeType === 3){
         const frag = document.createDocumentFragment();
-        [...node.textContent].forEach(ch=>{
-          const s = document.createElement('span');
-          s.className = 'ltr';
-          s.textContent = (ch === ' ') ? '\u00a0' : ch;
-          frag.appendChild(s);
+        node.textContent.split(/(\s+)/).forEach(tok=>{
+          if(tok === '') return;
+          if(/^\s+$/.test(tok)){ frag.appendChild(document.createTextNode(tok)); return; }
+          const word = document.createElement('span');
+          word.className = 'word';
+          [...tok].forEach(ch=>{
+            const s = document.createElement('span');
+            s.className = 'ltr';
+            s.textContent = ch;
+            word.appendChild(s);
+          });
+          frag.appendChild(word);
         });
         node.replaceWith(frag);
       } else if(node.nodeType === 1){
@@ -144,4 +151,54 @@
     }), {threshold:.6});
     setTimeout(()=> document.querySelectorAll('.eyebrow').forEach(el=> sio.observe(el)), 320);
   }
+
+  /* 7 ── ambient sound: opt-in background music + UI sfx ── */
+  (function(){
+    const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 4.5a9 9 0 0 1 0 15"/></svg>';
+    const MUTE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m22 9-6 6M16 9l6 6"/></svg>';
+    const btn = document.createElement('button');
+    btn.id = 'sound-toggle'; btn.type = 'button';
+    btn.setAttribute('aria-label', 'Toggle music & sound'); btn.innerHTML = MUTE;
+    document.body.appendChild(btn);
+
+    const bgm = new Audio('assets/bgm.mp3'); bgm.loop = true; bgm.preload = 'none'; bgm.volume = 0;
+    let on = false, fadeRAF = 0, actx = null, popBuf = null;
+
+    function ensureCtx(){
+      if(actx) return;
+      try {
+        actx = new (window.AudioContext || window.webkitAudioContext)();
+        fetch('assets/pop.m4a').then(r=>r.arrayBuffer()).then(b=>actx.decodeAudioData(b)).then(buf=>{ popBuf = buf; }).catch(()=>{});
+      } catch(e){}
+    }
+    function pop(v){
+      if(!on || !actx || !popBuf) return;
+      try { const s = actx.createBufferSource(); s.buffer = popBuf;
+        const g = actx.createGain(); g.gain.value = v || 0.18;
+        s.connect(g).connect(actx.destination); s.start(); } catch(e){}
+    }
+    function fade(to){
+      cancelAnimationFrame(fadeRAF);
+      const from = bgm.volume, t0 = performance.now(), dur = 650;
+      (function step(now){ const p = Math.min(1, (now - t0)/dur); bgm.volume = from + (to - from)*p;
+        if(p < 1) fadeRAF = requestAnimationFrame(step); else if(to === 0){ try{ bgm.pause(); }catch(e){} } })(t0);
+    }
+    function setOn(state){
+      on = state; btn.classList.toggle('playing', on); btn.classList.remove('hint');
+      btn.innerHTML = on ? SPK : MUTE;
+      try { localStorage.setItem('lumi-sound', on ? '1' : '0'); } catch(e){}
+      if(on){ ensureCtx(); if(actx && actx.state === 'suspended') actx.resume();
+        const p = bgm.play(); if(p && p.then) p.then(()=>fade(0.32)).catch(()=>{}); else fade(0.32); }
+      else fade(0);
+    }
+    btn.addEventListener('click', ()=> setOn(!on));
+
+    let pref = null; try { pref = localStorage.getItem('lumi-sound'); } catch(e){}
+    if(pref == null) btn.classList.add('hint');            // invite first-time visitors
+    if(pref === '1'){                                       // resume on first gesture (autoplay policy)
+      const arm = ()=>{ setOn(true); removeEventListener('pointerdown', arm); removeEventListener('keydown', arm); };
+      addEventListener('pointerdown', arm, {once:true}); addEventListener('keydown', arm, {once:true});
+    }
+    document.addEventListener('pointerdown', e=>{ if(e.target.closest('a,button,.card,.lk,.lang>button')) pop(0.2); }, {passive:true});
+  })();
 })();

@@ -57,7 +57,7 @@ function boot(){
     scene.add(points, pointsB);
 
     // ── glossy icon tiles on a fibonacci sphere ──
-    const OFFX = 3.4, R = 5.7, CARD = 1.5;
+    const OFFX = 5.6, R = 4.7, CARD = 1.5;
     const shape   = roundedRectShape(CARD, CARD, CARD*0.224);
     const bezelGeo = new THREE.ExtrudeGeometry(shape, { depth:0.16, bevelEnabled:true, bevelThickness:0.06, bevelSize:0.06, bevelSegments:4, steps:1, curveSegments:18 });
     bezelGeo.center();
