@@ -97,17 +97,23 @@
     setTimeout(()=> document.querySelectorAll('.eyebrow').forEach(el=> sio.observe(el)), 320);
   }
 
-  /* 7 ── ambient sound: opt-in background music + UI sfx ── */
+  /* 7 ── ambient sound: background music (on by default) + UI sfx on every tap ── */
   (function(){
     const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 4.5a9 9 0 0 1 0 15"/></svg>';
     const MUTE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m22 9-6 6M16 9l6 6"/></svg>';
+    let pref = null; try { pref = localStorage.getItem('lumi-sound'); } catch(e){}
+    const wantOn = (pref !== '0');                 // default ON unless the user explicitly turned it off
+
     const btn = document.createElement('button');
     btn.id = 'sound-toggle'; btn.type = 'button';
-    btn.setAttribute('aria-label', 'Toggle music & sound'); btn.innerHTML = MUTE;
+    btn.setAttribute('aria-label', 'Toggle music & sound');
+    btn.classList.toggle('playing', wantOn);
+    btn.innerHTML = wantOn ? SPK : MUTE;
     document.body.appendChild(btn);
 
-    const bgm = new Audio('assets/bgm.mp3'); bgm.loop = true; bgm.preload = 'none'; bgm.volume = 0;
-    let on = false, fadeRAF = 0, actx = null, popBuf = null;
+    const VOL = 0.15;                              // gentle background level
+    const bgm = new Audio('assets/bgm.mp3'); bgm.loop = true; bgm.preload = wantOn ? 'auto' : 'none'; bgm.volume = 0;
+    let on = false, fadeRAF = 0, actx = null, popBuf = null, lastPop = 0;
 
     function ensureCtx(){
       if(actx) return;
@@ -118,32 +124,40 @@
     }
     function pop(v){
       if(!on || !actx || !popBuf) return;
+      const now = performance.now(); if(now - lastPop < 25) return;  // rate-limit rapid events
+      lastPop = now;
       try { const s = actx.createBufferSource(); s.buffer = popBuf;
-        const g = actx.createGain(); g.gain.value = v || 0.18;
+        const g = actx.createGain(); g.gain.value = v;
         s.connect(g).connect(actx.destination); s.start(); } catch(e){}
     }
     function fade(to){
       cancelAnimationFrame(fadeRAF);
-      const from = bgm.volume, t0 = performance.now(), dur = 650;
-      (function step(now){ const p = Math.min(1, (now - t0)/dur); bgm.volume = from + (to - from)*p;
-        if(p < 1) fadeRAF = requestAnimationFrame(step); else if(to === 0){ try{ bgm.pause(); }catch(e){} } })(t0);
+      const from = bgm.volume, t0 = performance.now(), dur = 900;
+      (function step(now){ const k = Math.min(1, (now - t0)/dur);
+        const e = k < 0.5 ? 2*k*k : 1 - Math.pow(-2*k+2, 2)/2;       // easeInOutQuad
+        bgm.volume = from + (to - from)*e;
+        if(k < 1) fadeRAF = requestAnimationFrame(step); else if(to === 0){ try { bgm.pause(); } catch(e){} } })(t0);
     }
     function setOn(state){
-      on = state; btn.classList.toggle('playing', on); btn.classList.remove('hint');
+      on = state; btn.classList.toggle('playing', on);
       btn.innerHTML = on ? SPK : MUTE;
       try { localStorage.setItem('lumi-sound', on ? '1' : '0'); } catch(e){}
       if(on){ ensureCtx(); if(actx && actx.state === 'suspended') actx.resume();
-        const p = bgm.play(); if(p && p.then) p.then(()=>fade(0.32)).catch(()=>{}); else fade(0.32); }
+        const p = bgm.play(); if(p && p.then) p.then(()=>fade(VOL)).catch(()=>{}); else fade(VOL); }
       else fade(0);
     }
     btn.addEventListener('click', ()=> setOn(!on));
 
-    let pref = null; try { pref = localStorage.getItem('lumi-sound'); } catch(e){}
-    if(pref == null) btn.classList.add('hint');            // invite first-time visitors
-    if(pref === '1'){                                       // resume on first gesture (autoplay policy)
-      const arm = ()=>{ setOn(true); removeEventListener('pointerdown', arm); removeEventListener('keydown', arm); };
-      addEventListener('pointerdown', arm, {once:true}); addEventListener('keydown', arm, {once:true});
+    if(wantOn){                                    // browsers block audio before a gesture → begin on first interaction
+      ensureCtx();
+      const arm = ()=>{ if(!on) setOn(true); cleanup(); };
+      const cleanup = ()=> ['pointerdown','keydown','touchstart','wheel'].forEach(t=> removeEventListener(t, arm, true));
+      ['pointerdown','keydown','touchstart','wheel'].forEach(t=> addEventListener(t, arm, {capture:true, passive:true}));
     }
-    document.addEventListener('pointerdown', e=>{ if(e.target.closest('a,button,.card,.lk,.lang>button')) pop(0.2); }, {passive:true});
+
+    // UI sfx — a tick on every tap anywhere, plus a soft tick on hover of interactive elements
+    const hot = 'a,button,.card,.lk,.lang>button,.nl,summary,input,.tcard,.vc,.stat';
+    document.addEventListener('pointerdown', ()=> pop(0.2), {passive:true});
+    document.addEventListener('pointerover', e=>{ if(e.target.closest && e.target.closest(hot)) pop(0.06); }, {passive:true});
   })();
 })();
