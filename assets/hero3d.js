@@ -55,20 +55,24 @@ function boot(){
     const rad = Math.sqrt(Math.max(0,1-y*y));
     const phi = i * Math.PI * (3 - Math.sqrt(5));
     const base = new THREE.Vector3(Math.cos(phi)*rad*R, y*R, Math.sin(phi)*rad*R);
-    const mat = new THREE.MeshBasicMaterial({ transparent:true, side:THREE.DoubleSide });
+    const mat = new THREE.MeshBasicMaterial({ transparent:true, side:THREE.DoubleSide, visible:false });
     (function(material, src){
-      const img = new Image();
-      img.onload = function(){
-        const S = 512, cv = document.createElement('canvas'); cv.width = cv.height = S;
-        const cx = cv.getContext('2d'); const r = S * 0.224; // iOS-style squircle radius
+      const S = 512, r = S * 0.224;                 // iOS-style squircle radius (~22.4%)
+      function roundedTexture(paint){
+        const cv = document.createElement('canvas'); cv.width = cv.height = S;
+        const cx = cv.getContext('2d');
         cx.beginPath();
         cx.moveTo(r,0); cx.arcTo(S,0,S,S,r); cx.arcTo(S,S,0,S,r); cx.arcTo(0,S,0,0,r); cx.arcTo(0,0,S,0,r);
-        cx.closePath(); cx.clip();
-        cx.drawImage(img, 0, 0, S, S);
+        cx.closePath(); cx.clip();                  // clip → corners stay transparent
+        paint(cx);
         const tex = new THREE.CanvasTexture(cv);
         if('colorSpace' in tex) tex.colorSpace = THREE.SRGBColorSpace;
-        tex.anisotropy = 4; material.map = tex; material.needsUpdate = true;
-      };
+        tex.anisotropy = 4; material.map = tex; material.visible = true; material.needsUpdate = true;
+      }
+      const img = new Image();
+      img.onload  = () => roundedTexture(cx => cx.drawImage(img, 0, 0, S, S));
+      img.onerror = () => roundedTexture(cx => { const g = cx.createLinearGradient(0,0,S,S);
+        g.addColorStop(0,'#ffc24e'); g.addColorStop(1,'#f3895a'); cx.fillStyle = g; cx.fillRect(0,0,S,S); });
       img.src = src;
     })(mat, a.icon);
     const m = new THREE.Mesh(new THREE.PlaneGeometry(CARD, CARD), mat);
