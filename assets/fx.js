@@ -31,7 +31,9 @@
       if(target && !target.dataset.split){
         target.dataset.split = '1';
         splitNodes(target);
-        target.querySelectorAll('.ltr').forEach((s,i)=> s.style.animationDelay = (i*0.035)+'s');
+        const ltrs = target.querySelectorAll('.ltr');
+        ltrs.forEach((s,i)=> s.style.animationDelay = (i*0.035)+'s');
+        setTimeout(()=>{ if(h1) h1.classList.add('lit'); }, ltrs.length*35 + 840); // settle: drop filter/transform layers → no glyph clipping
       }
     }, 240);
   }

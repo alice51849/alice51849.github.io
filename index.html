@@ -120,8 +120,8 @@ header.nav.scrolled .bar{background:rgba(255,250,240,.78);backdrop-filter:satura
 .blob.c{width:280px;height:280px;background:#ffe6ad;left:44%;bottom:-80px;animation:float 19s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,-22px)}}
 .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:36px;align-items:center}
-.hero-copy h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.7rem,6vw,4.7rem);line-height:1.03;
-  letter-spacing:-2px;margin:8px 0 20px;text-wrap:balance}
+.hero-copy h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.7rem,6vw,4.7rem);line-height:1.1;
+  letter-spacing:-1.5px;margin:8px 0 22px;text-wrap:balance}
 .hero-copy .sub{font-size:1.17rem;color:var(--ink2);max-width:31em;font-weight:450}
 .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
 .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:1rem;padding:14px 27px;border-radius:14px;
@@ -329,7 +329,7 @@ html.fx-cursor, html.fx-cursor *{cursor:none!important}
 .hero-copy h1{perspective:840px}
 .hero-copy h1 .word{display:inline-block;white-space:nowrap}
 .ltr{display:inline-block;white-space:nowrap;opacity:0;transform:translateY(.6em) rotateX(-82deg);transform-origin:50% 100%;filter:blur(6px);
-  animation:ltrIn .74s cubic-bezier(.2,.9,.3,1) forwards;backface-visibility:hidden;will-change:transform,opacity,filter}
+  animation:ltrIn .74s cubic-bezier(.2,.9,.3,1) forwards}
 @keyframes ltrIn{to{opacity:1;transform:none;filter:blur(0)}}
 .hero-copy h1.lit .ltr{animation:none;opacity:1;filter:none;transform:none;transition:transform .5s var(--ease2),text-shadow .4s}
 /* glossy sheen sweep + glow on app cards (game-grade hover) */
@@ -479,9 +479,9 @@ section[id],.band{scroll-margin-top:86px}
   </div>
 </footer>
 
-<script src="assets/data.js?v=20260615e"></script>
-<script src="assets/fx.js?v=20260615e"></script>
-<script type="module" src="assets/hero3d.js?v=20260615e"></script>
+<script src="assets/data.js?v=20260615g"></script>
+<script src="assets/fx.js?v=20260615g"></script>
+<script type="module" src="assets/hero3d.js?v=20260615g"></script>
 <script>
 const I18N={
  zh:{_n:"中文",
@@ -582,7 +582,7 @@ function card(a){
   const t=I18N[lang], el=document.createElement("a");
   el.className="card";el.href=a.url;el.target="_blank";el.rel="noopener";
   const bd=a.badge?`<span class="bdg ${a.badge==='Lite'?'lite':''}">${a.badge}</span>`:"";
-  const vis=`<div class="visual"><div class="halo"></div><div class="tile"><img class="bigicon" src="${a.icon}" alt="" loading="lazy"><span class="gloss"></span></div></div>`;
+  const vis=`<div class="visual"><div class="tile"><img class="bigicon" src="${a.icon}" alt="" loading="lazy"><span class="gloss"></span></div></div>`;
   el.innerHTML=`${bd}${vis}<div class="body"><div class="ch"><img src="${a.icon}" alt="" loading="lazy"><div><h3></h3><div class="st"></div></div></div><p class="bl"></p><span class="lk">${t.app_cta} ${ARR}</span></div>`;
   biInto(el.querySelector("h3"),a.name[lang],altv(a.name));
   biInto(el.querySelector(".st"),a.sub[lang],altv(a.sub));

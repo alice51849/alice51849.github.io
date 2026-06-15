@@ -71,9 +71,6 @@ function boot(){
       const base = new THREE.Vector3(Math.cos(phi)*radx*R, y*R, Math.sin(phi)*radx*R);
 
       const group = new THREE.Group();
-      const halo  = new THREE.Sprite(new THREE.SpriteMaterial({ map:glow, color:0xffce82, transparent:true, opacity:0.30, depthWrite:false, blending:THREE.AdditiveBlending }));
-      halo.scale.set(CARD*2.6, CARD*2.6, 1); halo.position.z = -0.3; group.add(halo);
-
       const bezel = new THREE.Mesh(bezelGeo, new THREE.MeshPhysicalMaterial({
         color:0xf2b265, metalness:0.35, roughness:0.17, clearcoat:1.0, clearcoatRoughness:0.06, envMapIntensity:1.0, reflectivity:0.6,
         sheen:1.0, sheenColor:new THREE.Color(0xfff2d4) }));
@@ -84,7 +81,7 @@ function boot(){
       const icon = new THREE.Mesh(iconGeo, iconMat); icon.position.z = FRONTZ; group.add(icon);
 
       scene.add(group);
-      cards.push({ group, icon, halo, base, url:a.url, sc:1, i });
+      cards.push({ group, icon, base, url:a.url, sc:1, i });
     });
 
     // ── interaction state ──
@@ -137,8 +134,6 @@ function boot(){
       for(const c of cards){
         const tgt = (c===hovered) ? 1.4 : 1;
         c.sc += (tgt-c.sc)*0.16; c.group.scale.setScalar(c.sc);
-        const ho = (c===hovered) ? 0.72 : 0.30;
-        c.halo.material.opacity += (ho - c.halo.material.opacity)*0.12;
       }
 
       renderer.domElement.style.opacity = scrollFade;
