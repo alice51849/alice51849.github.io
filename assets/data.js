@@ -336,5 +336,31 @@ window.APPS=[
    "ko": "환율을 한 번만 설정하면, 여행 중 모든 지출을 내 기준 통화로 바로 확인할 수 있습니다."
   },
   "shot": null
+ },
+ {
+  "slug": "picclear-pro",
+  "cat": "tools",
+  "icon": "assets/icons/picclear-pro.png",
+  "url": "https://apps.apple.com/tw/app/picclear-pro/id6780223070?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "PicClear Pro",
+   "zh": "PicClear Pro",
+   "ja": "PicClear Pro",
+   "ko": "PicClear Pro"
+  },
+  "sub": {
+   "en": "Photo cleaner, free up storage",
+   "zh": "清理重複、相似照片與截圖，釋放空間",
+   "ja": "重複・スクショを整理して容量を確保",
+   "ko": "중복·스크린샷 정리하고 저장공간 확보"
+  },
+  "blurb": {
+   "en": "Free to scan and preview. Find duplicate photos, screenshots, blurry shots and big videos — then clean up with one…",
+   "zh": "免費掃描與預覽，立刻看出相片庫被什麼佔滿。找出重複照片、相似照片、舊截圖、模糊照片與大型影片，一次性解鎖即可永久清理。無訂閱、無廣告、無帳號，全程裝置端處理。",
+   "ja": "スキャンとプレビューは無料。重複写真・類似写真・古いスクショ・ぼやけた写真・大きな動画を見つけ、一度の解除で永久に整理。サブスクなし、広告なし、アカウント不要、すべて端末内で処理。",
+   "ko": "스캔과 미리보기는 무료. 중복 사진, 비슷한 사진, 오래된 스크린샷, 흐릿한 사진, 큰 동영상을 찾아 한 번의 잠금 해제로 영구 정리. 구독 없음, 광고 없음, 계정 없음, 모두 기기에서 처리."
+  },
+  "shot": null
  }
 ];
