@@ -362,5 +362,31 @@ window.APPS=[
    "ko": "스캔과 미리보기는 무료. 중복 사진, 비슷한 사진, 오래된 스크린샷, 흐릿한 사진, 큰 동영상을 찾아 한 번의 잠금 해제로 영구 정리. 구독 없음, 광고 없음, 계정 없음, 모두 기기에서 처리."
   },
   "shot": null
+ },
+ {
+  "slug": "snapport",
+  "cat": "tools",
+  "icon": "assets/icons/snapport.png",
+  "url": "https://apps.apple.com/tw/app/snapport-%E8%AD%B7%E7%85%A7%E8%AD%89%E4%BB%B6%E7%85%A7/id6780575828?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "Snapport: Passport & ID Photos",
+   "zh": "Snapport: 護照證件照",
+   "ja": "Snapport: パスポート証明写真",
+   "ko": "Snapport: 여권·신분증 사진"
+  },
+  "sub": {
+   "en": "Visa, Prints & Backgrounds",
+   "zh": "簽證、大頭照與列印版型",
+   "ja": "サイズ調整と端末内作成",
+   "ko": "크기 맞춤·기기 내 제작"
+  },
+  "blurb": {
+   "en": "Create passport, visa and ID photos with guided sizing, background tools and print-ready layouts. Private by design…",
+   "zh": "在 iPhone 上製作護照、簽證與證件照：尺寸指引、換背景、列印版型一次完成。隱私優先:無廣告、無追蹤、無雲端,全程在裝置上處理。",
+   "ja": "パスポート、ビザ、ID用の写真をiPhoneで作成。サイズガイド、背景変更、印刷レイアウトまで。プライバシー重視：広告・追跡なし、すべて端末内で処理。",
+   "ko": "여권, 비자, 신분증 사진을 iPhone에서 만드세요. 크기 가이드, 배경 변경, 인쇄 레이아웃까지. 프라이버시 우선: 광고·추적 없이 모두 기기 안에서 처리."
+  },
+  "shot": null
  }
 ];
