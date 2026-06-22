@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Threads 授權完成 · Lumi Studio</title>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+       font-family:-apple-system,"PingFang TC",system-ui,sans-serif;
+       background:linear-gradient(135deg,#fff7ed,#ffe4cf);color:#3b2f2a}
+  .card{background:#fff;max-width:480px;width:90%;padding:36px 30px;border-radius:22px;
+        box-shadow:0 20px 60px rgba(180,120,70,.18);text-align:center}
+  h1{font-size:22px;margin:.2em 0 .1em}
+  p{font-size:15px;line-height:1.6;color:#7a6a60}
+  .code{margin:18px 0;padding:14px;border:2px dashed #f3b27a;border-radius:14px;
+        background:#fff9f4;font-family:ui-monospace,monospace;font-size:13px;
+        word-break:break-all;color:#b4541e}
+  button{background:#f4915c;color:#fff;border:0;padding:13px 26px;border-radius:999px;
+         font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 20px rgba(244,145,92,.35)}
+  button:active{transform:translateY(1px)}
+  .ok{color:#3f9d6b;font-weight:600;height:1.4em;margin-top:10px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div style="font-size:42px">✅</div>
+    <h1>Threads 授權完成</h1>
+    <p>把下面這串授權碼複製,貼回給 Copilot,就能完成自動發片設定。</p>
+    <div class="code" id="code">讀取中…</div>
+    <button onclick="cp()">📋 複製授權碼</button>
+    <div class="ok" id="ok"></div>
+  </div>
+<script>
+  var p=new URLSearchParams(location.search);
+  var code=p.get("code")||"";
+  document.getElementById("code").textContent = code || "⚠️ 沒拿到授權碼,請重新點授權連結";
+  function cp(){ if(!code)return; navigator.clipboard.writeText(code)
+    .then(function(){document.getElementById("ok").textContent="已複製!貼回給 Copilot 即可";}); }
+</script>
+</body>
+</html>
