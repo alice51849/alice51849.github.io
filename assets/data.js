@@ -388,5 +388,57 @@ window.APPS=[
    "ko": "여권, 비자, 신분증 사진을 iPhone에서 만드세요. 크기 가이드, 배경 변경, 인쇄 레이아웃까지. 프라이버시 우선: 광고·추적 없이 모두 기기 안에서 처리."
   },
   "shot": null
+ },
+ {
+  "slug": "cyca",
+  "cat": "tools",
+  "icon": "assets/icons/cyca.png",
+  "url": "https://apps.apple.com/tw/app/cyca-%E7%B6%93%E6%9C%9F%E9%80%B1%E6%9C%9F%E8%BF%BD%E8%B9%A4-%E6%8E%92%E5%8D%B5/id6782251621?uo=4",
+  "badge": "",
+  "name": {
+   "en": "Cyca: Period & Cycle Tracker",
+   "zh": "Cyca 經期週期追蹤・排卵",
+   "ja": "Cyca 生理・排卵日トラッカー",
+   "ko": "Cyca 생리·배란일 트래커"
+  },
+  "sub": {
+   "en": "Ovulation, Calendar & PMS",
+   "zh": "生理期日曆・排卵預測・PMS",
+   "ja": "生理予測カレンダー・PMS管理",
+   "ko": "생리 예측 캘린더 · PMS"
+  },
+  "blurb": {
+   "en": "Know what your body may be telling you today. Track cycles, PMS, ovulation, and patterns in a calm calendar—100% on…",
+   "zh": "一鍵記錄生理期,用「每日身體預報」讀懂今天的能量、心情與膚況;在療癒系日曆上預見下次經期、易孕期與排卵。智慧預測越記越準,個人節律與智慧規劃陪你安排生活,每日照護給你溫柔提醒。完全在裝置端、不需帳號、絕對隱私,一次買斷、終生使用。",
+   "ja": "ワンタップで生理を記録。「今日の体調予報」でエネルギー・気分・肌を知り、やさしいカレンダーで次の生理・排卵・妊娠しやすい日を見通せる。記録するほど予測は正確に。パーソナルリズムとスマートプランナーが毎日に寄り添います。すべて端末内…",
+   "ko": "탭 한 번으로 생리를 기록하고 ‘오늘의 몸 예보’로 에너지·기분·피부를 확인하세요. 편안한 캘린더로 다음 생리·배란·가임기를 미리 보고, 기록할수록 똑똑해지는 예측과 맞춤 리듬·스마트 플래너가 일상을 도와줍…"
+  },
+  "shot": null
+ },
+ {
+  "slug": "photocream-pro",
+  "cat": "tools",
+  "icon": "assets/icons/photocream-pro.png",
+  "url": "https://apps.apple.com/tw/app/photocream-pro/id6781808054?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "PhotoCream Pro",
+   "zh": "PhotoCream Pro",
+   "ja": "PhotoCream Pro",
+   "ko": "PhotoCream Pro"
+  },
+  "sub": {
+   "en": "Film Camera & Beauty Editor",
+   "zh": "復古相機與美顏編輯",
+   "ja": "レトロカメラと美肌編集",
+   "ko": "레트로 카메라 & 뷰티 편집"
+  },
+  "blurb": {
+   "en": "Give every photo a film-soul glow: real grain, light leaks, 100+ looks, and pro beauty edits—all private, ad-free,…",
+   "zh": "PhotoCream Pro 提供超過100種真實膠片濾鏡，讓您在iPhone和iPad上體驗懷舊攝影的魅力。即時預覽功能讓您輕鬆捕捉完美瞬間。此外，專業照片編輯器提供頻率分離皮膚美化、臉部和身體重塑、光影色調調整、文字添加、邊框…",
+   "ja": "PhotoCream Proは100以上の本格的なアナログフィルターを提供し、iPhoneとiPadでレトロな写真撮影を体験できます。ライブプレビュー機能で完璧な瞬間を簡単にキャッチ。さらに、プロフェッショナルな写真編集機能で、周…",
+   "ko": "PhotoCream Pro는 100개 이상의 진짜 아날로그 필터를 제공하여 iPhone 및 iPad에서 레트로 사진 촬영을 경험할 수 있습니다. 라이브 프리뷰 기능으로 완벽한 순간을 쉽게 포착하세요. 또한,…"
+  },
+  "shot": null
  }
 ];
