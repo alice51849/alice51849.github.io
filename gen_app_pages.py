@@ -36,6 +36,43 @@ CAT_MAP = {"productivity":"Productivity","finance":"Finance","photo-utility":"Ph
  "health":"Health & Fitness","lifestyle":"Lifestyle","kids":"Education","education":"Education"}
 
 
+def parse_datajs(path):
+    """解析 assets/data.js 的 window.APPS 陣列成 threads 相容 dict(雲端素材來源)。"""
+    s = open(path, encoding="utf-8").read()
+    i = s.find("window.APPS=["); b = s.find("[", i); depth = 0; end = len(s)
+    for j in range(b, len(s)):
+        if s[j] == "[": depth += 1
+        elif s[j] == "]":
+            depth -= 1
+            if depth == 0: end = j + 1; break
+    arr = json.loads(s[b:end])
+    apps = {}
+    for e in arr:
+        slug = e.get("slug")
+        if not slug: continue
+        nm = e.get("name", {}); sb = e.get("sub", {}); bl = e.get("blurb", {})
+        apps[slug] = {
+            "name": (nm.get("en") or nm.get("zh") or slug).split(":")[0].strip(),
+            "url": e.get("url", ""), "category": e.get("cat", ""),
+            "title": sb.get("en", ""), "sub": bl.get("en") or sb.get("en", ""),
+            "kicker": (e.get("badge") or "APP").upper(), "cta_bullets": [], "keywords": [],
+        }
+    return apps
+
+
+def load_apps():
+    """素材來源優先序:APPS_JSON env > threads apps.json(本地) > data.js(雲端)。"""
+    env = os.environ.get("APPS_JSON", "")
+    if env and os.path.exists(env):
+        return json.load(open(env, encoding="utf-8"))
+    if os.path.exists(APPS_JSON):
+        return json.load(open(APPS_JSON, encoding="utf-8"))
+    dj = os.path.join(SITE, "assets", "data.js")
+    if os.path.exists(dj):
+        return parse_datajs(dj)
+    return {}
+
+
 def _oaikey():
     p = os.path.expanduser("~/.openai_key")
     return (open(p).read().strip() if os.path.exists(p) else "") or os.environ.get("OPENAI_KEY","").strip()
@@ -232,7 +269,7 @@ def main():
     ap.add_argument("--force",action="store_true"); ap.add_argument("--sitemap",action="store_true")
     ap.add_argument("--limit",type=int,default=99)
     a=ap.parse_args()
-    apps=json.load(open(APPS_JSON,encoding="utf-8"))
+    apps=load_apps()
 
     if a.sitemap:
         n=rebuild_sitemap(apps); print(f"sitemap: {n} urls"); return

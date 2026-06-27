@@ -23,6 +23,10 @@ jobs:
         with:
           node-version: '20'
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
       - name: Sync newly published apps into data.js
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
@@ -30,15 +34,22 @@ jobs:
           ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
         run: node scripts/sync-apps.mjs
 
+      - name: Generate SEO landing pages for any app missing one
+        if: always()
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+        run: python3 gen_app_pages.py --all
+
       - name: Commit & push if anything changed
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name  "lumi-sync-bot"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "chore: auto-sync newly published App Store app(s) [skip ci]"
+            git commit -m "chore: auto-sync app(s) + SEO landing pages [skip ci]"
             git push
-            echo "Pushed new apps."
+            python3 scripts/indexnow.py || true
+            echo "Pushed."
           else
             echo "No changes - already up to date."
           fi
