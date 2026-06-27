@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unblur Image Online Free — Sharpen Blurry Photos in Your Browser</title>
+<meta name="description" content="Free online tool to unblur and sharpen blurry photos. Fix out-of-focus pictures, enhance details, and download — instantly, right in your browser. No upload, 100% private.">
+<link rel="canonical" href="https://alice51849.github.io/tools/unblur-image/">
+<meta name="theme-color" content="#0f1220">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unblur Image Online — Free Photo Sharpener">
+<meta property="og:description" content="Sharpen blurry photos instantly in your browser. No upload, no sign-up, 100% private.">
+<meta property="og:url" content="https://alice51849.github.io/tools/unblur-image/">
+<meta property="og:image" content="https://alice51849.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/assets/icons/lumi-letters-pro.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Unblur Image — Free Online Photo Sharpener","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free in-browser tool to unblur, sharpen and enhance blurry photos. Images are processed locally and never uploaded.","url":"https://alice51849.github.io/tools/unblur-image/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to unblur an image online","step":[{"@type":"HowToStep","name":"Upload","text":"Drag a blurry photo into the tool, or tap to choose one. It stays on your device."},{"@type":"HowToStep","name":"Adjust","text":"Move the Sharpness, Detail and Enhance sliders until the photo looks crisp."},{"@type":"HowToStep","name":"Download","text":"Tap Download to save the sharpened image. No sign-up, no watermark."}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this unblur tool really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Sharpening and enhancing photos in your browser is completely free, with no sign-up and no watermark."}},{"@type":"Question","name":"Are my photos uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens locally in your browser using HTML Canvas. Your images never leave your device."}},{"@type":"Question","name":"Can it fix very blurry or out-of-focus photos?","acceptedAnswer":{"@type":"Answer","text":"This tool sharpens and recovers detail from mild to moderate blur. For heavy motion blur or AI super-resolution, try the Unblurry app, which uses on-device AI enhancement."}}]}
+</script>
+<style>
+:root{
+  --bg:#0f1220; --bg2:#151a2e; --panel:#1b2138; --panel2:#222a47;
+  --ink:#eef1ff; --ink2:#aab2d5; --muted:#7a83a8; --line:#2a3354;
+  --gold:#fb9a26; --amber:#ffc24e; --coral:#f3895a; --grad:linear-gradient(105deg,#ffc24e,#fb9a26 55%,#f3895a);
+  --r:16px; --rl:24px; --maxw:1080px;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(60% 50% at 50% -8%,rgba(251,154,38,.16),transparent 70%),radial-gradient(40% 40% at 90% 10%,rgba(243,137,90,.10),transparent 70%)}
+a{color:var(--amber);text-decoration:none}
+img,canvas{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;position:relative;z-index:1}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:2.6px;text-transform:uppercase;color:var(--gold)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:999px;border:0;cursor:pointer;transition:.2s;font-family:inherit}
+.btn-gold{background:var(--grad);color:#2a1c00;box-shadow:0 10px 30px -10px rgba(251,154,38,.6)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(251,154,38,.7)}
+.btn-ghost{background:var(--panel2);color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--panel);border-color:#3a4570}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none}
+
+/* header */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(15,18,32,.7);border-bottom:1px solid var(--line)}
+header .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:var(--ink)}
+.logo .dot{width:26px;height:26px;border-radius:8px;background:var(--grad);display:grid;place-items:center;font-size:15px}
+
+/* hero */
+.hero{padding:48px 0 22px;text-align:center}
+.hero h1{font-size:clamp(28px,5.4vw,46px);font-weight:800;line-height:1.12;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+.hero p.sub{font-size:clamp(16px,2.4vw,19px);color:var(--ink2);max-width:640px;margin:0 auto;text-wrap:pretty}
+.trust{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;margin-top:18px;color:var(--muted);font-size:13.5px;font-weight:600}
+.trust span{display:inline-flex;align-items:center;gap:6px}
+.trust b{color:var(--amber)}
+
+/* tool */
+.tool{margin:26px auto 0;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--rl);padding:18px;box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+.drop{border:2px dashed #36406b;border-radius:var(--r);padding:40px 20px;text-align:center;cursor:pointer;transition:.2s;background:rgba(34,42,71,.4)}
+.drop:hover,.drop.over{border-color:var(--gold);background:rgba(251,154,38,.07)}
+.drop .ic{font-size:40px;margin-bottom:10px}
+.drop h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.drop p{color:var(--muted);font-size:14px}
+.stage{display:none}
+.stage.on{display:block}
+.cmp{position:relative;border-radius:var(--r);overflow:hidden;background:#0a0d18;touch-action:none;user-select:none}
+.cmp canvas{width:100%;display:block}
+.cmp .after{position:absolute;inset:0;overflow:hidden;width:50%}
+.cmp .after canvas{position:absolute;top:0;left:0;height:100%;width:auto;max-width:none}
+.cmp .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--amber);box-shadow:0 0 14px rgba(255,194,78,.8);cursor:ew-resize;z-index:3}
+.cmp .handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:var(--grad);color:#2a1c00;display:grid;place-items:center;font-weight:800;font-size:16px;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.lbl{position:absolute;top:10px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(10,13,24,.75);z-index:4}
+.lbl.b{left:10px;color:var(--ink2)}
+.lbl.a{right:10px;color:var(--amber)}
+.controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
+@media(max-width:640px){.controls{grid-template-columns:1fr}}
+.ctrl label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:7px}
+.ctrl label b{color:var(--amber)}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:999px;background:#2c3357;outline:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--grad);cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.5)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;justify-content:center}
+
+/* cta */
+.cta{margin:30px auto 0;background:linear-gradient(115deg,rgba(251,154,38,.13),rgba(243,137,90,.10));border:1px solid #3a3050;border-radius:var(--rl);padding:26px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:space-between}
+.cta .l{flex:1;min-width:260px}
+.cta h3{font-size:21px;font-weight:800;margin-bottom:6px}
+.cta p{color:var(--ink2);font-size:15px}
+.cta .feats{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:13.5px;color:var(--ink2);font-weight:600}
+.cta .feats span{display:inline-flex;gap:6px;align-items:center}
+.appbtn{display:inline-flex;align-items:center;gap:11px;background:#000;color:#fff;border-radius:14px;padding:11px 18px;border:1px solid #333}
+.appbtn:hover{background:#111}
+.appbtn .ic{font-size:26px}
+.appbtn small{display:block;font-size:10px;opacity:.8;line-height:1.1}
+.appbtn b{font-size:17px;line-height:1.1}
+
+/* content */
+.sec{padding:46px 0}
+.sec h2{font-size:clamp(22px,3.6vw,30px);font-weight:800;letter-spacing:-.01em;margin-bottom:8px;text-wrap:balance}
+.sec .lead{color:var(--ink2);max-width:680px;margin-bottom:22px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.step .n{width:30px;height:30px;border-radius:9px;background:var(--grad);color:#2a1c00;font-weight:800;display:grid;place-items:center;margin-bottom:12px}
+.step h4{font-size:16px;font-weight:700;margin-bottom:5px}
+.step p{font-size:14px;color:var(--ink2)}
+.faq{display:grid;gap:12px}
+details{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:4px 18px}
+details summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--amber);font-size:22px;font-weight:400}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 16px;color:var(--ink2);font-size:14.5px}
+.related{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.related a{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:600;color:var(--ink2)}
+.related a:hover{border-color:var(--gold);color:var(--amber)}
+footer{border-top:1px solid var(--line);padding:30px 0;margin-top:30px;text-align:center;color:var(--muted);font-size:13.5px}
+footer a{color:var(--ink2)}
+.priv{display:inline-flex;align-items:center;gap:7px;background:rgba(34,42,71,.6);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;color:var(--ink2);margin-top:14px}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="/"><span class="dot">✦</span> Lumi Tools</a>
+  <a class="btn btn-ghost" href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">Get the App</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Free · No upload · No sign-up</div>
+    <h1>Unblur an Image <span class="grad">Online, Free</span><br>Sharpen Blurry Photos Instantly</h1>
+    <p class="sub">Drop a blurry photo below to sharpen it, recover detail and fix out-of-focus shots — right in your browser. Nothing is uploaded; everything runs on your device.</p>
+    <div class="trust">
+      <span>🔒 <b>100% private</b> — runs in your browser</span>
+      <span>⚡ <b>Instant</b> — no waiting, no queue</span>
+      <span>💧 <b>No watermark</b></span>
+    </div>
+  </section>
+
+  <section class="tool" id="tool">
+    <div class="drop" id="drop">
+      <input type="file" id="file" accept="image/*" hidden>
+      <div class="ic">🖼️</div>
+      <h3>Drop a blurry photo here</h3>
+      <p>or tap to choose · JPG, PNG, WebP · processed locally</p>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="cmp" id="cmp">
+        <span class="lbl b">Before</span><span class="lbl a">After</span>
+        <canvas id="cBefore"></canvas>
+        <div class="after" id="afterWrap"><canvas id="cAfter"></canvas></div>
+        <div class="handle" id="handle"></div>
+      </div>
+      <div class="controls">
+        <div class="ctrl"><label>Sharpness <b id="vSharp">60</b></label><input type="range" id="sSharp" min="0" max="100" value="60"></div>
+        <div class="ctrl"><label>Detail / Clarity <b id="vClar">40</b></label><input type="range" id="sClar" min="0" max="100" value="40"></div>
+        <div class="ctrl"><label>Enhance (light & color) <b id="vEnh">35</b></label><input type="range" id="sEnh" min="0" max="100" value="35"></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-gold" id="dl">⬇ Download sharpened photo</button>
+        <button class="btn btn-ghost" id="reset">↺ New image</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="l">
+      <h3>Need to fix <span class="grad">really</span> blurry photos?</h3>
+      <p>This free tool sharpens mild blur. For heavy motion blur, low-light noise and true AI super-resolution, <b>Unblurry</b> does it on-device — privately, with batch processing and no watermark.</p>
+      <div class="feats">
+        <span>🤖 AI super-resolution</span><span>📦 Batch process</span><span>🌙 Low-light recovery</span><span>📄 Document mode</span>
+      </div>
+    </div>
+    <a class="appbtn" href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">
+      <span class="ic"></span><span><small>Download on the</small><b>App Store</b></span>
+    </a>
+  </section>
+
+  <section class="sec">
+    <h2>How to unblur a photo</h2>
+    <p class="lead">Three steps, no account, no upload. Your image is processed entirely inside your browser.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Drop your photo</h4><p>Drag a blurry image into the tool or tap to choose one from your device.</p></div>
+      <div class="step"><div class="n">2</div><h4>Sharpen & enhance</h4><p>Slide Sharpness, Detail and Enhance until edges look crisp and the photo pops.</p></div>
+      <div class="step"><div class="n">3</div><h4>Download</h4><p>Save the result instantly — full resolution, no watermark, no sign-up.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Questions, answered</h2>
+    <div class="faq">
+      <details open><summary>Is this really free?</summary><p>Yes — sharpening and enhancing photos here is completely free, with no account and no watermark.</p></details>
+      <details><summary>Do you upload my photos?</summary><p>Never. All processing happens locally in your browser with HTML Canvas. Your images don't leave your device, so it's fully private.</p></details>
+      <details><summary>Can it fix a very blurry or out-of-focus image?</summary><p>This tool recovers mild to moderate blur by sharpening edges and boosting local detail. For heavy motion blur or true AI upscaling, the <a href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">Unblurry app</a> uses on-device AI for stronger results.</p></details>
+      <details><summary>Which formats work?</summary><p>JPG, PNG and WebP. The download is saved as a high-quality PNG.</p></details>
+    </div>
+    <div class="related">
+      <a href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">Unblur screenshot</a>
+      <a href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">Fix blurry old photo</a>
+      <a href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">Sharpen low-light photo</a>
+      <a href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">Enhance scanned document</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span class="priv">🔒 Your photos never leave your browser</span><br><br>
+  A free tool by <a href="/">Lumi Studio</a> · Made with the <a href="https://apps.apple.com/app/id6782275018" target="_blank" rel="noopener">Unblurry</a> app ·
+  <a href="/privacy/">Privacy</a>
+</div></footer>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s);
+  const drop=$('#drop'),file=$('#file'),stage=$('#stage'),tool=$('#tool');
+  const cB=$('#cBefore'),cA=$('#cAfter'),ctxB=cB.getContext('2d'),ctxA=cA.getContext('2d');
+  const sSharp=$('#sSharp'),sClar=$('#sClar'),sEnh=$('#sEnh');
+  let srcImg=null, baseData=null, W=0, H=0, raf=0;
+
+  // ---- load ----
+  drop.onclick=()=>file.click();
+  file.onchange=e=>{ if(e.target.files[0]) load(e.target.files[0]); };
+  ['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+  drop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0];if(f)load(f);});
+
+  function load(f){
+    const img=new Image();
+    img.onload=()=>{
+      const max=1600, sc=Math.min(1,max/Math.max(img.width,img.height));
+      W=Math.round(img.width*sc); H=Math.round(img.height*sc);
+      [cB,cA].forEach(c=>{c.width=W;c.height=H;});
+      ctxB.drawImage(img,0,0,W,H);
+      baseData=ctxB.getImageData(0,0,W,H);
+      srcImg=img; drop.style.display='none'; stage.classList.add('on');
+      setHandle(50); render();
+      tool.scrollIntoView({behavior:'smooth',block:'center'});
+    };
+    img.src=URL.createObjectURL(f);
+  }
+
+  // ---- processing ----
+  function clamp(v){return v<0?0:v>255?255:v;}
+
+  // Unsharp mask: out = in + amount*(in - blurred). Blur via separable box (radius r).
+  function boxBlur(src,w,h,r){
+    const tmp=new Float32Array(src.length), out=new Float32Array(src.length), n=r*2+1;
+    for(let c=0;c<3;c++){
+      for(let y=0;y<h;y++){let s=0;for(let x=-r;x<=r;x++)s+=src[(y*w+Math.min(w-1,Math.max(0,x)))*4+c];
+        for(let x=0;x<w;x++){tmp[(y*w+x)*4+c]=s/n;const a=Math.max(0,x-r),b=Math.min(w-1,x+r+1);s+=src[(y*w+b)*4+c]-src[(y*w+a)*4+c];}}
+    }
+    for(let c=0;c<3;c++){
+      for(let x=0;x<w;x++){let s=0;for(let y=-r;y<=r;y++)s+=tmp[(Math.min(h-1,Math.max(0,y))*w+x)*4+c];
+        for(let y=0;y<h;y++){out[(y*w+x)*4+c]=s/n;const a=Math.max(0,y-r),b=Math.min(h-1,y+r+1);s+=tmp[(b*w+x)*4+c]-tmp[(a*w+x)*4+c];}}
+    }
+    return out;
+  }
+
+  function process(){
+    const sharp=+sSharp.value/100, clar=+sClar.value/100, enh=+sEnh.value/100;
+    const src=baseData.data, out=ctxA.createImageData(W,H), o=out.data;
+    const f=new Float32Array(src.length);
+    for(let i=0;i<src.length;i++)f[i]=src[i];
+    const b1=boxBlur(f,W,H,1);          // fine detail
+    const b3=boxBlur(f,W,H,3);          // local contrast (clarity)
+    const amt=sharp*1.7, clA=clar*0.9;
+    // enhance: simple contrast + saturation + slight brightness
+    const con=1+enh*0.5, br=enh*8, sat=1+enh*0.55;
+    for(let i=0;i<src.length;i+=4){
+      for(let c=0;c<3;c++){
+        let v=f[i+c];
+        v=v+amt*(v-b1[i+c]);            // unsharp (sharpness)
+        v=v+clA*(v-b3[i+c]);           // clarity / local contrast
+        v=(v-128)*con+128+br;          // contrast + brightness
+        o[i+c]=clamp(v);
+      }
+      // saturation
+      const r=o[i],g=o[i+1],bl=o[i+2],gray=0.299*r+0.587*g+0.114*bl;
+      o[i]=clamp(gray+(r-gray)*sat); o[i+1]=clamp(gray+(g-gray)*sat); o[i+2]=clamp(gray+(bl-gray)*sat);
+      o[i+3]=src[i+3];
+    }
+    ctxA.putImageData(out,0,0);
+  }
+  function render(){cancelAnimationFrame(raf);raf=requestAnimationFrame(process);}
+
+  [sSharp,sClar,sEnh].forEach(s=>s.oninput=()=>{
+    $('#vSharp').textContent=sSharp.value;$('#vClar').textContent=sClar.value;$('#vEnh').textContent=sEnh.value;render();
+  });
+
+  // ---- compare slider ----
+  const cmp=$('#cmp'),afterWrap=$('#afterWrap'),handle=$('#handle');
+  function setHandle(pct){pct=Math.max(0,Math.min(100,pct));afterWrap.style.width=pct+'%';handle.style.left=pct+'%';
+    const c=cmp.getBoundingClientRect();cA.style.width=c.width+'px';}
+  let drag=false;
+  const px=e=>{const r=cmp.getBoundingClientRect();const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;return x/r.width*100;};
+  handle.addEventListener('mousedown',()=>drag=true);
+  handle.addEventListener('touchstart',()=>drag=true,{passive:true});
+  cmp.addEventListener('mousedown',e=>{drag=true;setHandle(px(e));});
+  window.addEventListener('mousemove',e=>{if(drag)setHandle(px(e));});
+  cmp.addEventListener('touchmove',e=>{if(drag)setHandle(px(e));},{passive:true});
+  window.addEventListener('mouseup',()=>drag=false);
+  window.addEventListener('touchend',()=>drag=false);
+  window.addEventListener('resize',()=>setHandle(parseFloat(handle.style.left)||50));
+
+  // ---- download / reset ----
+  $('#dl').onclick=()=>{
+    const out=document.createElement('canvas');out.width=W;out.height=H;
+    out.getContext('2d').putImageData(ctxA.getImageData(0,0,W,H),0,0);
+    const a=document.createElement('a');a.download='unblurred.png';a.href=out.toDataURL('image/png');a.click();
+  };
+  $('#reset').onclick=()=>{stage.classList.remove('on');drop.style.display='block';file.value='';};
+})();
+</script>
+</body>
+</html>
