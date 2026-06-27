@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alice51849.github.io/sitemap.xml
