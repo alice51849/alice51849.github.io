@@ -1,0 +1,30 @@
+# Alice51849 iOS Apps
+
+> A concise llms.txt-style index of independent iPhone apps by Alice51849. These apps focus on practical, privacy-conscious, pay-once utilities for photos, productivity, finance, kids learning, and family routines.
+
+## Apps
+
+- Snapport — Stop paying $15 for passport photos: Make your own at home in 30 seconds — https://apps.apple.com/app/id6780575828
+- Sono Note — Never type your notes again: Just talk — get clean notes, a summary & to-dos — https://apps.apple.com/app/id6782139553
+- CV Desk — Beat the resume robots (ATS): Instant ATS score + recruiter-ready templates — https://apps.apple.com/app/id6781337213
+- PicClear — Your storage is full of junk: Find duplicates & huge videos in one scan — https://apps.apple.com/app/id6780223070
+- ScanTo Pro — Your iPhone is already a pro PDF scanner: Scan, OCR-search & Face ID-lock docs — pay once — https://apps.apple.com/app/id6779977651
+- Cyca — Stop guessing where you are in your cycle: See every phase, your best days & gentle days — https://apps.apple.com/app/id6782251621
+- G+Money — Know the real cost of everything abroad: Convert + log every expense in one tap — offline — https://apps.apple.com/app/id6755782939
+- HoursTag — That $129 isn't $129. It's 14 work hours.: See what everything really costs — in hours of your life — https://apps.apple.com/app/id6754218117
+- LockHour Pro — You lose 4 hours a day to your phone: Block the apps that steal your focus — one tap — https://apps.apple.com/app/id6780107485
+- Unblurry — Don't delete that blurry photo: AI super-resolution makes it crisp — on your iPhone — https://apps.apple.com/app/id6782275018
+- PhotoCream — Make every photo look like a film still: 100+ real film looks, grain, halation & light leaks — https://apps.apple.com/app/id6781808054
+- Lumi Letters — Your kid will beg to practice their ABCs: Playful phonics, tracing & letter games — https://apps.apple.com/app/id6778748533
+- Lumi Math Planet — The math game kids actually ask to play: A whole galaxy of number adventures — https://apps.apple.com/app/id6778269699
+- Lumi Mission Planet — Brush, sleep, tidy — without the nagging: A daily habit & bedtime ritual kids love — https://apps.apple.com/app/id6779750237
+- Lumi Weather — Is it OK to take the kids out today?: Weather + a kid-outing score, tuned to their age — https://apps.apple.com/app/id6779552704
+- Lumi Letters Pro — Your kid could read before kindergarten: The complete phonics, tracing & word-building world — https://apps.apple.com/app/id6778491147
+- Lumi Math Pro — Raise a kid who loves numbers: The whole number galaxy — every adventure unlocked — https://apps.apple.com/app/id6776958488
+- Lumi Mission Planet Pro — The morning routine that runs itself: Habits, chores & bedtime kids actually want to do — https://apps.apple.com/app/id6779745474
+- Lumi Bopomofo — The playful way kids learn Bopomofo: Zhuyin phonics, tracing & tone games — the first step to reading Chinese — https://apps.apple.com/app/id6773017109
+- Lumi Bopomofo Pro — Everything your kid needs to read Chinese: The complete Zhuyin (Bopomofo) world — every sound & game unlocked — https://apps.apple.com/app/id6775773117
+
+## Not listed yet
+
+- Zodira — App Store URL pending; skipped from public link automation.

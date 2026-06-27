@@ -441,4 +441,161 @@ window.APPS=[
   },
   "shot": null
  }
+,
+ {
+  "slug": "cv-desk",
+  "cat": "tools",
+  "icon": "assets/icons/cv-desk.png",
+  "url": "https://apps.apple.com/app/id6781337213",
+  "badge": "New",
+  "name": {
+   "en": "CV Desk: ATS CV Builder",
+   "zh": "CV Desk：ATS 履歷製作器",
+   "ja": "CV Desk：ATSレジュメビルダー",
+   "ko": "CV Desk: ATS 이력서 작성기"
+  },
+  "sub": {
+   "en": "Offline CV: PDF & Word",
+   "zh": "離線履歷：PDF/Word",
+   "ja": "オフライン履歴書：PDF/Word",
+   "ko": "오프라인 이력서: PDF/Word"
+  },
+  "blurb": {
+   "en": "Create a standout CV right on your iPhone, completely offline and private.",
+   "zh": "用 iPhone 製作出色履歷，完全離線且隱私。",
+   "ja": "iPhoneで目立つ履歴書を作成、完全にオフラインでプライバシーを保護。",
+   "ko": "iPhone에서 눈에 띄는 이력서를 작성하세요, 완전히 오프라인이며 개인 정보 보호됩니다."
+  },
+  "shot": null
+ },
+ {
+  "slug": "sono-note",
+  "cat": "tools",
+  "icon": "assets/icons/sono-note.png",
+  "url": "https://apps.apple.com/app/id6782139553",
+  "badge": "New",
+  "name": {
+   "en": "Sono Note",
+   "zh": "Sono Note：語音筆記",
+   "ja": "Sono Note：音声ノート",
+   "ko": "Sono Note: 음성 노트"
+  },
+  "sub": {
+   "en": "Voice notes, summaries & tasks",
+   "zh": "語音筆記、摘要、任務",
+   "ja": "音声メモ、要約、タスク",
+   "ko": "음성 노트, 요약 및 작업"
+  },
+  "blurb": {
+   "en": "Speak and turn thoughts into organized notes without typing.",
+   "zh": "說話即可將想法轉變為有條理的筆記，無需打字。",
+   "ja": "話すだけで考えを整理されたノートに、タイピング不要。",
+   "ko": "말만 하면 생각이 깔끔한 노트로 정리됩니다, 타이핑 필요 없음."
+  },
+  "shot": null
+ },
+ {
+  "slug": "unblurry-pro",
+  "cat": "tools",
+  "icon": "assets/icons/unblurry-pro.png",
+  "url": "https://apps.apple.com/app/id6782275018",
+  "badge": "Pro",
+  "name": {
+   "en": "Unblurry Pro: Unblur & HD",
+   "zh": "Unblurry Pro：高清救援",
+   "ja": "Unblurry Pro：画像鮮明化",
+   "ko": "Unblurry Pro: 선명한 사진"
+  },
+  "sub": {
+   "en": "Sharpen blurry photos",
+   "zh": "照片高清修復",
+   "ja": "ぼやけた写真を鮮明に",
+   "ko": "흐릿한 사진 선명하게"
+  },
+  "blurb": {
+   "en": "Transform blurry photos into crisp HD with powerful on-device AI.",
+   "zh": "用強大的設備 AI 將模糊照片變為高清。",
+   "ja": "デバイス内の強力なAIで、ぼやけた写真を鮮明なHDに。",
+   "ko": "강력한 기기 내 AI로 흐릿한 사진을 선명한 HD로 변환하세요."
+  },
+  "shot": null
+ },
+ {
+  "slug": "zodira",
+  "cat": "tools",
+  "icon": "assets/icons/zodira.png",
+  "url": "https://apps.apple.com/app/id6783609555",
+  "badge": "New",
+  "name": {
+   "en": "Zodira",
+   "zh": "Zodira：星座與塔羅",
+   "ja": "Zodira：ホロスコープとタロット",
+   "ko": "Zodira: 별자리와 타로"
+  },
+  "sub": {
+   "en": "Tarot, horoscope & charts",
+   "zh": "塔羅、星座、命盤",
+   "ja": "タロット、ホロスコープ、チャート",
+   "ko": "타로, 별자리, 차트"
+  },
+  "blurb": {
+   "en": "Discover daily insights with a unique blend of astrology wisdom.",
+   "zh": "透過獨特的占星智慧，發現每日洞察。",
+   "ja": "独自の占星術の知恵で、毎日の洞察を発見。",
+   "ko": "독창적인 점성술 지혜로 매일의 통찰을 발견하세요."
+  },
+  "shot": null
+ },
+ {
+  "slug": "aim990",
+  "cat": "tools",
+  "icon": "assets/icons/aim990.png",
+  "url": "https://apps.apple.com/app/id6784974530",
+  "badge": "New",
+  "name": {
+   "en": "Aim990",
+   "zh": "Aim990：30天 TOEIC 教練",
+   "ja": "Aim990：30日TOEICコーチ",
+   "ko": "Aim990: 30일 TOEIC 코치"
+  },
+  "sub": {
+   "en": "30-Day TOEIC L&R Prep Coach",
+   "zh": "30天 TOEIC 準備教練",
+   "ja": "30日間のTOEIC準備",
+   "ko": "30일간의 TOEIC 준비 코치"
+  },
+  "blurb": {
+   "en": "Reach your ultimate TOEIC score with focused daily practice.",
+   "zh": "透過專注的每日練習，達成你的 TOEIC 目標分數。",
+   "ja": "集中した毎日の練習で、TOEICの最高スコアを目指そう。",
+   "ko": "집중된 매일 연습으로 TOEIC 목표 점수에 도달하세요."
+  },
+  "shot": null
+ },
+ {
+  "slug": "mochi-todo",
+  "cat": "tools",
+  "icon": "assets/icons/mochi-todo.png",
+  "url": "https://apps.apple.com/app/id6785004775",
+  "badge": "New",
+  "name": {
+   "en": "Mochi To-Do: Cute Checklist",
+   "zh": "Mochi To-Do：萌系清單",
+   "ja": "Mochi To-Do：かわいいチェックリスト",
+   "ko": "Mochi To-Do: 귀여운 체크리스트"
+  },
+  "sub": {
+   "en": "To-Do List, Widgets, Skins",
+   "zh": "待辦清單、小工具、外觀",
+   "ja": "To-Doリスト、ウィジェット、スキン",
+   "ko": "할 일 목록, 위젯, 스킨"
+  },
+  "blurb": {
+   "en": "Make your daily tasks delightful with charming lists and themes.",
+   "zh": "用可愛的清單和主題讓每日任務變得愉快。",
+   "ja": "かわいいリストとテーマで、日々のタスクを楽しく。",
+   "ko": "매일의 작업을 매력적인 목록과 테마로 기쁘게 만드세요."
+  },
+  "shot": null
+ }
 ];
