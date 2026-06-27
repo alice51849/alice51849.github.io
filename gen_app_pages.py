@@ -35,6 +35,28 @@ SHOTS = {"lockhour":"lockhour-pro","lumibopomofo":"lumi-bopomofo","lumiletters":
 CAT_MAP = {"productivity":"Productivity","finance":"Finance","photo-utility":"Photography & Video",
  "health":"Health & Fitness","lifestyle":"Lifestyle","kids":"Education","education":"Education"}
 
+# 多語言:UI 字串 + OpenAI 輸出語言。en 為主頁(app/{slug}/),其餘為 app/{slug}/{lang}/
+LANGS = {
+ "en": {"html":"en","cta":"Download on the App Store →","get":"Get {name} on the App Store →",
+        "why":"Why {name}","features":"Features","faq":"Frequently asked questions",
+        "made":"Made by Lumi Studio — pay once, no ads, privacy-first.","all":"All apps",
+        "oai":"English (US)"},
+ "zh": {"html":"zh-Hant","cta":"前往 App Store 下載 →","get":"在 App Store 下載 {name} →",
+        "why":"為什麼選擇 {name}","features":"主要功能","faq":"常見問題",
+        "made":"由 Lumi Studio 製作 — 一次買斷、無廣告、隱私優先。","all":"所有 App",
+        "oai":"Traditional Chinese as written natively in Taiwan (zh-Hant-TW)"},
+ "ja": {"html":"ja","cta":"App Store でダウンロード →","get":"{name} を App Store で入手 →",
+        "why":"{name} が選ばれる理由","features":"主な機能","faq":"よくある質問",
+        "made":"Lumi Studio 制作 — 買い切り・広告なし・プライバシー第一。","all":"すべてのアプリ",
+        "oai":"natural native Japanese"},
+ "ko": {"html":"ko","cta":"App Store에서 다운로드 →","get":"App Store에서 {name} 받기 →",
+        "why":"{name}를 선택하는 이유","features":"주요 기능","faq":"자주 묻는 질문",
+        "made":"Lumi Studio 제작 — 한 번 결제, 광고 없음, 개인정보 우선.","all":"모든 앱",
+        "oai":"natural native Korean"},
+}
+LANG_ORDER = ["en","zh","ja","ko"]
+HREFLANG = {"en":"en","zh":"zh-Hant","ja":"ja","ko":"ko"}
+
 
 def parse_datajs(path):
     """解析 assets/data.js 的 window.APPS 陣列成 threads 相容 dict(雲端素材來源)。"""
@@ -53,6 +75,7 @@ def parse_datajs(path):
         nm = e.get("name", {}); sb = e.get("sub", {}); bl = e.get("blurb", {})
         apps[slug] = {
             "name": (nm.get("en") or nm.get("zh") or slug).split(":")[0].strip(),
+            "name_i18n": nm, "sub_i18n": sb, "blurb_i18n": bl,
             "url": e.get("url", ""), "category": e.get("cat", ""),
             "title": sb.get("en", ""), "sub": bl.get("en") or sb.get("en", ""),
             "kicker": (e.get("badge") or "APP").upper(), "cta_bullets": [], "keywords": [],
@@ -61,13 +84,15 @@ def parse_datajs(path):
 
 
 def load_apps():
-    """素材來源優先序:APPS_JSON env > threads apps.json(本地) > data.js(雲端)。"""
+    """素材來源優先序:APPS_SOURCE=datajs 強制 data.js > APPS_JSON env > threads apps.json(本地) > data.js(雲端)。"""
+    dj = os.path.join(SITE, "assets", "data.js")
+    if os.environ.get("APPS_SOURCE") == "datajs" and os.path.exists(dj):
+        return parse_datajs(dj)
     env = os.environ.get("APPS_JSON", "")
     if env and os.path.exists(env):
         return json.load(open(env, encoding="utf-8"))
     if os.path.exists(APPS_JSON):
         return json.load(open(APPS_JSON, encoding="utf-8"))
-    dj = os.path.join(SITE, "assets", "data.js")
     if os.path.exists(dj):
         return parse_datajs(dj)
     return {}
@@ -105,25 +130,29 @@ Return STRICT JSON:
  "faqs": [ {"q":"natural long-tail question a real user googles", "a":"helpful 1-2 sentence answer"} x5 ]
 }
 Rules: sound human, specific, no fluff, no 'Introducing/Say goodbye/game-changer'. Weave in the app's real keywords naturally. FAQs should target real search intent (pricing, privacy, how-to, comparisons).
-CRITICAL: Never claim whether the app needs internet or works offline — you don't know, so don't state it. Don't invent specific numbers, ratings, or technical specs not provided. For privacy/data questions, say it's privacy-first and never sells your data. For pricing, it's a one-time purchase with no subscription."""
+CRITICAL: Never claim whether the app needs internet or works offline — you don't know, so don't state it. Don't invent specific numbers, ratings, or technical specs not provided. For privacy/data questions, say it's privacy-first and never sells your data. For pricing, it's a one-time purchase with no subscription.
+LANGUAGE: Write ALL fields (meta, hero_line, intro, sections, features, faqs) in the OUTPUT LANGUAGE the user specifies — as a native copywriter for that market, natural and idiomatic, never a literal translation. Keep the app's brand name in its original Latin spelling."""
 
-def gen_content(app):
-    u=(f"App: {app['name']}\nTagline: {app.get('title','')} — {app.get('sub','')}\n"
+def gen_content(app, lang="en"):
+    g=lambda k: (app.get(k+"_i18n",{}) or {}).get(lang) or app.get(k,"")
+    u=(f"App: {app['name']}\nTagline: {g('title')} — {g('sub')}\n"
        f"Category: {app.get('category','')}\nKeywords: {', '.join(app.get('keywords',[]))}\n"
-       f"Selling points: {', '.join(app.get('cta_bullets',[]))}\nMonetization: one-time purchase (pay once), no subscription, privacy-first, no ads.\nWrite the landing page content as JSON now.")
+       f"Selling points: {', '.join(app.get('cta_bullets',[]))}\nMonetization: one-time purchase (pay once), no subscription, privacy-first, no ads.\n"
+       f"OUTPUT LANGUAGE: {LANGS[lang]['oai']}.\nWrite the landing page content as JSON now.")
     return _openai_json([{"role":"system","content":SYS},{"role":"user","content":u}])
 
 
 def esc(s): return (str(s).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace('"',"&quot;"))
 
 PAGE="""<!DOCTYPE html>
-<html lang="en">
+<html lang="{htmllang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{meta}">
 <link rel="canonical" href="{url}">
+{hreflang}
 <meta name="theme-color" content="#fffaf0">
 <meta property="og:type" content="product">
 <meta property="og:title" content="{ogtitle}">
@@ -178,7 +207,7 @@ h2{{font-size:23px;font-weight:800;margin-bottom:14px}}
 <div class="kicker">{kicker}</div>
 <h1>{name}</h1>
 <p class="sub">{hero_line}</p>
-<a class="cta" href="{store}" rel="noopener">Download on the App Store →</a>
+<a class="cta" href="{store}" rel="noopener">{c_cta}</a>
 <div class="pills">{pills}</div>
 {shot}
 </div>
@@ -186,44 +215,50 @@ h2{{font-size:23px;font-weight:800;margin-bottom:14px}}
 <p class="intro">{intro}</p>
 </section>
 <section>
-<h2>Why {name}</h2>
+<h2>{c_why}</h2>
 {blocks}
 </section>
 <section>
-<h2>Features</h2>
+<h2>{c_features}</h2>
 <div class="feat">{features}</div>
 </section>
 <section class="faq">
-<h2>Frequently asked questions</h2>
+<h2>{c_faq}</h2>
 <dl>{faqs}</dl>
 </section>
 <div style="text-align:center;padding:8px 0 30px">
-<a class="cta" href="{store}" rel="noopener">Get {name} on the App Store →</a>
+<a class="cta" href="{store}" rel="noopener">{c_get}</a>
 </div>
 </div>
 <div class="foot">
-<div>Made by Lumi Studio — pay once, no ads, privacy-first.</div>
-<div style="margin-top:8px"><a href="/">All apps</a> · <a href="{store}" rel="noopener">App Store</a></div>
+<div>{c_made}</div>
+<div style="margin-top:8px"><a href="/">{c_all}</a> · <a href="{store}" rel="noopener">App Store</a></div>
 </div>
 </body>
 </html>
 """
 
-def build_page(slug, app, content):
+def build_page(slug, app, content, lang="en"):
+    L=LANGS[lang]
     gslug=ICON.get(slug,slug)
     icon=f"/assets/icons/{gslug}.png"; icon_abs=BASE+icon
-    url=f"{BASE}/app/{gslug}/"
+    suffix="" if lang=="en" else f"{lang}/"
+    url=f"{BASE}/app/{gslug}/{suffix}"
     store=app.get("url","")
-    name=app["name"]
+    name=re.split(r"[:：]", (app.get("name_i18n",{}) or {}).get(lang) or app["name"])[0].strip()
+    tagline=(app.get("sub_i18n",{}) or {}).get(lang) or app.get("title","")
     cat=CAT_MAP.get(app.get("category",""),"Utilities")
-    title=f"{name} — {app.get('title','')} | iOS App"[:60]
+    title=f"{name} — {tagline} | iOS App"[:60]
     pills="".join(f'<span class="pill">{esc(b)}</span>' for b in app.get("cta_bullets",[])[:4])
     blocks="".join(f'<div class="blk"><h3>{esc(s["h"])}</h3><p>{esc(s["p"])}</p></div>' for s in content.get("sections",[]))
     features="".join(f'<div>{esc(f)}</div>' for f in content.get("features",[])[:6])
     faqs="".join(f'<dt>{esc(q["q"])}</dt><dd>{esc(q["a"])}</dd>' for q in content.get("faqs",[]))
     shot=""
-    if slug in SHOTS:
-        shot=f'<img class="shot" src="/assets/shots/{SHOTS[slug]}.jpg" alt="{esc(name)} screenshot" loading="lazy">'
+    shot_file=SHOTS.get(slug, gslug)
+    if os.path.exists(os.path.join(SITE,"assets","shots",shot_file+".jpg")):
+        shot=f'<img class="shot" src="/assets/shots/{shot_file}.jpg" alt="{esc(name)} screenshot" loading="lazy">'
+    hreflang="".join(f'<link rel="alternate" hreflang="{HREFLANG[lg]}" href="{BASE}/app/{gslug}/{"" if lg=="en" else lg+"/"}">' for lg in LANG_ORDER)
+    hreflang+=f'<link rel="alternate" hreflang="x-default" href="{BASE}/app/{gslug}/">'
     schema={
      "@context":"https://schema.org","@type":"SoftwareApplication","name":name,
      "operatingSystem":"iOS","applicationCategory":f"{cat}Application" if not cat.endswith("Application") else cat,
@@ -235,14 +270,17 @@ def build_page(slug, app, content):
     faq_schema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":q["q"],"acceptedAnswer":{"@type":"Answer","text":q["a"]}} for q in content.get("faqs",[])]}
     schema_str=json.dumps([schema,faq_schema],ensure_ascii=False,indent=0)
-    html=PAGE.format(title=esc(title),meta=esc(content.get("meta","")),url=url,ogtitle=esc(name+" — "+app.get("title","")),
+    html=PAGE.format(title=esc(title),meta=esc(content.get("meta","")),url=url,ogtitle=esc(name+" — "+tagline),
         icon=icon,icon_abs=icon_abs,schema=schema_str,kicker=esc(app.get("kicker","APP")),name=esc(name),
-        hero_line=esc(content.get("hero_line",app.get("sub",""))),store=store,pills=pills,shot=shot,
-        intro=esc(content.get("intro","")),blocks=blocks,features=features,faqs=faqs)
-    out_dir=os.path.join(SITE,"app",gslug)
+        hero_line=esc(content.get("hero_line",tagline)),store=store,pills=pills,shot=shot,
+        intro=esc(content.get("intro","")),blocks=blocks,features=features,faqs=faqs,
+        htmllang=L["html"],hreflang=hreflang,c_cta=esc(L["cta"]),c_get=esc(L["get"].format(name=name)),
+        c_why=esc(L["why"].format(name=name)),c_features=esc(L["features"]),c_faq=esc(L["faq"]),
+        c_made=esc(L["made"]),c_all=esc(L["all"]))
+    out_dir=os.path.join(SITE,"app",gslug) if lang=="en" else os.path.join(SITE,"app",gslug,lang)
     os.makedirs(out_dir,exist_ok=True)
     open(os.path.join(out_dir,"index.html"),"w",encoding="utf-8").write(html)
-    return f"app/{gslug}/index.html"
+    return f"app/{gslug}/{suffix}index.html"
 
 
 def rebuild_sitemap(apps):
@@ -252,8 +290,10 @@ def rebuild_sitemap(apps):
     for slug in apps:
         if not apps[slug].get("url"): continue
         gslug=ICON.get(slug,slug)
-        if os.path.exists(os.path.join(SITE,"app",gslug,"index.html")):
-            urls.append(f"{BASE}/app/{gslug}/")
+        for lang in LANG_ORDER:
+            d=os.path.join(SITE,"app",gslug,"index.html") if lang=="en" else os.path.join(SITE,"app",gslug,lang,"index.html")
+            if os.path.exists(d):
+                urls.append(f"{BASE}/app/{gslug}/" if lang=="en" else f"{BASE}/app/{gslug}/{lang}/")
     today=time.strftime("%Y-%m-%d")
     body='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for u in urls:
@@ -268,12 +308,14 @@ def main():
     ap.add_argument("--slug"); ap.add_argument("--all",action="store_true")
     ap.add_argument("--force",action="store_true"); ap.add_argument("--sitemap",action="store_true")
     ap.add_argument("--limit",type=int,default=99)
+    ap.add_argument("--langs",default="en",help="逗號分隔語言(en,zh,ja,ko)或 all")
     a=ap.parse_args()
     apps=load_apps()
 
     if a.sitemap:
         n=rebuild_sitemap(apps); print(f"sitemap: {n} urls"); return
 
+    langs=LANG_ORDER if a.langs=="all" else [x.strip() for x in a.langs.split(",") if x.strip() in LANGS]
     targets=[a.slug] if a.slug else (list(apps) if a.all else [])
     done=0
     for slug in targets:
@@ -282,14 +324,15 @@ def main():
         if not app or not app.get("url"):
             print(f"skip {slug}: 無資料/無連結"); continue
         gslug=ICON.get(slug,slug)
-        path=os.path.join(SITE,"app",gslug,"index.html")
-        if os.path.exists(path) and not a.force:
-            print(f"= {slug}: 已存在(跳過)"); continue
-        print(f"→ {slug}: 生成內容…")
-        c=gen_content(app)
-        if not c: print(f"  ✗ {slug} 內容生成失敗"); continue
-        rel=build_page(slug,app,c); print(f"  ✓ {rel}")
-        done+=1; time.sleep(1)
+        for lang in langs:
+            path=os.path.join(SITE,"app",gslug,"index.html") if lang=="en" else os.path.join(SITE,"app",gslug,lang,"index.html")
+            if os.path.exists(path) and not a.force:
+                print(f"= {slug}/{lang}: 已存在(跳過)"); continue
+            print(f"→ {slug}/{lang}: 生成內容…")
+            c=gen_content(app,lang)
+            if not c: print(f"  ✗ {slug}/{lang} 生成失敗"); continue
+            rel=build_page(slug,app,c,lang); print(f"  ✓ {rel}"); time.sleep(1)
+        done+=1
     n=rebuild_sitemap(apps); print(f"\nsitemap 重建: {n} urls")
 
 

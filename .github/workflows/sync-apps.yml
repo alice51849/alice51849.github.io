@@ -34,11 +34,12 @@ jobs:
           ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
         run: node scripts/sync-apps.mjs
 
-      - name: Generate SEO landing pages for any app missing one
+      - name: Generate SEO landing pages (all languages) for any app missing one
         if: always()
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
-        run: python3 gen_app_pages.py --all
+          APPS_SOURCE: datajs
+        run: python3 gen_app_pages.py --all --langs all
 
       - name: Commit & push if anything changed
         run: |
