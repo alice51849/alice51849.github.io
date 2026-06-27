@@ -24,7 +24,6 @@
 - Lumi Mission Planet Pro — The morning routine that runs itself: Habits, chores & bedtime kids actually want to do — https://apps.apple.com/app/id6779745474
 - Lumi Bopomofo — The playful way kids learn Bopomofo: Zhuyin phonics, tracing & tone games — the first step to reading Chinese — https://apps.apple.com/app/id6773017109
 - Lumi Bopomofo Pro — Everything your kid needs to read Chinese: The complete Zhuyin (Bopomofo) world — every sound & game unlocked — https://apps.apple.com/app/id6775773117
-
-## Not listed yet
-
-- Zodira — App Store URL pending; skipped from public link automation.
+- Aim990 — 30 days to make TOEIC prep feel doable: Daily L&R study plans, weak-spot drills & score tracking toward 990 — https://apps.apple.com/app/id6784974530
+- Mochi To-Do: Cute Checklist — Make your to-do list too cute to ignore: Tiny checklists, home screen widgets & collectible skins for daily tasks — https://apps.apple.com/app/id6785004775
+- Zodira — East meets West for daily insight: AI astrology, tarot, horoscope, BaZi & Zi Wei — offline and private — https://apps.apple.com/app/id6783609555
