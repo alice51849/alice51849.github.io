@@ -21,6 +21,7 @@ const DRY    = process.env.DRY_RUN === '1';
 const ROOT  = process.cwd();
 const DATA  = path.join(ROOT, 'assets', 'data.js');
 const ICONS = path.join(ROOT, 'assets', 'icons');
+const SHOTS = path.join(ROOT, 'assets', 'shots');
 const TARGET_LOCALES = { en: ['en-US', 'en-GB', 'en-AU'], zh: ['zh-Hant', 'zh-Hans'], ja: ['ja'], ko: ['ko'] };
 
 if (!KEY_ID || !ISSUER || !P8) { console.error('✗ Missing ASC_KEY_ID / ASC_ISSUER_ID / ASC_PRIVATE_KEY'); process.exit(1); }
@@ -48,6 +49,27 @@ async function itunesLookup(id) {
     const j = await r.json();
     return (j.results && j.results[0]) || null;
   } catch { return null; }
+}
+// 撈 App Store iPhone hero 截圖,下載到 assets/shots/{slug}.jpg
+async function fetchHeroShot(appleId, slug) {
+  try {
+    const vers = await api(`/v1/apps/${appleId}/appStoreVersions?limit=1`);
+    if (!vers.data[0]) return;
+    const locs = await api(`/v1/appStoreVersions/${vers.data[0].id}/appStoreVersionLocalizations`);
+    const loc = locs.data.find((l) => l.attributes.locale === 'en-US') || locs.data[0];
+    if (!loc) return;
+    const sets = await api(`/v1/appStoreVersionLocalizations/${loc.id}/appScreenshotSets`);
+    const iph = sets.data.find((s) => /IPHONE/.test(s.attributes.screenshotDisplayType));
+    if (!iph) return;
+    const shots = await api(`/v1/appScreenshotSets/${iph.id}/appScreenshots`);
+    const ia = shots.data.map((s) => s.attributes.imageAsset).find(Boolean);
+    if (!ia) return;
+    const w = 600, h = Math.round((w * ia.height) / ia.width);
+    const url = ia.templateUrl.replace('{w}', w).replace('{h}', h).replace('{f}', 'jpg');
+    const r = await fetch(url); const buf = Buffer.from(await r.arrayBuffer());
+    fs.writeFileSync(path.join(SHOTS, slug + '.jpg'), buf);
+    console.log(`  📸 shot ${slug}.jpg`);
+  } catch (e) { console.log(`  (no shot for ${slug}: ${e.message})`); }
 }
 const pick = (list, locales, field) => {
   for (const loc of locales) { const hit = list.find((x) => x.attributes.locale === loc); if (hit && hit.attributes[field]) return hit.attributes[field]; }
@@ -113,6 +135,12 @@ async function main() {
     const r = await fetch(hi); const buf = Buffer.from(await r.arrayBuffer());
     fs.writeFileSync(path.join(ICONS, a.entry.slug + '.png'), buf);
     console.log(`  ⬇ icon ${a.entry.slug}.png (${(buf.length / 1024) | 0} KB)`);
+  }
+
+  // 3b) download App Store hero screenshots for the new apps
+  fs.mkdirSync(SHOTS, { recursive: true });
+  for (const a of additions) {
+    await fetchHeroShot(a.appleId, a.entry.slug);
   }
 
   // 4) append entries to data.js, leaving existing curated entries untouched
