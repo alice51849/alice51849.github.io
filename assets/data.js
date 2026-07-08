@@ -597,5 +597,31 @@ window.APPS=[
    "ko": "매일의 작업을 매력적인 목록과 테마로 기쁘게 만드세요."
   },
   "shot": null
+ },
+ {
+  "slug": "sereno",
+  "cat": "tools",
+  "icon": "assets/icons/sereno.png",
+  "url": "https://apps.apple.com/tw/app/sereno-%E6%A5%B5%E8%87%B4%E7%9D%A1%E7%9C%A0%E9%9F%B3%E6%95%88/id6788236641?uo=4",
+  "badge": "",
+  "name": {
+   "en": "Sereno: Sleep Sounds",
+   "zh": "Sereno: 極致睡眠音效",
+   "ja": "Sereno: スリープサウンド",
+   "ko": "Sereno: 수면 사운드"
+  },
+  "sub": {
+   "en": "White noise for sleep & focus",
+   "zh": "白噪音助眠與專注神器",
+   "ja": "眠りと集中のホワイトノイズ",
+   "ko": "수면과 집중을 위한 화이트 노이즈"
+  },
+  "blurb": {
+   "en": "Buy once, sleep forever. Blend dozens of living sounds into 1000+ unique soundscapes — real-time, never a loop, nev…",
+   "zh": "一次購買，永遠安睡。將數十種活生生的聲音混合成超過 1000 種獨特的音景——即時生成，絕不重複，絕不訂閱，100% 離線。",
+   "ja": "一度購入して、永遠に眠る。数十の生きたサウンドを1000以上のユニークなサウンドスケープにブレンド — リアルタイム、ループなし、サブスクリプションなし、100%オフライン。",
+   "ko": "한 번 구매하고 영원히 잠들다. 수십 개의 생생한 사운드를 1000개 이상의 독특한 사운드스케이프로 블렌드 — 실시간, 루프 없음, 구독 없음, 100% 오프라인."
+  },
+  "shot": null
  }
 ];
