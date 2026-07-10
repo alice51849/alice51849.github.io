@@ -623,5 +623,31 @@ window.APPS=[
    "ko": "한 번 구매하고 영원히 잠들다. 수십 개의 생생한 사운드를 1000개 이상의 독특한 사운드스케이프로 블렌드 — 실시간, 루프 없음, 구독 없음, 100% 오프라인."
   },
   "shot": null
+ },
+ {
+  "slug": "tripbee",
+  "cat": "tools",
+  "icon": "assets/icons/tripbee.png",
+  "url": "https://apps.apple.com/tw/app/tripbee-%E6%97%85%E9%81%8A%E8%A1%8C%E7%A8%8B%E8%A6%8F%E5%8A%83/id6787754435?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "TripBee Pro: Trip Planner",
+   "zh": "TripBee: 旅遊行程規劃",
+   "ja": "TripBee: 旅行プランナー",
+   "ko": "TripBee: 여행 플래너"
+  },
+  "sub": {
+   "en": "Itinerary, packing & maps",
+   "zh": "行程表・打包清單・導航",
+   "ja": "旅程表・持ち物リスト",
+   "ko": "여행 일정과 짐 싸기"
+  },
+  "blurb": {
+   "en": "Plan smarter, pack lighter, travel happier. One-time purchase — no subscription, no ads. Your trips stay private an…",
+   "zh": "一次購買，無訂閱無廣告無追蹤。逐日行程、智慧打包、Apple 地圖導航、天氣備案與旅程海報，全都私密離線完成。",
+   "ja": "一度きりの購入。サブスクなし、広告なし、追跡なし。日程、持ち物、Appleマップ案内、天気の代替案、旅ポスターまで完全オフラインで。",
+   "ko": "한 번만 구매하세요. 구독·광고·추적 없음. 날짜별 일정, 스마트 짐 목록, Apple 지도, 날씨 대안, 여행 포스터까지 완전 오프라인으로."
+  },
+  "shot": null
  }
 ];
