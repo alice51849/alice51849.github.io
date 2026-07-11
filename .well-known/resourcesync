@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:rs="http://www.openarchives.org/rs/terms/">
+  <rs:ln rel="describedby" href="https://alice51849.github.io/ios-app-guide/resourcesync/bopomofo-collection.jsonld" type="application/ld+json"/>
+  <rs:md capability="description"/>
+  <url>
+    <loc>https://alice51849.github.io/ios-app-guide/resourcesync/capabilitylist.xml</loc>
+    <rs:md capability="capabilitylist"/>
+    <rs:ln rel="describedby" href="https://alice51849.github.io/ios-app-guide/resourcesync/bopomofo-collection.jsonld" type="application/ld+json"/>
+  </url>
+</urlset>
