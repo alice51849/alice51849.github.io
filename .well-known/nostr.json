@@ -1,0 +1,13 @@
+{
+  "names": {
+    "apps": "4601a3c7a91925d9a2b1683538a820704ba5b35b67b87a59152dccfecd40802e"
+  },
+  "relays": {
+    "4601a3c7a91925d9a2b1683538a820704ba5b35b67b87a59152dccfecd40802e": [
+      "wss://relay.damus.io",
+      "wss://nos.lol",
+      "wss://relay.primal.net",
+      "wss://relay.nostr.band"
+    ]
+  }
+}
