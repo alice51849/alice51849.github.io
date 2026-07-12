@@ -23,21 +23,26 @@ jobs:
         with:
           python-version: "3.x"
       - name: Verify single-entry feed and live-app rotation
-        run: python3 .github/scripts/test_bridgy_feed.py -q
+        run: |
+          python3 .github/scripts/test_bridgy_feed.py -q
+          python3 .github/scripts/test_pingomatic_notify.py -q
       - name: Generate today's live app entry
         run: python3 .github/scripts/bridgy_feed.py
       - name: Persist feed update
+        id: persist
         run: |
           if git diff --quiet -- bridgy-feed.xml; then
             echo "Bridgy feed is already current."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "lumi-bridgy-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add bridgy-feed.xml
-          git commit -m "chore: rotate Bridgy app guide [skip ci]"
+          git commit -m "chore: rotate Bridgy app guide"
           for attempt in 1 2 3; do
             if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             git rebase --abort || true
@@ -46,3 +51,6 @@ jobs:
             fi
           done
           exit 1
+      - name: Notify feed update services
+        if: steps.persist.outputs.changed == 'true'
+        run: python3 .github/scripts/pingomatic_notify.py
