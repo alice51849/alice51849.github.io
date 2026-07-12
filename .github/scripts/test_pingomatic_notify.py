@@ -149,6 +149,14 @@ class RpcTests(unittest.TestCase):
 
 
 class WiringTests(unittest.TestCase):
+    def test_cli_refuses_an_unguarded_notification(self):
+        with (
+            mock.patch.object(notify, "run") as run,
+            mock.patch("sys.stderr"),
+        ):
+            self.assertEqual(2, notify.main([]))
+        run.assert_not_called()
+
     def test_workflow_only_notifies_after_a_persisted_change(self):
         workflow = (
             notify.ROOT / ".github/workflows/bridgy-feed-daily.yml"
@@ -159,7 +167,10 @@ class WiringTests(unittest.TestCase):
             "if: steps.persist.outputs.changed == 'true'",
             workflow,
         )
-        self.assertIn("python3 .github/scripts/pingomatic_notify.py", workflow)
+        self.assertIn(
+            "python3 .github/scripts/pingomatic_notify.py --feed-changed",
+            workflow,
+        )
         self.assertNotIn("[skip ci]", workflow)
 
 

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import http.client
 import pathlib
 import sys
@@ -28,7 +29,7 @@ FEED_PATH = ROOT / "bridgy-feed.xml"
 
 
 class NotifyError(RuntimeError):
-    """The feed was not ready or Ping-O-Matic rejected the notification."""
+    """The feed was not ready or an update service rejected the notification."""
 
 
 class FetchError(NotifyError):
@@ -99,6 +100,7 @@ def wait_for_live_feed(
     *,
     attempts: int = 30,
     interval: int = 10,
+    label: str = "Ping-O-Matic",
     opener=None,
     sleeper=None,
 ) -> int:
@@ -119,7 +121,7 @@ def wait_for_live_feed(
             last_error = "public feed still serves the previous entry"
         if attempt < attempts:
             print(
-                f"Ping-O-Matic: {last_error}; checking again in {interval}s",
+                f"{label}: {last_error}; checking again in {interval}s",
                 file=sys.stderr,
             )
             sleeper(interval)
@@ -137,36 +139,43 @@ def render_ping_request() -> bytes:
     ).encode("utf-8")
 
 
-def parse_ping_response(content: bytes) -> str:
+def parse_ping_response(content: bytes, *, service: str = "Ping-O-Matic") -> str:
     try:
         params, _method = xmlrpc.client.loads(content)
     except xmlrpc.client.Fault as error:
         raise NotifyError(
-            f"Ping-O-Matic XML-RPC fault {error.faultCode}: {error.faultString}"
+            f"{service} XML-RPC fault {error.faultCode}: {error.faultString}"
         ) from error
     except (
         xmlrpc.client.ResponseError,
         xml.parsers.expat.ExpatError,
     ) as error:
-        raise NotifyError(f"Ping-O-Matic returned invalid XML-RPC: {error}") from error
+        raise NotifyError(f"{service} returned invalid XML-RPC: {error}") from error
     if len(params) != 1 or not isinstance(params[0], dict):
-        raise NotifyError("Ping-O-Matic returned an unexpected XML-RPC result")
+        raise NotifyError(f"{service} returned an unexpected XML-RPC result")
     result = params[0]
     if result.get("flerror") not in (False, 0):
         message = result.get("message")
         detail = message.strip() if isinstance(message, str) else "unknown error"
-        raise NotifyError(f"Ping-O-Matic rejected the update: {detail}")
+        raise NotifyError(f"{service} rejected the update: {detail}")
     message = result.get("message")
     if not isinstance(message, str) or not message.strip():
-        raise NotifyError("Ping-O-Matic success response is missing a message")
+        raise NotifyError(f"{service} success response is missing a message")
     return message.strip()
 
 
-def send_ping(*, opener=None, timeout: int = 30) -> str:
+def post_ping_request(
+    rpc_url: str,
+    body: bytes,
+    *,
+    service: str,
+    opener=None,
+    timeout: int = 30,
+) -> str:
     opener = urllib.request.urlopen if opener is None else opener
     request = urllib.request.Request(
-        RPC_URL,
-        data=render_ping_request(),
+        rpc_url,
+        data=body,
         headers={
             "Accept": "text/xml",
             "Content-Type": "text/xml; charset=utf-8",
@@ -180,7 +189,7 @@ def send_ping(*, opener=None, timeout: int = 30) -> str:
     except urllib.error.HTTPError as error:
         body = _error_body(error)
         raise NotifyError(
-            f"Ping-O-Matic request failed: HTTP {error.code}: {body[:200]}"
+            f"{service} request failed: HTTP {error.code}: {body[:200]}"
         ) from error
     except (
         urllib.error.URLError,
@@ -188,10 +197,20 @@ def send_ping(*, opener=None, timeout: int = 30) -> str:
         http.client.HTTPException,
     ) as error:
         # Do not retry an uncertain POST; duplicate update pings are worse than one miss.
-        raise NotifyError(f"Ping-O-Matic request failed: {error}") from error
+        raise NotifyError(f"{service} request failed: {error}") from error
     if len(content) > 65536:
-        raise NotifyError("Ping-O-Matic response exceeded 64 KiB")
-    return parse_ping_response(content)
+        raise NotifyError(f"{service} response exceeded 64 KiB")
+    return parse_ping_response(content, service=service)
+
+
+def send_ping(*, opener=None, timeout: int = 30) -> str:
+    return post_ping_request(
+        RPC_URL,
+        render_ping_request(),
+        service="Ping-O-Matic",
+        opener=opener,
+        timeout=timeout,
+    )
 
 
 def run() -> str:
@@ -209,7 +228,20 @@ def run() -> str:
     return message
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--feed-changed",
+        action="store_true",
+        help="confirm that this invocation follows a persisted feed change",
+    )
+    args = parser.parse_args(argv)
+    if not args.feed_changed:
+        print(
+            "Ping-O-Matic refused: --feed-changed is required",
+            file=sys.stderr,
+        )
+        return 2
     try:
         run()
         return 0

@@ -26,6 +26,7 @@ jobs:
         run: |
           python3 .github/scripts/test_bridgy_feed.py -q
           python3 .github/scripts/test_pingomatic_notify.py -q
+          python3 .github/scripts/test_twingly_notify.py -q
       - name: Generate today's live app entry
         run: python3 .github/scripts/bridgy_feed.py
       - name: Persist feed update
@@ -53,4 +54,8 @@ jobs:
           exit 1
       - name: Notify feed update services
         if: steps.persist.outputs.changed == 'true'
-        run: python3 .github/scripts/pingomatic_notify.py
+        run: |
+          status=0
+          python3 .github/scripts/pingomatic_notify.py --feed-changed || status=1
+          python3 .github/scripts/twingly_notify.py --feed-changed || status=1
+          exit "$status"
