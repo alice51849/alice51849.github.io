@@ -25,6 +25,7 @@ def feed(url: str) -> bytes:
   <entry>
     <title>Example - independent iOS app guide</title>
     <link rel="alternate" type="text/html" href="{url}" />
+    <content type="text">Example feed content.</content>
   </entry>
 </feed>
 """.encode()

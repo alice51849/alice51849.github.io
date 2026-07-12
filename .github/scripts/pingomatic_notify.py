@@ -61,6 +61,14 @@ def validate_feed(content: bytes) -> str:
     title = entries[0].findtext(f"{{{ATOM}}}title")
     if not isinstance(title, str) or not title.strip():
         raise NotifyError("Local Atom entry is missing a title")
+    content = entries[0].find(f"{{{ATOM}}}content")
+    if (
+        content is None
+        or content.attrib.get("type") != "text"
+        or not isinstance(content.text, str)
+        or not content.text.strip()
+    ):
+        raise NotifyError("Local Atom entry is missing plain-text content")
     return title.strip()
 
 

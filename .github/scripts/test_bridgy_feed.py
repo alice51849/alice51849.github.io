@@ -93,6 +93,11 @@ class AtomTests(unittest.TestCase):
             ":2026-07-12:lumi",
             entries[0].findtext(f"{{{feed.ATOM}}}id"),
         )
+        content = entries[0].find(f"{{{feed.ATOM}}}content")
+        self.assertEqual("text", content.attrib["type"])
+        self.assertIn("Lumi", content.text)
+        self.assertIn("#iOSApps #IndieApps", content.text)
+        self.assertLessEqual(len(content.text), 300)
 
     def test_next_day_replaces_instead_of_backfilling(self):
         candidate = feed.parse_candidates(payload("lumi"))[0]
@@ -109,6 +114,12 @@ class AtomTests(unittest.TestCase):
             first.findtext(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}id"),
             second.findtext(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}id"),
         )
+
+    def test_post_content_over_bluesky_limit_is_rejected(self):
+        candidate = feed.parse_candidates(payload("lumi"))[0]
+        candidate["name"] = "x" * feed.MAX_POST_LENGTH
+        with self.assertRaisesRegex(ValueError, "maximum is 300"):
+            feed.render_feed(candidate, today=feed.BASE_DATE)
 
     def test_write_is_idempotent(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -167,7 +178,10 @@ class WiringTests(unittest.TestCase):
 
     def test_checked_in_feed_is_valid_and_single_entry(self):
         root = ET.parse(feed.FEED_PATH).getroot()
-        self.assertEqual(1, len(root.findall(f"{{{feed.ATOM}}}entry")))
+        entries = root.findall(f"{{{feed.ATOM}}}entry")
+        self.assertEqual(1, len(entries))
+        content = entries[0].findtext(f"{{{feed.ATOM}}}content")
+        self.assertIn("#iOSApps #IndieApps", content)
 
 
 if __name__ == "__main__":

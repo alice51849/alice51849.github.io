@@ -27,6 +27,7 @@ USER_AGENT = (
     "(+https://github.com/alice51849/alice51849.github.io)"
 )
 ATOM = "http://www.w3.org/2005/Atom"
+MAX_POST_LENGTH = 300
 SLUG_RE = re.compile(r"^[a-z0-9-]+$")
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FEED_PATH = ROOT / "bridgy-feed.xml"
@@ -221,6 +222,20 @@ def _node(parent: ET.Element, name: str, text: str, **attributes: str) -> ET.Ele
     return element
 
 
+def post_content(name: str) -> str:
+    content = (
+        f"Today's Lumi Studio app guide: {name}. Explore practical use cases "
+        "and see whether it fits your needs before visiting the App Store. "
+        "#iOSApps #IndieApps"
+    )
+    if len(content) > MAX_POST_LENGTH:
+        raise ValueError(
+            f"Bridgy post content is {len(content)} characters; "
+            f"maximum is {MAX_POST_LENGTH}"
+        )
+    return content
+
+
 def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
     timestamp = f"{today.isoformat()}T00:00:00Z"
     slug = candidate["slug"]
@@ -260,6 +275,12 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
     )
     _node(entry, "published", timestamp)
     _node(entry, "updated", timestamp)
+    _node(
+        entry,
+        "content",
+        post_content(name),
+        type="text",
+    )
     _node(
         entry,
         "summary",
