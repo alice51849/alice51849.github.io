@@ -103,7 +103,77 @@ class AtomTests(unittest.TestCase):
         self.assertEqual(2, content.text.count("<a "))
         self.assertIn(">#iOSApps</a>", content.text)
         self.assertIn(">#IndieApps</a>", content.text)
-        self.assertLessEqual(len(feed.post_text("Lumi")), 300)
+        self.assertEqual("en", content.attrib[f"{{{feed.XML}}}lang"])
+        self.assertLessEqual(len(feed.post_text("lumi", "Lumi")), 300)
+
+    def test_revenue_market_profiles_are_localized(self):
+        cases = {
+            "lumibopomofopro": ("zh-Hant", "注音符號", "#親子學習"),
+            "hourstag": ("zh-Hant", "工作", "#消費習慣"),
+            "aim990": ("ja", "30日学習計画", "#英語学習"),
+            "cyca": ("es", "Registra ciclos", "#Privacidad"),
+        }
+        for slug, (locale, phrase, hashtag) in cases.items():
+            with self.subTest(slug=slug):
+                text = feed.post_text(slug, "Example")
+                content = feed.post_content(slug, "Example")
+                self.assertEqual(locale, feed.post_profile(slug)[0])
+                self.assertIn(phrase, text)
+                self.assertIn(hashtag, text)
+                self.assertIn(hashtag, content)
+                self.assertLessEqual(len(text), feed.MAX_POST_LENGTH)
+
+    def test_all_current_live_apps_have_curated_profiles(self):
+        self.assertEqual(
+            {
+                "aim990",
+                "cvdesk",
+                "cyca",
+                "gmoney",
+                "hourstag",
+                "lockhour",
+                "lumibopomofo",
+                "lumibopomofopro",
+                "lumiletters",
+                "lumiletterspro",
+                "lumimath",
+                "lumimathpro",
+                "lumimission",
+                "lumimissionpro",
+                "lumiweather",
+                "mochi",
+                "photocream",
+                "picclear",
+                "scanto",
+                "sereno",
+                "snapport",
+                "sononote",
+                "tripbee",
+                "unblurry",
+            },
+            set(feed.POST_PROFILES),
+        )
+
+    def test_curated_copy_avoids_pricing_and_subscription_claims(self):
+        blocked = (
+            "subscription",
+            "pay once",
+            "one-time",
+            "free",
+            "訂閱",
+            "免費",
+            "サブスク",
+            "suscripción",
+        )
+        for slug in feed.POST_PROFILES:
+            text = feed.post_text(slug, "Example").lower()
+            with self.subTest(slug=slug):
+                self.assertFalse(any(term in text for term in blocked))
+
+    def test_unknown_future_app_uses_safe_fallback(self):
+        text = feed.post_text("future-app", "Future App")
+        self.assertIn("Today's Lumi Studio app guide", text)
+        self.assertIn("#iOSApps #IndieApps", text)
 
     def test_next_day_replaces_instead_of_backfilling(self):
         candidate = feed.parse_candidates(payload("lumi"))[0]
@@ -224,7 +294,9 @@ class WiringTests(unittest.TestCase):
         )
         content = entries[0].find(f"{{{feed.ATOM}}}content")
         self.assertEqual("html", content.attrib["type"])
-        self.assertIn(">#iOSApps</a>", content.text)
+        self.assertEqual("zh-Hant", content.attrib[f"{{{feed.XML}}}lang"])
+        self.assertIn(">#注音符號</a>", content.text)
+        self.assertIn(">#親子學習</a>", content.text)
 
 
 if __name__ == "__main__":

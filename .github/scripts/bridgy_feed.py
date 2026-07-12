@@ -31,7 +31,152 @@ ATOM = "http://www.w3.org/2005/Atom"
 ACTIVITY = "http://activitystrea.ms/spec/1.0/"
 ACTIVITY_NOTE = "http://activitystrea.ms/schema/1.0/note"
 MAX_POST_LENGTH = 300
-POST_HASHTAGS = ("iOSApps", "IndieApps")
+XML = "http://www.w3.org/XML/1998/namespace"
+POST_TEMPLATES = {
+    "en": (
+        "Today's Lumi Studio app guide: {name}. {focus}. "
+        "Read the guide and see if it fits."
+    ),
+    "zh-Hant": (
+        "今日 Lumi Studio App 指南：{name}。{focus}。"
+        "查看指南，判斷是否適合。"
+    ),
+    "ja": (
+        "本日のLumi Studioアプリガイド：{name}。{focus}。"
+        "ガイドで自分に合うか確認できます。"
+    ),
+    "es": (
+        "Guía de hoy de Lumi Studio: {name}. {focus}. "
+        "Consulta la guía para ver si se adapta a ti."
+    ),
+}
+DEFAULT_POST_PROFILE = (
+    "en",
+    "Explore practical use cases before visiting the App Store",
+    ("iOSApps", "IndieApps"),
+)
+POST_PROFILES: dict[str, tuple[str, str, tuple[str, ...]]] = {
+    "lumibopomofopro": (
+        "zh-Hant",
+        "用遊戲練習注音符號與拼讀，陪孩子建立熟悉感",
+        ("注音符號", "親子學習", "iOSApp"),
+    ),
+    "lumibopomofo": (
+        "zh-Hant",
+        "透過遊戲練習注音與拼讀，配合孩子的學習節奏",
+        ("注音", "幼兒學習", "iOSApp"),
+    ),
+    "aim990": (
+        "ja",
+        "30日学習計画、弱点ドリル、進捗管理でTOEIC L&R対策を組み立てる",
+        ("TOEIC", "英語学習", "iPhoneアプリ"),
+    ),
+    "cvdesk": (
+        "en",
+        "Build ATS-friendly resumes and compare job-description keyword coverage",
+        ("Resume", "ATS", "JobSearch"),
+    ),
+    "cyca": (
+        "es",
+        "Registra ciclos, síntomas y tendencias de forma privada en el iPhone",
+        ("CicloMenstrual", "Privacidad", "AppsIOS"),
+    ),
+    "gmoney": (
+        "en",
+        "Track expenses and convert currencies in a simple offline budgeting flow",
+        ("Budgeting", "TravelFinance", "iOSApps"),
+    ),
+    "hourstag": (
+        "zh-Hant",
+        "把價格換算成需要工作的時間，讓消費決定更直覺",
+        ("理財", "消費習慣", "iOSApp"),
+    ),
+    "lockhour": (
+        "en",
+        "Block distracting apps and plan focused sessions when Screen Time is not enough",
+        ("Focus", "DigitalWellbeing", "iOSApps"),
+    ),
+    "lumiletters": (
+        "en",
+        "Practice ABCs, phonics, and letter tracing through kid-friendly activities",
+        ("Phonics", "EarlyLearning", "KidsApps"),
+    ),
+    "lumiletterspro": (
+        "en",
+        "Build early letter confidence with phonics, tracing, and playful activities",
+        ("Phonics", "PreschoolLearning", "KidsApps"),
+    ),
+    "lumimath": (
+        "en",
+        "Practice numbers and early math through a playful space adventure",
+        ("EarlyMath", "KidsLearning", "iOSApps"),
+    ),
+    "lumimathpro": (
+        "en",
+        "Explore numbers and early math through child-friendly adventure activities",
+        ("EarlyMath", "KidsLearning", "iOSApps"),
+    ),
+    "lumimission": (
+        "en",
+        "Turn chores and daily routines into clear, kid-friendly missions",
+        ("KidsRoutines", "Parenting", "iOSApps"),
+    ),
+    "lumimissionpro": (
+        "en",
+        "Help children follow chores, habits, and routines through playful missions",
+        ("KidsRoutines", "Parenting", "iOSApps"),
+    ),
+    "lumiweather": (
+        "en",
+        "Help children understand weather and choose practical clothing layers",
+        ("KidsWeather", "Parenting", "iOSApps"),
+    ),
+    "mochi": (
+        "en",
+        "Keep daily tasks approachable with a cozy checklist and satisfying completion flow",
+        ("TodoList", "Productivity", "iOSApps"),
+    ),
+    "photocream": (
+        "en",
+        "Explore vintage film looks for iPhone photos with a focused editing workflow",
+        ("FilmPhotography", "PhotoEditing", "iOSApps"),
+    ),
+    "picclear": (
+        "en",
+        "Review duplicate photos, similar shots, and storage-heavy videos privately",
+        ("PhotoCleanup", "iPhoneStorage", "iOSApps"),
+    ),
+    "scanto": (
+        "en",
+        "Scan paper into PDFs with on-device OCR, searchable text, and private export tools",
+        ("DocumentScanner", "OCR", "iOSApps"),
+    ),
+    "sereno": (
+        "en",
+        "Mix white noise and sleep sounds with timers and offline playback",
+        ("SleepSounds", "WhiteNoise", "iOSApps"),
+    ),
+    "snapport": (
+        "en",
+        "Create passport and ID photos at home with size templates and alignment guides",
+        ("PassportPhoto", "TravelPrep", "iOSApps"),
+    ),
+    "sononote": (
+        "en",
+        "Turn voice notes and meetings into summaries, decisions, and action items",
+        ("VoiceNotes", "Productivity", "iOSApps"),
+    ),
+    "tripbee": (
+        "en",
+        "Plan day-by-day itineraries with offline access and a clean travel map",
+        ("TripPlanning", "TravelApps", "iOSApps"),
+    ),
+    "unblurry": (
+        "en",
+        "Review common blur causes and try realistic fixes for focus, motion, and low light",
+        ("PhotoEditing", "iPhonePhotography", "iOSApps"),
+    ),
+}
 SLUG_RE = re.compile(r"^[a-z0-9-]+$")
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FEED_PATH = ROOT / "bridgy-feed.xml"
@@ -227,12 +372,18 @@ def _node(parent: ET.Element, name: str, text: str, **attributes: str) -> ET.Ele
     return element
 
 
-def post_text(name: str) -> str:
-    intro = (
-        f"Today's Lumi Studio app guide: {name}. Explore practical use cases "
-        "and see whether it fits your needs before visiting the App Store."
-    )
-    text = f"{intro} {' '.join(f'#{tag}' for tag in POST_HASHTAGS)}"
+def post_profile(slug: str) -> tuple[str, str, tuple[str, ...]]:
+    return POST_PROFILES.get(slug, DEFAULT_POST_PROFILE)
+
+
+def post_intro(slug: str, name: str) -> str:
+    locale, focus, _hashtags = post_profile(slug)
+    return POST_TEMPLATES[locale].format(name=name, focus=focus)
+
+
+def post_text(slug: str, name: str) -> str:
+    _locale, _focus, hashtags = post_profile(slug)
+    text = f"{post_intro(slug, name)} {' '.join(f'#{tag}' for tag in hashtags)}"
     if len(text) > MAX_POST_LENGTH:
         raise ValueError(
             f"Bridgy post content is {len(text)} characters; "
@@ -241,16 +392,15 @@ def post_text(name: str) -> str:
     return text
 
 
-def post_content(name: str) -> str:
-    text = post_text(name)
-    suffix = " ".join(f"#{tag}" for tag in POST_HASHTAGS)
-    intro = text.removesuffix(f" {suffix}")
+def post_content(slug: str, name: str) -> str:
+    _locale, _focus, hashtags = post_profile(slug)
+    post_text(slug, name)
     links = " ".join(
         f'<a href="https://bsky.app/hashtag/{urllib.parse.quote(tag, safe="")}">'
         f"#{html.escape(tag)}</a>"
-        for tag in POST_HASHTAGS
+        for tag in hashtags
     )
-    return f"<p>{html.escape(intro)} {links}</p>"
+    return f"<p>{html.escape(post_intro(slug, name))} {links}</p>"
 
 
 def post_url(url: str, *, today: dt.date) -> str:
@@ -302,18 +452,20 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
     )
     _node(entry, "published", timestamp)
     _node(entry, "updated", timestamp)
-    _node(
+    content = _node(
         entry,
         "content",
-        post_content(name),
+        post_content(slug, name),
         type="html",
     )
-    _node(
+    locale, _focus, _hashtags = post_profile(slug)
+    content.set(f"{{{XML}}}lang", locale)
+    summary = _node(
         entry,
         "summary",
-        f"Explore the public guide for {name}, with practical use cases "
-        "and a direct App Store link.",
+        post_text(slug, name),
     )
+    summary.set(f"{{{XML}}}lang", locale)
     ET.indent(feed, space="  ")
     return ET.tostring(feed, encoding="utf-8", xml_declaration=True) + b"\n"
 
