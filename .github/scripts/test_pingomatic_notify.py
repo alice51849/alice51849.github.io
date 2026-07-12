@@ -57,13 +57,17 @@ class FeedTests(unittest.TestCase):
         with self.assertRaisesRegex(notify.NotifyError, "2 entries"):
             notify.validate_feed(content)
 
-    def test_entry_without_plain_text_content_is_rejected(self):
+    def test_entry_without_html_note_content_is_rejected(self):
         content = (
-            b'<feed xmlns="http://www.w3.org/2005/Atom">'
-            b"<entry><title>One</title></entry>"
+            b'<feed xmlns="http://www.w3.org/2005/Atom" '
+            b'xmlns:activity="http://activitystrea.ms/spec/1.0/">'
+            b"<entry><title>One</title>"
+            b"<activity:object-type>"
+            b"http://activitystrea.ms/schema/1.0/note"
+            b"</activity:object-type></entry>"
             b"</feed>"
         )
-        with self.assertRaisesRegex(notify.NotifyError, "plain-text content"):
+        with self.assertRaisesRegex(notify.NotifyError, "HTML note content"):
             notify.validate_feed(content)
 
     def test_waits_until_exact_public_bytes_are_live(self):

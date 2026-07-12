@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import html
 import http.client
 import json
 import os
@@ -27,11 +28,15 @@ USER_AGENT = (
     "(+https://github.com/alice51849/alice51849.github.io)"
 )
 ATOM = "http://www.w3.org/2005/Atom"
+ACTIVITY = "http://activitystrea.ms/spec/1.0/"
+ACTIVITY_NOTE = "http://activitystrea.ms/schema/1.0/note"
 MAX_POST_LENGTH = 300
+POST_HASHTAGS = ("iOSApps", "IndieApps")
 SLUG_RE = re.compile(r"^[a-z0-9-]+$")
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FEED_PATH = ROOT / "bridgy-feed.xml"
 ET.register_namespace("", ATOM)
+ET.register_namespace("activity", ACTIVITY)
 
 
 class RequestError(RuntimeError):
@@ -222,18 +227,30 @@ def _node(parent: ET.Element, name: str, text: str, **attributes: str) -> ET.Ele
     return element
 
 
-def post_content(name: str) -> str:
-    content = (
+def post_text(name: str) -> str:
+    intro = (
         f"Today's Lumi Studio app guide: {name}. Explore practical use cases "
-        "and see whether it fits your needs before visiting the App Store. "
-        "#iOSApps #IndieApps"
+        "and see whether it fits your needs before visiting the App Store."
     )
-    if len(content) > MAX_POST_LENGTH:
+    text = f"{intro} {' '.join(f'#{tag}' for tag in POST_HASHTAGS)}"
+    if len(text) > MAX_POST_LENGTH:
         raise ValueError(
-            f"Bridgy post content is {len(content)} characters; "
+            f"Bridgy post content is {len(text)} characters; "
             f"maximum is {MAX_POST_LENGTH}"
         )
-    return content
+    return text
+
+
+def post_content(name: str) -> str:
+    text = post_text(name)
+    suffix = " ".join(f"#{tag}" for tag in POST_HASHTAGS)
+    intro = text.removesuffix(f" {suffix}")
+    links = " ".join(
+        f'<a href="https://bsky.app/hashtag/{urllib.parse.quote(tag, safe="")}">'
+        f"#{html.escape(tag)}</a>"
+        for tag in POST_HASHTAGS
+    )
+    return f"<p>{html.escape(intro)} {links}</p>"
 
 
 def post_url(url: str, *, today: dt.date) -> str:
@@ -276,6 +293,8 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
     entry = ET.SubElement(feed, f"{{{ATOM}}}entry")
     _node(entry, "id", f"tag:alice51849.github.io,{today.year}:bridgy:{today}:{slug}")
     _node(entry, "title", f"{name} — independent iOS app guide")
+    object_type = ET.SubElement(entry, f"{{{ACTIVITY}}}object-type")
+    object_type.text = ACTIVITY_NOTE
     ET.SubElement(
         entry,
         f"{{{ATOM}}}link",
@@ -287,7 +306,7 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
         entry,
         "content",
         post_content(name),
-        type="text",
+        type="html",
     )
     _node(
         entry,

@@ -21,11 +21,12 @@ from test_pingomatic_notify import FakeResponse, response
 
 def feed(url: str) -> bytes:
     return f"""<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="{common.ATOM}">
+<feed xmlns="{common.ATOM}" xmlns:activity="{common.ACTIVITY}">
   <entry>
     <title>Example - independent iOS app guide</title>
+    <activity:object-type>{common.ACTIVITY_NOTE}</activity:object-type>
     <link rel="alternate" type="text/html" href="{url}" />
-    <content type="text">Example feed content.</content>
+    <content type="html">&lt;p&gt;Example feed content.&lt;/p&gt;</content>
   </entry>
 </feed>
 """.encode()

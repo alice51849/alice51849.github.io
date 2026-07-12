@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/" xml:lang="en">
   <id>https://alice51849.github.io/bridgy-feed.xml</id>
   <title>Lumi Studio — one independent iOS app guide daily</title>
   <subtitle>A low-frequency rotation across every currently public Lumi Studio app.</subtitle>
@@ -13,10 +13,11 @@
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-07-12:lumibopomofopro</id>
     <title>Lumi Bopomofo Pro — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
     <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/lumibopomofopro.html" />
     <published>2026-07-12T00:00:00Z</published>
     <updated>2026-07-12T00:00:00Z</updated>
-    <content type="text">Today's Lumi Studio app guide: Lumi Bopomofo Pro. Explore practical use cases and see whether it fits your needs before visiting the App Store. #iOSApps #IndieApps</content>
+    <content type="html">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Lumi Bopomofo Pro. Explore practical use cases and see whether it fits your needs before visiting the App Store. &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/IndieApps"&gt;#IndieApps&lt;/a&gt;&lt;/p&gt;</content>
     <summary>Explore the public guide for Lumi Bopomofo Pro, with practical use cases and a direct App Store link.</summary>
   </entry>
 </feed>

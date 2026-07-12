@@ -94,10 +94,16 @@ class AtomTests(unittest.TestCase):
             entries[0].findtext(f"{{{feed.ATOM}}}id"),
         )
         content = entries[0].find(f"{{{feed.ATOM}}}content")
-        self.assertEqual("text", content.attrib["type"])
+        self.assertEqual(
+            feed.ACTIVITY_NOTE,
+            entries[0].findtext(f"{{{feed.ACTIVITY}}}object-type"),
+        )
+        self.assertEqual("html", content.attrib["type"])
         self.assertIn("Lumi", content.text)
-        self.assertIn("#iOSApps #IndieApps", content.text)
-        self.assertLessEqual(len(content.text), 300)
+        self.assertEqual(2, content.text.count("<a "))
+        self.assertIn(">#iOSApps</a>", content.text)
+        self.assertIn(">#IndieApps</a>", content.text)
+        self.assertLessEqual(len(feed.post_text("Lumi")), 300)
 
     def test_next_day_replaces_instead_of_backfilling(self):
         candidate = feed.parse_candidates(payload("lumi"))[0]
@@ -212,8 +218,13 @@ class WiringTests(unittest.TestCase):
         root = ET.parse(feed.FEED_PATH).getroot()
         entries = root.findall(f"{{{feed.ATOM}}}entry")
         self.assertEqual(1, len(entries))
-        content = entries[0].findtext(f"{{{feed.ATOM}}}content")
-        self.assertIn("#iOSApps #IndieApps", content)
+        self.assertEqual(
+            feed.ACTIVITY_NOTE,
+            entries[0].findtext(f"{{{feed.ACTIVITY}}}object-type"),
+        )
+        content = entries[0].find(f"{{{feed.ATOM}}}content")
+        self.assertEqual("html", content.attrib["type"])
+        self.assertIn(">#iOSApps</a>", content.text)
 
 
 if __name__ == "__main__":

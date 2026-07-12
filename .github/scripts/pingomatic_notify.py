@@ -24,6 +24,8 @@ USER_AGENT = (
     "(+https://github.com/alice51849/alice51849.github.io)"
 )
 ATOM = "http://www.w3.org/2005/Atom"
+ACTIVITY = "http://activitystrea.ms/spec/1.0/"
+ACTIVITY_NOTE = "http://activitystrea.ms/schema/1.0/note"
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FEED_PATH = ROOT / "bridgy-feed.xml"
 
@@ -61,14 +63,17 @@ def validate_feed(content: bytes) -> str:
     title = entries[0].findtext(f"{{{ATOM}}}title")
     if not isinstance(title, str) or not title.strip():
         raise NotifyError("Local Atom entry is missing a title")
+    object_type = entries[0].findtext(f"{{{ACTIVITY}}}object-type")
+    if object_type != ACTIVITY_NOTE:
+        raise NotifyError("Local Atom entry is not an ActivityStreams note")
     content = entries[0].find(f"{{{ATOM}}}content")
     if (
         content is None
-        or content.attrib.get("type") != "text"
+        or content.attrib.get("type") != "html"
         or not isinstance(content.text, str)
         or not content.text.strip()
     ):
-        raise NotifyError("Local Atom entry is missing plain-text content")
+        raise NotifyError("Local Atom entry is missing HTML note content")
     return title.strip()
 
 
