@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import pathlib
+import re
 import sys
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -15,6 +17,7 @@ import pingomatic_notify as common
 
 RPC_URL = "https://rpc.twingly.com/"
 GUIDE_PREFIX = "/ios-app-guide/guides/"
+BRIDGY_QUERY_RE = re.compile(r"^bridgy=(\d{4}-\d{2}-\d{2})$")
 
 
 def entry_details(content: bytes) -> tuple[str, str]:
@@ -37,13 +40,21 @@ def entry_details(content: bytes) -> tuple[str, str]:
     parsed = urllib.parse.urlsplit(url)
     site = urllib.parse.urlsplit(common.SITE_URL)
     relative = parsed.path[len(GUIDE_PREFIX) :]
+    query_match = BRIDGY_QUERY_RE.fullmatch(parsed.query)
+    valid_query = not parsed.query
+    if query_match:
+        try:
+            dt.date.fromisoformat(query_match.group(1))
+            valid_query = True
+        except ValueError:
+            pass
     if (
         parsed.scheme != "https"
         or parsed.netloc != site.netloc
         or not parsed.path.startswith(GUIDE_PREFIX)
         or not relative.endswith(".html")
         or "/" in relative
-        or parsed.query
+        or not valid_query
         or parsed.fragment
     ):
         raise common.NotifyError(f"Twingly entry URL is outside the guide site: {url}")

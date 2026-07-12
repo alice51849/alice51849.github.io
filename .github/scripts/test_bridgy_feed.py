@@ -114,6 +114,38 @@ class AtomTests(unittest.TestCase):
             first.findtext(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}id"),
             second.findtext(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}id"),
         )
+        first_link = first.find(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}link")
+        second_link = second.find(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}link")
+        self.assertEqual(
+            f"{feed.GUIDE_SITE}/guides/lumi.html",
+            first_link.attrib["href"],
+        )
+        self.assertEqual(
+            f"{feed.GUIDE_SITE}/guides/lumi.html?bridgy=2026-07-13",
+            second_link.attrib["href"],
+        )
+
+    def test_repeated_app_uses_a_new_daily_bridgy_url(self):
+        candidate = feed.parse_candidates(payload("lumi"))[0]
+        first_repeat = ET.fromstring(
+            feed.render_feed(
+                candidate,
+                today=feed.BASE_DATE + dt.timedelta(days=1),
+            )
+        )
+        second_repeat = ET.fromstring(
+            feed.render_feed(
+                candidate,
+                today=feed.BASE_DATE + dt.timedelta(days=2),
+            )
+        )
+        first_url = first_repeat.find(
+            f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}link"
+        ).attrib["href"]
+        second_url = second_repeat.find(
+            f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}link"
+        ).attrib["href"]
+        self.assertNotEqual(first_url, second_url)
 
     def test_post_content_over_bluesky_limit_is_rejected(self):
         candidate = feed.parse_candidates(payload("lumi"))[0]

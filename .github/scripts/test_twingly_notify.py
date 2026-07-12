@@ -47,6 +47,23 @@ class EntryTests(unittest.TestCase):
                 feed(f"{common.SITE_URL}ios-app-guide/guides/nested/app.html")
             )
 
+    def test_daily_bridgy_query_is_accepted(self):
+        url = (
+            f"{common.SITE_URL}ios-app-guide/guides/example.html"
+            "?bridgy=2026-07-13"
+        )
+        _title, parsed_url = twingly.entry_details(feed(url))
+        self.assertEqual(url, parsed_url)
+
+    def test_unrecognized_query_is_rejected(self):
+        with self.assertRaisesRegex(common.NotifyError, "outside the guide site"):
+            twingly.entry_details(
+                feed(
+                    f"{common.SITE_URL}ios-app-guide/guides/example.html"
+                    "?utm_source=test"
+                )
+            )
+
 
 class RpcTests(unittest.TestCase):
     def test_request_matches_twingly_extended_ping_documentation(self):

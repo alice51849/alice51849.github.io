@@ -236,11 +236,19 @@ def post_content(name: str) -> str:
     return content
 
 
+def post_url(url: str, *, today: dt.date) -> str:
+    # Preserve the already-published first post; later dates need unique URLs
+    # because Bridgy Fed uses the alternate URL instead of the Atom tag ID.
+    if today == BASE_DATE:
+        return url
+    return f"{url}?bridgy={today.isoformat()}"
+
+
 def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
     timestamp = f"{today.isoformat()}T00:00:00Z"
     slug = candidate["slug"]
     name = candidate["name"]
-    url = candidate["url"]
+    url = post_url(candidate["url"], today=today)
 
     feed = ET.Element(f"{{{ATOM}}}feed", {"xml:lang": "en"})
     _node(feed, "id", FEED_URL)
