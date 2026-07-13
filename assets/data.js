@@ -649,5 +649,31 @@ window.APPS=[
    "ko": "한 번만 구매하세요. 구독·광고·추적 없음. 날짜별 일정, 스마트 짐 목록, Apple 지도, 날씨 대안, 여행 포스터까지 완전 오프라인으로."
   },
   "shot": null
+ },
+ {
+  "slug": "lumi-trip-planet",
+  "cat": "kids",
+  "icon": "assets/icons/lumi-trip-planet.png",
+  "url": "https://apps.apple.com/tw/app/lumi-trip-planet-%E7%92%B0%E7%90%83%E6%97%85%E8%A1%8C/id6787193643?uo=4",
+  "badge": "",
+  "name": {
+   "en": "Lumi Trip Planet: World Travel",
+   "zh": "Lumi Trip Planet 環球旅行",
+   "ja": "Lumi Trip Planet 世界の旅",
+   "ko": "Lumi Trip Planet 세계 여행"
+  },
+  "sub": {
+   "en": "Family travel adventure",
+   "zh": "家庭旅行冒險",
+   "ja": "家族旅行の冒険",
+   "ko": "가족 여행 모험"
+  },
+  "blurb": {
+   "en": "Turn 'are we there yet?' into fun. Offline travel missions, packing help and rewards that keep the whole family smi…",
+   "zh": "轉「我們到了嗎？」變成樂趣。離線旅行任務、打包幫助和獎勵，讓全家人在整個旅程中保持微笑。",
+   "ja": "「もうそこですか？」と向きを変えます。楽しみに。オフライン旅行ミッションでは、旅の間ずっと家族全員が笑顔でいられるよう、荷造りのお手伝いや報酬を提供します。",
+   "ko": "'우리 아직 거기 있나요?' 재미있게. 여행 내내 온 가족이 미소를 지을 수 있도록 오프라인 여행 임무, 짐 꾸리기 도움말 및 보상을 제공합니다."
+  },
+  "shot": null
  }
 ];
