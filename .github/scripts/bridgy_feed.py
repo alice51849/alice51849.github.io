@@ -32,6 +32,7 @@ ACTIVITY = "http://activitystrea.ms/spec/1.0/"
 ACTIVITY_NOTE = "http://activitystrea.ms/schema/1.0/note"
 MAX_POST_LENGTH = 300
 XML = "http://www.w3.org/XML/1998/namespace"
+APP_STORE_PATH_RE = re.compile(r"^/app/id(\d+)$")
 POST_TEMPLATES = {
     "en": (
         "Today's Lumi Studio app guide: {name}. {focus}. "
@@ -49,6 +50,12 @@ POST_TEMPLATES = {
         "Guía de hoy de Lumi Studio: {name}. {focus}. "
         "Consulta la guía para ver si se adapta a ti."
     ),
+}
+STORE_TEXT_LINE = {
+    "en": "App Store: {url}",
+    "zh-Hant": "App Store：{url}",
+    "ja": "App Store：{url}",
+    "es": "App Store: {url}",
 }
 DEFAULT_POST_PROFILE = (
     "en",
@@ -282,8 +289,50 @@ def _item_title(item: dict[str, object]) -> str:
     raise ValueError("live guide title is empty")
 
 
+def _guide_contexts(payload: dict[str, object]) -> dict[str, dict[str, object]]:
+    contexts: dict[str, dict[str, object]] = {}
+    for entry in payload["linkset"]:
+        if not isinstance(entry, dict) or not isinstance(entry.get("anchor"), str):
+            continue
+        anchor = entry["anchor"]
+        if anchor in contexts:
+            raise ValueError(f"linkset contains duplicate anchor: {anchor}")
+        contexts[anchor] = entry
+    return contexts
+
+
+def _canonical_store_url(href: str) -> str | None:
+    parsed = urllib.parse.urlsplit(href)
+    if parsed.netloc != "apps.apple.com":
+        return None
+    match = APP_STORE_PATH_RE.fullmatch(parsed.path)
+    if parsed.scheme != "https" or not match or parsed.fragment:
+        raise ValueError(f"live guide has an invalid App Store URL: {href}")
+    return f"https://apps.apple.com/app/id{match.group(1)}"
+
+
+def _store_url(context: dict[str, object], guide_url: str) -> str:
+    related = context.get("related")
+    if not isinstance(related, list):
+        raise ValueError(f"live guide has no related App Store link: {guide_url}")
+    stores: list[str] = []
+    for item in related:
+        if not isinstance(item, dict) or not isinstance(item.get("href"), str):
+            continue
+        href = item["href"]
+        store = _canonical_store_url(href)
+        if store is not None:
+            stores.append(store)
+    if len(stores) != 1:
+        raise ValueError(
+            f"live guide must have exactly one App Store link: {guide_url}"
+        )
+    return stores[0]
+
+
 def parse_candidates(payload: object) -> list[dict[str, str]]:
     entry = _portfolio_entry(payload)
+    contexts = _guide_contexts(payload)
     guide = urllib.parse.urlsplit(GUIDE_SITE)
     prefix = f"{guide.path.rstrip('/')}/guides/"
     candidates: list[dict[str, str]] = []
@@ -309,7 +358,17 @@ def parse_candidates(payload: object) -> list[dict[str, str]]:
             raise ValueError(f"live guide has an invalid slug: {slug}")
         if slug in seen:
             raise ValueError(f"live guide is duplicated: {slug}")
-        candidates.append({"slug": slug, "name": _item_title(item), "url": href})
+        context = contexts.get(href)
+        if context is None:
+            raise ValueError(f"live guide has no linkset context: {href}")
+        candidates.append(
+            {
+                "slug": slug,
+                "name": _item_title(item),
+                "url": href,
+                "store_url": _store_url(context, href),
+            }
+        )
         seen.add(slug)
     if not candidates:
         raise ValueError("linkset contains no live app guides")
@@ -381,9 +440,16 @@ def post_intro(slug: str, name: str) -> str:
     return POST_TEMPLATES[locale].format(name=name, focus=focus)
 
 
-def post_text(slug: str, name: str) -> str:
-    _locale, _focus, hashtags = post_profile(slug)
-    text = f"{post_intro(slug, name)} {' '.join(f'#{tag}' for tag in hashtags)}"
+def post_text(slug: str, name: str, store_url: str) -> str:
+    locale, _focus, hashtags = post_profile(slug)
+    store_url = _canonical_store_url(store_url)
+    if store_url is None:
+        raise ValueError(f"post has an invalid App Store URL: {slug}")
+    text = (
+        f"{post_intro(slug, name)} "
+        f"{' '.join(f'#{tag}' for tag in hashtags)}\n"
+        f"{STORE_TEXT_LINE[locale].format(url=store_url)}"
+    )
     if len(text) > MAX_POST_LENGTH:
         raise ValueError(
             f"Bridgy post content is {len(text)} characters; "
@@ -392,15 +458,26 @@ def post_text(slug: str, name: str) -> str:
     return text
 
 
-def post_content(slug: str, name: str) -> str:
-    _locale, _focus, hashtags = post_profile(slug)
-    post_text(slug, name)
+def post_content(slug: str, name: str, store_url: str) -> str:
+    locale, _focus, hashtags = post_profile(slug)
+    post_text(slug, name, store_url)
+    store_url = _canonical_store_url(store_url)
+    if store_url is None:
+        raise ValueError(f"post has an invalid App Store URL: {slug}")
     links = " ".join(
         f'<a href="https://bsky.app/hashtag/{urllib.parse.quote(tag, safe="")}">'
         f"#{html.escape(tag)}</a>"
         for tag in hashtags
     )
-    return f"<p>{html.escape(post_intro(slug, name))} {links}</p>"
+    store_link = (
+        f'<a href="{html.escape(store_url, quote=True)}">'
+        f"{html.escape(store_url)}</a>"
+    )
+    store_line = STORE_TEXT_LINE[locale].format(url=store_link)
+    return (
+        f"<p>{html.escape(post_intro(slug, name))} {links}"
+        f"<br>{store_line}</p>"
+    )
 
 
 def post_url(url: str, *, today: dt.date) -> str:
@@ -416,6 +493,7 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
     slug = candidate["slug"]
     name = candidate["name"]
     url = post_url(candidate["url"], today=today)
+    store_url = candidate["store_url"]
 
     feed = ET.Element(f"{{{ATOM}}}feed", {"xml:lang": "en"})
     _node(feed, "id", FEED_URL)
@@ -450,12 +528,22 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
         f"{{{ATOM}}}link",
         {"rel": "alternate", "type": "text/html", "href": url},
     )
+    ET.SubElement(
+        entry,
+        f"{{{ATOM}}}link",
+        {
+            "rel": "related",
+            "type": "text/html",
+            "href": store_url,
+            "title": f"{name} on the App Store",
+        },
+    )
     _node(entry, "published", timestamp)
     _node(entry, "updated", timestamp)
     content = _node(
         entry,
         "content",
-        post_content(slug, name),
+        post_content(slug, name, store_url),
         type="html",
     )
     locale, _focus, _hashtags = post_profile(slug)
@@ -463,7 +551,7 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
     summary = _node(
         entry,
         "summary",
-        post_text(slug, name),
+        post_text(slug, name, store_url),
     )
     summary.set(f"{{{XML}}}lang", locale)
     ET.indent(feed, space="  ")

@@ -21,20 +21,41 @@ if HERE not in sys.path:
 import bridgy_feed as feed
 
 
+STORE_URL = "https://apps.apple.com/app/id7000000000"
+
+
 def payload(*slugs: str) -> dict[str, object]:
-    return {
-        "linkset": [
+    portfolio = {
+        "anchor": f"{feed.GUIDE_SITE}/index.html",
+        "item": [
             {
-                "anchor": f"{feed.GUIDE_SITE}/index.html",
-                "item": [
-                    {
-                        "href": f"{feed.GUIDE_SITE}/guides/{slug}.html",
-                        "title*": [{"value": slug.title(), "language": "en"}],
-                    }
-                    for slug in slugs
-                ],
+                "href": f"{feed.GUIDE_SITE}/guides/{slug}.html",
+                "title*": [{"value": slug.title(), "language": "en"}],
             }
-        ]
+            for slug in slugs
+        ],
+    }
+    contexts = [
+        {
+            "anchor": f"{feed.GUIDE_SITE}/guides/{slug}.html",
+            "related": [
+                {
+                    "href": (
+                        f"https://apps.apple.com/app/id{7000000000 + index}"
+                        "?ct=iag_linkset"
+                    ),
+                    "type": "text/html",
+                },
+                {
+                    "href": f"{feed.GUIDE_SITE}/stories/{slug}.html",
+                    "type": "text/html",
+                },
+            ],
+        }
+        for index, slug in enumerate(slugs)
+    ]
+    return {
+        "linkset": [portfolio, *contexts]
     }
 
 
@@ -56,12 +77,48 @@ class CandidateTests(unittest.TestCase):
     def test_all_linkset_items_are_candidates(self):
         candidates = feed.parse_candidates(payload("one", "two", "three"))
         self.assertEqual(["one", "two", "three"], [item["slug"] for item in candidates])
+        self.assertEqual(
+            [
+                "https://apps.apple.com/app/id7000000000",
+                "https://apps.apple.com/app/id7000000001",
+                "https://apps.apple.com/app/id7000000002",
+            ],
+            [item["store_url"] for item in candidates],
+        )
 
     def test_external_url_is_rejected(self):
         external = payload("one")
         external["linkset"][0]["item"][0]["href"] = "https://example.com/one.html"
         with self.assertRaisesRegex(ValueError, "outside the guide site"):
             feed.parse_candidates(external)
+
+    def test_missing_or_conflicting_app_store_link_is_rejected(self):
+        missing = payload("one")
+        missing["linkset"][1]["related"] = []
+        with self.assertRaisesRegex(ValueError, "exactly one App Store link"):
+            feed.parse_candidates(missing)
+
+        conflicting = payload("one")
+        conflicting["linkset"][1]["related"].append(
+            {"href": "https://apps.apple.com/app/id7999999999"}
+        )
+        with self.assertRaisesRegex(ValueError, "exactly one App Store link"):
+            feed.parse_candidates(conflicting)
+
+        duplicated = payload("one")
+        duplicated["linkset"][1]["related"].append(
+            {"href": f"{STORE_URL}?ct=second_source"}
+        )
+        with self.assertRaisesRegex(ValueError, "exactly one App Store link"):
+            feed.parse_candidates(duplicated)
+
+    def test_malformed_app_store_link_is_rejected(self):
+        malformed = payload("one")
+        malformed["linkset"][1]["related"][0]["href"] = (
+            "https://apps.apple.com/app/not-an-id"
+        )
+        with self.assertRaisesRegex(ValueError, "invalid App Store URL"):
+            feed.parse_candidates(malformed)
 
     def test_rotation_is_fair_and_repeats_after_full_cycle(self):
         candidates = feed.parse_candidates(payload("one", "two", "three"))
@@ -89,6 +146,10 @@ class AtomTests(unittest.TestCase):
             f"{feed.GUIDE_SITE}/guides/lumi.html",
             entries[0].find(f"{{{feed.ATOM}}}link").attrib["href"],
         )
+        related = entries[0].find(
+            f"{{{feed.ATOM}}}link[@rel='related']"
+        )
+        self.assertEqual(STORE_URL, related.attrib["href"])
         self.assertIn(
             ":2026-07-12:lumi",
             entries[0].findtext(f"{{{feed.ATOM}}}id"),
@@ -100,11 +161,17 @@ class AtomTests(unittest.TestCase):
         )
         self.assertEqual("html", content.attrib["type"])
         self.assertIn("Lumi", content.text)
-        self.assertEqual(2, content.text.count("<a "))
+        self.assertEqual(3, content.text.count("<a "))
         self.assertIn(">#iOSApps</a>", content.text)
         self.assertIn(">#IndieApps</a>", content.text)
+        self.assertIn(
+            f'App Store: <a href="{STORE_URL}">{STORE_URL}</a>',
+            content.text,
+        )
         self.assertEqual("en", content.attrib[f"{{{feed.XML}}}lang"])
-        self.assertLessEqual(len(feed.post_text("lumi", "Lumi")), 300)
+        summary = entries[0].findtext(f"{{{feed.ATOM}}}summary")
+        self.assertIn(f"App Store: {STORE_URL}", summary)
+        self.assertLessEqual(len(feed.post_text("lumi", "Lumi", STORE_URL)), 300)
 
     def test_revenue_market_profiles_are_localized(self):
         cases = {
@@ -115,12 +182,14 @@ class AtomTests(unittest.TestCase):
         }
         for slug, (locale, phrase, hashtag) in cases.items():
             with self.subTest(slug=slug):
-                text = feed.post_text(slug, "Example")
-                content = feed.post_content(slug, "Example")
+                text = feed.post_text(slug, "Example", STORE_URL)
+                content = feed.post_content(slug, "Example", STORE_URL)
                 self.assertEqual(locale, feed.post_profile(slug)[0])
                 self.assertIn(phrase, text)
                 self.assertIn(hashtag, text)
                 self.assertIn(hashtag, content)
+                self.assertIn(STORE_URL, text)
+                self.assertIn(STORE_URL, content)
                 self.assertLessEqual(len(text), feed.MAX_POST_LENGTH)
 
     def test_all_current_live_apps_have_curated_profiles(self):
@@ -166,14 +235,21 @@ class AtomTests(unittest.TestCase):
             "suscripción",
         )
         for slug in feed.POST_PROFILES:
-            text = feed.post_text(slug, "Example").lower()
+            text = feed.post_text(slug, "Example", STORE_URL).lower()
             with self.subTest(slug=slug):
                 self.assertFalse(any(term in text for term in blocked))
 
+    def test_all_profiles_leave_room_for_app_name_and_store_link(self):
+        for slug in feed.POST_PROFILES:
+            with self.subTest(slug=slug):
+                text = feed.post_text(slug, "x" * 40, STORE_URL)
+                self.assertLessEqual(len(text), feed.MAX_POST_LENGTH)
+
     def test_unknown_future_app_uses_safe_fallback(self):
-        text = feed.post_text("future-app", "Future App")
+        text = feed.post_text("future-app", "Future App", STORE_URL)
         self.assertIn("Today's Lumi Studio app guide", text)
         self.assertIn("#iOSApps #IndieApps", text)
+        self.assertIn(STORE_URL, text)
 
     def test_next_day_replaces_instead_of_backfilling(self):
         candidate = feed.parse_candidates(payload("lumi"))[0]
@@ -297,6 +373,15 @@ class WiringTests(unittest.TestCase):
         self.assertEqual("zh-Hant", content.attrib[f"{{{feed.XML}}}lang"])
         self.assertIn(">#注音符號</a>", content.text)
         self.assertIn(">#親子學習</a>", content.text)
+        self.assertIn(
+            'App Store：<a href="https://apps.apple.com/app/id6775773117">'
+            "https://apps.apple.com/app/id6775773117</a>",
+            content.text,
+        )
+        self.assertIn(
+            "App Store：https://apps.apple.com/app/id6775773117",
+            entries[0].findtext(f"{{{feed.ATOM}}}summary"),
+        )
 
 
 if __name__ == "__main__":
