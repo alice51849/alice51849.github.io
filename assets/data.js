@@ -675,5 +675,31 @@ window.APPS=[
    "ko": "'우리 아직 거기 있나요?' 재미있게. 여행 내내 온 가족이 미소를 지을 수 있도록 오프라인 여행 임무, 짐 꾸리기 도움말 및 보상을 제공합니다."
   },
   "shot": null
+ },
+ {
+  "slug": "wordmate-44",
+  "cat": "kids",
+  "icon": "assets/icons/wordmate-44.png",
+  "url": "https://apps.apple.com/tw/app/wordmate-44-%E7%A8%AE%E8%AA%9E%E8%A8%80%E8%83%8C%E5%96%AE%E5%AD%97/id6789917808?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "Wordmate: Learn 44 Languages",
+   "zh": "Wordmate：44 種語言背單字",
+   "ja": "Wordmate：44言語の単語学習",
+   "ko": "Wordmate: 44개 언어 단어 학습"
+  },
+  "sub": {
+   "en": "44 Languages & Vocab Widget",
+   "zh": "44 種語言與單字小工具",
+   "ja": "44言語の単語ウィジェット",
+   "ko": "44개 언어 단어 위젯"
+  },
+  "blurb": {
+   "en": "One App Store purchase includes useful vocabulary in 44 languages, the interactive widget and Apple Watch. No subsc…",
+   "zh": "一次付費下載完整 Wordmate：用自然例句學習 44 種語言，所有等級、主畫面互動小工具與 Apple Watch 全包含。無訂閱、無 App 內購，也不用另付費升級。",
+   "ja": "WordmateはApp Storeで一度購入する有料アプリ。自然な例文で学べる44言語・全レベル・インタラクティブウィジェット・Apple Watchをすべて収録。サブスクリプション、アプリ内課金、有料アップグレードはありません。",
+   "ko": "Wordmate를 App Store에서 한 번 유료로 다운로드하세요. 자연스러운 예문의 44개 언어, 모든 단계, 인터랙티브 위젯, Apple Watch가 모두 포함됩니다. 구독, 인앱 구매, 유료 업그레이…"
+  },
+  "shot": null
  }
 ];
