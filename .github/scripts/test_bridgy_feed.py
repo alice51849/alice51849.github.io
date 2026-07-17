@@ -364,24 +364,32 @@ class WiringTests(unittest.TestCase):
         root = ET.parse(feed.FEED_PATH).getroot()
         entries = root.findall(f"{{{feed.ATOM}}}entry")
         self.assertEqual(1, len(entries))
+        entry = entries[0]
         self.assertEqual(
             feed.ACTIVITY_NOTE,
-            entries[0].findtext(f"{{{feed.ACTIVITY}}}object-type"),
+            entry.findtext(f"{{{feed.ACTIVITY}}}object-type"),
         )
-        content = entries[0].find(f"{{{feed.ATOM}}}content")
+        entry_id = entry.findtext(f"{{{feed.ATOM}}}id")
+        self.assertIsNotNone(entry_id)
+        slug = entry_id.rsplit(":", 1)[-1]
+        self.assertIn(slug, feed.POST_PROFILES)
+        locale, _focus, hashtags = feed.post_profile(slug)
+
+        related = entry.find(f"{{{feed.ATOM}}}link[@rel='related']")
+        self.assertIsNotNone(related)
+        store_url = related.attrib["href"]
+        self.assertRegex(store_url, r"^https://apps\.apple\.com/app/id\d+$")
+
+        content = entry.find(f"{{{feed.ATOM}}}content")
         self.assertEqual("html", content.attrib["type"])
-        self.assertEqual("zh-Hant", content.attrib[f"{{{feed.XML}}}lang"])
-        self.assertIn(">#注音符號</a>", content.text)
-        self.assertIn(">#親子學習</a>", content.text)
-        self.assertIn(
-            'App Store：<a href="https://apps.apple.com/app/id6775773117">'
-            "https://apps.apple.com/app/id6775773117</a>",
-            content.text,
-        )
-        self.assertIn(
-            "App Store：https://apps.apple.com/app/id6775773117",
-            entries[0].findtext(f"{{{feed.ATOM}}}summary"),
-        )
+        self.assertEqual(locale, content.attrib[f"{{{feed.XML}}}lang"])
+        for hashtag in hashtags:
+            self.assertIn(f">#{hashtag}</a>", content.text)
+        self.assertEqual(2, content.text.count(store_url))
+
+        summary = entry.find(f"{{{feed.ATOM}}}summary")
+        self.assertEqual(locale, summary.attrib[f"{{{feed.XML}}}lang"])
+        self.assertEqual(1, summary.text.count(store_url))
 
 
 if __name__ == "__main__":
