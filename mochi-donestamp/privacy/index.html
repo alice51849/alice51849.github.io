@@ -21,7 +21,7 @@
     <p class="updated">Effective July 13, 2026</p>
 
     <h2>Overview</h2>
-    <p>Mochi DoneStamp is designed to work without an account. Lumi Studio does not operate a server for your event history and does not include third-party advertising, analytics, or tracking SDKs.</p>
+    <p>Mochi DoneStamp is designed to work without an account and its core features work offline. Lumi Studio does not operate a server for your event history and does not include third-party advertising, analytics, or tracking SDKs.</p>
 
     <h2>Data stored on your device</h2>
     <p>Event names, occurrence times, recurrence and reminder settings, notes, selected photos, app preferences, and purchase entitlement cache are stored locally in the app's protected shared container. The shared container lets the main app and its widgets access the same records.</p>
@@ -29,17 +29,24 @@
     <h2>Photos</h2>
     <p>Mochi DoneStamp only receives a photo after you explicitly select it with Apple's photo picker. The app creates compressed local versions for display and storage. It does not upload those photos to Lumi Studio.</p>
 
+    <h2>Optional family sharing through iCloud</h2>
+    <p>If you choose Share with Family for an event, Mochi DoneStamp uses Apple's CloudKit private and shared databases to send the event name, icon and colour, recurrence and reminder settings, occurrence times, optional occurrence notes, and the iCloud participant identifiers and display names needed for collaboration. Apple may also receive a generated event preview image for its sharing interface. Selected event photos are not uploaded through this feature.</p>
+    <p>Only people you invite through Apple's sharing interface can access a shared event. Lumi Studio does not operate the CloudKit service and cannot access your shared event content. You can manage participants, stop sharing, or delete the shared event from the app; CloudKit processing is also subject to Apple's privacy policy and your iCloud settings.</p>
+
     <h2>Notifications, widgets, Siri, and Shortcuts</h2>
     <p>Reminder schedules are created on your device through Apple's notification system. Widgets, App Intents, Siri, and Shortcuts process the event you choose through Apple system frameworks and the local shared data store.</p>
 
     <h2>Purchases</h2>
     <p>Lifetime Pro purchases and restorations are processed by Apple through StoreKit. Lumi Studio does not receive or store your payment card details. Apple may process purchase information under Apple's own privacy policy.</p>
 
-    <h2>Backups</h2>
-    <p>When you create a backup, Mochi DoneStamp writes one JSON file on your device. You choose whether and where to share or store it. A complete backup may contain event names, history, notes, and selected photos, so protect it as you would any personal file.</p>
+    <h2>Artificial intelligence</h2>
+    <p>Mochi DoneStamp does not use artificial intelligence, on-device models, or external model providers. No app content is sent to an AI service.</p>
+
+    <h2>Exports and backups</h2>
+    <p>When you create an export or backup, Mochi DoneStamp writes a file on your device. You choose whether and where to share or store it. A complete backup may contain event names, history, notes, and selected photos, so protect it as you would any personal file.</p>
 
     <h2>Data retention and deletion</h2>
-    <p>Your local records remain until you edit or delete them, restore a replacement backup, or remove the app and its data. You can delete individual history entries or entire events in the app.</p>
+    <p>Your local records remain until you edit or delete them, restore a replacement backup, or remove the app and its data. You can delete individual history entries or entire events in the app. Optional shared-event records remain in iCloud until the owner stops sharing or deletes the shared event, subject to Apple's iCloud retention practices.</p>
 
     <h2>Children</h2>
     <p>Mochi DoneStamp is a general-audience lifestyle app. It does not knowingly collect personal information from children or anyone else because Lumi Studio does not receive app content.</p>
