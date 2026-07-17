@@ -1,0 +1,48 @@
+name: Sync API discovery catalog
+
+on:
+  schedule:
+    - cron: "17 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-api-catalog
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Verify the RFC 9727 sync contract
+        run: python3 .github/scripts/test_sync_api_catalog.py -q
+      - name: Sync the generated API catalog
+        run: python3 .github/scripts/sync_api_catalog.py
+      - name: Persist catalog changes
+        run: |
+          if git diff --quiet -- .well-known/api-catalog; then
+            echo "API catalog is already current."
+            exit 0
+          fi
+          git config user.name "lumi-api-catalog-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .well-known/api-catalog
+          git commit -m "chore: sync API discovery catalog"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            if [[ "$attempt" -lt 3 ]]; then
+              sleep $((attempt * 10))
+            fi
+          done
+          exit 1

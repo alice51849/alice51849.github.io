@@ -1,0 +1,79 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog",
+      "service-desc": [
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/openapi.json",
+          "type": "application/vnd.oai.openapi+json;version=3.1"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/",
+          "type": "text/html"
+        },
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/zh-Hant/api/v1/ios-app-catalog/",
+          "type": "text/html"
+        }
+      ],
+      "license": [
+        {
+          "href": "https://creativecommons.org/licenses/by/4.0/",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://alice51849.github.io/ios-app-guide/api/v1/family-travel-missions",
+      "service-desc": [
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/api/v1/family-travel-missions/openapi.json",
+          "type": "application/vnd.oai.openapi+json;version=3.1"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/api/v1/family-travel-missions/",
+          "type": "text/html"
+        },
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/zh-Hant/api/v1/family-travel-missions/",
+          "type": "text/html"
+        }
+      ],
+      "license": [
+        {
+          "href": "https://creativecommons.org/licenses/by/4.0/",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://alice51849.github.io/ios-app-guide/api/v1/bopomofo-symbols",
+      "service-desc": [
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/api/v1/bopomofo-symbols/openapi.json",
+          "type": "application/vnd.oai.openapi+json;version=3.1"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/api/v1/bopomofo-symbols/",
+          "type": "text/html"
+        },
+        {
+          "href": "https://alice51849.github.io/ios-app-guide/zh-Hant/api/v1/bopomofo-symbols/",
+          "type": "text/html"
+        }
+      ],
+      "license": [
+        {
+          "href": "https://creativecommons.org/licenses/by/4.0/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

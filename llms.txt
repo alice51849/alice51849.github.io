@@ -27,3 +27,9 @@
 - Aim990 — 30 days to make TOEIC prep feel doable: Daily L&R study plans, weak-spot drills & score tracking toward 990 — https://apps.apple.com/app/id6784974530
 - Mochi To-Do: Cute Checklist — Make your to-do list too cute to ignore: Tiny checklists, home screen widgets & collectible skins for daily tasks — https://apps.apple.com/app/id6785004775
 - Zodira — East meets West for daily insight: AI astrology, tarot, horoscope, BaZi & Zi Wei — offline and private — https://apps.apple.com/app/id6783609555
+
+## Machine-readable app discovery
+
+- Verified iOS App Catalog API (50 App Store locales) — https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/
+- OpenAPI 3.1 contract — https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/openapi.json
+- RFC 9727 API Catalog — https://alice51849.github.io/.well-known/api-catalog
