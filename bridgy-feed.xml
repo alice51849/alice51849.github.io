@@ -5,21 +5,21 @@
   <subtitle>A low-frequency rotation across every currently public Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-07-13T00:00:00Z</updated>
+  <updated>2026-07-17T00:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
   <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-07-13:lumibopomofo</id>
-    <title>Lumi Bopomofo — independent iOS app guide</title>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-07-17:gmoney</id>
+    <title>G+Money — independent iOS app guide</title>
     <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/lumibopomofo.html?bridgy=2026-07-13" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6773017109" title="Lumi Bopomofo on the App Store" />
-    <published>2026-07-13T00:00:00Z</published>
-    <updated>2026-07-13T00:00:00Z</updated>
-    <content type="html" xml:lang="zh-Hant">&lt;p&gt;今日 Lumi Studio App 指南：Lumi Bopomofo。透過遊戲練習注音與拼讀，配合孩子的學習節奏。查看指南，判斷是否適合。 &lt;a href="https://bsky.app/hashtag/%E6%B3%A8%E9%9F%B3"&gt;#注音&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/%E5%B9%BC%E5%85%92%E5%AD%B8%E7%BF%92"&gt;#幼兒學習&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApp"&gt;#iOSApp&lt;/a&gt;&lt;br&gt;App Store：&lt;a href="https://apps.apple.com/app/id6773017109"&gt;https://apps.apple.com/app/id6773017109&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="zh-Hant">今日 Lumi Studio App 指南：Lumi Bopomofo。透過遊戲練習注音與拼讀，配合孩子的學習節奏。查看指南，判斷是否適合。 #注音 #幼兒學習 #iOSApp
-App Store：https://apps.apple.com/app/id6773017109</summary>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/gmoney.html?bridgy=2026-07-17" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6755782939" title="G+Money on the App Store" />
+    <published>2026-07-17T00:00:00Z</published>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: G+Money. Track expenses and convert currencies in a simple offline budgeting flow. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/Budgeting"&gt;#Budgeting&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/TravelFinance"&gt;#TravelFinance&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6755782939"&gt;https://apps.apple.com/app/id6755782939&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="en">Today's Lumi Studio app guide: G+Money. Track expenses and convert currencies in a simple offline budgeting flow. Read the guide and see if it fits. #Budgeting #TravelFinance #iOSApps
+App Store: https://apps.apple.com/app/id6755782939</summary>
   </entry>
 </feed>
