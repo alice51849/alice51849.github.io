@@ -701,5 +701,57 @@ window.APPS=[
    "ko": "Wordmate를 App Store에서 한 번 유료로 다운로드하세요. 자연스러운 예문의 44개 언어, 모든 단계, 인터랙티브 위젯, Apple Watch가 모두 포함됩니다. 구독, 인앱 구매, 유료 업그레이…"
   },
   "shot": null
+ },
+ {
+  "slug": "tripbee-lite",
+  "cat": "tools",
+  "icon": "assets/icons/tripbee-lite.png",
+  "url": "https://apps.apple.com/tw/app/tripbee-lite-%E6%97%85%E7%A8%8B%E8%A6%8F%E5%8A%83/id6791299610?uo=4",
+  "badge": "Lite",
+  "name": {
+   "en": "TripBee Lite: Trip Planner",
+   "zh": "TripBee Lite：旅程規劃",
+   "ja": "TripBee Lite：旅程プラン",
+   "ko": "TripBee Lite: 여행 플래너"
+  },
+  "sub": {
+   "en": "One Journey, Clearly Planned",
+   "zh": "一次專注規劃一趟旅行",
+   "ja": "いまの旅行ひとつに集中",
+   "ko": "지금 떠날 한 여행에 집중"
+  },
+  "blurb": {
+   "en": "Give one upcoming journey your full attention. TripBee Lite is a calm, polished travel planner designed around one…",
+   "zh": "把注意力留給眼前這趟旅行。TripBee Lite 是一款沉著精緻的旅程規劃工具，專為清楚整理單一進行中旅程而設計。",
+   "ja": "次の旅ひとつに、心地よく集中。TripBee Liteは、いま準備する一つの旅をすっきり整える、落ち着いた上質な旅行プランナーです。",
+   "ko": "지금 준비하는 여행 하나에 온전히 집중하세요. TripBee Lite는 현재 여행을 차분하고 세련되게 정리하는 집중형 플래너입니다."
+  },
+  "shot": null
+ },
+ {
+  "slug": "dailymate",
+  "cat": "kids",
+  "icon": "assets/icons/dailymate.png",
+  "url": "https://apps.apple.com/tw/app/dailymate-%E7%94%A8%E5%8F%A5%E5%AD%90%E5%AD%B8%E8%AA%9E%E8%A8%80/id6790418321?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "DailyMate: Language Phrases",
+   "zh": "DailyMate：用句子學語言",
+   "ja": "DailyMate：文で身につく語学",
+   "ko": "DailyMate: 문장으로 배우는 언어"
+  },
+  "sub": {
+   "en": "8,400 Sentences for Real Life",
+   "zh": "不背單字，直接學生活會話",
+   "ja": "単語ではなく実用フレーズ",
+   "ko": "낱말 대신 완전한 문장"
+  },
+  "blurb": {
+   "en": "Skip isolated words. Learn 8,400 complete phrases in 47 languages with system voices, an interactive Widget and App…",
+   "zh": "別再背零散單字。用 47 種語言、8,400 句完整生活會話，在真實情境中學會表達；搭配系統語音、互動式小工具與 Apple Watch。一次付費，沒有訂閱。",
+   "ja": "単語をばらばらに覚える学習から、文で身につける語学へ。47言語・8,400の実用フレーズをシステム音声で聴き、ウィジェットやApple Watchでも続けられます。買い切り、サブスクなし。",
+   "ko": "낱말만 따로 외우지 마세요. 47개 언어의 완전한 실생활 문장 8,400개를 시스템 음성으로 듣고, 인터랙티브 위젯과 Apple Watch에서도 이어서 배우세요. 한 번 구매, 구독 없음."
+  },
+  "shot": null
  }
 ];
