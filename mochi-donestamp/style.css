@@ -140,8 +140,63 @@ section { padding: 86px 0; border-top: 1px solid var(--line); }
 .prose { max-width: 760px; padding-bottom: 80px; }
 .prose h1 { font-size: clamp(38px, 7vw, 62px); }
 .prose h2 { margin-top: 38px; font-size: 24px; }
-.prose p, .prose li { color: var(--muted); }
+.prose p, .prose li { color: var(--muted); unicode-bidi: plaintext; }
 .prose .updated { color: var(--faint); font-size: 14px; }
+.locale-bar { display: flex; justify-content: flex-end; }
+.language-menu {
+  position: relative;
+  z-index: 5;
+  margin: 8px 0 22px;
+}
+.language-menu summary {
+  width: fit-content;
+  margin-inline-start: auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 13px;
+  background: rgba(255, 255, 255, 0.54);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  list-style: none;
+  white-space: nowrap;
+}
+.language-menu summary::-webkit-details-marker { display: none; }
+.language-menu[open] summary { background: var(--card); }
+.language-grid {
+  display: grid;
+  position: absolute;
+  inset-inline-end: 0;
+  width: min(680px, calc(100vw - 40px));
+  max-height: min(62vh, 520px);
+  margin-top: 10px;
+  overflow: auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 12px;
+  background: rgba(255, 253, 252, 0.98);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px);
+}
+.language-grid a {
+  overflow: hidden;
+  border-radius: 11px;
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.language-grid a:hover,
+.language-grid a[aria-current="page"] {
+  background: var(--wash);
+  color: var(--brand-deep);
+}
 .contact {
   display: inline-flex;
   margin-top: 8px;
@@ -170,5 +225,6 @@ footer { padding: 34px 0 50px; border-top: 1px solid var(--line); color: var(--f
 @media (max-width: 520px) {
   .shell { width: min(100% - 28px, 1080px); }
   .nav-links a:first-child { display: none; }
+  .language-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-row { flex-direction: column; }
 }
