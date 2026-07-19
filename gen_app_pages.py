@@ -334,6 +334,7 @@ def rebuild_sitemap(apps):
         (f"{BASE}/.well-known/ai-catalog.json",os.path.join(SITE,".well-known","ai-catalog.json")),
         (f"{BASE}/.well-known/lumi-app-finder.mcp.json",os.path.join(SITE,".well-known","lumi-app-finder.mcp.json")),
         (f"{BASE}/.well-known/api-catalog",os.path.join(SITE,".well-known","api-catalog")),
+        (f"{BASE}/.well-known/resourcesync",os.path.join(SITE,".well-known","resourcesync")),
     ]
     for s in ["unblur-image","scan-document","enhance-photo","clean-up-photo"]:
         entries.append((
@@ -354,7 +355,8 @@ def rebuild_sitemap(apps):
         lastmod=_sitemap_lastmod(path,previous.get(url),today)
         body+=f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod></url>\n"
     body+="</urlset>\n"
-    open(sitemap_path,"w").write(body)
+    with open(sitemap_path,"w",encoding="utf-8") as handle:
+        handle.write(body)
     return len(entries)
 
 

@@ -8,6 +8,7 @@ import pathlib
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -242,6 +243,27 @@ Made by Lumi Studio — pay once, no ads, privacy-first.
                 "2026-07-20",
                 runner=clean_runner,
             ),
+        )
+
+    def test_sitemap_includes_root_resourcesync_discovery(self):
+        with tempfile.TemporaryDirectory() as directory:
+            site = pathlib.Path(directory)
+            resource = site / ".well-known" / "resourcesync"
+            resource.parent.mkdir()
+            resource.write_text("<urlset/>", encoding="utf-8")
+            with (
+                mock.patch.object(sync.legacy, "SITE", str(site)),
+                mock.patch.object(
+                    sync.legacy,
+                    "BASE",
+                    "https://alice51849.github.io",
+                ),
+            ):
+                sync.legacy.rebuild_sitemap({})
+            sitemap = (site / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertIn(
+            "<loc>https://alice51849.github.io/.well-known/resourcesync</loc>",
+            sitemap,
         )
 
     def test_korean_copy_avoids_brand_name_particle_errors(self):
