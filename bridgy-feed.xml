@@ -5,19 +5,19 @@
   <subtitle>A low-frequency rotation across every currently public Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-07-18T00:00:00Z</updated>
+  <updated>2026-07-19T00:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
   <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-07-18:hourstag</id>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-07-19:hourstag</id>
     <title>HoursTag — independent iOS app guide</title>
     <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/hourstag.html?bridgy=2026-07-18" />
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/hourstag.html?bridgy=2026-07-19" />
     <link rel="related" type="text/html" href="https://apps.apple.com/app/id6754218117" title="HoursTag on the App Store" />
-    <published>2026-07-18T00:00:00Z</published>
-    <updated>2026-07-18T00:00:00Z</updated>
+    <published>2026-07-19T00:00:00Z</published>
+    <updated>2026-07-19T00:00:00Z</updated>
     <content type="html" xml:lang="zh-Hant">&lt;p&gt;今日 Lumi Studio App 指南：HoursTag。把價格換算成需要工作的時間，讓消費決定更直覺。查看指南，判斷是否適合。 &lt;a href="https://bsky.app/hashtag/%E7%90%86%E8%B2%A1"&gt;#理財&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/%E6%B6%88%E8%B2%BB%E7%BF%92%E6%85%A3"&gt;#消費習慣&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApp"&gt;#iOSApp&lt;/a&gt;&lt;br&gt;App Store：&lt;a href="https://apps.apple.com/app/id6754218117"&gt;https://apps.apple.com/app/id6754218117&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="zh-Hant">今日 Lumi Studio App 指南：HoursTag。把價格換算成需要工作的時間，讓消費決定更直覺。查看指南，判斷是否適合。 #理財 #消費習慣 #iOSApp
 App Store：https://apps.apple.com/app/id6754218117</summary>
