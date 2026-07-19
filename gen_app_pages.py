@@ -10,8 +10,9 @@
   OPENAI_KEY=... python3 gen_app_pages.py --all                # 全部(冪等,已存在跳過)
   OPENAI_KEY=... python3 gen_app_pages.py --all --force        # 強制重生
   python3 gen_app_pages.py --sitemap                           # 只重建 sitemap
+   python3 scripts/sync_root_app_pages.py                       # 雲端 deterministic live sync
 """
-import os, sys, json, re, argparse, urllib.request, urllib.error, time
+import os, sys, json, re, argparse, subprocess, urllib.request, urllib.error, time
 
 SITE = os.path.dirname(os.path.abspath(__file__))
 APPS_JSON = os.path.expanduser("~/threads-autopilot/apps.json")
@@ -32,8 +33,13 @@ SHOTS = {"lockhour":"lockhour-pro","lumibopomofo":"lumi-bopomofo","lumiletters":
  "lumiletterspro":"lumi-letters-pro","lumimission":"lumi-mission-planet","lumiweather":"lumi-weather",
  "scanto":"scanto-pro"}
 
-CAT_MAP = {"productivity":"Productivity","finance":"Finance","photo-utility":"Photography & Video",
- "health":"Health & Fitness","lifestyle":"Lifestyle","kids":"Education","education":"Education"}
+CAT_MAP = {
+ "productivity":"BusinessApplication","finance":"FinanceApplication",
+ "photo-utility":"MultimediaApplication","health":"HealthApplication",
+ "lifestyle":"LifestyleApplication","kids":"EducationalApplication",
+ "education":"EducationalApplication","travel":"TravelApplication",
+ "sleep-sound":"LifestyleApplication",
+}
 
 # 多語言:UI 字串 + OpenAI 輸出語言。en 為主頁(app/{slug}/),其餘為 app/{slug}/{lang}/
 LANGS = {
@@ -149,6 +155,7 @@ PAGE="""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{smart_banner}
 <title>{title}</title>
 <meta name="description" content="{meta}">
 <link rel="canonical" href="{url}">
@@ -200,6 +207,7 @@ h2{{font-size:23px;font-weight:800;margin-bottom:14px}}
 </style>
 </head>
 <body>
+{generation_marker}
 <div class="wrap">
 <header class="nav"><a class="brand" href="/">✦ Lumi Studio</a></header>
 <div class="hero">
@@ -245,7 +253,14 @@ def build_page(slug, app, content, lang="en"):
     suffix="" if lang=="en" else f"{lang}/"
     url=f"{BASE}/app/{gslug}/{suffix}"
     store=app.get("url","")
-    name=re.split(r"[:：]", (app.get("name_i18n",{}) or {}).get(lang) or app["name"])[0].strip()
+    app_id_match=re.search(r"/id(\d+)(?:[/?]|$)", store)
+    if not app_id_match:
+        raise ValueError(f"invalid App Store URL for {slug}: {store}")
+    smart_banner=(
+        '<meta name="apple-itunes-app" '
+        f'content="app-id={app_id_match.group(1)}">'
+    )
+    name=((app.get("name_i18n",{}) or {}).get(lang) or app["name"]).strip()
     tagline=(app.get("sub_i18n",{}) or {}).get(lang) or app.get("title","")
     cat=CAT_MAP.get(app.get("category",""),"Utilities")
     title=f"{name} — {tagline} | iOS App"[:60]
@@ -271,11 +286,15 @@ def build_page(slug, app, content, lang="en"):
         {"@type":"Question","name":q["q"],"acceptedAnswer":{"@type":"Answer","text":q["a"]}} for q in content.get("faqs",[])]}
     schema_str=json.dumps([schema,faq_schema],ensure_ascii=False,indent=0)
     html=PAGE.format(title=esc(title),meta=esc(content.get("meta","")),url=url,ogtitle=esc(name+" — "+tagline),
-        icon=icon,icon_abs=icon_abs,schema=schema_str,kicker=esc(app.get("kicker","APP")),name=esc(name),
+        icon=icon,icon_abs=icon_abs,schema=schema_str,smart_banner=smart_banner,
+        generation_marker=content.get("generation_marker",""),
+        kicker=esc(app.get("kicker","APP")),name=esc(name),
         hero_line=esc(content.get("hero_line",tagline)),store=store,pills=pills,shot=shot,
         intro=esc(content.get("intro","")),blocks=blocks,features=features,faqs=faqs,
         htmllang=L["html"],hreflang=hreflang,c_cta=esc(L["cta"]),c_get=esc(L["get"].format(name=name)),
-        c_why=esc(L["why"].format(name=name)),c_features=esc(L["features"]),c_faq=esc(L["faq"]),
+        c_why=esc(L["why"].format(name=name)),
+        c_features=esc(content.get("features_heading",L["features"])),
+        c_faq=esc(L["faq"]),
         c_made=esc(L["made"]),c_all=esc(L["all"]))
     out_dir=os.path.join(SITE,"app",gslug) if lang=="en" else os.path.join(SITE,"app",gslug,lang)
     os.makedirs(out_dir,exist_ok=True)
@@ -283,29 +302,60 @@ def build_page(slug, app, content, lang="en"):
     return f"app/{gslug}/{suffix}index.html"
 
 
+def _sitemap_lastmod(path, previous, today, runner=subprocess.run):
+    relative=os.path.relpath(path,SITE)
+    status=runner(
+        ["git","status","--porcelain","--",relative],
+        cwd=SITE,capture_output=True,text=True,check=False,
+    )
+    if status.returncode == 0 and status.stdout.strip():
+        return today
+    history=runner(
+        ["git","log","-1","--format=%cs","--",relative],
+        cwd=SITE,capture_output=True,text=True,check=False,
+    )
+    candidate=history.stdout.strip() if history.returncode == 0 else ""
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}",candidate):
+        return candidate
+    return previous or today
+
+
 def rebuild_sitemap(apps):
-    urls=[
-        f"{BASE}/",
-        f"{BASE}/.well-known/ai-catalog.json",
-        f"{BASE}/.well-known/lumi-app-finder.mcp.json",
-        f"{BASE}/.well-known/api-catalog",
+    sitemap_path=os.path.join(SITE,"sitemap.xml")
+    previous={}
+    if os.path.exists(sitemap_path):
+        old=open(sitemap_path,encoding="utf-8").read()
+        previous=dict(re.findall(
+            r"<url><loc>([^<]+)</loc><lastmod>(\d{4}-\d{2}-\d{2})</lastmod></url>",
+            old,
+        ))
+    entries=[
+        (f"{BASE}/",os.path.join(SITE,"index.html")),
+        (f"{BASE}/.well-known/ai-catalog.json",os.path.join(SITE,".well-known","ai-catalog.json")),
+        (f"{BASE}/.well-known/lumi-app-finder.mcp.json",os.path.join(SITE,".well-known","lumi-app-finder.mcp.json")),
+        (f"{BASE}/.well-known/api-catalog",os.path.join(SITE,".well-known","api-catalog")),
     ]
     for s in ["unblur-image","scan-document","enhance-photo","clean-up-photo"]:
-        urls.append(f"{BASE}/tools/{s}/")
+        entries.append((
+            f"{BASE}/tools/{s}/",
+            os.path.join(SITE,"tools",s,"index.html"),
+        ))
     for slug in apps:
         if not apps[slug].get("url"): continue
         gslug=ICON.get(slug,slug)
         for lang in LANG_ORDER:
             d=os.path.join(SITE,"app",gslug,"index.html") if lang=="en" else os.path.join(SITE,"app",gslug,lang,"index.html")
             if os.path.exists(d):
-                urls.append(f"{BASE}/app/{gslug}/" if lang=="en" else f"{BASE}/app/{gslug}/{lang}/")
+                url=f"{BASE}/app/{gslug}/" if lang=="en" else f"{BASE}/app/{gslug}/{lang}/"
+                entries.append((url,d))
     today=time.strftime("%Y-%m-%d")
     body='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for u in urls:
-        body+=f"  <url><loc>{u}</loc><lastmod>{today}</lastmod></url>\n"
+    for url,path in entries:
+        lastmod=_sitemap_lastmod(path,previous.get(url),today)
+        body+=f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod></url>\n"
     body+="</urlset>\n"
-    open(os.path.join(SITE,"sitemap.xml"),"w").write(body)
-    return len(urls)
+    open(sitemap_path,"w").write(body)
+    return len(entries)
 
 
 def main():

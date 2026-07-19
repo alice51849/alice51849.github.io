@@ -4,29 +4,34 @@
 
 ## Apps
 
-- Snapport — Stop paying $15 for passport photos: Make your own at home in 30 seconds — https://apps.apple.com/app/id6780575828
-- Sono Note — Never type your notes again: Just talk — get clean notes, a summary & to-dos — https://apps.apple.com/app/id6782139553
-- CV Desk — Beat the resume robots (ATS): Instant ATS score + recruiter-ready templates — https://apps.apple.com/app/id6781337213
-- PicClear — Your storage is full of junk: Find duplicates & huge videos in one scan — https://apps.apple.com/app/id6780223070
-- ScanTo Pro — Your iPhone is already a pro PDF scanner: Scan, OCR-search & Face ID-lock docs — pay once — https://apps.apple.com/app/id6779977651
-- Cyca — Stop guessing where you are in your cycle: See every phase, your best days & gentle days — https://apps.apple.com/app/id6782251621
-- G+Money — Know the real cost of everything abroad: Convert + log every expense in one tap — offline — https://apps.apple.com/app/id6755782939
-- HoursTag — That $129 isn't $129. It's 14 work hours.: See what everything really costs — in hours of your life — https://apps.apple.com/app/id6754218117
-- LockHour Pro — You lose 4 hours a day to your phone: Block the apps that steal your focus — one tap — https://apps.apple.com/app/id6780107485
-- Unblurry — Don't delete that blurry photo: AI super-resolution makes it crisp — on your iPhone — https://apps.apple.com/app/id6782275018
-- PhotoCream — Make every photo look like a film still: 100+ real film looks, grain, halation & light leaks — https://apps.apple.com/app/id6781808054
-- Lumi Letters — Your kid will beg to practice their ABCs: Playful phonics, tracing & letter games — https://apps.apple.com/app/id6778748533
-- Lumi Math Planet — The math game kids actually ask to play: A whole galaxy of number adventures — https://apps.apple.com/app/id6778269699
-- Lumi Mission Planet — Brush, sleep, tidy — without the nagging: A daily habit & bedtime ritual kids love — https://apps.apple.com/app/id6779750237
-- Lumi Weather — Is it OK to take the kids out today?: Weather + a kid-outing score, tuned to their age — https://apps.apple.com/app/id6779552704
-- Lumi Letters Pro — Your kid could read before kindergarten: The complete phonics, tracing & word-building world — https://apps.apple.com/app/id6778491147
-- Lumi Math Pro — Raise a kid who loves numbers: The whole number galaxy — every adventure unlocked — https://apps.apple.com/app/id6776958488
-- Lumi Mission Planet Pro — The morning routine that runs itself: Habits, chores & bedtime kids actually want to do — https://apps.apple.com/app/id6779745474
-- Lumi Bopomofo — The playful way kids learn Bopomofo: Zhuyin phonics, tracing & tone games — the first step to reading Chinese — https://apps.apple.com/app/id6773017109
-- Lumi Bopomofo Pro — Everything your kid needs to read Chinese: The complete Zhuyin (Bopomofo) world — every sound & game unlocked — https://apps.apple.com/app/id6775773117
-- Aim990 — 30 days to make TOEIC prep feel doable: Daily L&R study plans, weak-spot drills & score tracking toward 990 — https://apps.apple.com/app/id6784974530
-- Mochi To-Do: Cute Checklist — Make your to-do list too cute to ignore: Tiny checklists, home screen widgets & collectible skins for daily tasks — https://apps.apple.com/app/id6785004775
-- Zodira — East meets West for daily insight: AI astrology, tarot, horoscope, BaZi & Zi Wei — offline and private — https://apps.apple.com/app/id6783609555
+- Aim990 — TOEIC Listening & Reading study companion for daily practice and progress review. TOEIC is an ETS trademark; results are not guaranteed. — https://apps.apple.com/us/app/id6784974530
+- CV Desk: ATS Resume Builder — Build an ATS-safe resume that recruiters' systems actually read — entirely on your iPhone. No account. No upload. No subscription. — https://apps.apple.com/us/app/id6781337213
+- Cyca: Period & Cycle Tracker — Meet Cyca — the warm, private way to understand your cycle. — https://apps.apple.com/us/app/id6782251621
+- DailyMate: Language Phrases — Learn a language in the form you actually use it: complete sentences, not isolated vocabulary. DailyMate brings together 8,400 practical phrases across 47 learning languages, 14 everyday topics, and 84 real-life situations. One purchase. No subscription. — https://apps.apple.com/us/app/id6790418321
+- G+Money — G+Money is two everyday tools in one — a lightning-fast currency converter and a beautiful expense tracker — built for daily life and travel alike. Fully offline. Completely private. — https://apps.apple.com/us/app/id6755782939
+- HoursTag: Hours to Buy — What does it really cost? Not in dollars — in hours of your life. — https://apps.apple.com/us/app/id6754218117
+- LockHour Pro — Block the apps that steal your time — and get your focus back. — https://apps.apple.com/us/app/id6780107485
+- Lumi Bopomofo — Lumi Bopomofo is a gentle, playful way for young children to learn the Bopomofo (Zhuyin) phonetic system. — https://apps.apple.com/us/app/id6773017109
+- Lumi Bopomofo Pro: Zhuyin — Help your child fall in love with Chinese phonics through one adorable space adventure. — https://apps.apple.com/us/app/id6775773117
+- Lumi Letters Lite: ABC Kids — Download free, play first, and unlock only if your child loves it. Lumi Letters Lite turns the alphabet into a dreamy starry adventure. Your child is not sitting through a lesson. They are playing a game they will not want to put down. They light up planets, trace beautiful letters, listen for sounds, and collect twenty six adorable letter friends. Every screen, every voice line and every melody has been polished for children aged three to seven. — https://apps.apple.com/us/app/id6778748533
+- Lumi Letters Pro: ABC Phonics — Welcome to Lumi Letters In a magical forest, kids team up with Lumi the bear to take all 26 letters from "I know it" to "I can read, write and sound it out." This isn't another flashcard app. It's a complete phonics journey, carefully sequenced to give young learners the decoding skills that last a lifetime. — https://apps.apple.com/us/app/id6778491147
+- Lumi Math Planet: Explorer — Some apps teach math. This one makes a child love it. — https://apps.apple.com/us/app/id6778269699
+- Lumi Math Pro: Kids Numbers — Turn competition-level math thinking into a space adventure kids can't put down — https://apps.apple.com/us/app/id6776958488
+- Lumi Mission Planet Pro — Getting a small child to brush teeth, finish meals or tidy toys should not take a battle every single day. — https://apps.apple.com/us/app/id6779745474
+- Lumi Mission Planet: Routines — Getting a small child to brush teeth, finish meals or tidy toys should not take a battle every single day. — https://apps.apple.com/us/app/id6779750237
+- Lumi Trip Planet: World Travel — Turn every family trip into a tiny space adventure. — https://apps.apple.com/us/app/id6787193643
+- Lumi Weather: Family Forecast — Some mornings you stand at the window with a wriggling toddler and one quiet worry: is it too cold, too hot, too wet to take them out today? — https://apps.apple.com/us/app/id6779552704
+- Mochi: Cute Checklist — Mochi is the cute, cozy to-do list that makes getting organized feel good. Add tasks, tap the little circle when you finish, and enjoy the tiny burst of calm that comes from checking something off. — https://apps.apple.com/us/app/id6785004775
+- PhotoCream Pro — PhotoCream Pro turns your phone into a premium film camera and a pro photo studio. Shoot authentic analog looks in real time, then fine-tune every detail — all on-device, no subscription, no ads. — https://apps.apple.com/us/app/id6781808054
+- PicClear Pro — Free up gigabytes of storage by cleaning out the photos you don’t need — duplicates, screenshots, blurry shots, and space-hungry videos. — https://apps.apple.com/us/app/id6780223070
+- ScanTo Pro: Offline PDF & OCR — The scanner that does everything on your device — including reading the text — and proves it by never going online. — https://apps.apple.com/us/app/id6779977651
+- Sereno: Sleep Sounds — Sereno turns your phone into a high-end sound machine for sleep, focus, and calm. Dozens of hand-tuned sounds are generated live on your device and blend into 1000+ unique soundscapes — so the rain never loops and the ocean never repeats, just an endless, gentle mix that carries you through the night. — https://apps.apple.com/us/app/id6788236641
+- Snapport: Passport & ID Photos — Create passport, visa, and ID photos at home — the calm, private way. Snapport gives you common size templates, face-alignment guides, background tools, and print-ready layouts, all processed right on your iPhone. — https://apps.apple.com/us/app/id6780575828
+- Sono Note — Speak naturally. Walk away with writing you're proud of. — https://apps.apple.com/us/app/id6782139553
+- TripBee Lite: Trip Planner — Give one upcoming journey your full attention. TripBee Lite is a calm, polished travel planner designed around one active trip—not a crowded archive. — https://apps.apple.com/us/app/id6791299610
+- TripBee Pro: Trip Planner — Plan every trip in one beautiful, private, offline app. — https://apps.apple.com/us/app/id6787754435
+- Unblurry Pro: Unblur & HD — Unblurry uses image enhancement to improve the perceived sharpness and resolution of existing photos. Results depend on the source image; it cannot recreate details that were never captured. — https://apps.apple.com/us/app/id6782275018
+- Wordmate: Learn 44 Languages — Make every spare moment useful with Wordmate, a complete vocabulary app for 44 languages. Structured lessons, natural example sentences, an interactive Home Screen widget and Apple Watch keep practice close at hand—from your phone to your wrist. — https://apps.apple.com/us/app/id6789917808
 
 ## Machine-readable app discovery
 

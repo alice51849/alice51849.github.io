@@ -521,32 +521,6 @@ window.APPS=[
   "shot": null
  },
  {
-  "slug": "zodira",
-  "cat": "tools",
-  "icon": "assets/icons/zodira.png",
-  "url": "https://apps.apple.com/app/id6783609555",
-  "badge": "New",
-  "name": {
-   "en": "Zodira",
-   "zh": "Zodira：星座與塔羅",
-   "ja": "Zodira：ホロスコープとタロット",
-   "ko": "Zodira: 별자리와 타로"
-  },
-  "sub": {
-   "en": "Tarot, horoscope & charts",
-   "zh": "塔羅、星座、命盤",
-   "ja": "タロット、ホロスコープ、チャート",
-   "ko": "타로, 별자리, 차트"
-  },
-  "blurb": {
-   "en": "Discover daily insights with a unique blend of astrology wisdom.",
-   "zh": "透過獨特的占星智慧，發現每日洞察。",
-   "ja": "独自の占星術の知恵で、毎日の洞察を発見。",
-   "ko": "독창적인 점성술 지혜로 매일의 통찰을 발견하세요."
-  },
-  "shot": null
- },
- {
   "slug": "aim990",
   "cat": "tools",
   "icon": "assets/icons/aim990.png",
