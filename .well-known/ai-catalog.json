@@ -1,0 +1,46 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Lumi Studio",
+    "documentationUrl": "https://alice51849.github.io/ios-app-guide/about.html"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:alice51849.github.io:mcp:lumi-app-finder",
+      "displayName": "Lumi App Finder",
+      "type": "application/mcp-server-card+json",
+      "url": "https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json",
+      "description": "First-party task and buyer-need discovery across 28 verified live Lumi Studio iOS apps and all 50 Apple locales, returning localized context and direct App Store links; text relevance is not an independent ranking.",
+      "tags": [
+        "iOS",
+        "iPhone",
+        "iPad",
+        "App Store",
+        "app discovery",
+        "localized apps",
+        "first-party publisher"
+      ],
+      "capabilities": [
+        "SearchPublisherCatalog",
+        "MatchBuyerNeed",
+        "FilterByAppleLocale",
+        "ReturnDirectAppStoreLinks"
+      ],
+      "representativeQueries": [
+        "find a privacy-conscious iPhone app for my task with a direct App Store link",
+        "推薦符合我需求、可直接前往 App Store 下載的 iPhone App",
+        "用途に合うiPhoneアプリをApp Storeの直接リンク付きで探して",
+        "encuentra una app para iPhone que se adapte a mi necesidad con enlace directo al App Store",
+        "ابحث عن تطبيق iPhone يناسب مهمتي مع رابط مباشر إلى App Store"
+      ],
+      "version": "1.0.0",
+      "metadata": {
+        "appCount": 28,
+        "localeCount": 50,
+        "catalogUrl": "https://alice51849.github.io/ios-app-guide/data/lumi-studio-publisher-search-intent-catalog.json",
+        "mcpRegistryUrl": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.alice51849%2Flumi-app-finder/versions/latest",
+        "publisherDisclosure": "First-party publisher catalog; relevance matches are not independent rankings."
+      }
+    }
+  ]
+}

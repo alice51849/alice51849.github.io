@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Agentic Resource Discovery (ARD)
+Agentmap: https://alice51849.github.io/.well-known/ai-catalog.json
+
 # AI assistants & answer engines — explicitly welcome (GEO)
 User-agent: GPTBot
 Allow: /

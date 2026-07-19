@@ -284,7 +284,12 @@ def build_page(slug, app, content, lang="en"):
 
 
 def rebuild_sitemap(apps):
-    urls=[f"{BASE}/"]
+    urls=[
+        f"{BASE}/",
+        f"{BASE}/.well-known/ai-catalog.json",
+        f"{BASE}/.well-known/lumi-app-finder.mcp.json",
+        f"{BASE}/.well-known/api-catalog",
+    ]
     for s in ["unblur-image","scan-document","enhance-photo","clean-up-photo"]:
         urls.append(f"{BASE}/tools/{s}/")
     for slug in apps:

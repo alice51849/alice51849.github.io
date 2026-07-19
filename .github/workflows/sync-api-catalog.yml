@@ -1,4 +1,4 @@
-name: Sync API discovery catalog
+name: Sync API and agent discovery catalogs
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sync-api-catalog
+  group: sync-discovery-catalogs
   cancel-in-progress: false
 
 jobs:
@@ -22,20 +22,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Verify the RFC 9727 sync contract
+      - name: Verify the RFC 9727 and ARD sync contracts
         run: python3 .github/scripts/test_sync_api_catalog.py -q
-      - name: Sync the generated API catalog
+      - name: Sync the generated discovery catalogs
         run: python3 .github/scripts/sync_api_catalog.py
-      - name: Persist catalog changes
+      - name: Persist discovery catalog changes
         run: |
-          if git diff --quiet -- .well-known/api-catalog; then
-            echo "API catalog is already current."
+          if git diff --quiet -- \
+            .well-known/api-catalog \
+            .well-known/ai-catalog.json \
+            .well-known/lumi-app-finder.mcp.json; then
+            echo "Discovery catalogs are already current."
             exit 0
           fi
           git config user.name "lumi-api-catalog-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .well-known/api-catalog
-          git commit -m "chore: sync API discovery catalog"
+          git add \
+            .well-known/api-catalog \
+            .well-known/ai-catalog.json \
+            .well-known/lumi-app-finder.mcp.json
+          git commit -m "chore: sync API and agent discovery catalogs"
           for attempt in 1 2 3; do
             if git pull --rebase origin main && git push origin HEAD:main; then
               exit 0

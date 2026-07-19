@@ -33,3 +33,6 @@
 - Verified iOS App Catalog API (50 App Store locales) — https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/
 - OpenAPI 3.1 contract — https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/openapi.json
 - RFC 9727 API Catalog — https://alice51849.github.io/.well-known/api-catalog
+- Agentic Resource Discovery (ARD) catalog — https://alice51849.github.io/.well-known/ai-catalog.json
+- Lumi App Finder MCP server card — https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json
+- Official MCP Registry entry — https://registry.modelcontextprotocol.io/v0.1/servers/io.github.alice51849%2Flumi-app-finder/versions/latest

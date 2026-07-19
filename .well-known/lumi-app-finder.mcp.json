@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.alice51849/lumi-app-finder",
+  "title": "Lumi App Finder",
+  "description": "Find iOS apps by task across 28 live apps and 50 Apple locales, with direct App Store links.",
+  "websiteUrl": "https://alice51849.github.io/ios-app-guide/",
+  "repository": {
+    "url": "https://github.com/alice51849/lumi-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/alice51849/lumi-mcp/releases/download/v1.0.0/lumi-app-finder.mcpb",
+      "fileSha256": "a7ee0cd19ef364406059422ba93c58ae4a2953dac100c943cfa340e4c79ad528",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "catalog": "https://alice51849.github.io/ios-app-guide/data/lumi-studio-publisher-search-intent-catalog.json",
+      "coverage": "28 verified live iOS apps across all 50 Apple locales",
+      "disclosure": "First-party publisher catalog; text relevance is not an independent ranking."
+    }
+  }
+}

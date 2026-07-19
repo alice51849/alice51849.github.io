@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://alice51849.github.io/</loc><lastmod>2026-07-18</lastmod></url>
+  <url><loc>https://alice51849.github.io/.well-known/ai-catalog.json</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://alice51849.github.io/.well-known/api-catalog</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/tools/unblur-image/</loc><lastmod>2026-07-18</lastmod></url>
   <url><loc>https://alice51849.github.io/tools/scan-document/</loc><lastmod>2026-07-18</lastmod></url>
   <url><loc>https://alice51849.github.io/tools/enhance-photo/</loc><lastmod>2026-07-18</lastmod></url>
