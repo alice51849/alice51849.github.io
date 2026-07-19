@@ -23,6 +23,7 @@ def feed(url: str) -> bytes:
     return f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="{common.ATOM}" xmlns:activity="{common.ACTIVITY}">
   <entry>
+    <id>tag:example.com,2026:bridgy:test</id>
     <title>Example - independent iOS app guide</title>
     <activity:object-type>{common.ACTIVITY_NOTE}</activity:object-type>
     <link rel="alternate" type="text/html" href="{url}" />
@@ -52,6 +53,14 @@ class EntryTests(unittest.TestCase):
         url = (
             f"{common.SITE_URL}ios-app-guide/guides/example.html"
             "?bridgy=2026-07-13"
+        )
+        _title, parsed_url = twingly.entry_details(feed(url))
+        self.assertEqual(url, parsed_url)
+
+    def test_six_hour_bridgy_query_is_accepted(self):
+        url = (
+            f"{common.SITE_URL}ios-app-guide/guides/example.html"
+            "?bridgy=2026-07-19-18"
         )
         _title, parsed_url = twingly.entry_details(feed(url))
         self.assertEqual(url, parsed_url)
@@ -116,7 +125,7 @@ class WiringTests(unittest.TestCase):
         workflow = (
             common.ROOT / ".github/workflows/bridgy-feed-daily.yml"
         ).read_text(encoding="utf-8")
-        condition = "if: steps.persist.outputs.changed == 'true'"
+        condition = "if: steps.persist.outputs.feed_changed == 'true'"
         self.assertEqual(1, workflow.count(condition))
         self.assertIn("python3 .github/scripts/test_twingly_notify.py -q", workflow)
         self.assertIn(

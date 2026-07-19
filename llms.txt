@@ -1,6 +1,6 @@
 # Alice51849 iOS Apps
 
-> A concise llms.txt-style index of independent iPhone apps by Alice51849. These apps focus on practical, privacy-conscious, pay-once utilities for photos, productivity, finance, kids learning, and family routines.
+> A concise index of independent iPhone apps by Alice51849, with verified App Store links and transparent purchase details across photo, productivity, finance, learning, travel, and family tasks.
 
 ## Apps
 
@@ -41,3 +41,9 @@
 - Agentic Resource Discovery (ARD) catalog — https://alice51849.github.io/.well-known/ai-catalog.json
 - Lumi App Finder MCP server card — https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json
 - Official MCP Registry entry — https://registry.modelcontextprotocol.io/v0.1/servers/io.github.alice51849%2Flumi-app-finder/versions/latest
+
+## Live social discovery
+
+- App guide Atom feed — https://alice51849.github.io/bridgy-feed.xml
+- Bridged Bluesky app guides — https://bsky.app/profile/alice51849.github.io.web.brid.gy
+- ActivityPub app guide profile — https://web.brid.gy/alice51849.github.io

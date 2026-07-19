@@ -10,6 +10,7 @@ import sys
 import tempfile
 import unittest
 import urllib.error
+import urllib.parse
 import xml.etree.ElementTree as ET
 from unittest import mock
 
@@ -122,28 +123,79 @@ class CandidateTests(unittest.TestCase):
 
     def test_rotation_is_fair_and_repeats_after_full_cycle(self):
         candidates = feed.parse_candidates(payload("one", "two", "three"))
-        selected = [
-            feed.select_candidate(
+        entries = []
+        state = feed._initial_rotation_state(candidates, entries)
+        selected = []
+        for offset in range(4):
+            content, state_content, current = feed.advance_rotation(
                 candidates,
-                today=feed.BASE_DATE + dt.timedelta(days=offset),
-            )["slug"]
-            for offset in range(4)
-        ]
-        self.assertEqual(["one", "two", "three", "one"], selected)
+                entries,
+                state,
+                now=feed.BASE_SLOT + feed.CADENCE * offset,
+            )
+            selected.extend(current)
+            entries = feed.parse_feed_entries(content)
+            state = json.loads(state_content)
+        self.assertEqual(
+            ["one", "two", "three", "one"],
+            [item["slug"] for item in selected],
+        )
+
+    def test_four_daily_slots_cover_twenty_eight_apps_in_one_week(self):
+        candidates = feed.parse_candidates(
+            payload(*(f"app-{index}" for index in range(28)))
+        )
+        entries = []
+        state = feed._initial_rotation_state(candidates, entries)
+        selected = []
+        for offset in range(28):
+            content, state_content, current = feed.advance_rotation(
+                candidates,
+                entries,
+                state,
+                now=feed.BASE_SLOT + feed.CADENCE * offset,
+            )
+            selected.extend(current)
+            entries = feed.parse_feed_entries(content)
+            state = json.loads(state_content)
+        self.assertEqual(28, len({item["slug"] for item in selected}))
+        self.assertEqual(
+            feed.FEED_ENTRY_LIMIT,
+            len(feed.parse_feed_entries(content)),
+        )
+
+    def test_live_app_profile_drift_does_not_stop_rotation(self):
+        candidates = feed.parse_candidates(payload("one"))
+        with mock.patch.dict(
+            feed.POST_PROFILES,
+            {"one": feed.DEFAULT_POST_PROFILE},
+            clear=True,
+        ):
+            self.assertEqual(([], []), feed.profile_drift(candidates))
+        missing, stale = feed.profile_drift(candidates)
+        self.assertEqual(["one"], missing)
+        self.assertIn("wordmate", stale)
+        with mock.patch("sys.stderr", new_callable=io.StringIO) as stderr:
+            feed.warn_profile_drift(candidates)
+        self.assertIn("using safe defaults", stderr.getvalue())
+        self.assertEqual(
+            feed.DEFAULT_POST_PROFILE,
+            feed.post_profile("one"),
+        )
 
 
 class AtomTests(unittest.TestCase):
-    def test_feed_has_exactly_one_stable_entry(self):
-        candidate = feed.parse_candidates(payload("lumi"))[0]
-        first = feed.render_feed(candidate, today=feed.BASE_DATE)
-        second = feed.render_feed(candidate, today=feed.BASE_DATE)
+    def test_feed_starts_with_one_stable_entry(self):
+        candidates = feed.parse_candidates(payload("lumi"))
+        first = feed.render_feed(candidates, now=feed.BASE_SLOT)
+        second = feed.render_feed(candidates, now=feed.BASE_SLOT)
         self.assertEqual(first, second)
 
         root = ET.fromstring(first)
         entries = root.findall(f"{{{feed.ATOM}}}entry")
         self.assertEqual(1, len(entries))
         self.assertEqual(
-            f"{feed.GUIDE_SITE}/guides/lumi.html",
+            f"{feed.GUIDE_SITE}/guides/lumi.html?bridgy=2026-07-19-18",
             entries[0].find(f"{{{feed.ATOM}}}link").attrib["href"],
         )
         related = entries[0].find(
@@ -151,7 +203,7 @@ class AtomTests(unittest.TestCase):
         )
         self.assertEqual(STORE_URL, related.attrib["href"])
         self.assertIn(
-            ":2026-07-12:lumi",
+            ":2026-07-19T18",
             entries[0].findtext(f"{{{feed.ATOM}}}id"),
         )
         content = entries[0].find(f"{{{feed.ATOM}}}content")
@@ -198,6 +250,7 @@ class AtomTests(unittest.TestCase):
                 "aim990",
                 "cvdesk",
                 "cyca",
+                "dailymate",
                 "gmoney",
                 "hourstag",
                 "lockhour",
@@ -218,7 +271,10 @@ class AtomTests(unittest.TestCase):
                 "snapport",
                 "sononote",
                 "tripbee",
+                "tripbeelite",
+                "tripplanet",
                 "unblurry",
+                "wordmate",
             },
             set(feed.POST_PROFILES),
         )
@@ -251,17 +307,25 @@ class AtomTests(unittest.TestCase):
         self.assertIn("#iOSApps #IndieApps", text)
         self.assertIn(STORE_URL, text)
 
-    def test_next_day_replaces_instead_of_backfilling(self):
-        candidate = feed.parse_candidates(payload("lumi"))[0]
-        first = ET.fromstring(feed.render_feed(candidate, today=feed.BASE_DATE))
-        second = ET.fromstring(
-            feed.render_feed(
-                candidate,
-                today=feed.BASE_DATE + dt.timedelta(days=1),
-            )
+    def test_next_slot_retains_a_bounded_delivery_window(self):
+        candidates = feed.parse_candidates(payload("lumi"))
+        first_content, state_content, _selected = feed.advance_rotation(
+            candidates,
+            [],
+            feed._initial_rotation_state(candidates, []),
+            now=feed.BASE_SLOT,
         )
+        first_entries = feed.parse_feed_entries(first_content)
+        second_content, _state_content, _selected = feed.advance_rotation(
+            candidates,
+            first_entries,
+            json.loads(state_content),
+            now=feed.BASE_SLOT + feed.CADENCE,
+        )
+        first = ET.fromstring(first_content)
+        second = ET.fromstring(second_content)
         self.assertEqual(1, len(first.findall(f"{{{feed.ATOM}}}entry")))
-        self.assertEqual(1, len(second.findall(f"{{{feed.ATOM}}}entry")))
+        self.assertEqual(2, len(second.findall(f"{{{feed.ATOM}}}entry")))
         self.assertNotEqual(
             first.findtext(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}id"),
             second.findtext(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}id"),
@@ -269,26 +333,165 @@ class AtomTests(unittest.TestCase):
         first_link = first.find(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}link")
         second_link = second.find(f"{{{feed.ATOM}}}entry/{{{feed.ATOM}}}link")
         self.assertEqual(
-            f"{feed.GUIDE_SITE}/guides/lumi.html",
+            f"{feed.GUIDE_SITE}/guides/lumi.html?bridgy=2026-07-19-18",
             first_link.attrib["href"],
         )
         self.assertEqual(
-            f"{feed.GUIDE_SITE}/guides/lumi.html?bridgy=2026-07-13",
+            f"{feed.GUIDE_SITE}/guides/lumi.html?bridgy=2026-07-20-00",
             second_link.attrib["href"],
         )
 
-    def test_repeated_app_uses_a_new_daily_bridgy_url(self):
-        candidate = feed.parse_candidates(payload("lumi"))[0]
+    def test_persisted_rotation_preserves_history_when_candidates_reorder(self):
+        candidates = feed.parse_candidates(payload("one", "two", "three"))
+        first_content, first_state, selected = feed.advance_rotation(
+            candidates,
+            [],
+            feed._initial_rotation_state(candidates, []),
+            now=feed.BASE_SLOT,
+        )
+        first_entries = feed.parse_feed_entries(first_content)
+        second_content, second_state, selected = feed.advance_rotation(
+            candidates,
+            first_entries,
+            json.loads(first_state),
+            now=feed.BASE_SLOT + feed.CADENCE,
+        )
+        self.assertEqual(["two"], [item["slug"] for item in selected])
+        history_entries = feed.parse_feed_entries(second_content)
+        before = {
+            entry.findtext(f"{{{feed.ATOM}}}id"): ET.tostring(entry)
+            for entry in history_entries
+        }
+
+        reordered = feed.parse_candidates(payload("three", "one", "two"))
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = pathlib.Path(directory) / "rotation.json"
+            state_path.write_bytes(second_state)
+            persisted = feed._load_rotation_state(
+                reordered,
+                history_entries,
+                path=state_path,
+            )
+        third_content, _third_state, selected = feed.advance_rotation(
+            reordered,
+            history_entries,
+            persisted,
+            now=feed.BASE_SLOT + feed.CADENCE * 2,
+        )
+        self.assertEqual(["three"], [item["slug"] for item in selected])
+        third_entries = feed.parse_feed_entries(third_content)
+        after = {
+            entry.findtext(f"{{{feed.ATOM}}}id"): ET.tostring(entry)
+            for entry in third_entries
+        }
+        for entry_id, serialized in before.items():
+            self.assertEqual(serialized, after[entry_id])
+
+    def test_missed_slots_publish_only_the_current_entry(self):
+        candidates = feed.parse_candidates(payload("one", "two", "three"))
+        content, state_content, selected = feed.advance_rotation(
+            candidates,
+            [],
+            feed._initial_rotation_state(candidates, []),
+            now=feed.BASE_SLOT + feed.CADENCE * 10,
+        )
+        self.assertEqual(["one"], [item["slug"] for item in selected])
+        entries = feed.parse_feed_entries(content)
+        self.assertEqual(1, len(entries))
+        self.assertEqual(
+            feed.BASE_SLOT + feed.CADENCE * 10,
+            feed._entry_published(entries[0]),
+        )
+        self.assertEqual(
+            "2026-07-22T06:00:00Z",
+            json.loads(state_content)["last_slot"],
+        )
+
+    def test_live_app_additions_and_removals_reconcile_the_queue(self):
+        candidates = feed.parse_candidates(payload("one", "two"))
+        content, state_content, _selected = feed.advance_rotation(
+            candidates,
+            [],
+            feed._initial_rotation_state(candidates, []),
+            now=feed.BASE_SLOT,
+        )
+        entries = feed.parse_feed_entries(content)
+        changed = feed.parse_candidates(payload("two", "three"))
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = pathlib.Path(directory) / "rotation.json"
+            state_path.write_bytes(state_content)
+            state = feed._load_rotation_state(
+                changed,
+                entries,
+                path=state_path,
+            )
+        self.assertEqual(["two", "three"], state["remaining"])
+
+        content, state_content, selected = feed.advance_rotation(
+            changed,
+            entries,
+            state,
+            now=feed.BASE_SLOT + feed.CADENCE,
+        )
+        self.assertEqual(["two"], [item["slug"] for item in selected])
+        content, _state_content, selected = feed.advance_rotation(
+            changed,
+            feed.parse_feed_entries(content),
+            json.loads(state_content),
+            now=feed.BASE_SLOT + feed.CADENCE * 2,
+        )
+        self.assertEqual(["three"], [item["slug"] for item in selected])
+
+    def test_persisted_rotation_is_idempotent_within_one_slot(self):
+        candidates = feed.parse_candidates(payload("one", "two"))
+        content, state_content, selected = feed.advance_rotation(
+            candidates,
+            [],
+            feed._initial_rotation_state(candidates, []),
+            now=feed.BASE_SLOT,
+        )
+        self.assertEqual(["one"], [item["slug"] for item in selected])
+        repeated_content, repeated_state, selected = feed.advance_rotation(
+            candidates,
+            feed.parse_feed_entries(content),
+            json.loads(state_content),
+            now=feed.BASE_SLOT,
+        )
+        self.assertEqual([], selected)
+        self.assertEqual(content, repeated_content)
+        self.assertEqual(state_content, repeated_state)
+
+    def test_initial_state_does_not_repeat_a_legacy_feed_app(self):
+        candidates = feed.parse_candidates(payload("hourstag", "next-app"))
+        candidate_by_slug = {
+            candidate["slug"]: candidate for candidate in candidates
+        }
+        entries = [
+            feed._rotation_entry(
+                "hourstag",
+                candidate_by_slug,
+                feed.BASE_SLOT - feed.CADENCE * 3,
+            )
+        ]
+        state = feed._initial_rotation_state(candidates, entries)
+        self.assertEqual(["next-app"], state["remaining"])
+        self.assertEqual(
+            "2026-07-19T12:00:00Z",
+            state["last_slot"],
+        )
+
+    def test_repeated_app_uses_a_new_slot_url(self):
+        candidates = feed.parse_candidates(payload("lumi"))
         first_repeat = ET.fromstring(
             feed.render_feed(
-                candidate,
-                today=feed.BASE_DATE + dt.timedelta(days=1),
+                candidates,
+                now=feed.BASE_SLOT + feed.CADENCE,
             )
         )
         second_repeat = ET.fromstring(
             feed.render_feed(
-                candidate,
-                today=feed.BASE_DATE + dt.timedelta(days=2),
+                candidates,
+                now=feed.BASE_SLOT + feed.CADENCE * 2,
             )
         )
         first_url = first_repeat.find(
@@ -300,10 +503,10 @@ class AtomTests(unittest.TestCase):
         self.assertNotEqual(first_url, second_url)
 
     def test_post_content_over_bluesky_limit_is_rejected(self):
-        candidate = feed.parse_candidates(payload("lumi"))[0]
-        candidate["name"] = "x" * feed.MAX_POST_LENGTH
+        candidates = feed.parse_candidates(payload("lumi"))
+        candidates[0]["name"] = "x" * feed.MAX_POST_LENGTH
         with self.assertRaisesRegex(ValueError, "maximum is 300"):
-            feed.render_feed(candidate, today=feed.BASE_DATE)
+            feed.render_feed(candidates, now=feed.BASE_SLOT)
 
     def test_write_is_idempotent(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -337,18 +540,20 @@ class RequestTests(unittest.TestCase):
     def test_run_validates_selected_live_guide(self):
         candidates = feed.parse_candidates(payload("one", "two"))
         with tempfile.TemporaryDirectory() as directory:
-            path = pathlib.Path(directory) / "bridgy-feed.xml"
-            write_feed = feed.write_feed
+            feed_path = pathlib.Path(directory) / "bridgy-feed.xml"
+            state_path = pathlib.Path(directory) / "rotation.json"
             with (
                 mock.patch.object(feed, "fetch_candidates", return_value=candidates),
+                mock.patch.object(feed, "warn_profile_drift"),
                 mock.patch.object(feed, "validate_guide") as validate,
-                mock.patch.object(
-                    feed,
-                    "write_feed",
-                    side_effect=lambda content: write_feed(content, path=path),
-                ),
             ):
-                changed = feed.run(today=feed.BASE_DATE)
+                changed = feed.run(
+                    now=feed.BASE_SLOT,
+                    feed_path=feed_path,
+                    state_path=state_path,
+                )
+            self.assertTrue(feed_path.exists())
+            self.assertTrue(state_path.exists())
         self.assertTrue(changed)
         validate.assert_called_once_with(candidates[0]["url"])
 
@@ -359,20 +564,49 @@ class WiringTests(unittest.TestCase):
         self.assertEqual(1, index.count('type="application/atom+xml"'))
         self.assertIn('href="https://alice51849.github.io/bridgy-feed.xml"', index)
         self.assertIn('property="og:image"', index)
+        self.assertIn(
+            "https://bsky.app/profile/alice51849.github.io.web.brid.gy",
+            index,
+        )
+        self.assertIn("探索 28 款作品", index)
+        self.assertIn("Explore 28 Apps", index)
+        self.assertIn("50-locale catalog", index)
+        self.assertIn("guide coverage varies by app", index)
+        for claim in (
+            "無廣告",
+            "沒有訂閱",
+            "No ads",
+            "No subscriptions",
+            "広告なし",
+            "サブスクなし",
+            "광고 없음",
+            "구독 없음",
+            "50 語指南",
+            "50-locale guides",
+            "50地域のガイド",
+            "50개 지역 가이드",
+        ):
+            self.assertNotIn(claim, index)
 
-    def test_checked_in_feed_is_valid_and_single_entry(self):
+        llms = (feed.ROOT / "llms.txt").read_text(encoding="utf-8")
+        self.assertIn("Bridged Bluesky app guides", llms)
+        self.assertIn("ActivityPub app guide profile", llms)
+
+    def test_checked_in_feed_is_valid_and_bounded(self):
         root = ET.parse(feed.FEED_PATH).getroot()
         entries = root.findall(f"{{{feed.ATOM}}}entry")
-        self.assertEqual(1, len(entries))
+        self.assertGreaterEqual(len(entries), 1)
+        self.assertLessEqual(len(entries), feed.FEED_ENTRY_LIMIT)
         entry = entries[0]
         self.assertEqual(
             feed.ACTIVITY_NOTE,
             entry.findtext(f"{{{feed.ACTIVITY}}}object-type"),
         )
-        entry_id = entry.findtext(f"{{{feed.ATOM}}}id")
-        self.assertIsNotNone(entry_id)
-        slug = entry_id.rsplit(":", 1)[-1]
-        self.assertIn(slug, feed.POST_PROFILES)
+        alternate = entry.find(f"{{{feed.ATOM}}}link[@rel='alternate']")
+        self.assertIsNotNone(alternate)
+        slug = pathlib.PurePosixPath(
+            urllib.parse.urlsplit(alternate.attrib["href"]).path
+        ).stem
         locale, _focus, hashtags = feed.post_profile(slug)
 
         related = entry.find(f"{{{feed.ATOM}}}link[@rel='related']")

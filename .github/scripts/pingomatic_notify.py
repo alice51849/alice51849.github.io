@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Notify Ping-O-Matic after the public daily Atom feed is deployed."""
+"""Notify Ping-O-Matic after the public app-guide Atom feed is deployed."""
 
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ USER_AGENT = (
 ATOM = "http://www.w3.org/2005/Atom"
 ACTIVITY = "http://activitystrea.ms/spec/1.0/"
 ACTIVITY_NOTE = "http://activitystrea.ms/schema/1.0/note"
+MAX_FEED_ENTRIES = 8
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FEED_PATH = ROOT / "bridgy-feed.xml"
 
@@ -58,23 +59,35 @@ def validate_feed(content: bytes) -> str:
     if root.tag != f"{{{ATOM}}}feed":
         raise NotifyError("Local feed is not Atom")
     entries = root.findall(f"{{{ATOM}}}entry")
-    if len(entries) != 1:
-        raise NotifyError(f"Local Atom feed has {len(entries)} entries; expected one")
-    title = entries[0].findtext(f"{{{ATOM}}}title")
-    if not isinstance(title, str) or not title.strip():
-        raise NotifyError("Local Atom entry is missing a title")
-    object_type = entries[0].findtext(f"{{{ACTIVITY}}}object-type")
-    if object_type != ACTIVITY_NOTE:
-        raise NotifyError("Local Atom entry is not an ActivityStreams note")
-    content = entries[0].find(f"{{{ATOM}}}content")
-    if (
-        content is None
-        or content.attrib.get("type") != "html"
-        or not isinstance(content.text, str)
-        or not content.text.strip()
-    ):
-        raise NotifyError("Local Atom entry is missing HTML note content")
-    return title.strip()
+    if not 1 <= len(entries) <= MAX_FEED_ENTRIES:
+        raise NotifyError(
+            f"Local Atom feed has {len(entries)} entries; "
+            f"expected 1-{MAX_FEED_ENTRIES}"
+        )
+    seen_ids = set()
+    for entry in entries:
+        entry_id = entry.findtext(f"{{{ATOM}}}id")
+        if not isinstance(entry_id, str) or not entry_id.strip():
+            raise NotifyError("Local Atom entry is missing an ID")
+        if entry_id in seen_ids:
+            raise NotifyError("Local Atom feed contains a duplicate entry ID")
+        seen_ids.add(entry_id)
+        title = entry.findtext(f"{{{ATOM}}}title")
+        if not isinstance(title, str) or not title.strip():
+            raise NotifyError("Local Atom entry is missing a title")
+        object_type = entry.findtext(f"{{{ACTIVITY}}}object-type")
+        if object_type != ACTIVITY_NOTE:
+            raise NotifyError("Local Atom entry is not an ActivityStreams note")
+        content = entry.find(f"{{{ATOM}}}content")
+        if (
+            content is None
+            or content.attrib.get("type") != "html"
+            or not isinstance(content.text, str)
+            or not content.text.strip()
+        ):
+            raise NotifyError("Local Atom entry is missing HTML note content")
+    latest_title = entries[0].findtext(f"{{{ATOM}}}title")
+    return latest_title.strip()
 
 
 def fetch_live_feed(*, opener=None, timeout: int = 20) -> bytes:

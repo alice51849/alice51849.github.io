@@ -43,25 +43,41 @@ class FakeResponse:
 
 
 class FeedTests(unittest.TestCase):
-    def test_checked_in_feed_is_single_entry_atom(self):
+    def test_checked_in_feed_is_bounded_atom(self):
         title = notify.validate_feed(notify.FEED_PATH.read_bytes())
         self.assertIn("independent iOS app guide", title)
 
-    def test_multiple_entries_are_rejected(self):
-        content = (
-            b'<feed xmlns="http://www.w3.org/2005/Atom">'
-            b"<entry><title>One</title></entry>"
-            b"<entry><title>Two</title></entry>"
-            b"</feed>"
+    def test_multiple_valid_entries_are_accepted(self):
+        content = f"""<feed xmlns="{notify.ATOM}"
+ xmlns:activity="{notify.ACTIVITY}">
+ <entry><id>one</id><title>Newest</title>
+ <activity:object-type>{notify.ACTIVITY_NOTE}</activity:object-type>
+ <content type="html">Newest content</content></entry>
+ <entry><id>two</id><title>Older</title>
+ <activity:object-type>{notify.ACTIVITY_NOTE}</activity:object-type>
+ <content type="html">Older content</content></entry>
+</feed>""".encode()
+        self.assertEqual("Newest", notify.validate_feed(content))
+
+    def test_more_than_delivery_window_is_rejected(self):
+        entries = "".join(
+            f"<entry><id>{index}</id><title>Entry {index}</title>"
+            f"<activity:object-type>{notify.ACTIVITY_NOTE}</activity:object-type>"
+            f'<content type="html">Content {index}</content></entry>'
+            for index in range(notify.MAX_FEED_ENTRIES + 1)
         )
-        with self.assertRaisesRegex(notify.NotifyError, "2 entries"):
+        content = (
+            f'<feed xmlns="{notify.ATOM}" xmlns:activity="{notify.ACTIVITY}">'
+            f"{entries}</feed>"
+        ).encode()
+        with self.assertRaisesRegex(notify.NotifyError, "expected 1-8"):
             notify.validate_feed(content)
 
     def test_entry_without_html_note_content_is_rejected(self):
         content = (
             b'<feed xmlns="http://www.w3.org/2005/Atom" '
             b'xmlns:activity="http://activitystrea.ms/spec/1.0/">'
-            b"<entry><title>One</title>"
+            b"<entry><id>one</id><title>One</title>"
             b"<activity:object-type>"
             b"http://activitystrea.ms/schema/1.0/note"
             b"</activity:object-type></entry>"
@@ -177,7 +193,7 @@ class WiringTests(unittest.TestCase):
         self.assertIn("id: persist", workflow)
         self.assertIn("changed=true", workflow)
         self.assertIn(
-            "if: steps.persist.outputs.changed == 'true'",
+            "if: steps.persist.outputs.feed_changed == 'true'",
             workflow,
         )
         self.assertIn(

@@ -17,7 +17,9 @@ import pingomatic_notify as common
 
 RPC_URL = "https://rpc.twingly.com/"
 GUIDE_PREFIX = "/ios-app-guide/guides/"
-BRIDGY_QUERY_RE = re.compile(r"^bridgy=(\d{4}-\d{2}-\d{2})$")
+BRIDGY_QUERY_RE = re.compile(
+    r"^bridgy=(\d{4}-\d{2}-\d{2})(?:-(00|06|12|18))?$"
+)
 
 
 def entry_details(content: bytes) -> tuple[str, str]:

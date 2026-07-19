@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Generate a one-entry Atom feed for Bridgy Fed from the live app registry."""
+"""Generate a bounded Atom feed for Bridgy Fed from the live app registry."""
 
 from __future__ import annotations
 
+import copy
 import datetime as dt
 import html
 import http.client
@@ -18,7 +19,10 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 
-BASE_DATE = dt.date(2026, 7, 12)
+BASE_SLOT = dt.datetime(2026, 7, 19, 18, tzinfo=dt.timezone.utc)
+CADENCE = dt.timedelta(hours=6)
+FEED_ENTRY_LIMIT = 8
+STATE_VERSION = 1
 SITE = "https://alice51849.github.io"
 GUIDE_SITE = f"{SITE}/ios-app-guide"
 LINKSET_URL = f"{GUIDE_SITE}/linkset.json"
@@ -87,6 +91,11 @@ POST_PROFILES: dict[str, tuple[str, str, tuple[str, ...]]] = {
         "es",
         "Registra ciclos, síntomas y tendencias de forma privada en el iPhone",
         ("CicloMenstrual", "Privacidad", "AppsIOS"),
+    ),
+    "dailymate": (
+        "en",
+        "Practice complete phrases for real conversations instead of isolated vocabulary",
+        ("LanguageLearning", "TravelLanguage", "iOSApps"),
     ),
     "gmoney": (
         "en",
@@ -178,15 +187,31 @@ POST_PROFILES: dict[str, tuple[str, str, tuple[str, ...]]] = {
         "Plan day-by-day itineraries with offline access and a clean travel map",
         ("TripPlanning", "TravelApps", "iOSApps"),
     ),
+    "tripbeelite": (
+        "en",
+        "Keep one upcoming trip, bookings, packing, and daily plans in one focused timeline",
+        ("TripPlanning", "TravelPrep", "iOSApps"),
+    ),
+    "tripplanet": (
+        "en",
+        "Turn long drives and flights into playful observation missions for young children",
+        ("FamilyTravel", "KidsActivities", "iOSApps"),
+    ),
     "unblurry": (
         "en",
         "Review common blur causes and try realistic fixes for focus, motion, and low light",
         ("PhotoEditing", "iPhonePhotography", "iOSApps"),
     ),
+    "wordmate": (
+        "en",
+        "Build a personal vocabulary collection with focused review across many languages",
+        ("Vocabulary", "LanguageLearning", "iOSApps"),
+    ),
 }
 SLUG_RE = re.compile(r"^[a-z0-9-]+$")
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 FEED_PATH = ROOT / "bridgy-feed.xml"
+STATE_PATH = ROOT / ".github" / "bridgy-rotation-state.json"
 ET.register_namespace("", ATOM)
 ET.register_namespace("activity", ACTIVITY)
 
@@ -393,19 +418,39 @@ def fetch_candidates(*, opener=None, sleeper=None) -> list[dict[str, str]]:
     return parse_candidates(payload)
 
 
-def select_candidate(
+def profile_drift(
     candidates: list[dict[str, str]],
-    *,
-    today: dt.date,
-) -> dict[str, str]:
-    if not candidates:
-        raise ValueError("live app guide pool is empty")
-    offset = (today - BASE_DATE).days
-    if offset < 0:
-        raise ValueError(f"feed schedule predates {BASE_DATE.isoformat()}")
-    return candidates[offset % len(candidates)]
+) -> tuple[list[str], list[str]]:
+    live_slugs = {candidate["slug"] for candidate in candidates}
+    profiles = set(POST_PROFILES)
+    return sorted(live_slugs - profiles), sorted(profiles - live_slugs)
 
 
+def warn_profile_drift(candidates: list[dict[str, str]]) -> None:
+    missing, stale = profile_drift(candidates)
+    if missing or stale:
+        details = []
+        if missing:
+            details.append("missing=" + ",".join(missing))
+        if stale:
+            details.append("stale=" + ",".join(stale))
+        print(
+            "Bridgy profile coverage drifted; using safe defaults: "
+            + " ".join(details),
+            file=sys.stderr,
+        )
+
+
+def publishing_slot(now: dt.datetime) -> dt.datetime:
+    if now.tzinfo is None or now.utcoffset() is None:
+        raise ValueError("feed time must be timezone-aware")
+    now = now.astimezone(dt.timezone.utc)
+    return now.replace(
+        hour=(now.hour // 6) * 6,
+        minute=0,
+        second=0,
+        microsecond=0,
+    )
 def validate_guide(
     url: str,
     *,
@@ -480,46 +525,34 @@ def post_content(slug: str, name: str, store_url: str) -> str:
     )
 
 
-def post_url(url: str, *, today: dt.date) -> str:
-    # Preserve the already-published first post; later dates need unique URLs
-    # because Bridgy Fed uses the alternate URL instead of the Atom tag ID.
-    if today == BASE_DATE:
-        return url
-    return f"{url}?bridgy={today.isoformat()}"
+def post_url(url: str, *, slot: dt.datetime) -> str:
+    token = publishing_slot(slot).strftime("%Y-%m-%d-%H")
+    return f"{url}?bridgy={token}"
 
 
-def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
-    timestamp = f"{today.isoformat()}T00:00:00Z"
+def _timestamp(slot: dt.datetime) -> str:
+    return publishing_slot(slot).isoformat().replace("+00:00", "Z")
+
+
+def _render_entry(
+    feed: ET.Element,
+    candidate: dict[str, str],
+    *,
+    slot: dt.datetime,
+) -> ET.Element:
+    timestamp = _timestamp(slot)
     slug = candidate["slug"]
     name = candidate["name"]
-    url = post_url(candidate["url"], today=today)
+    url = post_url(candidate["url"], slot=slot)
     store_url = candidate["store_url"]
 
-    feed = ET.Element(f"{{{ATOM}}}feed", {"xml:lang": "en"})
-    _node(feed, "id", FEED_URL)
-    _node(feed, "title", "Lumi Studio — one independent iOS app guide daily")
-    _node(
-        feed,
-        "subtitle",
-        "A low-frequency rotation across every currently public Lumi Studio app.",
-    )
-    ET.SubElement(
-        feed,
-        f"{{{ATOM}}}link",
-        {"rel": "self", "type": "application/atom+xml", "href": FEED_URL},
-    )
-    ET.SubElement(
-        feed,
-        f"{{{ATOM}}}link",
-        {"rel": "alternate", "type": "text/html", "href": f"{SITE}/"},
-    )
-    _node(feed, "updated", timestamp)
-    author = ET.SubElement(feed, f"{{{ATOM}}}author")
-    _node(author, "name", "Lumi Studio")
-    _node(author, "uri", f"{SITE}/")
-
     entry = ET.SubElement(feed, f"{{{ATOM}}}entry")
-    _node(entry, "id", f"tag:alice51849.github.io,{today.year}:bridgy:{today}:{slug}")
+    _node(
+        entry,
+        "id",
+        f"tag:alice51849.github.io,{slot.year}:bridgy:"
+        f"{publishing_slot(slot).strftime('%Y-%m-%dT%H')}",
+    )
     _node(entry, "title", f"{name} — independent iOS app guide")
     object_type = ET.SubElement(entry, f"{{{ACTIVITY}}}object-type")
     object_type.text = ACTIVITY_NOTE
@@ -554,8 +587,326 @@ def render_feed(candidate: dict[str, str], *, today: dt.date) -> bytes:
         post_text(slug, name, store_url),
     )
     summary.set(f"{{{XML}}}lang", locale)
+    return entry
+
+
+def _parse_timestamp(value: str, *, label: str) -> dt.datetime:
+    try:
+        parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise ValueError(f"{label} has an invalid timestamp: {value}") from error
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise ValueError(f"{label} timestamp must include a timezone")
+    return parsed.astimezone(dt.timezone.utc)
+
+
+def _required_text(entry: ET.Element, name: str) -> str:
+    node = entry.find(f"{{{ATOM}}}{name}")
+    if node is None or not (node.text or "").strip():
+        raise ValueError(f"existing Bridgy entry is missing {name}")
+    return (node.text or "").strip()
+
+
+def _entry_published(entry: ET.Element) -> dt.datetime:
+    return _parse_timestamp(
+        _required_text(entry, "published"),
+        label="existing Bridgy entry",
+    )
+
+
+def _entry_slug(entry: ET.Element) -> str:
+    links = [
+        node.get("href", "")
+        for node in entry.findall(f"{{{ATOM}}}link")
+        if node.get("rel") == "alternate"
+    ]
+    if len(links) != 1:
+        raise ValueError(
+            "existing Bridgy entry must have exactly one alternate link"
+        )
+    parsed = urllib.parse.urlparse(links[0])
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc != "alice51849.github.io"
+        or not parsed.path.startswith("/ios-app-guide/")
+        or not parsed.path.endswith(".html")
+    ):
+        raise ValueError("existing Bridgy entry has an invalid guide URL")
+    slug = pathlib.PurePosixPath(parsed.path).stem
+    if not re.fullmatch(r"[a-z0-9-]+", slug):
+        raise ValueError("existing Bridgy entry has an invalid app slug")
+    return slug
+
+
+def parse_feed_entries(content: bytes) -> list[ET.Element]:
+    if not content:
+        return []
+    try:
+        root = ET.fromstring(content)
+    except ET.ParseError as error:
+        raise ValueError("existing Bridgy feed is invalid XML") from error
+    if root.tag != f"{{{ATOM}}}feed":
+        raise ValueError("existing Bridgy feed has an invalid root element")
+    entries = list(root.findall(f"{{{ATOM}}}entry"))
+    if len(entries) > FEED_ENTRY_LIMIT:
+        raise ValueError("existing Bridgy feed exceeds the entry limit")
+
+    ids: set[str] = set()
+    published: set[dt.datetime] = set()
+    for entry in entries:
+        entry_id = _required_text(entry, "id")
+        timestamp = _entry_published(entry)
+        _entry_slug(entry)
+        if entry_id in ids:
+            raise ValueError("existing Bridgy feed has duplicate entry IDs")
+        if timestamp in published:
+            raise ValueError(
+                "existing Bridgy feed has duplicate published timestamps"
+            )
+        ids.add(entry_id)
+        published.add(timestamp)
+    return sorted(entries, key=_entry_published, reverse=True)
+
+
+def _render_feed_entries(entries: list[ET.Element]) -> bytes:
+    if not entries:
+        raise ValueError("Bridgy feed cannot be empty")
+    entries = sorted(entries, key=_entry_published, reverse=True)[
+        :FEED_ENTRY_LIMIT
+    ]
+    feed = ET.Element(f"{{{ATOM}}}feed", {"xml:lang": "en"})
+    _node(feed, "id", FEED_URL)
+    _node(feed, "title", "Lumi Studio — independent iOS app guides")
+    _node(
+        feed,
+        "subtitle",
+        "A six-hour high-intent rotation across every live Lumi Studio app.",
+    )
+    ET.SubElement(
+        feed,
+        f"{{{ATOM}}}link",
+        {"rel": "self", "type": "application/atom+xml", "href": FEED_URL},
+    )
+    ET.SubElement(
+        feed,
+        f"{{{ATOM}}}link",
+        {"rel": "alternate", "type": "text/html", "href": f"{SITE}/"},
+    )
+    _node(feed, "updated", _required_text(entries[0], "published"))
+    author = ET.SubElement(feed, f"{{{ATOM}}}author")
+    _node(author, "name", "Lumi Studio")
+    _node(author, "uri", f"{SITE}/")
+    for entry in entries:
+        feed.append(copy.deepcopy(entry))
     ET.indent(feed, space="  ")
     return ET.tostring(feed, encoding="utf-8", xml_declaration=True) + b"\n"
+
+
+def _rotation_entry(
+    slug: str,
+    candidates: dict[str, dict[str, str]],
+    slot: dt.datetime,
+) -> ET.Element:
+    container = ET.Element("entries")
+    return _render_entry(container, candidates[slug], slot=slot)
+
+
+def _rotation_slots(entries: list[ET.Element]) -> list[dt.datetime]:
+    slots = []
+    for entry in entries:
+        published = _entry_published(entry)
+        if published < BASE_SLOT:
+            continue
+        if publishing_slot(published) != published:
+            raise ValueError(
+                "existing Bridgy entry is not aligned to the six-hour cadence"
+            )
+        slots.append(published)
+    return slots
+
+
+def _initial_rotation_state(
+    candidates: list[dict[str, str]],
+    entries: list[ET.Element],
+) -> dict[str, object]:
+    live_slugs = [candidate["slug"] for candidate in candidates]
+    recent_slugs = {_entry_slug(entry) for entry in entries}
+    rotation_slots = _rotation_slots(entries)
+    last_slot = (
+        max(rotation_slots)
+        if rotation_slots
+        else BASE_SLOT - CADENCE
+    )
+    return {
+        "version": STATE_VERSION,
+        "last_slot": _timestamp(last_slot),
+        "known_slugs": live_slugs,
+        "remaining": [
+            slug for slug in live_slugs if slug not in recent_slugs
+        ],
+    }
+
+
+def _slug_list(value: object, *, label: str) -> list[str]:
+    if not isinstance(value, list) or not all(
+        isinstance(item, str) and re.fullmatch(r"[a-z0-9-]+", item)
+        for item in value
+    ):
+        raise ValueError(f"Bridgy rotation state has invalid {label}")
+    if len(value) != len(set(value)):
+        raise ValueError(f"Bridgy rotation state has duplicate {label}")
+    return list(value)
+
+
+def _load_rotation_state(
+    candidates: list[dict[str, str]],
+    entries: list[ET.Element],
+    *,
+    path: pathlib.Path,
+) -> dict[str, object]:
+    try:
+        raw = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return _initial_rotation_state(candidates, entries)
+    try:
+        state = json.loads(raw)
+    except json.JSONDecodeError as error:
+        raise ValueError("Bridgy rotation state is invalid JSON") from error
+    if not isinstance(state, dict) or state.get("version") != STATE_VERSION:
+        raise ValueError("Bridgy rotation state has an unsupported version")
+
+    last_slot_raw = state.get("last_slot")
+    if not isinstance(last_slot_raw, str):
+        raise ValueError("Bridgy rotation state is missing last_slot")
+    last_slot = _parse_timestamp(
+        last_slot_raw,
+        label="Bridgy rotation state",
+    )
+    if (
+        last_slot < BASE_SLOT - CADENCE
+        or publishing_slot(last_slot) != last_slot
+    ):
+        raise ValueError("Bridgy rotation state has an invalid last_slot")
+
+    known_slugs = _slug_list(state.get("known_slugs"), label="known_slugs")
+    remaining = _slug_list(state.get("remaining"), label="remaining")
+    if not set(remaining).issubset(known_slugs):
+        raise ValueError(
+            "Bridgy rotation state remaining apps are not in known_slugs"
+        )
+    rotation_slots = _rotation_slots(entries)
+    if rotation_slots and max(rotation_slots) > last_slot:
+        raise ValueError("Bridgy feed is ahead of its rotation state")
+    if last_slot >= BASE_SLOT and (
+        not rotation_slots or max(rotation_slots) != last_slot
+    ):
+        raise ValueError("Bridgy rotation state is ahead of its feed")
+
+    live_slugs = [candidate["slug"] for candidate in candidates]
+    live_set = set(live_slugs)
+    remaining = [slug for slug in remaining if slug in live_set]
+    remaining.extend(
+        slug
+        for slug in live_slugs
+        if slug not in known_slugs and slug not in remaining
+    )
+    return {
+        "version": STATE_VERSION,
+        "last_slot": _timestamp(last_slot),
+        "known_slugs": live_slugs,
+        "remaining": remaining,
+    }
+
+
+def _serialize_rotation_state(state: dict[str, object]) -> bytes:
+    return (
+        json.dumps(
+            state,
+            ensure_ascii=True,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    ).encode()
+
+
+def advance_rotation(
+    candidates: list[dict[str, str]],
+    entries: list[ET.Element],
+    state: dict[str, object],
+    *,
+    now: dt.datetime,
+) -> tuple[bytes, bytes, list[dict[str, str]]]:
+    candidate_by_slug = {
+        candidate["slug"]: candidate for candidate in candidates
+    }
+    live_slugs = list(candidate_by_slug)
+    if not live_slugs:
+        raise ValueError("live app guide pool is empty")
+    remaining = _slug_list(state.get("remaining"), label="remaining")
+    last_slot_raw = state.get("last_slot")
+    if not isinstance(last_slot_raw, str):
+        raise ValueError("Bridgy rotation state is missing last_slot")
+    last_slot = _parse_timestamp(
+        last_slot_raw,
+        label="Bridgy rotation state",
+    )
+    latest_slot = publishing_slot(now)
+    if latest_slot < last_slot:
+        raise ValueError("Bridgy rotation state is ahead of current time")
+
+    existing_slots = {
+        _entry_published(entry): _entry_slug(entry) for entry in entries
+    }
+    selected: list[dict[str, str]] = []
+    if latest_slot > last_slot:
+        if not remaining:
+            remaining = live_slugs.copy()
+        slug = remaining.pop(0)
+        candidate = candidate_by_slug.get(slug)
+        if candidate is None:
+            raise ValueError(
+                f"Bridgy rotation selected an unavailable app: {slug}"
+            )
+        existing_slug = existing_slots.get(latest_slot)
+        if existing_slug is not None and existing_slug != slug:
+            raise ValueError(
+                "Bridgy feed conflicts with its persisted rotation state"
+            )
+        if existing_slug is None:
+            entry = _rotation_entry(slug, candidate_by_slug, latest_slot)
+            entries.append(entry)
+            existing_slots[latest_slot] = slug
+        selected.append(candidate)
+        last_slot = latest_slot
+
+    state = {
+        "version": STATE_VERSION,
+        "last_slot": _timestamp(last_slot),
+        "known_slugs": live_slugs,
+        "remaining": remaining,
+    }
+    return (
+        _render_feed_entries(entries),
+        _serialize_rotation_state(state),
+        selected,
+    )
+
+
+def render_feed(
+    candidates: list[dict[str, str]],
+    *,
+    now: dt.datetime,
+) -> bytes:
+    entries: list[ET.Element] = []
+    state = _initial_rotation_state(candidates, entries)
+    content, _state_content, _selected = advance_rotation(
+        candidates,
+        entries,
+        state,
+        now=now,
+    )
+    return content
 
 
 def write_feed(content: bytes, *, path: pathlib.Path = FEED_PATH) -> bool:
@@ -568,19 +919,52 @@ def write_feed(content: bytes, *, path: pathlib.Path = FEED_PATH) -> bool:
     return True
 
 
-def run(today: dt.date | None = None) -> bool:
-    today = dt.datetime.now(dt.timezone.utc).date() if today is None else today
-    candidate = select_candidate(fetch_candidates(), today=today)
-    validate_guide(candidate["url"])
-    changed = write_feed(render_feed(candidate, today=today))
+def run(
+    now: dt.datetime | None = None,
+    *,
+    feed_path: pathlib.Path = FEED_PATH,
+    state_path: pathlib.Path = STATE_PATH,
+) -> bool:
+    now = dt.datetime.now(dt.timezone.utc) if now is None else now
+    candidates = fetch_candidates()
+    warn_profile_drift(candidates)
+    try:
+        existing_content = feed_path.read_bytes()
+    except FileNotFoundError:
+        existing_content = b""
+    entries = parse_feed_entries(existing_content)
+    state = _load_rotation_state(
+        candidates,
+        entries,
+        path=state_path,
+    )
+    content, state_content, selected = advance_rotation(
+        candidates,
+        entries,
+        state,
+        now=now,
+    )
+    for candidate in {
+        item["slug"]: item for item in selected[-FEED_ENTRY_LIMIT:]
+    }.values():
+        validate_guide(candidate["url"])
+    feed_changed = write_feed(content, path=feed_path)
+    state_changed = write_feed(state_content, path=state_path)
+    rendered_entries = parse_feed_entries(content)
+    current_slug = (
+        selected[-1]["slug"]
+        if selected
+        else _entry_slug(rendered_entries[0])
+    )
+    slot = publishing_slot(now)
     print(
         "Bridgy feed:"
-        f" {'updated' if changed else 'current'}"
-        f" app={candidate['slug']}"
-        f" entries=1"
-        f" date={today.isoformat()}"
+        f" {'updated' if feed_changed or state_changed else 'current'}"
+        f" app={current_slug}"
+        f" entries={len(rendered_entries)}"
+        f" slot={slot.isoformat()}"
     )
-    return changed
+    return feed_changed or state_changed
 
 
 def main() -> int:
