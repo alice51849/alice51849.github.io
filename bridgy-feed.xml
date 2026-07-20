@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-07-20T00:00:00Z</updated>
+  <updated>2026-07-20T06:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-07-20T06</id>
+    <title>Aim990 — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/aim990.html?bridgy=2026-07-20-06" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6784974530" title="Aim990 on the App Store" />
+    <published>2026-07-20T06:00:00Z</published>
+    <updated>2026-07-20T06:00:00Z</updated>
+    <content type="html" xml:lang="ja">&lt;p&gt;本日のLumi Studioアプリガイド：Aim990。30日学習計画、弱点ドリル、進捗管理でTOEIC L&amp;amp;R対策を組み立てる。ガイドで自分に合うか確認できます。 &lt;a href="https://bsky.app/hashtag/TOEIC"&gt;#TOEIC&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/%E8%8B%B1%E8%AA%9E%E5%AD%A6%E7%BF%92"&gt;#英語学習&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iPhone%E3%82%A2%E3%83%97%E3%83%AA"&gt;#iPhoneアプリ&lt;/a&gt;&lt;br&gt;App Store：&lt;a href="https://apps.apple.com/app/id6784974530"&gt;https://apps.apple.com/app/id6784974530&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="ja">本日のLumi Studioアプリガイド：Aim990。30日学習計画、弱点ドリル、進捗管理でTOEIC L&amp;R対策を組み立てる。ガイドで自分に合うか確認できます。 #TOEIC #英語学習 #iPhoneアプリ
+App Store：https://apps.apple.com/app/id6784974530</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-07-20T00</id>
     <title>Lumi Bopomofo — independent iOS app guide</title>
