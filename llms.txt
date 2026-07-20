@@ -40,7 +40,7 @@
 - RFC 9727 API Catalog — https://alice51849.github.io/.well-known/api-catalog
 - Agentic Resource Discovery (ARD) catalog — https://alice51849.github.io/.well-known/ai-catalog.json
 - Lumi App Finder MCP server card — https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json
-- Official MCP Registry entry — https://registry.modelcontextprotocol.io/v0.1/servers/io.github.alice51849%2Flumi-app-finder/versions/latest
+- Official MCP Registry entry — https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.alice51849%2Flumi-app-finder&version=latest&limit=10
 
 ## Live social discovery
 

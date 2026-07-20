@@ -1,19 +1,19 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.alice51849/lumi-app-finder",
-  "title": "Lumi App Finder",
   "description": "Find iOS apps by task across 28 live apps and 50 Apple locales, with direct App Store links.",
-  "websiteUrl": "https://alice51849.github.io/ios-app-guide/",
+  "title": "Lumi App Finder",
   "repository": {
     "url": "https://github.com/alice51849/lumi-mcp",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "1.0.2",
+  "websiteUrl": "https://alice51849.github.io/ios-app-guide/",
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/alice51849/lumi-mcp/releases/download/v1.0.0/lumi-app-finder.mcpb",
-      "fileSha256": "a7ee0cd19ef364406059422ba93c58ae4a2953dac100c943cfa340e4c79ad528",
+      "identifier": "https://github.com/alice51849/lumi-mcp/releases/download/v1.0.2/lumi-app-finder.mcpb",
+      "fileSha256": "7a3d2217c379e74c8da52433317fa092bd61f3e359575628ba2f03f0d588acb3",
       "transport": {
         "type": "stdio"
       }

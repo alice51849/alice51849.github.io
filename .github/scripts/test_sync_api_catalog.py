@@ -7,6 +7,7 @@ import pathlib
 import sys
 import tempfile
 import unittest
+import urllib.parse
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -132,6 +133,28 @@ def mcp_card(record_count: int = 28, locale_count: int = 50) -> dict:
     }
 
 
+def registry_payload(
+    card: dict | None = None,
+    *,
+    status: str = "active",
+    is_latest: bool = True,
+) -> dict:
+    return {
+        "servers": [
+            {
+                "server": card or mcp_card(),
+                "_meta": {
+                    catalog.MCP_OFFICIAL_META_KEY: {
+                        "status": status,
+                        "isLatest": is_latest,
+                    }
+                },
+            }
+        ],
+        "metadata": {"count": 1},
+    }
+
+
 class FakeResponse:
     def __init__(self, document: object):
         self.body = json.dumps(document).encode()
@@ -147,6 +170,20 @@ class FakeResponse:
 
 
 class CatalogTests(unittest.TestCase):
+    def test_registry_url_uses_supported_search_endpoint(self):
+        parsed = urllib.parse.urlsplit(catalog.MCP_REGISTRY_URL)
+        self.assertEqual("https", parsed.scheme)
+        self.assertEqual("registry.modelcontextprotocol.io", parsed.netloc)
+        self.assertEqual("/v0.1/servers", parsed.path)
+        self.assertEqual(
+            {
+                "search": ["io.github.alice51849/lumi-app-finder"],
+                "version": ["latest"],
+                "limit": ["10"],
+            },
+            urllib.parse.parse_qs(parsed.query),
+        )
+
     def test_valid_catalog_is_written_once(self):
         document = payload()
 
@@ -210,6 +247,7 @@ class CatalogTests(unittest.TestCase):
         sources = {
             catalog.APP_INDEX_URL: app_index(),
             catalog.MCP_SOURCE_URL: mcp_card(),
+            catalog.MCP_REGISTRY_URL: registry_payload(),
         }
 
         def opener(request, timeout):
@@ -246,6 +284,10 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual(catalog.MCP_CARD_URL, entry["url"])
             self.assertEqual(28, entry["metadata"]["appCount"])
             self.assertEqual(50, entry["metadata"]["localeCount"])
+            self.assertEqual(
+                catalog.MCP_REGISTRY_URL,
+                entry["metadata"]["mcpRegistryUrl"],
+            )
             self.assertEqual(5, len(entry["representativeQueries"]))
             self.assertEqual(
                 [
@@ -264,6 +306,78 @@ class CatalogTests(unittest.TestCase):
     def test_stale_mcp_coverage_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "coverage is stale"):
             catalog.validate_mcp_card(mcp_card(27), app_index())
+
+    def test_registry_requires_one_active_latest_card(self):
+        for document in (
+            registry_payload(status="deprecated"),
+            registry_payload(is_latest=False),
+            {"servers": [], "metadata": {"count": 0}},
+        ):
+            with self.subTest(document=document):
+                with self.assertRaisesRegex(
+                    ValueError,
+                    "exactly one active latest",
+                ):
+                    catalog.validate_mcp_registry(
+                        document,
+                        mcp_card(),
+                        app_index(),
+                    )
+
+    def test_registry_and_source_cards_must_match(self):
+        source = mcp_card()
+        source["version"] = "1.0.1"
+        source["packages"][0]["identifier"] = source["packages"][0][
+            "identifier"
+        ].replace("v1.0.0", "v1.0.1")
+        with self.assertRaisesRegex(ValueError, "source card differs"):
+            catalog.validate_mcp_registry(
+                registry_payload(),
+                source,
+                app_index(),
+            )
+
+        source = mcp_card()
+        source["icons"] = [
+            {
+                "src": "https://example.com/icon.png",
+                "mimeType": "image/png",
+            }
+        ]
+        with self.assertRaisesRegex(ValueError, "source card differs"):
+            catalog.validate_mcp_registry(
+                registry_payload(),
+                source,
+                app_index(),
+            )
+
+    def test_registry_pagination_uses_opaque_cursor(self):
+        calls = []
+
+        def opener(request, timeout):
+            self.assertEqual(30, timeout)
+            calls.append(request.full_url)
+            if len(calls) == 1:
+                return FakeResponse(
+                    {
+                        "servers": [{"server": {"name": "other/server"}}],
+                        "metadata": {"nextCursor": "opaque/cursor+1"},
+                    }
+                )
+            return FakeResponse(registry_payload())
+
+        result = catalog.fetch_mcp_registry(
+            opener=opener,
+            sleeper=lambda _seconds: None,
+        )
+        self.assertEqual(2, len(result["servers"]))
+        self.assertEqual(2, len(calls))
+        self.assertEqual(
+            ["opaque/cursor+1"],
+            urllib.parse.parse_qs(
+                urllib.parse.urlsplit(calls[1]).query
+            )["cursor"],
+        )
 
     def test_agent_catalog_rejects_invalid_value_or_reference(self):
         index = app_index()

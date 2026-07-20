@@ -33,12 +33,12 @@
         "encuentra una app para iPhone que se adapte a mi necesidad con enlace directo al App Store",
         "ابحث عن تطبيق iPhone يناسب مهمتي مع رابط مباشر إلى App Store"
       ],
-      "version": "1.0.0",
+      "version": "1.0.2",
       "metadata": {
         "appCount": 28,
         "localeCount": 50,
         "catalogUrl": "https://alice51849.github.io/ios-app-guide/data/lumi-studio-publisher-search-intent-catalog.json",
-        "mcpRegistryUrl": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.alice51849%2Flumi-app-finder/versions/latest",
+        "mcpRegistryUrl": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.alice51849%2Flumi-app-finder&version=latest&limit=10",
         "publisherDisclosure": "First-party publisher catalog; relevance matches are not independent rankings."
       }
     }

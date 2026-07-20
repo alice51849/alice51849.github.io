@@ -27,9 +27,12 @@ OPENAPI_MEDIA_TYPE = "application/vnd.oai.openapi+json;version=3.1"
 MCP_MEDIA_TYPE = "application/mcp-server-card+json"
 MCP_CARD_URL = f"{SITE}/.well-known/lumi-app-finder.mcp.json"
 MCP_REGISTRY_URL = (
-    "https://registry.modelcontextprotocol.io/v0.1/servers/"
-    "io.github.alice51849%2Flumi-app-finder/versions/latest"
+    "https://registry.modelcontextprotocol.io/v0.1/servers"
+    "?search=io.github.alice51849%2Flumi-app-finder"
+    "&version=latest&limit=10"
 )
+MCP_SERVER_NAME = "io.github.alice51849/lumi-app-finder"
+MCP_OFFICIAL_META_KEY = "io.modelcontextprotocol.registry/official"
 MCP_IDENTIFIER = "urn:air:alice51849.github.io:mcp:lumi-app-finder"
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
 SEMVER_RE = re.compile(r"\d+\.\d+\.\d+")
@@ -301,7 +304,7 @@ def validate_app_index(document: object) -> dict:
 def validate_mcp_card(document: object, app_index: dict) -> dict:
     if not isinstance(document, dict):
         raise ValueError("MCP server card must be an object")
-    if document.get("name") != "io.github.alice51849/lumi-app-finder":
+    if document.get("name") != MCP_SERVER_NAME:
         raise ValueError("unexpected MCP server name")
     if document.get("title") != "Lumi App Finder":
         raise ValueError("unexpected MCP server title")
@@ -359,6 +362,98 @@ def validate_mcp_card(document: object, app_index: dict) -> dict:
     ):
         raise ValueError("MCP publisher catalog URL drifted")
     return document
+
+
+def validate_mcp_registry(
+    document: object,
+    source_card: dict,
+    app_index: dict,
+) -> dict:
+    if not isinstance(document, dict):
+        raise ValueError("MCP Registry response must be an object")
+    servers = document.get("servers")
+    if not isinstance(servers, list):
+        raise ValueError("MCP Registry response must contain a servers array")
+
+    active_latest = []
+    for item in servers:
+        if not isinstance(item, dict):
+            raise ValueError("MCP Registry result must be an object")
+        server = item.get("server")
+        if not isinstance(server, dict):
+            raise ValueError("MCP Registry result must contain a server card")
+        if server.get("name") != MCP_SERVER_NAME:
+            continue
+        metadata = item.get("_meta")
+        official = (
+            metadata.get(MCP_OFFICIAL_META_KEY)
+            if isinstance(metadata, dict)
+            else None
+        )
+        if (
+            isinstance(official, dict)
+            and official.get("status") == "active"
+            and official.get("isLatest") is True
+        ):
+            active_latest.append(validate_mcp_card(server, app_index))
+
+    if len(active_latest) != 1:
+        raise ValueError(
+            "MCP Registry must expose exactly one active latest server card"
+        )
+    registered_card = active_latest[0]
+    if registered_card != source_card:
+        raise ValueError(
+            "MCP source card differs from the active latest Registry card"
+        )
+    return registered_card
+
+
+def fetch_mcp_registry(*, opener=None, sleeper=None) -> dict:
+    servers = []
+    cursor = None
+    seen_cursors = set()
+    for _page in range(100):
+        url = MCP_REGISTRY_URL
+        if cursor is not None:
+            parsed = urllib.parse.urlsplit(url)
+            query = urllib.parse.parse_qsl(
+                parsed.query,
+                keep_blank_values=True,
+            )
+            query.append(("cursor", cursor))
+            url = urllib.parse.urlunsplit(
+                (
+                    parsed.scheme,
+                    parsed.netloc,
+                    parsed.path,
+                    urllib.parse.urlencode(query),
+                    parsed.fragment,
+                )
+            )
+        document = _fetch_json(
+            url,
+            opener=opener,
+            sleeper=sleeper,
+        )
+        if not isinstance(document, dict):
+            raise ValueError("MCP Registry page must be an object")
+        page_servers = document.get("servers")
+        metadata = document.get("metadata")
+        if not isinstance(page_servers, list) or not isinstance(metadata, dict):
+            raise ValueError("MCP Registry page is invalid")
+        servers.extend(page_servers)
+        next_cursor = metadata.get("nextCursor")
+        if next_cursor in (None, ""):
+            return {"servers": servers}
+        if (
+            not isinstance(next_cursor, str)
+            or next_cursor in seen_cursors
+        ):
+            raise ValueError("MCP Registry returned an invalid cursor")
+        seen_cursors.add(next_cursor)
+        cursor = next_cursor
+    raise ValueError("MCP Registry pagination exceeded 100 pages")
 
 
 def agent_catalog_document(mcp_card: dict, app_index: dict) -> dict:
@@ -512,12 +607,20 @@ def sync_agent_catalog(
             sleeper=sleeper,
         )
     )
-    mcp_card = validate_mcp_card(
+    source_card = validate_mcp_card(
         _fetch_json(
             MCP_SOURCE_URL,
             opener=opener,
             sleeper=sleeper,
         ),
+        app_index,
+    )
+    mcp_card = validate_mcp_registry(
+        fetch_mcp_registry(
+            opener=opener,
+            sleeper=sleeper,
+        ),
+        source_card,
         app_index,
     )
     manifest = validate_agent_catalog(
