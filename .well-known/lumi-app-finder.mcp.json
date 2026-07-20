@@ -7,13 +7,13 @@
     "url": "https://github.com/alice51849/lumi-mcp",
     "source": "github"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "websiteUrl": "https://alice51849.github.io/ios-app-guide/",
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/alice51849/lumi-mcp/releases/download/v1.0.2/lumi-app-finder.mcpb",
-      "fileSha256": "7a3d2217c379e74c8da52433317fa092bd61f3e359575628ba2f03f0d588acb3",
+      "identifier": "https://github.com/alice51849/lumi-mcp/releases/download/v1.0.3/lumi-app-finder.mcpb",
+      "fileSha256": "592172803fd74c22bd4611cf91d41274f3e9792c2e6f01897813f6558df4323d",
       "transport": {
         "type": "stdio"
       }
