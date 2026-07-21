@@ -727,5 +727,57 @@ window.APPS=[
    "ko": "낱말만 따로 외우지 마세요. 47개 언어의 완전한 실생활 문장 8,400개를 시스템 음성으로 듣고, 인터랙티브 위젯과 Apple Watch에서도 이어서 배우세요. 한 번 구매, 구독 없음."
   },
   "shot": null
+ },
+ {
+  "slug": "aim990-plus",
+  "cat": "kids",
+  "icon": "assets/icons/aim990-plus.png",
+  "url": "https://apps.apple.com/tw/app/aim990-plus/id6792483140?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "Aim990 Plus",
+   "zh": "Aim990 Plus",
+   "ja": "Aim990 Plus",
+   "ko": "Aim990 Plus"
+  },
+  "sub": {
+   "en": "Offline Exam Pressure Trainer",
+   "zh": "15分鐘掌握七大題型",
+   "ja": "15分で磨く7パート対応力",
+   "ko": "15분 완성 7개 영역 집중"
+  },
+  "blurb": {
+   "en": "Build calm, accurate decisions under time with 630 original questions, focused pressure sets, mistake replay, mocks…",
+   "zh": "從 8 題暖身進入 15 分鐘限時訓練，再逐題重練答錯內容。630 道原創題、分級模擬考、聽寫與弱點分析皆可離線使用，下載後功能完整開放。",
+   "ja": "8問のウォームアップ、15分20問のプレッシャー演習、間違いの解き直しを一つの習慣に。オリジナル630問、模試、弱点分析、書き取りまでオフラインで完結します。",
+   "ko": "8문제 워밍업부터 15분 20문제 압박 훈련, 오답 재도전까지 한 흐름으로 이어집니다. 창작 630문제와 단계별 모의고사, 받아쓰기, 약점 분석을 모두 오프라인에서 사용하세요."
+  },
+  "shot": null
+ },
+ {
+  "slug": "wifi-aid",
+  "cat": "tools",
+  "icon": "assets/icons/wifi-aid.png",
+  "url": "https://apps.apple.com/tw/app/wifi-aid/id6790467886?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "WiFi Aid",
+   "zh": "WiFi Aid",
+   "ja": "WiFi Aid",
+   "ko": "WiFi Aid"
+  },
+  "sub": {
+   "en": "Network Diagnosis & Evidence",
+   "zh": "網路診斷與連線證據",
+   "ja": "ネット接続診断・原因を特定",
+   "ko": "네트워크 진단과 원인 분석"
+  },
+  "blurb": {
+   "en": "Find the most likely connection problem with independent path, DNS, TCP, TLS, timing and stability checks. Pay once…",
+   "zh": "用多路徑、DNS、TCP、TLS、回應時間與穩定度檢查，找出最可能的連線問題。App Store 一次付費買斷，無訂閱、無廣告、無追蹤。",
+   "ja": "複数経路、DNS、TCP、TLS、応答時間、安定性を照合し、接続不良の原因候補を明確に。App Storeで一度だけ購入。サブスク・広告・追跡なし。",
+   "ko": "다중 경로와 DNS, TCP, TLS, 응답 시간, 안정성을 함께 확인해 가장 가능성 높은 원인을 찾으세요. App Store 최초 1회 결제이며 구독, 광고, 추적이 없습니다."
+  },
+  "shot": null
  }
 ];
