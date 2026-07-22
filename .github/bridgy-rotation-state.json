@@ -3,6 +3,7 @@
     "lumibopomofopro",
     "lumibopomofo",
     "aim990",
+    "aim990plus",
     "cvdesk",
     "cyca",
     "dailymate",
@@ -29,9 +30,8 @@
     "unblurry",
     "wordmate"
   ],
-  "last_slot": "2026-07-21T18:00:00Z",
+  "last_slot": "2026-07-22T00:00:00Z",
   "remaining": [
-    "lumiletterspro",
     "lumimath",
     "lumimathpro",
     "lumimission",
@@ -48,7 +48,8 @@
     "tripbeelite",
     "tripplanet",
     "unblurry",
-    "wordmate"
+    "wordmate",
+    "aim990plus"
   ],
   "version": 1
 }
