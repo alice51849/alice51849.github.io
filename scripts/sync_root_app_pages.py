@@ -66,6 +66,10 @@ APP_NAV_RE = re.compile(
     r"<style>\.applinks\{.*?</nav>",
     flags=re.DOTALL,
 )
+HOME_OG_COUNT_RE = re.compile(
+    r'(<meta property="og:description" content="探索 )\d+'
+    r'( 款獨立 iPhone App，查看逐款核實的功能、購買方式與正確 App Store 直達。">)'
+)
 USER_AGENT = (
     "LumiRootAppPageSync/1.0 "
     "(+https://alice51849.github.io/)"
@@ -712,6 +716,23 @@ def rebuild_home_nav(
     return True
 
 
+def sync_homepage_app_count(path: Path, count: int) -> bool:
+    if count <= 0:
+        raise ValueError("home page app count must be positive")
+    source = path.read_text(encoding="utf-8")
+    updated, replacements = HOME_OG_COUNT_RE.subn(
+        rf"\g<1>{count}\g<2>",
+        source,
+        count=1,
+    )
+    if replacements != 1:
+        raise ValueError("home page Open Graph app count is missing")
+    if updated == source:
+        return False
+    path.write_text(updated, encoding="utf-8")
+    return True
+
+
 def rebuild_llms(
     path: Path,
     apps: dict[str, dict],
@@ -822,7 +843,10 @@ def main() -> None:
                     created += 1
             if sync_page(path, record, lang):
                 changed += 1
-    if rebuild_home_nav(ROOT / "index.html", apps, catalogs):
+    homepage = ROOT / "index.html"
+    if rebuild_home_nav(homepage, apps, catalogs):
+        changed += 1
+    if sync_homepage_app_count(homepage, len(apps)):
         changed += 1
     if rebuild_llms(ROOT / "llms.txt", apps, catalogs):
         changed += 1

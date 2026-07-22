@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#fffaf0">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lumi Studio — 做一束剛剛好的光">
-<meta property="og:description" content="探索 28 款獨立 iPhone App，查看逐款核實的功能、購買方式與正確 App Store 直達。">
+<meta property="og:description" content="探索 30 款獨立 iPhone App，查看逐款核實的功能、購買方式與正確 App Store 直達。">
 <meta property="og:image" content="https://alice51849.github.io/assets/og.png">
 <meta name="twitter:image" content="https://alice51849.github.io/assets/og.png">
 <meta property="og:url" content="https://alice51849.github.io/">
@@ -529,8 +529,8 @@ const I18N={
   hero_kicker:"LUMI STUDIO · 獨立工作室",
   hero_title:'做一束<span class="grad">剛剛好</span>的光。',
   hero_sub:"我們打造學習、照片、生產力、旅行與日常工具；每款 App 的功能、隱私方式與價格都以當前 App Store 頁面為準。",
-  hero_cta1:"探索 28 款作品",hero_cta2:"關於 Lumi",
-  stats:[["28","上架作品"],["50","目錄語系"],["4","每日 App 指南"],["1","App Store 直達"]],
+  hero_cta1:"探索 {count} 款作品",hero_cta2:"關於 Lumi",
+  stats:[["{count}","上架作品"],["50","目錄語系"],["4","每日 App 指南"],["1","App Store 直達"]],
   trust:[["privacy","資訊透明","功能與價格逐款核對"],["noads","直接下載","連到正確 App Store"],["globe","50 語目錄","逐語核實 App 資料"],["pay","一次性選項","目前每款均提供"]],
   kids_kicker:"FOR KIDS & FAMILIES",kids_title:"兒童學習・親子",kids_sub:"和小熊 Lumi 一起,把學習變成一場溫柔的星球冒險。",
   tools_kicker:"EVERYDAY TOOLS",tools_title:"生活效率・工具",tools_sub:"同一束光,延伸成大人世界裡安靜好用的工具。",
@@ -541,7 +541,7 @@ const I18N={
    "從第一個產品開始,我們就選擇把功能、限制與購買方式逐款說清楚,讓每個人先判斷是否適合,再前往 App Store。",
    "小熊 Lumi 是這道光的化身。牠陪孩子描下第一個字母、念出第一個注音、算出第一道題、養成第一個好習慣。而在大人的世界裡,同樣的光延伸成各種工具:奪回專注的 LockHour、守護隱私的 ScanTo、看見時間價值的 HoursTag、安心旅行的 G+Money。",
    "它們看起來各不相同,卻共享同一個信念:<strong>做得慢一點、細一點,讓每個產品都像一束剛剛好的光——溫暖,但不刺眼。</strong>"],
-  band_title:"在 App Store 認識 Lumi",band_sub:"28 款用心打造的作品,正在 App Store 等你。",band_cta:"瀏覽全部作品",
+  band_title:"在 App Store 認識 Lumi",band_sub:"{count} 款用心打造的作品,正在 App Store 等你。",band_cta:"瀏覽全部作品",
   app_cta:"App Store",
   foot_tag:"做一束剛剛好的光。為孩子與家庭打造溫暖、值得信任的 app。",
   foot_apps:"作品",foot_studio:"工作室",foot_made:"用心做於台灣 · Crafted with care in Taiwan"},
@@ -550,8 +550,8 @@ const I18N={
   hero_kicker:"LUMI STUDIO · INDEPENDENT STUDIO",
   hero_title:'Light, made <span class="grad">just right</span>.',
   hero_sub:"We build learning, photo, productivity, travel, and everyday tools. Features, privacy practices, and prices are verified per app against its current App Store listing.",
-  hero_cta1:"Explore 28 Apps",hero_cta2:"About Lumi",
-  stats:[["28","Live apps"],["50","Catalog locales"],["4","Daily app guides"],["1","Tap to App Store"]],
+  hero_cta1:"Explore {count} Apps",hero_cta2:"About Lumi",
+  stats:[["{count}","Live apps"],["50","Catalog locales"],["4","Daily app guides"],["1","Tap to App Store"]],
   trust:[["privacy","Transparent facts","Features and prices checked per app"],["noads","Direct download","Correct App Store listing"],["globe","50-locale catalog","Verified app records"],["pay","One-time option","Currently offered by every app"]],
   kids_kicker:"FOR KIDS & FAMILIES",kids_title:"For Kids & Families",kids_sub:"Turn learning into a gentle journey across the stars with Lumi the bear.",
   tools_kicker:"EVERYDAY TOOLS",tools_title:"Everyday Tools",tools_sub:"The same light, shaped into quiet, useful tools for grown-up life.",
@@ -562,7 +562,7 @@ const I18N={
    "From our first product, we chose to explain each app's capabilities, limits, and purchase model clearly, so people can decide before opening the App Store.",
    "Our little bear, Lumi, is that light made real. He helps a child trace a first letter, sound out a first syllable, solve a first problem, build a first good habit. In the grown-up world, the same light becomes tools: LockHour to win back focus, ScanTo to guard privacy, HoursTag to see the value of time, G+Money to travel with ease.",
    "They look different, yet share one belief: <strong>go slower, go finer — so every product feels like a beam of light that's just right: warm, never harsh.</strong>"],
-  band_title:"Meet Lumi on the App Store",band_sub:"28 thoughtfully crafted apps are waiting for you.",band_cta:"Browse all apps",
+  band_title:"Meet Lumi on the App Store",band_sub:"{count} thoughtfully crafted apps are waiting for you.",band_cta:"Browse all apps",
   app_cta:"App Store",
   foot_tag:"Light, made just right. Warm, trustworthy apps for children and families.",
   foot_apps:"Apps",foot_studio:"Studio",foot_made:"Crafted with care in Taiwan"},
@@ -571,8 +571,8 @@ const I18N={
   hero_kicker:"LUMI STUDIO · 独立スタジオ",
   hero_title:'ちょうどいい<span class="grad">光</span>を。',
   hero_sub:"学習、写真、生産性、旅行、日常に役立つアプリを開発しています。機能、プライバシー対応、価格はアプリごとに現在のApp Store情報で確認しています。",
-  hero_cta1:"28のアプリを見る",hero_cta2:"Lumiについて",
-  stats:[["28","公開中アプリ"],["50","カタログ地域"],["4","毎日の紹介"],["1","タップでストアへ"]],
+  hero_cta1:"{count}のアプリを見る",hero_cta2:"Lumiについて",
+  stats:[["{count}","公開中アプリ"],["50","カタログ地域"],["4","毎日の紹介"],["1","タップでストアへ"]],
   trust:[["privacy","透明な情報","機能と価格を個別確認"],["noads","ストアへ直結","正しい製品ページ"],["globe","50地域カタログ","地域別に確認した情報"],["pay","買い切り選択肢","現在すべてに用意"]],
   kids_kicker:"FOR KIDS & FAMILIES",kids_title:"子ども・ファミリー",kids_sub:"クマの Lumi と一緒に、学びをやさしい星の冒険に。",
   tools_kicker:"EVERYDAY TOOLS",tools_title:"暮らしのツール",tools_sub:"同じ光が、大人の毎日に静かに役立つ道具になります。",
@@ -583,7 +583,7 @@ const I18N={
    "最初の製品から、各アプリの機能、限界、購入方法を明確に伝え、App Storeを開く前に自分に合うか判断できるようにしてきました。",
    "小さなクマの Lumi は、その光の化身です。最初の文字をなぞり、最初の音を読み、最初の問題を解き、最初のよい習慣を育てる——そのとなりにいつも Lumi がいます。大人の世界では、同じ光がツールになります:集中を取り戻す LockHour、プライバシーを守る ScanTo、時間の価値を映す HoursTag、安心して旅する G+Money。",
    "見た目は違っても、ひとつの信念を分かち合っています:<strong>もっとゆっくり、もっと丁寧に。すべての製品が、ちょうどいい光のように——あたたかく、まぶしすぎない。</strong>"],
-  band_title:"App Store で Lumi に会う",band_sub:"心を込めてつくった 28 のアプリが待っています。",band_cta:"すべてのアプリを見る",
+  band_title:"App Store で Lumi に会う",band_sub:"心を込めてつくった {count} のアプリが待っています。",band_cta:"すべてのアプリを見る",
   app_cta:"App Store",
   foot_tag:"ちょうどいい光を。子どもと家族のための、あたたかく信頼できるアプリ。",
   foot_apps:"アプリ",foot_studio:"スタジオ",foot_made:"台湾で、心を込めて"},
@@ -592,8 +592,8 @@ const I18N={
   hero_kicker:"LUMI STUDIO · 독립 스튜디오",
   hero_title:'꼭 알맞은 <span class="grad">빛</span>을.',
   hero_sub:"학습, 사진, 생산성, 여행과 일상에 필요한 앱을 만듭니다. 기능, 개인정보 처리 방식과 가격은 앱마다 현재 App Store 정보로 확인합니다.",
-  hero_cta1:"28개 앱 둘러보기",hero_cta2:"Lumi 소개",
-  stats:[["28","공개 앱"],["50","카탈로그 지역"],["4","매일 앱 소개"],["1","탭으로 스토어"]],
+  hero_cta1:"{count}개 앱 둘러보기",hero_cta2:"Lumi 소개",
+  stats:[["{count}","공개 앱"],["50","카탈로그 지역"],["4","매일 앱 소개"],["1","탭으로 스토어"]],
   trust:[["privacy","투명한 정보","기능과 가격을 앱별 확인"],["noads","스토어 바로가기","정확한 제품 페이지"],["globe","50개 지역 카탈로그","지역별 검증 앱 정보"],["pay","일회성 옵션","현재 모든 앱에서 제공"]],
   kids_kicker:"FOR KIDS & FAMILIES",kids_title:"아이・가족",kids_sub:"곰돌이 Lumi와 함께, 배움을 별을 향한 부드러운 모험으로.",
   tools_kicker:"EVERYDAY TOOLS",tools_title:"일상의 도구",tools_sub:"같은 빛이 어른의 하루에 조용히 쓸모 있는 도구가 됩니다.",
@@ -604,12 +604,14 @@ const I18N={
    "첫 제품부터 각 앱의 기능, 한계와 구매 방식을 분명히 설명해 App Store를 열기 전에 자신에게 맞는지 판단할 수 있도록 했습니다.",
    "작은 곰 Lumi는 그 빛의 화신입니다. 아이가 첫 글자를 따라 쓰고, 첫 소리를 읽고, 첫 문제를 풀고, 첫 좋은 습관을 기르는 곁에 늘 Lumi가 있습니다. 어른의 세계에서 같은 빛은 도구가 됩니다: 집중을 되찾는 LockHour, 프라이버시를 지키는 ScanTo, 시간의 가치를 보여주는 HoursTag, 안심하고 여행하는 G+Money.",
    "서로 달라 보여도 하나의 믿음을 나눕니다: <strong>조금 더 천천히, 조금 더 섬세하게 — 모든 제품이 꼭 알맞은 빛처럼, 따뜻하지만 눈부시지 않게.</strong>"],
-  band_title:"App Store에서 Lumi를 만나요",band_sub:"정성껏 만든 28개의 앱이 기다립니다.",band_cta:"모든 앱 보기",
+  band_title:"App Store에서 Lumi를 만나요",band_sub:"정성껏 만든 {count}개의 앱이 기다립니다.",band_cta:"모든 앱 보기",
   app_cta:"App Store",
   foot_tag:"꼭 알맞은 빛을. 아이와 가족을 위한 따뜻하고 믿을 수 있는 앱.",
   foot_apps:"앱",foot_studio:"스튜디오",foot_made:"대만에서 정성을 담아"}
 };
 const LANGS=["zh","en","ja","ko"], HL={zh:"zh-Hant",en:"en",ja:"ja",ko:"ko"};
+const appCount=()=>String(window.APPS.length);
+const countText=value=>String(value).replaceAll("{count}",appCount());
 const ARR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const TI={privacy:'<path d="M12 3 5 6v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>',noads:'<circle cx="12" cy="12" r="9"/><path d="M8 8l8 8"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',pay:'<path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/>'};
 const VI=['<path d="M12 3 5 6v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>','<circle cx="12" cy="12" r="9"/><path d="M8 8l8 8"/>','<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>','<path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/>','<path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10Z"/>','<path d="m12 2 2.6 6.5L21 9l-5 4 1.8 7L12 16l-5.8 4L8 13 3 9l6.4-.5L12 2Z"/>'];
@@ -638,10 +640,11 @@ function render(){
   const t=I18N[lang],sec=lang==="en"?I18N.zh:I18N.en;
   document.documentElement.lang=HL[lang];
   document.querySelectorAll("[data-i]").forEach(e=>{const k=e.getAttribute("data-i");if(t[k]==null)return;
-    if(BI.has(k)&&e.tagName!=="A"&&sec[k]&&strip(sec[k])!==strip(t[k]))biInto(e,t[k],strip(sec[k]));else e.innerHTML=t[k];});
+    const main=countText(t[k]),secondary=sec[k]==null?"":countText(sec[k]);
+    if(BI.has(k)&&e.tagName!=="A"&&secondary&&strip(secondary)!==strip(main))biInto(e,main,strip(secondary));else e.innerHTML=main;});
   // stats
   const s=document.getElementById("stats");s.innerHTML="";
-  t.stats.forEach(([n,l])=>{const d=document.createElement("div");d.className="stat";d.innerHTML=`<div class="n" data-num="${n}">${n}</div><div class="l">${l}</div>`;s.appendChild(d);});
+  t.stats.forEach(([n,l])=>{const value=countText(n),d=document.createElement("div");d.className="stat";d.innerHTML=`<div class="n" data-num="${value}">${value}</div><div class="l">${l}</div>`;s.appendChild(d);});
   // trust
   const tr=document.getElementById("trust");tr.innerHTML="";
   t.trust.forEach((it,idx)=>{const ic=it[0],h=it[1],p=it[2];const d=document.createElement("div");d.className="tcard";

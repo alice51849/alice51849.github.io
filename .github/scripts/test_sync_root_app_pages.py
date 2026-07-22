@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 import sys
 import tempfile
 import unittest
@@ -282,6 +283,38 @@ Made by Lumi Studio — pay once, no ads, privacy-first.
             content["generation_marker"],
             r"^<!-- verified-catalog-page:[0-9a-f]{16} -->$",
         )
+
+    def test_homepage_count_is_dynamic_and_static_seo_is_synchronized(self):
+        source = (sync.ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn(
+            "const appCount=()=>String(window.APPS.length);",
+            source,
+        )
+        self.assertEqual(
+            12,
+            source.split("const appCount", 1)[0].count("{count}"),
+        )
+        self.assertNotIn("Explore 28 Apps", source)
+        match = re.search(
+            r'property="og:description" content="探索 (\d+) 款獨立 iPhone App',
+            source,
+        )
+        self.assertIsNotNone(match)
+        self.assertEqual(
+            len(sync.legacy.parse_datajs(sync.ROOT / "assets" / "data.js")),
+            int(match.group(1)),
+        )
+
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "index.html"
+            path.write_text(
+                '<meta property="og:description" content="探索 28 款獨立 '
+                'iPhone App，查看逐款核實的功能、購買方式與正確 App Store 直達。">',
+                encoding="utf-8",
+            )
+            self.assertTrue(sync.sync_homepage_app_count(path, 30))
+            self.assertIn("探索 30 款獨立 iPhone App", path.read_text())
+            self.assertFalse(sync.sync_homepage_app_count(path, 30))
 
 
 if __name__ == "__main__":
