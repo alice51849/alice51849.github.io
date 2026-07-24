@@ -17,7 +17,9 @@
     "lumimission",
     "lumimissionpro",
     "lumiweather",
+    "maskmyfile",
     "mochi",
+    "mochidonestamp",
     "photocream",
     "picclear",
     "scanto",
@@ -28,11 +30,11 @@
     "tripbeelite",
     "tripplanet",
     "unblurry",
+    "wifiaid",
     "wordmate"
   ],
-  "last_slot": "2026-07-22T12:00:00Z",
+  "last_slot": "2026-07-24T00:00:00Z",
   "remaining": [
-    "lumimission",
     "lumimissionpro",
     "lumiweather",
     "mochi",
@@ -47,7 +49,10 @@
     "tripplanet",
     "unblurry",
     "wordmate",
-    "aim990plus"
+    "aim990plus",
+    "maskmyfile",
+    "mochidonestamp",
+    "wifiaid"
   ],
   "version": 1
 }

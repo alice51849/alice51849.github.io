@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-07-22T12:00:00Z</updated>
+  <updated>2026-07-24T00:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-07-24T00</id>
+    <title>Lumi Mission Planet — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/lumimission.html?bridgy=2026-07-24-00" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6779750237" title="Lumi Mission Planet on the App Store" />
+    <published>2026-07-24T00:00:00Z</published>
+    <updated>2026-07-24T00:00:00Z</updated>
+    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Lumi Mission Planet. Turn chores and daily routines into clear, kid-friendly missions. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/KidsRoutines"&gt;#KidsRoutines&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/Parenting"&gt;#Parenting&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6779750237"&gt;https://apps.apple.com/app/id6779750237&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="en">Today's Lumi Studio app guide: Lumi Mission Planet. Turn chores and daily routines into clear, kid-friendly missions. Read the guide and see if it fits. #KidsRoutines #Parenting #iOSApps
+App Store: https://apps.apple.com/app/id6779750237</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-07-22T12</id>
     <title>Lumi Math Pro — independent iOS app guide</title>
@@ -93,17 +105,5 @@ App Store: https://apps.apple.com/app/id6755782939</summary>
     <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: DailyMate. Practice complete phrases for real conversations instead of isolated vocabulary. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/LanguageLearning"&gt;#LanguageLearning&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/TravelLanguage"&gt;#TravelLanguage&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6790418321"&gt;https://apps.apple.com/app/id6790418321&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="en">Today's Lumi Studio app guide: DailyMate. Practice complete phrases for real conversations instead of isolated vocabulary. Read the guide and see if it fits. #LanguageLearning #TravelLanguage #iOSApps
 App Store: https://apps.apple.com/app/id6790418321</summary>
-  </entry>
-  <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-07-20T18</id>
-    <title>Cyca — independent iOS app guide</title>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/cyca.html?bridgy=2026-07-20-18" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6782251621" title="Cyca on the App Store" />
-    <published>2026-07-20T18:00:00Z</published>
-    <updated>2026-07-20T18:00:00Z</updated>
-    <content type="html" xml:lang="es">&lt;p&gt;Guía de hoy de Lumi Studio: Cyca. Registra ciclos, síntomas y tendencias de forma privada en el iPhone. Consulta la guía para ver si se adapta a ti. &lt;a href="https://bsky.app/hashtag/CicloMenstrual"&gt;#CicloMenstrual&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/Privacidad"&gt;#Privacidad&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/AppsIOS"&gt;#AppsIOS&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6782251621"&gt;https://apps.apple.com/app/id6782251621&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="es">Guía de hoy de Lumi Studio: Cyca. Registra ciclos, síntomas y tendencias de forma privada en el iPhone. Consulta la guía para ver si se adapta a ti. #CicloMenstrual #Privacidad #AppsIOS
-App Store: https://apps.apple.com/app/id6782251621</summary>
   </entry>
 </feed>
