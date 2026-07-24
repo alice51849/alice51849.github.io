@@ -568,8 +568,8 @@ class WiringTests(unittest.TestCase):
             "https://bsky.app/profile/alice51849.github.io.web.brid.gy",
             index,
         )
-        self.assertIn("探索 28 款作品", index)
-        self.assertIn("Explore 28 Apps", index)
+        self.assertIn('hero_cta1:"探索 {count} 款作品"', index)
+        self.assertIn('hero_cta1:"Explore {count} Apps"', index)
         self.assertIn("50-locale catalog", index)
         self.assertIn("guide coverage varies by app", index)
         for claim in (
