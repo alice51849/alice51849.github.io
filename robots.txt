@@ -33,5 +33,6 @@ User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://alice51849.github.io/sitemap.xml
+Sitemap: https://alice51849.github.io/ios-app-guide/sitemap_index.xml
 Sitemap: https://alice51849.github.io/ios-app-guide/resourcesync/resourcelist.xml
 Sitemap: https://alice51849.github.io/awesome-zhuyin-bopomofo-apps/sitemap.xml
