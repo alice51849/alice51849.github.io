@@ -316,6 +316,30 @@ Made by Lumi Studio — pay once, no ads, privacy-first.
             self.assertIn("探索 30 款獨立 iPhone App", path.read_text())
             self.assertFalse(sync.sync_homepage_app_count(path, 30))
 
+    def test_only_explicit_prelaunch_app_pages_may_be_non_live(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            allowed = root / "app" / "daily-mate-lite" / "index.html"
+            allowed.parent.mkdir(parents=True)
+            allowed.write_text("<html></html>", encoding="utf-8")
+            with mock.patch.object(sync, "ROOT", root):
+                sync.validate_all_pages(
+                    {},
+                    {lang: {} for lang in sync.CATALOG_LOCALES},
+                )
+
+            unexpected = root / "app" / "stale-app" / "index.html"
+            unexpected.parent.mkdir(parents=True)
+            unexpected.write_text("<html></html>", encoding="utf-8")
+            with (
+                mock.patch.object(sync, "ROOT", root),
+                self.assertRaisesRegex(ValueError, "non-live root app pages"),
+            ):
+                sync.validate_all_pages(
+                    {},
+                    {lang: {} for lang in sync.CATALOG_LOCALES},
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

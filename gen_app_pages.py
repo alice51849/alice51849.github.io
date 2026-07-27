@@ -66,7 +66,8 @@ HREFLANG = {"en":"en","zh":"zh-Hant","ja":"ja","ko":"ko"}
 
 def parse_datajs(path):
     """解析 assets/data.js 的 window.APPS 陣列成 threads 相容 dict(雲端素材來源)。"""
-    s = open(path, encoding="utf-8").read()
+    with open(path, encoding="utf-8") as handle:
+        s = handle.read()
     i = s.find("window.APPS=["); b = s.find("[", i); depth = 0; end = len(s)
     for j in range(b, len(s)):
         if s[j] == "[": depth += 1

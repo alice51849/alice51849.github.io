@@ -23,11 +23,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
       - name: Sync newly published apps into data.js
         env:
@@ -36,13 +36,13 @@ jobs:
           ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
         run: node scripts/sync-apps.mjs
 
-      - name: Verify deterministic root app conversion sync
-        if: always()
-        run: python3 .github/scripts/test_sync_root_app_pages.py -q
-
       - name: Sync verified app pages, storefront links, and Smart App Banners
         if: always()
         run: python3 scripts/sync_root_app_pages.py
+
+      - name: Verify deterministic root app conversion sync
+        if: always()
+        run: python3 .github/scripts/test_sync_root_app_pages.py -q
 
       - name: Commit & push if anything changed
         id: publish

@@ -36,6 +36,12 @@ ALLOWED_PURCHASE_MODELS = {
     "paid_upfront",
     "free_with_lifetime_unlock",
 }
+PRELAUNCH_APP_SLUGS = frozenset(
+    {
+        "daily-mate-lite",
+        "wifi-aid-lite",
+    }
+)
 SMART_BLOCK_START = "<!-- root-smart-app-banner:start -->"
 SMART_BLOCK_END = "<!-- root-smart-app-banner:end -->"
 SMART_BLOCK_RE = re.compile(
@@ -798,11 +804,18 @@ def validate_all_pages(
         path.resolve()
         for path in (ROOT / "app").glob("*/*/index.html")
     )
-    unexpected = sorted(actual - expected)
+    prelaunch = {
+        path.resolve()
+        for slug in PRELAUNCH_APP_SLUGS
+        for path in (ROOT / "app" / slug).glob("**/index.html")
+    }
+    unexpected = sorted(actual - expected - prelaunch)
     if unexpected:
         raise ValueError(
             "non-live root app pages remain: "
-            + ", ".join(str(path.relative_to(ROOT)) for path in unexpected)
+            + ", ".join(
+                str(path.relative_to(ROOT.resolve())) for path in unexpected
+            )
         )
 
 
