@@ -1,0 +1,54 @@
+name: Sync Standard.site verifier
+
+on:
+  schedule:
+    - cron: "13 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-standard-site-verifier
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify fail-closed sync behavior
+        run: python3 .github/scripts/test_sync_standard_site.py -q
+      - name: Sync public Standard.site verifier
+        run: python3 .github/scripts/sync_standard_site.py --write
+      - name: Persist verifier changes
+        run: |
+          target=".well-known/site.standard.publication/ios-app-guide"
+          if [[ ! -f "$target" ]]; then
+            echo "Publication has not been created yet."
+            exit 0
+          fi
+          if [[ -z "$(git status --porcelain -- "$target")" ]]; then
+            echo "Standard.site verifier is already current."
+            exit 0
+          fi
+          git config user.name "standard-site-sync-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          git commit -m "chore: sync Standard.site verifier"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            if [[ "$attempt" -lt 3 ]]; then
+              sleep $((attempt * 10))
+            fi
+          done
+          exit 1
