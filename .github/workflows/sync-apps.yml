@@ -29,6 +29,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Verify public Guide publication gate
+        run: node --test scripts/test_sync_apps.mjs
+
       - name: Sync newly published apps into data.js
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}

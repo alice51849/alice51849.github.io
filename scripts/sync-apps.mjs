@@ -12,6 +12,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const KEY_ID = process.env.ASC_KEY_ID;
 const ISSUER = process.env.ASC_ISSUER_ID;
@@ -23,8 +24,10 @@ const DATA  = path.join(ROOT, 'assets', 'data.js');
 const ICONS = path.join(ROOT, 'assets', 'icons');
 const SHOTS = path.join(ROOT, 'assets', 'shots');
 const TARGET_LOCALES = { en: ['en-US', 'en-GB', 'en-AU'], zh: ['zh-Hant', 'zh-Hans'], ja: ['ja'], ko: ['ko'] };
-
-if (!KEY_ID || !ISSUER || !P8) { console.error('✗ Missing ASC_KEY_ID / ASC_ISSUER_ID / ASC_PRIVATE_KEY'); process.exit(1); }
+export const GUIDE_CATALOG_URL = (
+  'https://alice51849.github.io/ios-app-guide/' +
+  'api/v1/ios-app-catalog/locales/en-US.json'
+);
 
 const b64url = (b) => Buffer.from(b).toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
 function mintToken() {
@@ -35,7 +38,7 @@ function mintToken() {
   const sig = crypto.createSign('SHA256').update(input).sign({ key: P8, dsaEncoding: 'ieee-p1363' });
   return input + '.' + b64url(sig);
 }
-const TOKEN = mintToken();
+let TOKEN = '';
 
 async function api(url) {
   const full = url.startsWith('http') ? url : 'https://api.appstoreconnect.apple.com' + url;
@@ -49,6 +52,45 @@ async function itunesLookup(id) {
     const j = await r.json();
     return (j.results && j.results[0]) || null;
   } catch { return null; }
+}
+
+export async function verifiedGuideIds(fetcher = fetch) {
+  const response = await fetcher(GUIDE_CATALOG_URL, {
+    headers: { Accept: 'application/json' },
+  });
+  if (!response.ok) {
+    throw new Error(`Guide catalog ${response.status}`);
+  }
+  const document = await response.json();
+  if (
+    !document ||
+    document.locale !== 'en-US' ||
+    !Array.isArray(document.apps) ||
+    document.record_count !== document.apps.length ||
+    document.apps.length < 1
+  ) {
+    throw new Error('Guide catalog shape is invalid');
+  }
+  const ids = new Set();
+  for (const app of document.apps) {
+    const appId = String(app && app.app_store_id || '');
+    const storeUrl = String(app && app.app_store_url || '');
+    const match = storeUrl.match(
+      /^https:\/\/apps\.apple\.com\/(?:[a-z]{2}\/)?app\/id(\d+)(?:\?.*)?$/
+    );
+    if (
+      !app ||
+      app.verified_live !== true ||
+      !/^\d{8,}$/.test(appId) ||
+      !match ||
+      match[1] !== appId ||
+      ids.has(appId)
+    ) {
+      throw new Error(`Guide catalog app identity is invalid: ${appId}`);
+    }
+    ids.add(appId);
+  }
+  return ids;
 }
 // 撈 App Store iPhone hero 截圖,下載到 assets/shots/{slug}.jpg
 async function fetchHeroShot(appleId, slug) {
@@ -88,14 +130,26 @@ async function main() {
   let next = '/v1/apps?limit=200&fields[apps]=name,bundleId';
   while (next) { const j = await api(next); apps.push(...j.data); next = j.links && j.links.next; }
   console.log(`• Account has ${apps.length} apps; site already lists ${existingIds.size}.`);
+  const verifiedIds = await verifiedGuideIds();
+  console.log(`• Verified public Guide catalog has ${verifiedIds.size} live apps.`);
 
   // 2) find live apps not yet on the site
   const additions = [];
   for (const app of apps) {
     const appleId = app.id;
     if (existingIds.has(appleId)) continue;
+    if (!verifiedIds.has(appleId)) {
+      console.log(
+        `  – ${app.attributes.name} (${appleId}) not in verified Guide catalog — skipped`
+      );
+      continue;
+    }
     const it = await itunesLookup(appleId);
-    if (!it) { console.log(`  – ${app.attributes.name} (${appleId}) not live yet — skipped`); continue; }
+    if (!it) {
+      throw new Error(
+        `Verified Guide app ${app.attributes.name} (${appleId}) is unavailable to lookup`
+      );
+    }
 
     let nameLoc = [], verLoc = [];
     try {
@@ -150,4 +204,12 @@ async function main() {
   console.log(`✓ Added ${additions.length} app(s) to assets/data.js`);
 }
 
-main().catch((e) => { console.error('✗', e.message); process.exit(1); });
+const invokedPath = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : '';
+if (import.meta.url === invokedPath) {
+  if (!KEY_ID || !ISSUER || !P8) {
+    console.error('✗ Missing ASC_KEY_ID / ASC_ISSUER_ID / ASC_PRIVATE_KEY');
+    process.exit(1);
+  }
+  TOKEN = mintToken();
+  main().catch((e) => { console.error('✗', e.message); process.exit(1); });
+}
