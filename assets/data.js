@@ -779,5 +779,57 @@ window.APPS=[
    "ko": "다중 경로와 DNS, TCP, TLS, 응답 시간, 안정성을 함께 확인해 가장 가능성 높은 원인을 찾으세요. App Store 최초 1회 결제이며 구독, 광고, 추적이 없습니다."
   },
   "shot": null
+ },
+ {
+  "slug": "mochi-donestamp",
+  "cat": "tools",
+  "icon": "assets/icons/mochi-donestamp.png",
+  "url": "https://apps.apple.com/tw/app/mochi-donestamp-%E4%B8%8A%E6%AC%A1%E4%BD%95%E6%99%82/id6790800323?uo=4",
+  "badge": "Pro",
+  "name": {
+   "en": "Mochi DoneStamp: Last Time",
+   "zh": "Mochi DoneStamp：上次何時",
+   "ja": "Mochi DoneStamp：いつやった？",
+   "ko": "Mochi DoneStamp: 마지막 기록"
+  },
+  "sub": {
+   "en": "Remember when you did it",
+   "zh": "生活事件、週期與完成紀錄",
+   "ja": "前回の日時を、すぐ思い出せる",
+   "ko": "마지막으로 한 때를 기억하세요"
+  },
+  "blurb": {
+   "en": "Do it. Tap it. We remember when. Track any recurring or occasional life event with one tap—private, offline, and ne…",
+   "zh": "做完，點一下，上次何時我們幫你記得。任何不定期或週期事件都能輕鬆記錄；完全離線、隱私優先、一次買斷，絕無訂閱。",
+   "ja": "済ませて、タップ。前回がいつだったかはお任せください。不定期なことも周期的なことも、オフラインで安全に記録。買い切りで、サブスクリプションはありません。",
+   "ko": "끝냈다면 한 번 탭하세요. 마지막으로 언제 했는지는 Mochi DoneStamp가 기억합니다. 완전 오프라인, 개인정보 보호, 구독 없는 평생 소장형 앱입니다."
+  },
+  "shot": null
+ },
+ {
+  "slug": "mask-my-file",
+  "cat": "tools",
+  "icon": "assets/icons/mask-my-file.png",
+  "url": "https://apps.apple.com/tw/app/mask-my-file/id6792850916?uo=4",
+  "badge": "",
+  "name": {
+   "en": "Mask My File",
+   "zh": "Mask My File",
+   "ja": "Mask My File",
+   "ko": "Mask My File"
+  },
+  "sub": {
+   "en": "Redact files before sharing",
+   "zh": "分享前遮蔽個資與私密資訊",
+   "ja": "共有前に個人情報を黒塗り",
+   "ko": "공유 전 개인정보 영구 가리기"
+  },
+  "blurb": {
+   "en": "Redact private details on your device before you share. Reopen and verify every output, protect up to 100 files at…",
+   "zh": "分享檔案前，在裝置上永久遮蔽私密資訊。每份輸出都會重新開啟並驗證，單批最多處理 100 個檔案。一次買斷，沒有訂閱。",
+   "ja": "共有前に、端末内で個人情報を完全に黒塗り。書き出したファイルは毎回開き直して確認でき、1回で最大100ファイルまで一括保護。買い切りで、サブスクリプションはありません。",
+   "ko": "공유하기 전에 기기에서 개인정보를 영구적으로 가리세요. 내보낸 파일은 다시 열어 매번 확인하고, 한 번에 최대 100개 파일을 보호합니다. 한 번 구매로 평생 사용, 구독 없음."
+  },
+  "shot": null
  }
 ];

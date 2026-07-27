@@ -5,6 +5,7 @@
 ## Apps
 
 - Aim990 — TOEIC Listening & Reading study companion for daily practice and progress review. TOEIC is an ETS trademark; results are not guaranteed. — https://apps.apple.com/us/app/id6784974530
+- Aim990 Plus — Train for clear decisions under exam pressure — https://apps.apple.com/us/app/id6792483140
 - CV Desk: ATS Resume Builder — Build an ATS-safe resume that recruiters' systems actually read — entirely on your iPhone. No account. No upload. No subscription. — https://apps.apple.com/us/app/id6781337213
 - Cyca: Period & Cycle Tracker — Meet Cyca — the warm, private way to understand your cycle. — https://apps.apple.com/us/app/id6782251621
 - DailyMate: Language Phrases — Learn a language in the form you actually use it: complete sentences, not isolated vocabulary. DailyMate brings together 8,400 practical phrases across 47 learning languages, 14 everyday topics, and 84 real-life situations. One purchase. No subscription. — https://apps.apple.com/us/app/id6790418321
@@ -21,6 +22,8 @@
 - Lumi Mission Planet: Routines — Getting a small child to brush teeth, finish meals or tidy toys should not take a battle every single day. — https://apps.apple.com/us/app/id6779750237
 - Lumi Trip Planet: World Travel — Turn every family trip into a tiny space adventure. — https://apps.apple.com/us/app/id6787193643
 - Lumi Weather: Family Forecast — Some mornings you stand at the window with a wriggling toddler and one quiet worry: is it too cold, too hot, too wet to take them out today? — https://apps.apple.com/us/app/id6779552704
+- Mask My File — Share safely without losing the context people actually need. Mask My File finds private details before you send a file, permanently hides only what you choose, then reopens and verifies the new copy before showing Private Ready. — https://apps.apple.com/us/app/id6792850916
+- Mochi DoneStamp: Last Time — When did you last change the sheets, water a plant, call family, back up photos, or replace a filter? — https://apps.apple.com/us/app/id6790800323
 - Mochi: Cute Checklist — Mochi is the cute, cozy to-do list that makes getting organized feel good. Add tasks, tap the little circle when you finish, and enjoy the tiny burst of calm that comes from checking something off. — https://apps.apple.com/us/app/id6785004775
 - PhotoCream Pro — PhotoCream Pro turns your phone into a premium film camera and a pro photo studio. Shoot authentic analog looks in real time, then fine-tune every detail — all on-device, no subscription, no ads. — https://apps.apple.com/us/app/id6781808054
 - PicClear Pro — Free up gigabytes of storage by cleaning out the photos you don’t need — duplicates, screenshots, blurry shots, and space-hungry videos. — https://apps.apple.com/us/app/id6780223070
@@ -31,6 +34,7 @@
 - TripBee Lite: Trip Planner — Give one upcoming journey your full attention. TripBee Lite is a calm, polished travel planner designed around one active trip—not a crowded archive. — https://apps.apple.com/us/app/id6791299610
 - TripBee Pro: Trip Planner — Plan every trip in one beautiful, private, offline app. — https://apps.apple.com/us/app/id6787754435
 - Unblurry Pro: Unblur & HD — Unblurry uses image enhancement to improve the perceived sharpness and resolution of existing photos. Results depend on the source image; it cannot recreate details that were never captured. — https://apps.apple.com/us/app/id6782275018
+- WiFi Aid — Find the most likely connection problem with independent path, DNS, TCP, TLS, timing and stability checks. Pay once upfront—no subscription, ads or tracking. — https://apps.apple.com/us/app/id6790467886
 - Wordmate: Learn 44 Languages — Make every spare moment useful with Wordmate, a complete vocabulary app for 44 languages. Structured lessons, natural example sentences, an interactive Home Screen widget and Apple Watch keep practice close at hand—from your phone to your wrist. — https://apps.apple.com/us/app/id6789917808
 
 ## Machine-readable app discovery
