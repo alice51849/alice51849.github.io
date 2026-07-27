@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-07-27T06:00:00Z</updated>
+  <updated>2026-07-27T12:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-07-27T12</id>
+    <title>Unblurry — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/unblurry.html?bridgy=2026-07-27-12" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6782275018" title="Unblurry on the App Store" />
+    <published>2026-07-27T12:00:00Z</published>
+    <updated>2026-07-27T12:00:00Z</updated>
+    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Unblurry. Review common blur causes and try realistic fixes for focus, motion, and low light. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/PhotoEditing"&gt;#PhotoEditing&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iPhonePhotography"&gt;#iPhonePhotography&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6782275018"&gt;https://apps.apple.com/app/id6782275018&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="en">Today's Lumi Studio app guide: Unblurry. Review common blur causes and try realistic fixes for focus, motion, and low light. Read the guide and see if it fits. #PhotoEditing #iPhonePhotography #iOSApps
+App Store: https://apps.apple.com/app/id6782275018</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-07-27T06</id>
     <title>Lumi Trip Planet — independent iOS app guide</title>
@@ -93,17 +105,5 @@ App Store: https://apps.apple.com/app/id6788236641</summary>
     <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: ScanTo Pro. Scan paper into PDFs with on-device OCR, searchable text, and private export tools. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/DocumentScanner"&gt;#DocumentScanner&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/OCR"&gt;#OCR&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6779977651"&gt;https://apps.apple.com/app/id6779977651&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="en">Today's Lumi Studio app guide: ScanTo Pro. Scan paper into PDFs with on-device OCR, searchable text, and private export tools. Read the guide and see if it fits. #DocumentScanner #OCR #iOSApps
 App Store: https://apps.apple.com/app/id6779977651</summary>
-  </entry>
-  <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-07-25T12</id>
-    <title>PicClear — independent iOS app guide</title>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/picclear.html?bridgy=2026-07-25-12" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6780223070" title="PicClear on the App Store" />
-    <published>2026-07-25T12:00:00Z</published>
-    <updated>2026-07-25T12:00:00Z</updated>
-    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: PicClear. Review duplicate photos, similar shots, and storage-heavy videos privately. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/PhotoCleanup"&gt;#PhotoCleanup&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iPhoneStorage"&gt;#iPhoneStorage&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6780223070"&gt;https://apps.apple.com/app/id6780223070&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="en">Today's Lumi Studio app guide: PicClear. Review duplicate photos, similar shots, and storage-heavy videos privately. Read the guide and see if it fits. #PhotoCleanup #iPhoneStorage #iOSApps
-App Store: https://apps.apple.com/app/id6780223070</summary>
   </entry>
 </feed>
