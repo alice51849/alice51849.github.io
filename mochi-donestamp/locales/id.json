@@ -1,0 +1,97 @@
+{
+    "locale": "id",
+    "languageName": "Bahasa Indonesia",
+    "dir": "ltr",
+    "languageLabel": "Bahasa",
+    "navHome": "Beranda",
+    "navSupport": "Dukungan",
+    "navPrivacy": "Privasi",
+    "support": {
+        "metaTitle": "Dukungan - Mochi DoneStamp",
+        "metaDescription": "Bantuan, jawaban, dan informasi kontak untuk Mochi DoneStamp.",
+        "eyebrow": "Dukungan",
+        "heading": "Ada yang bisa kami bantu?",
+        "deviceLine": "Mochi DoneStamp untuk iPhone, iPad, dan Apple Watch",
+        "sections": [
+            {
+                "title": "Bagaimana cara merekam acara?",
+                "body": "Ketuk tombol centang bundar di kartu acara untuk merekam waktu saat ini. Tindakan 'Urungkan' singkat akan muncul di bagian bawah. Sentuh dan tahan tombol yang sama untuk memilih tanggal dan waktu yang lebih awal."
+            },
+            {
+                "title": "Mengapa pengingat berikutnya berpindah?",
+                "body": "Setiap ritme dimulai ulang dari waktu penyelesaian sebenarnya. Jika Anda selesai tiga hari lebih lambat, pengingat berikutnya akan dimulai dari waktu baru tersebut alih-alih mempertahankan jadwal yang sudah tidak berlaku."
+            },
+            {
+                "title": "Mengapa saya tidak menerima pengingat?",
+                "body": "Buka acara, pilih 'Pengaturan Peristiwa', konfirmasikan bahwa acara tersebut memiliki ritme dan 'Ingatkan saya' diaktifkan, lalu periksa 'Pengaturan' iOS > 'Notifikasi' > Mochi DoneStamp. Aplikasi ini hanya meminta izin setelah Anda menyalakan pengingat."
+            },
+            {
+                "title": "Bagaimana cara memulihkan Lifetime Pro?",
+                "body": "Buka 'Pengaturan' di Mochi DoneStamp, pilih 'Mochi DoneStamp Pro', dan ketuk 'Pulihkan Pembelian'. Gunakan Akun Apple yang sama dengan yang melakukan pembelian asli. Lifetime Pro adalah pembelian satu kali, bukan langganan."
+            },
+            {
+                "title": "Bagaimana cara kerja cadangan?",
+                "body": "Dengan Lifetime Pro, pilih 'Ekspor' di 'Pengaturan' untuk membuat cadangan JSON lengkap dengan riwayat acara dan foto yang dipilih. Simpan file tersebut di tempat yang Anda percayai. Untuk memulihkannya, pilih 'Impor' lalu pilih 'Gabungkan dengan data saat ini' atau 'Ganti data saat ini'."
+            },
+            {
+                "title": "Bagaimana cara kerja Berbagi Keluarga?",
+                "body": "Buka acara, ketuk ikon orang, lalu pilih 'Bagikan dengan keluarga'. Apple akan menampilkan undangan dan kontrol peserta. Foto tidak pernah disertakan dalam berbagi CloudKit. Anda dapat mengelola peserta atau berhenti berbagi dari acara yang sama."
+            },
+            {
+                "title": "Apa yang dapat saya lakukan di Apple Watch?",
+                "body": "Aplikasi pendamping ini menampilkan acara yang diselaraskan dari iPhone yang dipasangkan. Ketuk tombol centang untuk merekam acara dari pergelangan tangan Anda. Perubahan akan dikirim ke iPhone dan daftar acara terbaru tetap tersedia selama sambungan terputus sementara."
+            }
+        ],
+        "contactTitle": "Kontak",
+        "contactBody": "Cantumkan versi iOS atau watchOS, model perangkat, dan deskripsi singkat tentang apa yang terjadi. Jangan mengirimkan catatan pribadi, foto, atau file cadangan kecuali jika sangat penting untuk permintaan Anda.",
+        "contactButton": "Email Dukungan"
+    },
+    "privacy": {
+        "metaTitle": "Kebijakan Privasi - Mochi DoneStamp",
+        "metaDescription": "Kebijakan privasi Mochi DoneStamp: tanpa akun, tanpa iklan, tanpa analitik, dan tanpa pelacakan.",
+        "eyebrow": "Privasi",
+        "heading": "Kebijakan Privasi",
+        "effectiveDate": "Berlaku 17 Juli 2026",
+        "sections": [
+            {
+                "title": "Ringkasan",
+                "body": "Mochi DoneStamp tidak memerlukan akun dan tidak menyertakan iklan, analitik, pelacakan, atau SDK pihak ketiga. Penggunaan intinya adalah offline. Lumi Studio tidak mengoperasikan server untuk aplikasi ini dan tidak dapat membaca konten di perangkat Anda."
+            },
+            {
+                "title": "Data yang disimpan di perangkat Anda",
+                "body": "Nama acara, simbol, warna, ritme, pengaturan pengingat, riwayat penyelesaian, catatan, dan foto yang dipilih disimpan dalam wadah App Group aplikasi yang dilindungi sehingga aplikasi, widget, tindakan pemberitahuan, dan App Intents dapat menggunakan data yang sama. Cuplikan terbatas hingga 50 acara dikirim ke Apple Watch Anda yang dipasangkan melalui layanan WatchConnectivity milik Apple. Ini mencakup nama acara, simbol, warna, waktu penyelesaian dan tenggat, status terlambat, semat dan berbagi, nama penyelesaian opsional, serta bahasa aplikasi; catatan dan foto tidak dikirim ke Apple Watch. Merekam acara pada Apple Watch akan mengirimkan pengenal acara dan kemunculan serta waktu penyelesaian kembali ke iPhone yang dipasangkan melalui WatchConnectivity. Semua konten ini tidak dikirimkan ke Lumi Studio."
+            },
+            {
+                "title": "Foto",
+                "body": "Foto bersifat opsional dan dipilih oleh Anda. Mochi DoneStamp membuat salinan pribadi terkompresi untuk riwayat acara. Mochi DoneStamp tidak mengunggah foto yang dipilih ke Lumi Studio atau menyertakannya dalam berbagi keluarga CloudKit."
+            },
+            {
+                "title": "Berbagi keluarga opsional melalui iCloud",
+                "body": "Berbagi keluarga hanya dimulai setelah Anda memilih Bagikan dengan Keluarga. Basis data CloudKit Apple yang bersifat pribadi dan dibagikan kemudian akan memproses pengenal acara dan kemunculan; nama acara, simbol, warna, urutan tampilan, status disematkan atau diarsipkan, pengaturan pengulangan dan pengingat, waktu pembuatan dan pembaruan; serta waktu penyelesaian, sumber, catatan, dan pengenal serta nama tampilan peserta. Foto yang dipilih tidak diunggah. Hanya orang yang Anda undang melalui antarmuka berbagi Apple yang dapat mengakses acara yang dibagikan. Lumi Studio tidak dapat mengakses konten tersebut. Anda dapat mengelola peserta, berhenti berbagi, atau menghapus acara yang dibagikan di aplikasi. Kebijakan privasi Apple dan pengaturan iCloud Anda juga berlaku."
+            },
+            {
+                "title": "Pembelian",
+                "body": "Pembelian dan pemulihan Lifetime Pro diproses oleh Apple melalui StoreKit. Lumi Studio tidak menerima atau menyimpan detail kartu pembayaran Anda. Apple dapat memproses informasi pembelian berdasarkan kebijakan privasinya sendiri."
+            },
+            {
+                "title": "Pemberitahuan",
+                "body": "Pemberitahuan pengingat dijadwalkan secara lokal di perangkat Anda. Tindakan 'Selesai' dan 'Tunda' akan memperbarui data App Group lokal yang sama. Mochi DoneStamp tidak menggunakan server pemberitahuan jarak jauh."
+            },
+            {
+                "title": "Kecerdasan buatan",
+                "body": "Mochi DoneStamp tidak menggunakan AI eksternal atau penyedia model dan tidak mengirimkan data Anda ke model. Mochi DoneStamp juga tidak menjalankan model pada konten Anda di perangkat."
+            },
+            {
+                "title": "Analitik, iklan, dan pelacakan",
+                "body": "Mochi DoneStamp tidak berisi iklan atau SDK analitik, tidak melacak Anda di seluruh aplikasi atau situs web, dan tidak menjual informasi pribadi."
+            },
+            {
+                "title": "Cadangan, ekspor, dan retensi",
+                "body": "Cadangan dan ekspor JSON hanya dibuat saat Anda memintanya dan disimpan ke lokasi yang Anda pilih. Anda mengontrol dan menghapus file tersebut. Konten di perangkat akan tetap ada hingga Anda mengedit atau menghapusnya, mengatur ulang aplikasi, atau menghapusnya melalui iOS. Apple Watch yang dipasangkan menyimpan cuplikan acara terbatas terbarunya hingga cuplikan yang lebih baru menggantikannya atau aplikasi Watch dihapus. Konten yang dibagikan akan tetap ada di CloudKit hingga Anda berhenti berbagi atau menghapus acara yang dibagikan, tunduk pada penanganan layanan Apple."
+            }
+        ],
+        "contactTitle": "Kontak",
+        "contactBody": "Pertanyaan mengenai privasi dapat dikirim ke",
+        "contactButton": "Email Dukungan Privasi"
+    }
+}

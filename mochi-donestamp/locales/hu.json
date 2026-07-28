@@ -1,0 +1,97 @@
+{
+    "locale": "hu",
+    "languageName": "Magyar",
+    "dir": "ltr",
+    "languageLabel": "Nyelv",
+    "navHome": "Kezd\u0151lap",
+    "navSupport": "T\u00e1mogat\u00e1s",
+    "navPrivacy": "Adatv\u00e9delem",
+    "support": {
+        "metaTitle": "T\u00e1mogat\u00e1s - Mochi DoneStamp",
+        "metaDescription": "S\u00fag\u00f3, v\u00e1laszok \u00e9s el\u00e9rhet\u0151s\u00e9gek a Mochi DoneStamp alkalmaz\u00e1shoz.",
+        "eyebrow": "T\u00e1mogat\u00e1s",
+        "heading": "Miben seg\u00edthet\u00fcnk?",
+        "deviceLine": "Mochi DoneStamp iPhone, iPad \u00e9s Apple Watch eszk\u00f6z\u00f6kre",
+        "sections": [
+            {
+                "title": "Hogyan r\u00f6gz\u00edthetek egy esem\u00e9nyt?",
+                "body": "\u00c9rintse meg a kerek pipa gombot egy esem\u00e9ny k\u00e1rty\u00e1j\u00e1n az aktu\u00e1lis id\u0151 r\u00f6gz\u00edt\u00e9s\u00e9hez. Alul r\u00f6viden megjelenik egy 'Visszavon\u00e1s' gomb. \u00c9rintse meg hosszan ugyanezt a gombot egy kor\u00e1bbi d\u00e1tum \u00e9s id\u0151 kiv\u00e1laszt\u00e1s\u00e1hoz."
+            },
+            {
+                "title": "Mi\u00e9rt helyez\u0151d\u00f6tt \u00e1t a k\u00f6vetkez\u0151 eml\u00e9keztet\u0151?",
+                "body": "Minden ritmus a t\u00e9nyleges befejez\u00e9s idej\u00e9t\u0151l indul \u00fajra. Ha h\u00e1rom nappal k\u00e9s\u0151bb fejez be valamit, a k\u00f6vetkez\u0151 eml\u00e9keztet\u0151 az \u00faj id\u0151pontt\u00f3l kezd\u0151dik, ahelyett, hogy megtartana egy elavult \u00fctemtervet."
+            },
+            {
+                "title": "Mi\u00e9rt nem kapok eml\u00e9keztet\u0151ket?",
+                "body": "Nyissa meg az esem\u00e9nyt, v\u00e1lassza az 'Esem\u00e9ny be\u00e1ll\u00edt\u00e1sai' lehet\u0151s\u00e9get, ellen\u0151rizze, hogy van-e ritmusa \u00e9s az 'Eml\u00e9keztess' be van-e kapcsolva, majd ellen\u0151rizze az iOS 'Be\u00e1ll\u00edt\u00e1sok' > '\u00c9rtes\u00edt\u00e9sek' > Mochi DoneStamp men\u00fcpontot. Az alkalmaz\u00e1s csak az eml\u00e9keztet\u0151 bekapcsol\u00e1sa ut\u00e1n k\u00e9r enged\u00e9lyt."
+            },
+            {
+                "title": "Hogyan \u00e1ll\u00edthatom vissza a Lifetime Pro-t?",
+                "body": "Nyissa meg a 'Be\u00e1ll\u00edt\u00e1sok' men\u00fct a Mochi DoneStamp alkalmaz\u00e1sban, v\u00e1lassza a 'Mochi DoneStamp Pro' lehet\u0151s\u00e9get, majd koppintson a 'V\u00e1s\u00e1rl\u00e1s vissza\u00e1ll\u00edt\u00e1sa' gombra. Haszn\u00e1lja ugyanazt az Apple-fi\u00f3kot, amellyel az eredeti v\u00e1s\u00e1rl\u00e1s t\u00f6rt\u00e9nt. A Lifetime Pro egy egyszeri v\u00e1s\u00e1rl\u00e1s, nem pedig el\u0151fizet\u00e9s."
+            },
+            {
+                "title": "Hogyan m\u0171k\u00f6dnek a biztons\u00e1gi ment\u00e9sek?",
+                "body": "A Lifetime Pro haszn\u00e1lat\u00e1val v\u00e1lassza a 'Be\u00e1ll\u00edt\u00e1sok' men\u00fcben az 'Export\u00e1l\u00e1s' lehet\u0151s\u00e9get, hogy l\u00e9trehozzon egy teljes JSON biztons\u00e1gi ment\u00e9st az esem\u00e9nyek el\u0151zm\u00e9nyeivel \u00e9s a kiv\u00e1lasztott f\u00e9nyk\u00e9pekkel. Tartsa ezt a f\u00e1jlt egy megb\u00edzhat\u00f3 helyen. A vissza\u00e1ll\u00edt\u00e1shoz v\u00e1lassza az 'Import\u00e1l\u00e1s' lehet\u0151s\u00e9get, majd haszn\u00e1lja az 'Egyes\u00edt\u00e9s a jelenlegi adatokkal' vagy a 'Jelenlegi adatok lecser\u00e9l\u00e9se' opci\u00f3t."
+            },
+            {
+                "title": "Hogyan m\u0171k\u00f6dik a Csal\u00e1di megoszt\u00e1s?",
+                "body": "Nyisson meg egy esem\u00e9nyt, koppintson a szem\u00e9lyek ikonra, \u00e9s v\u00e1lassza a 'Megoszt\u00e1s a csal\u00e1ddal' lehet\u0151s\u00e9get. Az Apple jelen\u00edti meg a megh\u00edv\u00e1st \u00e9s a r\u00e9sztvev\u0151k vez\u00e9rl\u00e9s\u00e9t. A f\u00e9nyk\u00e9pek soha nem ker\u00fclnek bele a CloudKit megoszt\u00e1sba. Ugyanebben az esem\u00e9nyben kezelheti a r\u00e9sztvev\u0151ket, vagy le\u00e1ll\u00edthatja a megoszt\u00e1st."
+            },
+            {
+                "title": "Mit tehetek az Apple Watchon?",
+                "body": "A t\u00e1rsalkalmaz\u00e1s megjelen\u00edti a p\u00e1ros\u00edtott iPhone-r\u00f3l szinkroniz\u00e1lt esem\u00e9nyeket. Koppintson a pipa gombra egy esem\u00e9ny r\u00f6gz\u00edt\u00e9s\u00e9hez a csukl\u00f3j\u00e1r\u00f3l. A m\u00f3dos\u00edt\u00e1sokat az alkalmaz\u00e1s elk\u00fcldi az iPhone-nak, \u00e9s a legfrissebb esem\u00e9nylista \u00e1tmeneti sz\u00e9tkapcsol\u00e1s alatt is el\u00e9rhet\u0151 marad."
+            }
+        ],
+        "contactTitle": "Kapcsolat",
+        "contactBody": "K\u00e9rj\u00fck, adja meg az iOS vagy watchOS verzi\u00f3j\u00e1t, az eszk\u00f6z modellj\u00e9t \u00e9s a t\u00f6rt\u00e9ntek r\u00f6vid le\u00edr\u00e1s\u00e1t. K\u00e9rj\u00fck, ne k\u00fcldj\u00f6n priv\u00e1t jegyzeteket, f\u00e9nyk\u00e9peket vagy biztons\u00e1gi m\u00e1solatokat, hacsak nem felt\u00e9tlen\u00fcl sz\u00fcks\u00e9gesek a k\u00e9r\u00e9s\u00e9hez.",
+        "contactButton": "E-mail a t\u00e1mogat\u00e1snak"
+    },
+    "privacy": {
+        "metaTitle": "Adatv\u00e9delmi ir\u00e1nyelvek - Mochi DoneStamp",
+        "metaDescription": "A Mochi DoneStamp adatv\u00e9delmi ir\u00e1nyelvei: nincs fi\u00f3k, nincsenek hirdet\u00e9sek, nincs analitika \u00e9s nincs nyomon k\u00f6vet\u00e9s.",
+        "eyebrow": "Adatv\u00e9delem",
+        "heading": "Adatv\u00e9delmi ir\u00e1nyelvek",
+        "effectiveDate": "\u00c9rv\u00e9nyes: 2026. j\u00falius 17.",
+        "sections": [
+            {
+                "title": "\u00d6sszegz\u00e9s",
+                "body": "A Mochi DoneStamp nem ig\u00e9nyel fi\u00f3kot, \u00e9s nem tartalmaz hirdet\u00e9seket, analitik\u00e1t, nyomon k\u00f6vet\u00e9st vagy harmadik f\u00e9lt\u0151l sz\u00e1rmaz\u00f3 SDK-kat. Az alapvet\u0151 haszn\u00e1lat offline t\u00f6rt\u00e9nik. A Lumi Studio nem \u00fczemeltet szervert az alkalmaz\u00e1shoz, \u00e9s nem tudja elolvasni az eszk\u00f6z\u00f6n l\u00e9v\u0151 tartalmait."
+            },
+            {
+                "title": "Az eszk\u00f6z\u00f6n t\u00e1rolt adatok",
+                "body": "Az esem\u00e9nyek neveit, szimb\u00f3lumait, sz\u00edneit, ritmusait, eml\u00e9keztet\u0151 be\u00e1ll\u00edt\u00e1sait, befejez\u00e9si el\u0151zm\u00e9nyeit, jegyzeteit \u00e9s a kiv\u00e1lasztott f\u00e9nyk\u00e9peket az alkalmaz\u00e1s v\u00e9dett App Group t\u00e1rol\u00f3ja menti el, \u00edgy az alkalmaz\u00e1s, a widgetek, az \u00e9rtes\u00edt\u00e9si m\u0171veletek \u00e9s az App Intents ugyanazokat az adatokat haszn\u00e1lhatj\u00e1k. A p\u00e1ros\u00edtott Apple Watch sz\u00e1m\u00e1ra az Apple WatchConnectivity szolg\u00e1ltat\u00e1s\u00e1n kereszt\u00fcl egy korl\u00e1tozott, legfeljebb 50 esem\u00e9nyt tartalmaz\u00f3 pillanatk\u00e9p ker\u00fcl elk\u00fcld\u00e9sre. Ez tartalmazza az esem\u00e9nyek neveit, szimb\u00f3lumait, sz\u00edneit, befejez\u00e9si \u00e9s esed\u00e9kess\u00e9gi id\u0151z\u00edt\u00e9s\u00e9t, k\u00e9sedelmes, r\u00f6gz\u00edtett \u00e9s megoszt\u00e1si \u00e1llapot\u00e1t, egy opcion\u00e1lis befejez\u0151 nev\u00e9t \u00e9s az alkalmaz\u00e1s nyelv\u00e9t; a jegyzetek \u00e9s a f\u00e9nyk\u00e9pek nem ker\u00fclnek elk\u00fcld\u00e9sre az \u00f3r\u00e1ra. Ha egy esem\u00e9nyt az \u00f3r\u00e1n r\u00f6gz\u00edt, az esem\u00e9ny \u00e9s az el\u0151fordul\u00e1s azonos\u00edt\u00f3i, valamint a befejez\u00e9si id\u0151 a WatchConnectivity szolg\u00e1ltat\u00e1son kereszt\u00fcl visszak\u00fcld\u00e9sre ker\u00fclnek a p\u00e1ros\u00edtott iPhone-ra. Ezek a tartalmak nem ker\u00fclnek elk\u00fcld\u00e9sre a Lumi Studio sz\u00e1m\u00e1ra."
+            },
+            {
+                "title": "F\u00e9nyk\u00e9pek",
+                "body": "A f\u00e9nyk\u00e9pek opcion\u00e1lisak, \u00e9s \u00d6n v\u00e1laszthatja ki \u0151ket. A Mochi DoneStamp egy t\u00f6m\u00f6r\u00edtett priv\u00e1t m\u00e1solatot k\u00e9sz\u00edt az esem\u00e9nyek el\u0151zm\u00e9nyeihez. Nem t\u00f6lti fel a kiv\u00e1lasztott f\u00e9nyk\u00e9peket a Lumi Studio szervereire, \u00e9s nem veszi fel \u0151ket a CloudKit csal\u00e1di megoszt\u00e1sba."
+            },
+            {
+                "title": "Opcion\u00e1lis csal\u00e1di megoszt\u00e1s az iCloudon kereszt\u00fcl",
+                "body": "A csal\u00e1di megoszt\u00e1s csak akkor indul el, ha a Megoszt\u00e1s a csal\u00e1ddal lehet\u0151s\u00e9get v\u00e1lasztja. Ezt k\u00f6vet\u0151en az Apple priv\u00e1t \u00e9s megosztott CloudKit adatb\u00e1zisai feldolgozz\u00e1k az esem\u00e9ny \u00e9s az el\u0151fordul\u00e1s azonos\u00edt\u00f3it; az esem\u00e9ny nev\u00e9t, szimb\u00f3lum\u00e1t, sz\u00edn\u00e9t, megjelen\u00edt\u00e9si sorrendj\u00e9t, r\u00f6gz\u00edtett vagy archiv\u00e1lt \u00e1llapot\u00e1t, az ism\u00e9tl\u0151d\u00e9s \u00e9s az eml\u00e9keztet\u0151 be\u00e1ll\u00edt\u00e1sait, a l\u00e9trehoz\u00e1si \u00e9s friss\u00edt\u00e9si id\u0151ket; valamint a befejez\u00e9si id\u0151ket, a forr\u00e1st, a jegyzeteket, illetve a r\u00e9sztvev\u0151k azonos\u00edt\u00f3it \u00e9s megjelen\u00edtett neveit. A kiv\u00e1lasztott f\u00e9nyk\u00e9pek nem ker\u00fclnek felt\u00f6lt\u00e9sre. Csak azok f\u00e9rhetnek hozz\u00e1 a megosztott esem\u00e9nyhez, akiket az Apple megoszt\u00e1si fel\u00fclet\u00e9n kereszt\u00fcl h\u00edvott meg. A Lumi Studio nem f\u00e9rhet hozz\u00e1 ehhez a tartalomhoz. Kezelheti a r\u00e9sztvev\u0151ket, le\u00e1ll\u00edthatja a megoszt\u00e1st, vagy t\u00f6r\u00f6lheti a megosztott esem\u00e9nyt az alkalmaz\u00e1sban. Az Apple adatv\u00e9delmi ir\u00e1nyelvei \u00e9s az \u00d6n iCloud-be\u00e1ll\u00edt\u00e1sai is \u00e9rv\u00e9nyesek."
+            },
+            {
+                "title": "V\u00e1s\u00e1rl\u00e1sok",
+                "body": "A Lifetime Pro v\u00e1s\u00e1rl\u00e1sokat \u00e9s vissza\u00e1ll\u00edt\u00e1sokat az Apple dolgozza fel a StoreKit seg\u00edts\u00e9g\u00e9vel. A Lumi Studio nem kapja meg \u00e9s nem t\u00e1rolja az \u00d6n bankk\u00e1rtya-adatait. Az Apple a v\u00e1s\u00e1rl\u00e1si inform\u00e1ci\u00f3kat a saj\u00e1t adatv\u00e9delmi ir\u00e1nyelvei alapj\u00e1n dolgozhatja fel."
+            },
+            {
+                "title": "\u00c9rtes\u00edt\u00e9sek",
+                "body": "Az eml\u00e9keztet\u0151 \u00e9rtes\u00edt\u00e9sek helyileg vannak \u00fctemezve az eszk\u00f6z\u00e9n. A 'K\u00e9sz' \u00e9s a 'Szundi' m\u0171veleteik ugyanazokat a helyi App Group adatokat friss\u00edtik. A Mochi DoneStamp nem haszn\u00e1l t\u00e1voli \u00e9rtes\u00edt\u00e9si szervert."
+            },
+            {
+                "title": "Mesters\u00e9ges intelligencia",
+                "body": "A Mochi DoneStamp nem haszn\u00e1l k\u00fcls\u0151 AI- vagy modellszolg\u00e1ltat\u00f3t, \u00e9s nem k\u00fcldi el adatait egy modellnek sem. Szint\u00e9n nem futtat modellt az \u00d6n tartalmain az eszk\u00f6z\u00e9n."
+            },
+            {
+                "title": "Analitika, hirdet\u00e9sek \u00e9s nyomon k\u00f6vet\u00e9s",
+                "body": "A Mochi DoneStamp nem tartalmaz hirdet\u00e9si vagy analitikai SDK-kat, nem k\u00f6veti \u00d6nt az alkalmaz\u00e1sokban vagy webhelyeken kereszt\u00fcl, \u00e9s nem \u00e9rt\u00e9kes\u00edt szem\u00e9lyes adatokat."
+            },
+            {
+                "title": "Biztons\u00e1gi ment\u00e9sek, export\u00e1l\u00e1sok \u00e9s meg\u0151rz\u00e9s",
+                "body": "A biztons\u00e1gi ment\u00e9sek \u00e9s a JSON export\u00e1l\u00e1sok csak akkor j\u00f6nnek l\u00e9tre, amikor \u00d6n k\u00e9ri, \u00e9s az \u00d6n \u00e1ltal v\u00e1lasztott helyre ker\u00fclnek ment\u00e9sre. \u00d6n ir\u00e1ny\u00edtja \u00e9s t\u00f6rli ezeket a f\u00e1jlokat. Az eszk\u00f6z\u00f6n l\u00e9v\u0151 tartalom addig marad meg, am\u00edg \u00d6n nem szerkeszti vagy t\u00f6rli azt, vissza nem \u00e1ll\u00edtja az alkalmaz\u00e1st, vagy el nem t\u00e1vol\u00edtja az iOS rendszeren kereszt\u00fcl. A p\u00e1ros\u00edtott Apple Watch megtartja a legut\u00f3bbi, korl\u00e1tozott esem\u00e9ny pillanatk\u00e9pet, am\u00edg egy \u00fajabb pillanatk\u00e9p le nem cser\u00e9li azt, vagy a Watch alkalmaz\u00e1s el nem t\u00e1vol\u00edt\u00e1sra ker\u00fcl. A megosztott tartalom a CloudKitben marad, am\u00edg \u00d6n be nem fejezi a megoszt\u00e1st vagy nem t\u00f6rli a megosztott esem\u00e9nyt, az Apple szolg\u00e1ltat\u00e1skezel\u00e9s\u00e9nek megfelel\u0151en."
+            }
+        ],
+        "contactTitle": "Kapcsolat",
+        "contactBody": "Az adatv\u00e9delemmel kapcsolatos k\u00e9rd\u00e9seit ide k\u00fcldheti:",
+        "contactButton": "E-mail az adatv\u00e9delemnek"
+    }
+}

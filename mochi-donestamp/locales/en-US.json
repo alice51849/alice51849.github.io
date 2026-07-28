@@ -1,0 +1,97 @@
+{
+  "locale": "en-US",
+  "languageName": "English (US)",
+  "dir": "ltr",
+  "languageLabel": "Language",
+  "navHome": "Home",
+  "navSupport": "Support",
+  "navPrivacy": "Privacy",
+  "support": {
+    "metaTitle": "Support - Mochi DoneStamp",
+    "metaDescription": "Help, answers, and contact information for Mochi DoneStamp.",
+    "eyebrow": "Support",
+    "heading": "How can we help?",
+    "deviceLine": "Mochi DoneStamp for iPhone, iPad, and Apple Watch",
+    "sections": [
+      {
+        "title": "How do I record an event?",
+        "body": "Tap the round check button on an event card to record the current time. A brief Undo action appears at the bottom. Touch and hold the same button to choose an earlier date and time."
+      },
+      {
+        "title": "Why did the next reminder move?",
+        "body": "Every rhythm restarts from the actual completion time. If you finish three days late, the next reminder starts from that new time instead of keeping an outdated schedule."
+      },
+      {
+        "title": "Why am I not receiving reminders?",
+        "body": "Open the event, choose Event Settings, confirm that it has a rhythm and that Remind me is enabled, then check iOS Settings > Notifications > Mochi DoneStamp. The app only asks for permission after you turn on a reminder."
+      },
+      {
+        "title": "How do I restore Lifetime Pro?",
+        "body": "Open Settings in Mochi DoneStamp, choose Mochi DoneStamp Pro, and tap Restore Purchase. Use the same Apple Account that made the original purchase. Lifetime Pro is a non-consumable purchase, not a subscription."
+      },
+      {
+        "title": "How do backups work?",
+        "body": "With Lifetime Pro, choose Export in Settings to create a complete JSON backup with event history and selected photos. Keep that file somewhere you trust. To restore it, choose Import, then choose Merge with current data or Replace current data."
+      },
+      {
+        "title": "How does Family Sharing work?",
+        "body": "Open an event, tap the people icon, and choose Share with Family. Apple presents the invitation and participant controls. Photos are never included in CloudKit sharing. You can manage participants or stop sharing from the same event."
+      },
+      {
+        "title": "What can I do on Apple Watch?",
+        "body": "The companion app shows events synced from your paired iPhone. Tap the check button to record an event from your wrist. Changes are sent to the iPhone and the most recent event list remains available during a temporary disconnection."
+      }
+    ],
+    "contactTitle": "Contact",
+    "contactBody": "Include your iOS or watchOS version, device model, and a short description of what happened. Please do not send private notes, photos, or backup files unless they are essential to your request.",
+    "contactButton": "Email Support"
+  },
+  "privacy": {
+    "metaTitle": "Privacy Policy - Mochi DoneStamp",
+    "metaDescription": "Mochi DoneStamp privacy policy: no account, no ads, no analytics, and no tracking.",
+    "eyebrow": "Privacy",
+    "heading": "Privacy Policy",
+    "effectiveDate": "Effective July 17, 2026",
+    "sections": [
+      {
+        "title": "Summary",
+        "body": "Mochi DoneStamp does not require an account and does not include advertising, analytics, tracking, or third-party SDKs. Core use is offline. Lumi Studio does not operate a server for the app and cannot read your on-device content."
+      },
+      {
+        "title": "Data stored on your device",
+        "body": "Event names, symbols, colors, rhythms, reminder settings, completion history, notes, and selected photos are stored in the app's protected App Group container so the app, widgets, notification actions, and App Intents can use the same data. A limited snapshot of up to 50 events is sent to your paired Apple Watch through Apple's WatchConnectivity service. It includes event names, symbols, colors, completion and due timing, overdue, pin and sharing status, an optional completion name, and the app language; notes and photos are not sent to the Watch. Recording an event on the Watch sends the event and occurrence identifiers and completion time back to the paired iPhone through WatchConnectivity. None of this content is sent to Lumi Studio."
+      },
+      {
+        "title": "Photos",
+        "body": "Photos are optional and selected by you. Mochi DoneStamp creates a compressed private copy for the event history. It does not upload selected photos to Lumi Studio or include them in CloudKit family sharing."
+      },
+      {
+        "title": "Optional family sharing through iCloud",
+        "body": "Family sharing starts only after you choose Share with Family. Apple's private and shared CloudKit databases then process the event and occurrence identifiers; event name, symbol, color, display order, pinned or archived status, recurrence and reminder settings, creation and update times; and completion times, source, notes, and participant identifiers and display names. Selected photos are not uploaded. Only people you invite through Apple's sharing interface can access a shared event. Lumi Studio cannot access that content. You can manage participants, stop sharing, or delete the shared event in the app. Apple's privacy policy and your iCloud settings also apply."
+      },
+      {
+        "title": "Purchases",
+        "body": "Lifetime Pro purchases and restorations are processed by Apple through StoreKit. Lumi Studio does not receive or store your payment card details. Apple may process purchase information under its own privacy policy."
+      },
+      {
+        "title": "Notifications",
+        "body": "Reminder notifications are scheduled locally on your device. Their Done and Snooze actions update the same local App Group data. Mochi DoneStamp does not use a remote notification server."
+      },
+      {
+        "title": "Artificial intelligence",
+        "body": "Mochi DoneStamp does not use an external AI or model provider and does not send your data to a model. It also does not run a model on your content on the device."
+      },
+      {
+        "title": "Analytics, advertising, and tracking",
+        "body": "Mochi DoneStamp contains no advertising or analytics SDK, does not track you across apps or websites, and does not sell personal information."
+      },
+      {
+        "title": "Backups, exports, and retention",
+        "body": "Backups and JSON exports are created only when you request them and are saved to a location you choose. You control and delete those files. On-device content remains until you edit or delete it, reset the app, or remove it through iOS. The paired Apple Watch keeps its latest limited event snapshot until a newer snapshot replaces it or the Watch app is removed. Shared content remains in CloudKit until you stop sharing or delete the shared event, subject to Apple's service handling."
+      }
+    ],
+    "contactTitle": "Contact",
+    "contactBody": "Questions about privacy can be sent to",
+    "contactButton": "Email Privacy Support"
+  }
+}

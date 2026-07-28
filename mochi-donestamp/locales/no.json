@@ -1,0 +1,97 @@
+{
+    "locale": "no",
+    "languageName": "Norsk",
+    "dir": "ltr",
+    "languageLabel": "Spr\u00e5k",
+    "navHome": "Hjem",
+    "navSupport": "Kundest\u00f8tte",
+    "navPrivacy": "Personvern",
+    "support": {
+        "metaTitle": "Kundest\u00f8tte - Mochi DoneStamp",
+        "metaDescription": "Hjelp, svar og kontaktinformasjon for Mochi DoneStamp.",
+        "eyebrow": "Kundest\u00f8tte",
+        "heading": "Hvordan kan vi hjelpe?",
+        "deviceLine": "Mochi DoneStamp for iPhone, iPad og Apple Watch",
+        "sections": [
+            {
+                "title": "Hvordan registrerer jeg en hendelse?",
+                "body": "Trykk p\u00e5 den runde avmerkingsknappen p\u00e5 et hendelseskort for \u00e5 registrere gjeldende tidspunkt. En kort 'Angre'-handling vises nederst. Trykk og hold inne den samme knappen for \u00e5 velge en tidligere dato og tid."
+            },
+            {
+                "title": "Hvorfor flyttet neste p\u00e5minnelse seg?",
+                "body": "Hver rytme starter p\u00e5 nytt fra det faktiske fullf\u00f8ringstidspunktet. Hvis du fullf\u00f8rer tre dager for sent, starter neste p\u00e5minnelse fra den nye tiden i stedet for \u00e5 beholde en utdatert tidsplan."
+            },
+            {
+                "title": "Hvorfor mottar jeg ikke p\u00e5minnelser?",
+                "body": "\u00c5pne hendelsen, velg 'Hendelsesinnstillinger', bekreft at den har en rytme og at 'P\u00e5minn meg' er aktivert, og sjekk deretter iOS-'Innstillinger' > 'Varsler' > Mochi DoneStamp. Appen ber bare om tillatelse etter at du har sl\u00e5tt p\u00e5 en p\u00e5minnelse."
+            },
+            {
+                "title": "Hvordan gjenoppretter jeg Lifetime Pro?",
+                "body": "\u00c5pne 'Innstillinger' i Mochi DoneStamp, velg 'Mochi DoneStamp Pro', og trykk p\u00e5 'Gjenopprett kj\u00f8p'. Bruk den samme Apple-kontoen som gjorde det opprinnelige kj\u00f8pet. Lifetime Pro er et engangskj\u00f8p, ikke et abonnement."
+            },
+            {
+                "title": "Hvordan fungerer sikkerhetskopier?",
+                "body": "Med Lifetime Pro velger du 'Eksporter' i 'Innstillinger' for \u00e5 opprette en fullstendig JSON-sikkerhetskopi med hendelseshistorikk og utvalgte bilder. Oppbevar den filen et sted du stoler p\u00e5. For \u00e5 gjenopprette den velger du 'Importer' og deretter 'Sl\u00e5 sammen med gjeldende data' eller 'Erstatt gjeldende data'."
+            },
+            {
+                "title": "Hvordan fungerer Familiedeling?",
+                "body": "\u00c5pne en hendelse, trykk p\u00e5 personikonet og velg 'Del med familien'. Apple presenterer invitasjonen og deltakerkontrollene. Bilder er aldri inkludert i CloudKit-deling. Du kan administrere deltakere eller slutte \u00e5 dele fra den samme hendelsen."
+            },
+            {
+                "title": "Hva kan jeg gj\u00f8re p\u00e5 Apple Watch?",
+                "body": "F\u00f8lgeappen viser hendelser synkronisert fra din sammenkoblede iPhone. Trykk p\u00e5 avmerkingsknappen for \u00e5 registrere en hendelse fra h\u00e5ndleddet. Endringer sendes til iPhone, og den nyeste hendelseslisten forblir tilgjengelig under en midlertidig frakobling."
+            }
+        ],
+        "contactTitle": "Kontakt",
+        "contactBody": "Inkluder din iOS- eller watchOS-versjon, enhetsmodell og en kort beskrivelse av hva som skjedde. Vennligst ikke send private notater, bilder eller sikkerhetskopifiler med mindre de er avgj\u00f8rende for foresp\u00f8rselen din.",
+        "contactButton": "Send e-post til kundest\u00f8tte"
+    },
+    "privacy": {
+        "metaTitle": "Personvernerkl\u00e6ring - Mochi DoneStamp",
+        "metaDescription": "Mochi DoneStamp personvernerkl\u00e6ring: ingen konto, ingen annonser, ingen analyse og ingen sporing.",
+        "eyebrow": "Personvern",
+        "heading": "Personvernerkl\u00e6ring",
+        "effectiveDate": "Gjelder fra 17. juli 2026",
+        "sections": [
+            {
+                "title": "Sammendrag",
+                "body": "Mochi DoneStamp krever ingen konto og inkluderer ikke annonsering, analyse, sporing eller tredjeparts SDK-er. Kjernebruken er frakoblet. Lumi Studio driver ikke en server for appen og kan ikke lese innholdet p\u00e5 enheten din."
+            },
+            {
+                "title": "Data lagret p\u00e5 enheten din",
+                "body": "Hendelsesnavn, symboler, farger, rytmer, p\u00e5minnelsesinnstillinger, fullf\u00f8ringshistorikk, notater og utvalgte bilder lagres i appens beskyttede App Group-beholder, slik at appen, widgeter, varslingshandlinger og App Intents kan bruke de samme dataene. Et begrenset \u00f8yeblikksbilde av opptil 50 hendelser sendes til din sammenkoblede Apple Watch via Apples WatchConnectivity-tjeneste. Det inkluderer hendelsesnavn, symboler, farger, fullf\u00f8rings- og forfallstidspunkt, forfalt, festet og delingsstatus, et valgfritt fullf\u00f8ringsnavn og app-spr\u00e5ket; notater og bilder sendes ikke til klokken. Registrering av en hendelse p\u00e5 klokken sender hendelses- og forekomstidentifikatorene samt fullf\u00f8ringstidspunktet tilbake til den sammenkoblede iPhonen via WatchConnectivity. Ingenting av dette innholdet sendes til Lumi Studio."
+            },
+            {
+                "title": "Bilder",
+                "body": "Bilder er valgfrie og velges av deg. Mochi DoneStamp oppretter en komprimert privat kopi for hendelseshistorikken. Den laster ikke opp utvalgte bilder til Lumi Studio eller inkluderer dem i CloudKit familiedeling."
+            },
+            {
+                "title": "Valgfri familiedeling via iCloud",
+                "body": "Familiedeling starter f\u00f8rst etter at du har valgt Del med familien. Apples private og delte CloudKit-databaser behandler deretter hendelses- og forekomstidentifikatorene; hendelsesnavn, symbol, farge, visningsrekkef\u00f8lge, festet eller arkivert status, innstillinger for gjentakelse og p\u00e5minnelse, opprettelses- og oppdateringstidspunkt; og fullf\u00f8ringstidspunkt, kilde, notater og deltakeridentifikatorer og visningsnavn. Utvalgte bilder lastes ikke opp. Bare personer du inviterer gjennom Apples delingsgrensesnitt, har tilgang til en delt hendelse. Lumi Studio har ikke tilgang til det innholdet. Du kan administrere deltakere, slutte \u00e5 dele eller slette den delte hendelsen i appen. Apples personvernerkl\u00e6ring og dine iCloud-innstillinger gjelder ogs\u00e5."
+            },
+            {
+                "title": "Kj\u00f8p",
+                "body": "Lifetime Pro-kj\u00f8p og gjenopprettelser behandles av Apple via StoreKit. Lumi Studio mottar eller lagrer ikke betalingskortopplysningene dine. Apple kan behandle kj\u00f8psinformasjon under sin egen personvernerkl\u00e6ring."
+            },
+            {
+                "title": "Varsler",
+                "body": "P\u00e5minnelsesvarsler planlegges lokalt p\u00e5 enheten din. Deres 'Ferdig'- og 'Utsett'-handlinger oppdaterer de samme lokale App Group-dataene. Mochi DoneStamp bruker ikke en ekstern varslingsserver."
+            },
+            {
+                "title": "Kunstig intelligens",
+                "body": "Mochi DoneStamp bruker ikke en ekstern AI eller modellleverand\u00f8r, og sender ikke dataene dine til en modell. Den kj\u00f8rer heller ikke en modell p\u00e5 innholdet ditt p\u00e5 enheten."
+            },
+            {
+                "title": "Analyse, annonsering og sporing",
+                "body": "Mochi DoneStamp inneholder ingen annonserings- eller analyse-SDK, sporer deg ikke p\u00e5 tvers av apper eller nettsteder, og selger ikke personopplysninger."
+            },
+            {
+                "title": "Sikkerhetskopier, eksportering og oppbevaring",
+                "body": "Sikkerhetskopier og JSON-eksporter opprettes bare n\u00e5r du ber om dem, og lagres p\u00e5 et sted du velger. Du kontrollerer og sletter disse filene. Innhold p\u00e5 enheten forblir inntil du redigerer eller sletter det, tilbakestiller appen eller fjerner det via iOS. Den sammenkoblede Apple Watch beholder sitt siste begrensede hendelses\u00f8yeblikksbilde til et nyere \u00f8yeblikksbilde erstatter det, eller Watch-appen blir fjernet. Delt innhold forblir i CloudKit inntil du slutter \u00e5 dele eller sletter den delte hendelsen, underlagt Apples tjenesteh\u00e5ndtering."
+            }
+        ],
+        "contactTitle": "Kontakt",
+        "contactBody": "Sp\u00f8rsm\u00e5l om personvern kan sendes til",
+        "contactButton": "Send e-post til personvernst\u00f8tte"
+    }
+}

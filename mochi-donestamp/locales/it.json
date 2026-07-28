@@ -1,0 +1,97 @@
+{
+    "locale": "it",
+    "languageName": "Italiano",
+    "dir": "ltr",
+    "languageLabel": "Lingua",
+    "navHome": "Home",
+    "navSupport": "Supporto",
+    "navPrivacy": "Privacy",
+    "support": {
+        "metaTitle": "Supporto - Mochi DoneStamp",
+        "metaDescription": "Assistenza, risposte e informazioni di contatto per Mochi DoneStamp.",
+        "eyebrow": "Supporto",
+        "heading": "Come possiamo aiutarti?",
+        "deviceLine": "Mochi DoneStamp per iPhone, iPad e Apple Watch",
+        "sections": [
+            {
+                "title": "Come faccio a registrare un evento?",
+                "body": "Tocca il pulsante di spunta rotondo su una scheda evento per registrare l'ora attuale. In basso appare una breve azione 'Annulla'. Tieni premuto lo stesso pulsante per scegliere una data e un'ora precedenti."
+            },
+            {
+                "title": "Perch\u00e9 il promemoria successivo si \u00e8 spostato?",
+                "body": "Ogni ritmo riparte dal momento effettivo del completamento. Se finisci con tre giorni di ritardo, il promemoria successivo partir\u00e0 da quel nuovo orario invece di mantenere una pianificazione non pi\u00f9 valida."
+            },
+            {
+                "title": "Perch\u00e9 non ricevo i promemoria?",
+                "body": "Apri l'evento, scegli 'Impostazioni evento', conferma che abbia un ritmo e che 'Ricordamelo' sia attivo, quindi controlla 'Impostazioni' di iOS > 'Notifiche' > Mochi DoneStamp. L'app chiede il permesso solo dopo aver attivato un promemoria."
+            },
+            {
+                "title": "Come faccio a ripristinare Lifetime Pro?",
+                "body": "Apri 'Impostazioni' in Mochi DoneStamp, scegli 'Mochi DoneStamp Pro' e tocca 'Ripristina acquisto'. Usa lo stesso Account Apple che ha effettuato l'acquisto originale. Lifetime Pro \u00e8 un acquisto non di consumo, non un abbonamento."
+            },
+            {
+                "title": "Come funzionano i backup?",
+                "body": "Con Lifetime Pro, scegli 'Esporta' in 'Impostazioni' per creare un backup JSON completo con la cronologia degli eventi e le foto selezionate. Conserva questo file in un posto sicuro. Per ripristinarlo, scegli 'Importa' e poi seleziona 'Unisci ai dati attuali' o 'Sostituisci i dati attuali'."
+            },
+            {
+                "title": "Come funziona In famiglia?",
+                "body": "Apri un evento, tocca l'icona delle persone e scegli 'Condividi con la famiglia'. Apple mostrer\u00e0 l'invito e i controlli per i partecipanti. Le foto non vengono mai incluse nella condivisione di CloudKit. Puoi gestire i partecipanti o interrompere la condivisione dallo stesso evento."
+            },
+            {
+                "title": "Cosa posso fare su Apple Watch?",
+                "body": "L'app complementare mostra gli eventi sincronizzati dal tuo iPhone abbinato. Tocca il pulsante di spunta per registrare un evento dal polso. Le modifiche vengono inviate all'iPhone e l'elenco degli eventi pi\u00f9 recenti rimane disponibile durante una disconnessione temporanea."
+            }
+        ],
+        "contactTitle": "Contatti",
+        "contactBody": "Includi la tua versione di iOS o watchOS, il modello del dispositivo e una breve descrizione di ci\u00f2 che \u00e8 successo. Ti preghiamo di non inviare note private, foto o file di backup a meno che non siano essenziali per la tua richiesta.",
+        "contactButton": "Invia e-mail al Supporto"
+    },
+    "privacy": {
+        "metaTitle": "Informativa sulla privacy - Mochi DoneStamp",
+        "metaDescription": "Informativa sulla privacy di Mochi DoneStamp: nessun account, nessuna pubblicit\u00e0, nessuna analisi e nessun tracciamento.",
+        "eyebrow": "Privacy",
+        "heading": "Informativa sulla privacy",
+        "effectiveDate": "In vigore dal 17 luglio 2026",
+        "sections": [
+            {
+                "title": "Riepilogo",
+                "body": "Mochi DoneStamp non richiede un account e non include pubblicit\u00e0, analisi, tracciamento o SDK di terze parti. L'uso principale \u00e8 offline. Lumi Studio non gestisce un server per l'app e non pu\u00f2 leggere i tuoi contenuti sul dispositivo."
+            },
+            {
+                "title": "Dati memorizzati sul tuo dispositivo",
+                "body": "Nomi di eventi, simboli, colori, ritmi, impostazioni dei promemoria, cronologia dei completamenti, note e foto selezionate vengono memorizzati nel contenitore protetto App Group dell'app, in modo che l'app, i widget, le azioni di notifica e App Intents possano utilizzare gli stessi dati. Un'istantanea limitata fino a 50 eventi viene inviata al tuo Apple Watch abbinato tramite il servizio WatchConnectivity di Apple. Essa include nomi degli eventi, simboli, colori, tempistiche di completamento e scadenza, stato di ritardo, fissato e di condivisione, un nome di completamento opzionale e la lingua dell'app; note e foto non vengono inviate all'Apple Watch. La registrazione di un evento sull'Apple Watch invia gli identificatori dell'evento e dell'occorrenza e il tempo di completamento all'iPhone abbinato tramite WatchConnectivity. Nessuno di questi contenuti viene inviato a Lumi Studio."
+            },
+            {
+                "title": "Foto",
+                "body": "Le foto sono opzionali e scelte da te. Mochi DoneStamp crea una copia privata compressa per la cronologia degli eventi. Non carica le foto selezionate sui server di Lumi Studio, n\u00e9 le include nella condivisione In famiglia di CloudKit."
+            },
+            {
+                "title": "Condivisione In famiglia opzionale tramite iCloud",
+                "body": "La condivisione In famiglia inizia solo dopo che hai scelto Condividi con la Famiglia. I database privati e condivisi CloudKit di Apple elaborano quindi gli identificatori dell'evento e dell'occorrenza; nome dell'evento, simbolo, colore, ordine di visualizzazione, stato fissato o archiviato, impostazioni di ripetizione e del promemoria, tempi di creazione e aggiornamento; e tempi di completamento, origine, note, identificatori e nomi visualizzati dei partecipanti. Le foto selezionate non vengono caricate. Solo le persone che inviti tramite l'interfaccia di condivisione di Apple possono accedere a un evento condiviso. Lumi Studio non pu\u00f2 accedere a questi contenuti. Puoi gestire i partecipanti, interrompere la condivisione o eliminare l'evento condiviso nell'app. Si applicano anche l'informativa sulla privacy di Apple e le tue impostazioni di iCloud."
+            },
+            {
+                "title": "Acquisti",
+                "body": "Gli acquisti e i ripristini di Lifetime Pro vengono elaborati da Apple tramite StoreKit. Lumi Studio non riceve n\u00e9 memorizza i dati della tua carta di pagamento. Apple potrebbe elaborare le informazioni di acquisto in base alla propria informativa sulla privacy."
+            },
+            {
+                "title": "Notifiche",
+                "body": "Le notifiche dei promemoria sono programmate localmente sul tuo dispositivo. Le azioni 'Fatto' e 'Ricordamelo dopo' aggiornano gli stessi dati locali di App Group. Mochi DoneStamp non utilizza un server per le notifiche remote."
+            },
+            {
+                "title": "Intelligenza artificiale",
+                "body": "Mochi DoneStamp non utilizza un fornitore esterno di intelligenza artificiale o di modelli e non invia i tuoi dati a un modello. Inoltre, non esegue alcun modello sui tuoi contenuti sul dispositivo."
+            },
+            {
+                "title": "Analisi, pubblicit\u00e0 e tracciamento",
+                "body": "Mochi DoneStamp non contiene alcun SDK pubblicitario o di analisi, non ti traccia attraverso app o siti web e non vende informazioni personali."
+            },
+            {
+                "title": "Backup, esportazioni e conservazione",
+                "body": "I backup e le esportazioni JSON vengono creati solo su tua richiesta e vengono salvati in una posizione da te scelta. Sei tu a controllare e a poter eliminare questi file. I contenuti sul dispositivo rimangono fino a quando non li modifichi o elimini, ripristini l'app o la rimuovi tramite iOS. L'Apple Watch abbinato conserva la sua ultima istantanea limitata degli eventi finch\u00e9 una nuova istantanea non la sostituisce o l'app per Watch non viene rimossa. I contenuti condivisi rimangono in CloudKit fino a quando non interrompi la condivisione o elimini l'evento condiviso, in base alla gestione dei servizi di Apple."
+            }
+        ],
+        "contactTitle": "Contatti",
+        "contactBody": "Le domande sulla privacy possono essere inviate a",
+        "contactButton": "Invia e-mail al Supporto Privacy"
+    }
+}
