@@ -831,5 +831,31 @@ window.APPS=[
    "ko": "공유하기 전에 기기에서 개인정보를 영구적으로 가리세요. 내보낸 파일은 다시 열어 매번 확인하고, 한 번에 최대 100개 파일을 보호합니다. 한 번 구매로 평생 사용, 구독 없음."
   },
   "shot": null
+ },
+ {
+  "slug": "hourstag-lite",
+  "cat": "tools",
+  "icon": "assets/icons/hourstag-lite.png",
+  "url": "https://apps.apple.com/tw/app/hourstag-lite/id6794039979?uo=4",
+  "badge": "Lite",
+  "name": {
+   "en": "HoursTag Lite",
+   "zh": "HoursTag Lite",
+   "ja": "HoursTag Lite",
+   "ko": "HoursTag Lite"
+  },
+  "sub": {
+   "en": "See the real price of things",
+   "zh": "看見每樣東西的真實代價",
+   "ja": "モノの本当の値段が見える",
+   "ko": "모든 것의 진짜 가격을 보세요"
+  },
+  "blurb": {
+   "en": "See the real price of things - Meet your Worth Lens - Life cost - Everything stays on your device. No account, no t…",
+   "zh": "看見每樣東西的真實代價 - 認識你的價值稜鏡 - 人生時間成本 - 所有資料只留在你的裝置上。無需帳號，不做追蹤。",
+   "ja": "モノの本当の値段が見える - 価値レンズを試す - 人生時間コスト - すべてのデータは端末内にのみ保存されます。アカウント不要、追跡なし。",
+   "ko": "모든 것의 진짜 가격을 보세요 - 가치 렌즈 만나기 - 삶의 시간 비용 - 모든 데이터는 기기에만 저장됩니다. 계정 불필요, 추적 없음"
+  },
+  "shot": null
  }
 ];
