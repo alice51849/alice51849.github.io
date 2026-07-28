@@ -15,6 +15,11 @@ RKEY = "3mabcdefghi2j"
 AT_URI = (
     f"at://{syncer.EXPECTED_DID}/{syncer.COLLECTION}/{RKEY}"
 )
+DOCUMENT_RKEY = "3mabcdefghi3k"
+DOCUMENT_URI = (
+    f"at://{syncer.EXPECTED_DID}/{syncer.DOCUMENT_COLLECTION}/"
+    f"{DOCUMENT_RKEY}"
+)
 
 
 def payload(
@@ -31,6 +36,32 @@ def payload(
                     "$type": syncer.COLLECTION,
                     "url": publication_url,
                     "name": "Lumi Studio App Guides",
+                },
+            }
+        ]
+    }
+
+
+def document_payload(
+    *,
+    site: str = AT_URI,
+    path: str = "/answers/alpha.html",
+    app_key: str = "alpha",
+) -> dict:
+    return {
+        "records": [
+            {
+                "uri": DOCUMENT_URI,
+                "cid": "bafyreidocument",
+                "value": {
+                    "$type": syncer.DOCUMENT_COLLECTION,
+                    "site": site,
+                    "path": path,
+                    "title": "Alpha guide",
+                    "description": "A verified guide.",
+                    "textContent": "Publisher-authored guide content.",
+                    "tags": [app_key, "iOS"],
+                    "publishedAt": "2026-07-27T14:00:00.000Z",
                 },
             }
         ]
@@ -148,6 +179,88 @@ class StandardSiteSyncTests(unittest.TestCase):
         )
         self.assertEqual(payload(), result)
         self.assertEqual(2, calls)
+
+    def test_public_guide_contract_is_materialized_idempotently(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "standard_site_guide_contract.json"
+            contract, changed = syncer.sync_guide_contract(
+                AT_URI,
+                target,
+                write=True,
+                opener=lambda _request, timeout: FakeResponse(
+                    document_payload()
+                ),
+                sleeper=lambda _seconds: None,
+            )
+            self.assertTrue(changed)
+            self.assertEqual(
+                "https://alice51849.github.io/ios-app-guide/"
+                "answers/alpha.html",
+                contract["documents"][0]["canonical_url"],
+            )
+            self.assertEqual("alpha", contract["documents"][0]["app_key"])
+            self.assertEqual(
+                DOCUMENT_URI, contract["documents"][0]["at_uri"]
+            )
+            self.assertEqual(
+                contract,
+                json.loads(target.read_text(encoding="utf-8")),
+            )
+            _, changed = syncer.sync_guide_contract(
+                AT_URI,
+                target,
+                write=True,
+                opener=lambda _request, timeout: FakeResponse(
+                    document_payload()
+                ),
+                sleeper=lambda _seconds: None,
+            )
+            self.assertFalse(changed)
+
+    def test_guide_contract_rejects_unsafe_or_ambiguous_documents(self):
+        cases = (
+            document_payload(site="at://did:plc:other/site.standard.publication/x"),
+            document_payload(path="/../secret.html"),
+            document_payload(app_key="NOT SAFE"),
+            {
+                "records": (
+                    document_payload()["records"]
+                    + document_payload()["records"]
+                )
+            },
+        )
+        for value in cases:
+            with self.subTest(value=value):
+                with self.assertRaises(syncer.SyncError):
+                    syncer.guide_contract(AT_URI, value)
+
+    def test_paginated_record_fetch_is_bounded(self):
+        urls: list[str] = []
+
+        def opener(request, timeout):
+            urls.append(request.full_url)
+            if "cursor=" not in request.full_url:
+                return FakeResponse(
+                    {"records": [{"page": 1}], "cursor": "next-page"}
+                )
+            return FakeResponse({"records": [{"page": 2}]})
+
+        result = syncer.fetch_all_records(
+            syncer.DOCUMENT_COLLECTION,
+            opener=opener,
+            sleeper=lambda _seconds: None,
+        )
+        self.assertEqual([{"page": 1}, {"page": 2}], result["records"])
+        self.assertEqual(2, len(urls))
+        self.assertIn("collection=site.standard.document", urls[0])
+        self.assertIn("cursor=next-page", urls[1])
+
+    def test_workflow_persists_both_public_artifacts(self):
+        workflow = (
+            syncer.ROOT / ".github/workflows/sync-standard-site.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("standard_site_guide_contract.json", workflow)
+        self.assertIn('"${targets[@]}"', workflow)
 
 
 if __name__ == "__main__":

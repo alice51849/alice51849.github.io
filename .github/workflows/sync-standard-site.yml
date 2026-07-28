@@ -29,19 +29,22 @@ jobs:
         run: python3 .github/scripts/sync_standard_site.py --write
       - name: Persist verifier changes
         run: |
-          target=".well-known/site.standard.publication/ios-app-guide"
-          if [[ ! -f "$target" ]]; then
+          targets=(
+            ".well-known/site.standard.publication/ios-app-guide"
+            "standard_site_guide_contract.json"
+          )
+          if [[ ! -f "${targets[0]}" ]]; then
             echo "Publication has not been created yet."
             exit 0
           fi
-          if [[ -z "$(git status --porcelain -- "$target")" ]]; then
-            echo "Standard.site verifier is already current."
+          if [[ -z "$(git status --porcelain -- "${targets[@]}")" ]]; then
+            echo "Standard.site public artifacts are already current."
             exit 0
           fi
           git config user.name "standard-site-sync-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$target"
-          git commit -m "chore: sync Standard.site verifier"
+          git add "${targets[@]}"
+          git commit -m "chore: sync Standard.site public artifacts"
           for attempt in 1 2 3; do
             if git pull --rebase origin main && git push origin HEAD:main; then
               exit 0
