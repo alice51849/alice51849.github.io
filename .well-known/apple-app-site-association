@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "5N5R579F27.com.alice51849.MochiDoneStamp",
+        "paths": [
+          "/mochi-donestamp/open/*"
+        ]
+      }
+    ]
+  }
+}

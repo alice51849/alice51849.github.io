@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171410">
+  <meta name="apple-itunes-app" content="app-id=6790800323">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mochi DoneStamp">
+  <meta property="og:description" content="Family invitation">
+  <meta property="og:image" content="https://alice51849.github.io/mochi-donestamp/icon.png">
+  <title>Mochi DoneStamp</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #171410;
+      color: #fffaf2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100svh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 12%, #64482c 0, transparent 37%),
+        radial-gradient(circle at 88% 84%, #493120 0, transparent 35%),
+        #171410;
+    }
+    main {
+      width: min(90vw, 430px);
+      display: grid;
+      justify-items: center;
+      gap: 22px;
+      padding: max(28px, env(safe-area-inset-top)) 22px
+        max(28px, env(safe-area-inset-bottom));
+      text-align: center;
+    }
+    .icon {
+      width: 116px;
+      height: 116px;
+      border-radius: 27px;
+      box-shadow: 0 24px 54px #0009, inset 0 0 0 1px #fff3;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 8vw, 38px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+    .spinner {
+      width: 26px;
+      height: 26px;
+      border: 3px solid #fff3;
+      border-top-color: #fffaf2;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    .actions {
+      width: 100%;
+      display: grid;
+      gap: 12px;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .ready .actions {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+    a {
+      min-height: 54px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      color: #171410;
+      background: #fffaf2;
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 14px 32px #0006;
+    }
+    a.secondary {
+      color: #fffaf2;
+      background: #fff1;
+      border: 1px solid #fff3;
+      box-shadow: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .spinner { animation-duration: 1.8s; }
+      .actions { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="icon" src="../icon.png" alt="">
+    <h1>Mochi DoneStamp</h1>
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="actions">
+      <a id="open-app" href="#" aria-label="Mochi DoneStamp">Mochi DoneStamp&nbsp;↗</a>
+      <a class="secondary" href="https://apps.apple.com/app/id6790800323">App Store</a>
+    </div>
+  </main>
+  <script>
+    (() => {
+      const token = location.hash.slice(1);
+      const main = document.querySelector("main");
+      const openApp = document.querySelector("#open-app");
+      const validToken = /^[A-Za-z0-9_-]{12,}$/.test(token);
+      if (!validToken) {
+        main.classList.add("ready");
+        openApp.hidden = true;
+        document.querySelector(".spinner").hidden = true;
+        return;
+      }
+
+      const appURL =
+        "mochidonestamp://join-share?payload=" + encodeURIComponent(token);
+      openApp.href = appURL;
+      setTimeout(() => main.classList.add("ready"), 900);
+      location.replace(appURL);
+    })();
+  </script>
+</body>
+</html>
