@@ -9,6 +9,7 @@
     "dailymate",
     "gmoney",
     "hourstag",
+    "hourstaglite",
     "lockhour",
     "lumiletters",
     "lumiletterspro",
@@ -33,12 +34,12 @@
     "wifiaid",
     "wordmate"
   ],
-  "last_slot": "2026-07-27T18:00:00Z",
+  "last_slot": "2026-07-28T00:00:00Z",
   "remaining": [
-    "aim990plus",
     "maskmyfile",
     "mochidonestamp",
-    "wifiaid"
+    "wifiaid",
+    "hourstaglite"
   ],
   "version": 1
 }
