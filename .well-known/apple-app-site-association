@@ -8,6 +8,12 @@
           "/mochi/*",
           "/mochi-donestamp/open/*"
         ]
+      },
+      {
+        "appID": "5N5R579F27.com.alice51849.TripPlanet",
+        "paths": [
+          "/trip/*"
+        ]
       }
     ]
   }
