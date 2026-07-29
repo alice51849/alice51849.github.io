@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-07-28T01:58:20.502Z",
+  "generated_at": "2026-07-29T08:22:13.470Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -16,10 +16,22 @@
   },
   "documents": [
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/do-i-need-a-photo-on-my-resume-and-how-long-should-it-be.html",
+      "app_key": "cvdesk",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-prepare-for-toeic-while-working-full-time-with-limited-study-time.html",
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyx3fg",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyx3fg\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-study-for-the-toeic-listening-and-reading-test-in-30-days.html",
+      "app_key": "aim990",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/aim990plus.html",
