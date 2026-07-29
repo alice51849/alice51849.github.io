@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://alice51849.github.io/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://alice51849.github.io/</loc><lastmod>2026-07-29</lastmod></url>
   <url><loc>https://alice51849.github.io/.well-known/ai-catalog.json</loc><lastmod>2026-07-21</lastmod></url>
   <url><loc>https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json</loc><lastmod>2026-07-21</lastmod></url>
   <url><loc>https://alice51849.github.io/.well-known/api-catalog</loc><lastmod>2026-07-17</lastmod></url>
@@ -9,6 +9,10 @@
   <url><loc>https://alice51849.github.io/tools/scan-document/</loc><lastmod>2026-06-28</lastmod></url>
   <url><loc>https://alice51849.github.io/tools/enhance-photo/</loc><lastmod>2026-06-28</lastmod></url>
   <url><loc>https://alice51849.github.io/tools/clean-up-photo/</loc><lastmod>2026-06-28</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/ai-brief/</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/ai-brief/zh/</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/ai-brief/ja/</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/ai-brief/ko/</loc><lastmod>2026-07-29</lastmod></url>
   <url><loc>https://alice51849.github.io/app/aim990/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/aim990/zh/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/aim990/ja/</loc><lastmod>2026-07-20</lastmod></url>
@@ -89,10 +93,10 @@
   <url><loc>https://alice51849.github.io/app/mask-my-file/zh/</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://alice51849.github.io/app/mask-my-file/ja/</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://alice51849.github.io/app/mask-my-file/ko/</loc><lastmod>2026-07-27</lastmod></url>
-  <url><loc>https://alice51849.github.io/app/mochi-donestamp/</loc><lastmod>2026-07-28</lastmod></url>
-  <url><loc>https://alice51849.github.io/app/mochi-donestamp/zh/</loc><lastmod>2026-07-28</lastmod></url>
-  <url><loc>https://alice51849.github.io/app/mochi-donestamp/ja/</loc><lastmod>2026-07-28</lastmod></url>
-  <url><loc>https://alice51849.github.io/app/mochi-donestamp/ko/</loc><lastmod>2026-07-28</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/mochi-donestamp/</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/mochi-donestamp/zh/</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/mochi-donestamp/ja/</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/mochi-donestamp/ko/</loc><lastmod>2026-07-29</lastmod></url>
   <url><loc>https://alice51849.github.io/app/mochi-todo/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/mochi-todo/zh/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/mochi-todo/ja/</loc><lastmod>2026-07-20</lastmod></url>

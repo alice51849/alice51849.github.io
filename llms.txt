@@ -4,6 +4,7 @@
 
 ## Apps
 
+- AI Brief — Better context. Better answers. — https://apps.apple.com/us/app/id6791658210
 - Aim990 — TOEIC Listening & Reading study companion for daily practice and progress review. TOEIC is an ETS trademark; results are not guaranteed. — https://apps.apple.com/us/app/id6784974530
 - Aim990 Plus — Train for clear decisions under exam pressure — https://apps.apple.com/us/app/id6792483140
 - CV Desk: ATS Resume Builder — Build an ATS-safe resume that recruiters' systems actually read — entirely on your iPhone. No account. No upload. No subscription. — https://apps.apple.com/us/app/id6781337213

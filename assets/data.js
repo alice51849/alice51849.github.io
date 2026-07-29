@@ -857,5 +857,31 @@ window.APPS=[
    "ko": "모든 것의 진짜 가격을 보세요 - 가치 렌즈 만나기 - 삶의 시간 비용 - 모든 데이터는 기기에만 저장됩니다. 계정 불필요, 추적 없음"
   },
   "shot": null
+ },
+ {
+  "slug": "ai-brief",
+  "cat": "tools",
+  "icon": "assets/icons/ai-brief.png",
+  "url": "https://apps.apple.com/tw/app/ai-brief/id6791658210?uo=4",
+  "badge": "",
+  "name": {
+   "en": "AI Brief",
+   "zh": "AI Brief",
+   "ja": "AI Brief",
+   "ko": "AI Brief"
+  },
+  "sub": {
+   "en": "Files to Clear Context",
+   "zh": "把資料整理成清晰脈絡",
+   "ja": "資料を明確な文脈に整理",
+   "ko": "파일을 명확한 맥락으로"
+  },
+  "blurb": {
+   "en": "Bring screenshots, documents, and notes together. Keep the facts. Review private details. Copy one clear brief.",
+   "zh": "整合截圖、文件與筆記。保留事實、檢查私密資訊，再複製一份清楚的摘要。",
+   "ja": "スクリーンショット、ドキュメント、メモをひとつに。事実はそのまま。機密情報も確認。ひとつの明確な要約をコピー。",
+   "ko": "스크린샷, 문서, 메모를 한곳에 모으세요. 사실은 유지하세요. 민감한 정보는 검토하세요. 하나의 명확한 브리프를 복사하세요."
+  },
+  "shot": null
  }
 ];
