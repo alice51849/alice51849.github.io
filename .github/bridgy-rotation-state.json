@@ -2,6 +2,7 @@
   "known_slugs": [
     "lumibopomofopro",
     "lumibopomofo",
+    "aibriefpack",
     "aim990",
     "aim990plus",
     "cvdesk",
@@ -34,9 +35,8 @@
     "wifiaid",
     "wordmate"
   ],
-  "last_slot": "2026-07-29T12:00:00Z",
+  "last_slot": "2026-07-29T18:00:00Z",
   "remaining": [
-    "lumibopomofo",
     "aim990",
     "aim990plus",
     "cvdesk",
@@ -67,7 +67,8 @@
     "tripplanet",
     "unblurry",
     "wifiaid",
-    "wordmate"
+    "wordmate",
+    "aibriefpack"
   ],
   "version": 1
 }
