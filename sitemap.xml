@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://alice51849.github.io/</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://alice51849.github.io/</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://alice51849.github.io/.well-known/ai-catalog.json</loc><lastmod>2026-07-21</lastmod></url>
   <url><loc>https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json</loc><lastmod>2026-07-21</lastmod></url>
   <url><loc>https://alice51849.github.io/.well-known/api-catalog</loc><lastmod>2026-07-17</lastmod></url>
@@ -37,6 +37,10 @@
   <url><loc>https://alice51849.github.io/app/g-money/zh/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/g-money/ja/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/g-money/ko/</loc><lastmod>2026-07-20</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/g-money-lite/</loc><lastmod>2026-07-30</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/g-money-lite/zh/</loc><lastmod>2026-07-30</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/g-money-lite/ja/</loc><lastmod>2026-07-30</lastmod></url>
+  <url><loc>https://alice51849.github.io/app/g-money-lite/ko/</loc><lastmod>2026-07-30</lastmod></url>
   <url><loc>https://alice51849.github.io/app/hourstag/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/hourstag/zh/</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://alice51849.github.io/app/hourstag/ja/</loc><lastmod>2026-07-20</lastmod></url>

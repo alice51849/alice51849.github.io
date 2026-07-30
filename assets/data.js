@@ -883,5 +883,31 @@ window.APPS=[
    "ko": "스크린샷, 문서, 메모를 한곳에 모으세요. 사실은 유지하세요. 민감한 정보는 검토하세요. 하나의 명확한 브리프를 복사하세요."
   },
   "shot": null
+ },
+ {
+  "slug": "g-money-lite",
+  "cat": "tools",
+  "icon": "assets/icons/g-money-lite.png",
+  "url": "https://apps.apple.com/tw/app/g-money-lite/id6793436548?uo=4",
+  "badge": "Lite",
+  "name": {
+   "en": "G+Money Lite",
+   "zh": "G+Money Lite",
+   "ja": "G+Money Lite",
+   "ko": "G+Money Lite"
+  },
+  "sub": {
+   "en": "Travel Expenses & Currency",
+   "zh": "旅行記帳・預算・匯率",
+   "ja": "家計簿・予算・節約・為替換算",
+   "ko": "여행 가계부·예산·환율"
+  },
+  "blurb": {
+   "en": "Travel money, made simple · Free: rates, budget, summary · 1 trip · 3 expenses · One payment · Lifetime access · No…",
+   "zh": "旅行記帳，從此簡單 · 免費：匯率、預算、基本摘要 · 1 個旅程 · 3 筆支出 · 一次付費 · 永久使用 · 絕無訂閱",
+   "ja": "旅のお金を、もっとシンプルに · 無料：為替・予算・基本集計 · 旅行1件 · 支出3件 · 買い切り · 永久利用 · サブスクなし",
+   "ko": "여행 경비, 이제 간단하게 · 무료: 환율·예산·기본 요약 · 여행 1개 · 지출 3건 · 일회성 결제 · 평생 이용 · 구독 없음"
+  },
+  "shot": null
  }
 ];
