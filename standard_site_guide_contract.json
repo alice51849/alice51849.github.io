@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-07-29T08:22:13.470Z",
+  "generated_at": "2026-07-30T06:54:42.080Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -22,6 +22,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b\">"
     },
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-does-a-period-tracking-app-calculate-the-fertile-window.html",
+      "app_key": "cyca",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzfpva",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzfpva\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-prepare-for-toeic-while-working-full-time-with-limited-study-time.html",
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyx3fg",
@@ -38,6 +44,12 @@
       "app_key": "aim990plus",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz5kpm",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz5kpm\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/dailymate.html",
+      "app_key": "dailymate",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk\">"
     }
   ]
 }
