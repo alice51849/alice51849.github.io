@@ -9,6 +9,7 @@
     "cyca",
     "dailymate",
     "gmoney",
+    "gmoneylite",
     "hourstag",
     "hourstaglite",
     "lockhour",
@@ -67,7 +68,8 @@
     "unblurry",
     "wifiaid",
     "wordmate",
-    "aibriefpack"
+    "aibriefpack",
+    "gmoneylite"
   ],
   "version": 1
 }
