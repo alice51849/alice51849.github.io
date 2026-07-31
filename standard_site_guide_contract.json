@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-07-30T06:54:42.080Z",
+  "generated_at": "2026-07-31T08:22:17.622Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -15,6 +15,12 @@
     "discovery_link_tag": "<link rel=\"site.standard.publication\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg\">"
   },
   "documents": [
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-organize-context-for-ai-app.html",
+      "app_key": "aibriefpack",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7\">"
+    },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/do-i-need-a-photo-on-my-resume-and-how-long-should-it-be.html",
       "app_key": "cvdesk",
@@ -38,6 +44,12 @@
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
+      "app_key": "aim990",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/aim990plus.html",
