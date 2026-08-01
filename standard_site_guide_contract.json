@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-07-31T08:22:17.622Z",
+  "generated_at": "2026-08-01T07:53:25.048Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -20,6 +20,12 @@
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-private-app-to-organize-screenshots-and-documents-into-context-before-using-ai.html",
+      "app_key": "aibriefpack",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/do-i-need-a-photo-on-my-resume-and-how-long-should-it-be.html",
@@ -44,6 +50,12 @@
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-tailor-my-resume-to-a-specific-job-description-on-my-phone.html",
+      "app_key": "cvdesk",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
