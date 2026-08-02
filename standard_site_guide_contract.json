@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-01T07:53:25.048Z",
+  "generated_at": "2026-08-02T07:56:02.802Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -15,6 +15,12 @@
     "discovery_link_tag": "<link rel=\"site.standard.publication\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg\">"
   },
   "documents": [
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-app-to-track-spending-on-a-johor-bahru-weekend-trip-in-sgd-and-myr.html",
+      "app_key": "gmoney",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzowyj",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzowyj\">"
+    },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-organize-context-for-ai-app.html",
       "app_key": "aibriefpack",
@@ -62,6 +68,12 @@
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/which-period-tracking-apps-keep-all-data-on-the-phone-only.html",
+      "app_key": "cyca",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzhwci",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzhwci\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/aim990plus.html",
