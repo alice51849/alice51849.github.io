@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-04T08:10:51.673Z",
+  "generated_at": "2026-08-05T08:09:34.051Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -15,6 +15,12 @@
     "discovery_link_tag": "<link rel=\"site.standard.publication\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg\">"
   },
   "documents": [
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/app-to-block-social-media-and-youtube-before-bed-iphone.html",
+      "app_key": "lockhour",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po\">"
+    },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-app-to-track-spending-on-a-johor-bahru-weekend-trip-in-sgd-and-myr.html",
       "app_key": "gmoney",
@@ -98,6 +104,12 @@
       "app_key": "dailymate",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/hourstaglite.html",
+      "app_key": "hourstaglite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry\">"
     }
   ]
 }
