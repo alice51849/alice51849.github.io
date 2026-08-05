@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-08-05T12:00:00Z</updated>
+  <updated>2026-08-05T18:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-08-05T18</id>
+    <title>Lumi Trip Planet — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/tripplanet.html?bridgy=2026-08-05-18" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6787193643" title="Lumi Trip Planet on the App Store" />
+    <published>2026-08-05T18:00:00Z</published>
+    <updated>2026-08-05T18:00:00Z</updated>
+    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Lumi Trip Planet. Turn long drives and flights into playful observation missions for young children. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/FamilyTravel"&gt;#FamilyTravel&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/KidsActivities"&gt;#KidsActivities&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6787193643"&gt;https://apps.apple.com/app/id6787193643&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="en">Today's Lumi Studio app guide: Lumi Trip Planet. Turn long drives and flights into playful observation missions for young children. Read the guide and see if it fits. #FamilyTravel #KidsActivities #iOSApps
+App Store: https://apps.apple.com/app/id6787193643</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-08-05T12</id>
     <title>TripBee Lite — independent iOS app guide</title>
@@ -93,17 +105,5 @@ App Store: https://apps.apple.com/app/id6779977651</summary>
     <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: PicClear. Review duplicate photos, similar shots, and storage-heavy videos privately. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/PhotoCleanup"&gt;#PhotoCleanup&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iPhoneStorage"&gt;#iPhoneStorage&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6780223070"&gt;https://apps.apple.com/app/id6780223070&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="en">Today's Lumi Studio app guide: PicClear. Review duplicate photos, similar shots, and storage-heavy videos privately. Read the guide and see if it fits. #PhotoCleanup #iPhoneStorage #iOSApps
 App Store: https://apps.apple.com/app/id6780223070</summary>
-  </entry>
-  <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-08-03T18</id>
-    <title>PhotoCream — independent iOS app guide</title>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/photocream.html?bridgy=2026-08-03-18" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6781808054" title="PhotoCream on the App Store" />
-    <published>2026-08-03T18:00:00Z</published>
-    <updated>2026-08-03T18:00:00Z</updated>
-    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: PhotoCream. Explore vintage film looks for iPhone photos with a focused editing workflow. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/FilmPhotography"&gt;#FilmPhotography&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/PhotoEditing"&gt;#PhotoEditing&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6781808054"&gt;https://apps.apple.com/app/id6781808054&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="en">Today's Lumi Studio app guide: PhotoCream. Explore vintage film looks for iPhone photos with a focused editing workflow. Read the guide and see if it fits. #FilmPhotography #PhotoEditing #iOSApps
-App Store: https://apps.apple.com/app/id6781808054</summary>
   </entry>
 </feed>
