@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-05T08:09:34.051Z",
+  "generated_at": "2026-08-06T08:08:04.630Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -52,6 +52,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b\">"
     },
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-can-my-child-prepare-for-grade-1-bopomofo-over-the-summer-before-school-starts.html",
+      "app_key": "lumibopomofo",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2jvtt",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2jvtt\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-does-a-period-tracking-app-calculate-the-fertile-window.html",
       "app_key": "cyca",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzfpva",
@@ -80,6 +86,12 @@
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-bopomofo-app-with-no-ads-or-tracking-that-is-safe-for-a-preschooler.html",
+      "app_key": "lumibopomofopro",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
