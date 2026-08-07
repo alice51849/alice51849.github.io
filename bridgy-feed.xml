@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-08-07T00:00:00Z</updated>
+  <updated>2026-08-07T18:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-08-07T18</id>
+    <title>DailyMate Lite — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/dailymatelite.html?bridgy=2026-08-07-18" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6794725568" title="DailyMate Lite on the App Store" />
+    <published>2026-08-07T18:00:00Z</published>
+    <updated>2026-08-07T18:00:00Z</updated>
+    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: DailyMate Lite. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/IndieApps"&gt;#IndieApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6794725568"&gt;https://apps.apple.com/app/id6794725568&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="en">Today's Lumi Studio app guide: DailyMate Lite. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. #iOSApps #IndieApps
+App Store: https://apps.apple.com/app/id6794725568</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-08-07T00</id>
     <title>G+Money Lite — independent iOS app guide</title>
@@ -93,17 +105,5 @@ App Store: https://apps.apple.com/app/id6787193643</summary>
     <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: TripBee Lite. Keep one upcoming trip, bookings, packing, and daily plans in one focused timeline. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/TripPlanning"&gt;#TripPlanning&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/TravelPrep"&gt;#TravelPrep&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6791299610"&gt;https://apps.apple.com/app/id6791299610&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="en">Today's Lumi Studio app guide: TripBee Lite. Keep one upcoming trip, bookings, packing, and daily plans in one focused timeline. Read the guide and see if it fits. #TripPlanning #TravelPrep #iOSApps
 App Store: https://apps.apple.com/app/id6791299610</summary>
-  </entry>
-  <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-08-05T06</id>
-    <title>TripBee Pro: Trip Planner — independent iOS app guide</title>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/tripbee.html?bridgy=2026-08-05-06" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6787754435" title="TripBee Pro: Trip Planner on the App Store" />
-    <published>2026-08-05T06:00:00Z</published>
-    <updated>2026-08-05T06:00:00Z</updated>
-    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: TripBee Pro: Trip Planner. Plan day-by-day itineraries with offline access and a clean travel map. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/TripPlanning"&gt;#TripPlanning&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/TravelApps"&gt;#TravelApps&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6787754435"&gt;https://apps.apple.com/app/id6787754435&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="en">Today's Lumi Studio app guide: TripBee Pro: Trip Planner. Plan day-by-day itineraries with offline access and a clean travel map. Read the guide and see if it fits. #TripPlanning #TravelApps #iOSApps
-App Store: https://apps.apple.com/app/id6787754435</summary>
   </entry>
 </feed>

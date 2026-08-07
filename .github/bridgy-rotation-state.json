@@ -8,6 +8,7 @@
     "cvdesk",
     "cyca",
     "dailymate",
+    "dailymatelite",
     "gmoney",
     "gmoneylite",
     "hourstag",
@@ -28,6 +29,7 @@
     "scanto",
     "sereno",
     "snapport",
+    "snapportlite",
     "sononote",
     "tripbee",
     "tripbeelite",
@@ -36,7 +38,9 @@
     "wifiaid",
     "wordmate"
   ],
-  "last_slot": "2026-08-07T00:00:00Z",
-  "remaining": [],
+  "last_slot": "2026-08-07T18:00:00Z",
+  "remaining": [
+    "snapportlite"
+  ],
   "version": 1
 }
