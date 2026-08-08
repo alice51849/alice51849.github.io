@@ -5,6 +5,7 @@
     "aibriefpack",
     "aim990",
     "aim990plus",
+    "caldaily",
     "cvdesk",
     "cyca",
     "dailymate",
@@ -36,9 +37,12 @@
     "tripplanet",
     "unblurry",
     "wifiaid",
-    "wordmate"
+    "wordmate",
+    "wordmatelite"
   ],
-  "last_slot": "2026-08-08T00:00:00Z",
-  "remaining": [],
+  "last_slot": "2026-08-08T06:00:00Z",
+  "remaining": [
+    "wordmatelite"
+  ],
   "version": 1
 }
