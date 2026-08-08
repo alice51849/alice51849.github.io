@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-07T06:55:11.949Z",
+  "generated_at": "2026-08-08T06:25:56.242Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -44,6 +44,12 @@
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/counting-1-10-preschool-numbers-app-no-ads-pay-once-offline.html",
+      "app_key": "lumimathpro",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4eyt6",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4eyt6\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/do-i-need-a-photo-on-my-resume-and-how-long-should-it-be.html",
@@ -98,6 +104,12 @@
       "app_key": "lumibopomofopro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-math-app-for-kids-that-tracks-which-types-of-problems-they-get-wrong-and-focuses-practice-there.html",
+      "app_key": "lumimath",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3tr3r",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3tr3r\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-phonics-app-for-homeschoolers-that-also-generates-printable-practice-worksheets.html",
