@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-08T06:25:56.242Z",
+  "generated_at": "2026-08-09T06:33:18.986Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -46,6 +46,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h\">"
     },
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/chore-chart-no-ads-app-for-young-kids-pay-once-no-subscription.html",
+      "app_key": "lumimissionpro",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5k5ym",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5k5ym\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/counting-1-10-preschool-numbers-app-no-ads-pay-once-offline.html",
       "app_key": "lumimathpro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4eyt6",
@@ -68,6 +74,12 @@
       "app_key": "lumiletters",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl35qjp",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl35qjp\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-do-i-get-my-3-year-old-to-do-their-morning-routine-without-nagging-every-single-morning.html",
+      "app_key": "lumimission",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl54uyj",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl54uyj\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-does-a-period-tracking-app-calculate-the-fertile-window.html",
