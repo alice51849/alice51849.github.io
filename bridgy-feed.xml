@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-08-08T18:00:00Z</updated>
+  <updated>2026-08-09T00:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-08-09T00</id>
+    <title>Lumi Bopomofo — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/lumibopomofo.html?bridgy=2026-08-09-00" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6773017109" title="Lumi Bopomofo on the App Store" />
+    <published>2026-08-09T00:00:00Z</published>
+    <updated>2026-08-09T00:00:00Z</updated>
+    <content type="html" xml:lang="zh-Hant">&lt;p&gt;今日 Lumi Studio App 指南：Lumi Bopomofo。透過遊戲練習注音與拼讀，配合孩子的學習節奏。查看指南，判斷是否適合。 &lt;a href="https://bsky.app/hashtag/%E6%B3%A8%E9%9F%B3"&gt;#注音&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/%E5%B9%BC%E5%85%92%E5%AD%B8%E7%BF%92"&gt;#幼兒學習&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApp"&gt;#iOSApp&lt;/a&gt;&lt;br&gt;App Store：&lt;a href="https://apps.apple.com/app/id6773017109"&gt;https://apps.apple.com/app/id6773017109&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="zh-Hant">今日 Lumi Studio App 指南：Lumi Bopomofo。透過遊戲練習注音與拼讀，配合孩子的學習節奏。查看指南，判斷是否適合。 #注音 #幼兒學習 #iOSApp
+App Store：https://apps.apple.com/app/id6773017109</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-08-08T18</id>
     <title>Lumi Bopomofo Pro — independent iOS app guide</title>
@@ -93,17 +105,5 @@ App Store: https://apps.apple.com/app/id6793436548</summary>
     <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: AI Brief. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/IndieApps"&gt;#IndieApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6791658210"&gt;https://apps.apple.com/app/id6791658210&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="en">Today's Lumi Studio app guide: AI Brief. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. #iOSApps #IndieApps
 App Store: https://apps.apple.com/app/id6791658210</summary>
-  </entry>
-  <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-08-06T12</id>
-    <title>Wordmate: Learn 44 Languages — independent iOS app guide</title>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/wordmate.html?bridgy=2026-08-06-12" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6789917808" title="Wordmate: Learn 44 Languages on the App Store" />
-    <published>2026-08-06T12:00:00Z</published>
-    <updated>2026-08-06T12:00:00Z</updated>
-    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Wordmate: Learn 44 Languages. Build a personal vocabulary collection with focused review across many languages. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/Vocabulary"&gt;#Vocabulary&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/LanguageLearning"&gt;#LanguageLearning&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6789917808"&gt;https://apps.apple.com/app/id6789917808&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="en">Today's Lumi Studio app guide: Wordmate: Learn 44 Languages. Build a personal vocabulary collection with focused review across many languages. Read the guide and see if it fits. #Vocabulary #LanguageLearning #iOSApps
-App Store: https://apps.apple.com/app/id6789917808</summary>
   </entry>
 </feed>
