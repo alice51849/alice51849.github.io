@@ -36,3 +36,31 @@ Sitemap: https://alice51849.github.io/sitemap.xml
 Sitemap: https://alice51849.github.io/ios-app-guide/sitemap_index.xml
 Sitemap: https://alice51849.github.io/ios-app-guide/resourcesync/resourcelist.xml
 Sitemap: https://alice51849.github.io/awesome-zhuyin-bopomofo-apps/sitemap.xml
+
+# Support & help sites (one sitemap per app)
+Sitemap: https://alice51849.github.io/100notes-support/sitemap.xml
+Sitemap: https://alice51849.github.io/aim990-support/sitemap.xml
+Sitemap: https://alice51849.github.io/astrea-support/sitemap.xml
+Sitemap: https://alice51849.github.io/caldaily-support/sitemap.xml
+Sitemap: https://alice51849.github.io/cvdesk-support/sitemap.xml
+Sitemap: https://alice51849.github.io/cyca-support/sitemap.xml
+Sitemap: https://alice51849.github.io/gmoney-support/sitemap.xml
+Sitemap: https://alice51849.github.io/hourstag-support/sitemap.xml
+Sitemap: https://alice51849.github.io/lockhour-support/sitemap.xml
+Sitemap: https://alice51849.github.io/lumi-letters-support/sitemap.xml
+Sitemap: https://alice51849.github.io/lumi-math-support/sitemap.xml
+Sitemap: https://alice51849.github.io/lumi-mission-support/sitemap.xml
+Sitemap: https://alice51849.github.io/lumi-support/sitemap.xml
+Sitemap: https://alice51849.github.io/lumi-weather-support/sitemap.xml
+Sitemap: https://alice51849.github.io/mochitodo-support/sitemap.xml
+Sitemap: https://alice51849.github.io/photocream-support/sitemap.xml
+Sitemap: https://alice51849.github.io/picclear-support/sitemap.xml
+Sitemap: https://alice51849.github.io/scanto-support/sitemap.xml
+Sitemap: https://alice51849.github.io/sereno-support/sitemap.xml
+Sitemap: https://alice51849.github.io/snapport-lite-support/sitemap.xml
+Sitemap: https://alice51849.github.io/snapport-support/sitemap.xml
+Sitemap: https://alice51849.github.io/sono-note-support/sitemap.xml
+Sitemap: https://alice51849.github.io/trip-planet-support/sitemap.xml
+Sitemap: https://alice51849.github.io/tripbee-support/sitemap.xml
+Sitemap: https://alice51849.github.io/unblurry-support/sitemap.xml
+Sitemap: https://alice51849.github.io/zafe-support/sitemap.xml
