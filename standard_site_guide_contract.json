@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-09T06:33:18.986Z",
+  "generated_at": "2026-08-10T06:58:54.926Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -20,6 +20,12 @@
       "app_key": "lockhour",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/batch-redact-the-same-private-text-from-up-to-100-files-on-iphone.html",
+      "app_key": "maskmyfile",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyvclt",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyvclt\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-app-to-track-spending-on-a-johor-bahru-weekend-trip-in-sgd-and-myr.html",
@@ -80,6 +86,12 @@
       "app_key": "lumimission",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl54uyj",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl54uyj\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-do-i-know-if-today-s-weather-is-suitable-for-taking-my-toddler-to-the-playground.html",
+      "app_key": "lumiweather",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl67e5d",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl67e5d\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-does-a-period-tracking-app-calculate-the-fertile-window.html",
