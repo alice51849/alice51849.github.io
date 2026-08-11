@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-10T06:58:54.926Z",
+  "generated_at": "2026-08-11T06:49:22.687Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -26,6 +26,12 @@
       "app_key": "maskmyfile",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyvclt",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyvclt\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-aesthetic-to-do-list-app-iphone-no-subscription.html",
+      "app_key": "mochi",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl6sqzu",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl6sqzu\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-app-to-track-spending-on-a-johor-bahru-weekend-trip-in-sgd-and-myr.html",
@@ -170,6 +176,12 @@
       "app_key": "hourstaglite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/mochidonestamp.html",
+      "app_key": "mochidonestamp",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7cqtt",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7cqtt\">"
     }
   ]
 }
