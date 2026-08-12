@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-11T06:49:22.687Z",
+  "generated_at": "2026-08-12T06:59:42.763Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -56,6 +56,12 @@
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-turn-screenshots-into-ai-brief-app.html",
+      "app_key": "aibriefpack",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxka6n",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxka6n\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/chore-chart-no-ads-app-for-young-kids-pay-once-no-subscription.html",
