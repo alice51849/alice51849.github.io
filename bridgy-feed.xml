@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-08-15T12:00:00Z</updated>
+  <updated>2026-08-15T18:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-08-15T18</id>
+    <title>Sereno — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/sereno.html?bridgy=2026-08-15-18" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6788236641" title="Sereno on the App Store" />
+    <published>2026-08-15T18:00:00Z</published>
+    <updated>2026-08-15T18:00:00Z</updated>
+    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Sereno. Mix white noise and sleep sounds with timers and offline playback. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/SleepSounds"&gt;#SleepSounds&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/WhiteNoise"&gt;#WhiteNoise&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6788236641"&gt;https://apps.apple.com/app/id6788236641&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="en">Today's Lumi Studio app guide: Sereno. Mix white noise and sleep sounds with timers and offline playback. Read the guide and see if it fits. #SleepSounds #WhiteNoise #iOSApps
+App Store: https://apps.apple.com/app/id6788236641</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-08-15T12</id>
     <title>ScanTo Pro — independent iOS app guide</title>
@@ -93,17 +105,5 @@ App Store: https://apps.apple.com/app/id6792850916</summary>
     <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Lumi Weather. Help children understand weather and choose practical clothing layers. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/KidsWeather"&gt;#KidsWeather&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/Parenting"&gt;#Parenting&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6779552704"&gt;https://apps.apple.com/app/id6779552704&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="en">Today's Lumi Studio app guide: Lumi Weather. Help children understand weather and choose practical clothing layers. Read the guide and see if it fits. #KidsWeather #Parenting #iOSApps
 App Store: https://apps.apple.com/app/id6779552704</summary>
-  </entry>
-  <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-08-13T18</id>
-    <title>Lumi Mission Planet Pro — independent iOS app guide</title>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/lumimissionpro.html?bridgy=2026-08-13-18" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6779745474" title="Lumi Mission Planet Pro on the App Store" />
-    <published>2026-08-13T18:00:00Z</published>
-    <updated>2026-08-13T18:00:00Z</updated>
-    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Lumi Mission Planet Pro. Help children follow chores, habits, and routines through playful missions. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/KidsRoutines"&gt;#KidsRoutines&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/Parenting"&gt;#Parenting&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6779745474"&gt;https://apps.apple.com/app/id6779745474&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="en">Today's Lumi Studio app guide: Lumi Mission Planet Pro. Help children follow chores, habits, and routines through playful missions. Read the guide and see if it fits. #KidsRoutines #Parenting #iOSApps
-App Store: https://apps.apple.com/app/id6779745474</summary>
   </entry>
 </feed>
