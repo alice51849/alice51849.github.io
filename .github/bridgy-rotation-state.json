@@ -25,6 +25,7 @@
     "maskmyfile",
     "mochi",
     "mochidonestamp",
+    "onepageppt",
     "photocream",
     "picclear",
     "scanto",
@@ -40,15 +41,15 @@
     "wordmate",
     "wordmatelite"
   ],
-  "last_slot": "2026-08-16T12:00:00Z",
+  "last_slot": "2026-08-16T18:00:00Z",
   "remaining": [
-    "tripbee",
     "tripbeelite",
     "tripplanet",
     "unblurry",
     "wifiaid",
     "wordmate",
-    "wordmatelite"
+    "wordmatelite",
+    "onepageppt"
   ],
   "version": 1
 }
