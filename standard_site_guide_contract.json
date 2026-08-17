@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-16T06:05:22.537Z",
+  "generated_at": "2026-08-17T06:22:48.509Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -182,6 +182,12 @@
       "app_key": "dailymate",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/dailymatelite.html",
+      "app_key": "dailymatelite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mshxyecihgj5",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mshxyecihgj5\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/hourstaglite.html",
