@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-17T06:22:48.509Z",
+  "generated_at": "2026-08-18T06:16:25.823Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -124,6 +124,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyx3fg\">"
     },
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-split-and-track-group-travel-expenses-in-multiple-currencies-without-linking-a-bank.html",
+      "app_key": "gmoney",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzrbnt",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzrbnt\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-study-for-the-toeic-listening-and-reading-test-in-30-days.html",
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj",
@@ -152,6 +158,12 @@
       "app_key": "lumiletterspro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3iill",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3iill\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/travel-budget-app-with-category-statistics-and-one-time-lifetime-unlock.html",
+      "app_key": "gmoneylite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3ky74si",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3ky74si\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
