@@ -25,6 +25,7 @@
     "maskmyfile",
     "mochi",
     "mochidonestamp",
+    "notesstudio100",
     "onepageppt",
     "photocream",
     "picclear",
@@ -38,12 +39,14 @@
     "tripplanet",
     "unblurry",
     "wifiaid",
+    "wifiaidlite",
     "wordmate",
     "wordmatelite"
   ],
-  "last_slot": "2026-08-18T06:00:00Z",
+  "last_slot": "2026-08-18T12:00:00Z",
   "remaining": [
-    "onepageppt"
+    "notesstudio100",
+    "wifiaidlite"
   ],
   "version": 1
 }
