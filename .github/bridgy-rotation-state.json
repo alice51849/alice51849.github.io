@@ -25,6 +25,7 @@
     "maskmyfile",
     "mochi",
     "mochidonestamp",
+    "moneytag",
     "notesstudio100",
     "onepageppt",
     "photocream",
@@ -43,9 +44,8 @@
     "wordmate",
     "wordmatelite"
   ],
-  "last_slot": "2026-08-20T18:00:00Z",
+  "last_slot": "2026-08-21T00:00:00Z",
   "remaining": [
-    "cyca",
     "dailymate",
     "dailymatelite",
     "gmoney",
@@ -79,7 +79,8 @@
     "wifiaid",
     "wifiaidlite",
     "wordmate",
-    "wordmatelite"
+    "wordmatelite",
+    "moneytag"
   ],
   "version": 1
 }
