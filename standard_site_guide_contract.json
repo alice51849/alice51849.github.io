@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-24T06:35:53.542Z",
+  "generated_at": "2026-08-26T06:20:52.776Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -170,6 +170,12 @@
       "app_key": "gmoneylite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3ky74si",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3ky74si\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-app-to-track-daily-spending-between-singapore-and-malaysia-as-a-cross-border-commuter.html",
+      "app_key": "gmoney",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkztndr",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkztndr\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
