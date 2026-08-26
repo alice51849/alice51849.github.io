@@ -32,6 +32,7 @@
     "picclear",
     "scanto",
     "sereno",
+    "shotinbox",
     "snapport",
     "snapportlite",
     "sononote",
@@ -44,9 +45,8 @@
     "wordmate",
     "wordmatelite"
   ],
-  "last_slot": "2026-08-25T18:00:00Z",
+  "last_slot": "2026-08-26T00:00:00Z",
   "remaining": [
-    "photocream",
     "picclear",
     "scanto",
     "sereno",
@@ -61,7 +61,8 @@
     "wifiaidlite",
     "wordmate",
     "wordmatelite",
-    "moneytag"
+    "moneytag",
+    "shotinbox"
   ],
   "version": 1
 }
