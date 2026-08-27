@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-26T06:20:52.776Z",
+  "generated_at": "2026-08-27T16:53:03.517Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -190,10 +190,22 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzhwci\">"
     },
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/why-does-my-resume-get-rejected-by-ats-and-how-do-i-fix-it.html",
+      "app_key": "cvdesk",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzdmdb",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzdmdb\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/aim990plus.html",
       "app_key": "aim990plus",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz5kpm",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz5kpm\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/battai.html",
+      "app_key": "battai",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mu3cpuz2o6j2",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mu3cpuz2o6j2\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/caldaily.html",
