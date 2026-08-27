@@ -5,6 +5,7 @@
     "aibriefpack",
     "aim990",
     "aim990plus",
+    "battai",
     "caldaily",
     "cvdesk",
     "cyca",
@@ -30,6 +31,7 @@
     "onepageppt",
     "photocream",
     "picclear",
+    "savetag",
     "scanto",
     "sereno",
     "shotinbox",
@@ -57,7 +59,9 @@
     "wordmate",
     "wordmatelite",
     "moneytag",
-    "shotinbox"
+    "shotinbox",
+    "battai",
+    "savetag"
   ],
   "version": 1
 }
