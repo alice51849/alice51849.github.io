@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-27T16:53:03.517Z",
+  "generated_at": "2026-08-28T17:44:32.357Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -172,6 +172,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3ky74si\">"
     },
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/travel-expense-tracker-with-saved-or-manual-exchange-rates-offline.html",
+      "app_key": "gmoneylite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyj53s",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyj53s\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-app-to-track-daily-spending-between-singapore-and-malaysia-as-a-cross-border-commuter.html",
       "app_key": "gmoney",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkztndr",
@@ -188,6 +194,12 @@
       "app_key": "cyca",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzhwci",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzhwci\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/why-do-i-feel-irritable-and-exhausted-before-my-period-every-month.html",
+      "app_key": "cyca",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzk52v",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzk52v\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/why-does-my-resume-get-rejected-by-ats-and-how-do-i-fix-it.html",
