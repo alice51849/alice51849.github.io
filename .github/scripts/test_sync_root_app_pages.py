@@ -16,6 +16,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import sync_root_app_pages as sync  # noqa: E402
+import generate_db_halo_site as db_halo  # noqa: E402
+from managed_blocks import extract_allowlisted_sitemap_blocks  # noqa: E402
 
 
 def record(
@@ -266,6 +268,107 @@ Made by Lumi Studio — pay once, no ads, privacy-first.
             "<loc>https://alice51849.github.io/.well-known/resourcesync</loc>",
             sitemap,
         )
+
+    def test_daily_sync_preserves_db_halo_footer_link_and_exact_sitemap_block(self):
+        homepage = """<!doctype html>
+<html><body><footer>
+<style>.applinks{old}</style><nav class="applinks"><a href="/app/old/">Old</a></nav>
+    <div class="copy"><span>Copyright</span></div>
+</footer></body></html>
+"""
+        managed_homepage = db_halo.merge_root_index(homepage)
+        app = {"url": record()["app_store_url"]}
+        catalogs = {"en": {"1234567890": record()}}
+        orphan = (
+            "  <url><loc>https://alice51849.github.io/app/orphan/</loc>"
+            "<lastmod>2026-06-30</lastmod></url>"
+        )
+        managed_sitemap_block = db_halo.root_sitemap_block()
+
+        with tempfile.TemporaryDirectory() as directory:
+            site = pathlib.Path(directory)
+            homepage_path = site / "index.html"
+            homepage_path.write_text(managed_homepage, encoding="utf-8")
+            self.assertTrue(
+                sync.rebuild_home_nav(
+                    homepage_path,
+                    {"sample": app},
+                    catalogs,
+                )
+            )
+            synced_homepage = homepage_path.read_text(encoding="utf-8")
+            self.assertEqual(
+                synced_homepage,
+                db_halo.merge_root_index(synced_homepage),
+            )
+            nav_match = sync.APP_NAV_RE.search(synced_homepage)
+            self.assertIsNotNone(nav_match)
+            self.assertGreater(
+                synced_homepage.index(db_halo.ROOT_INDEX_START),
+                nav_match.end(),
+            )
+            self.assertEqual(1, synced_homepage.count(db_halo.ROOT_INDEX_LINK))
+
+            sitemap_path = site / "sitemap.xml"
+            sitemap_path.write_text(
+                '<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                f"{orphan}\n{managed_sitemap_block}\n</urlset>\n",
+                encoding="utf-8",
+            )
+            with (
+                mock.patch.object(sync.legacy, "SITE", str(site)),
+                mock.patch.object(
+                    sync.legacy,
+                    "BASE",
+                    "https://alice51849.github.io",
+                ),
+            ):
+                sync.legacy.rebuild_sitemap({})
+                first = sitemap_path.read_text(encoding="utf-8")
+                self.assertEqual(
+                    (managed_sitemap_block,),
+                    extract_allowlisted_sitemap_blocks(first),
+                )
+                self.assertNotIn(orphan, first)
+                sync.legacy.rebuild_sitemap({})
+                self.assertEqual(first, sitemap_path.read_text(encoding="utf-8"))
+
+    def test_sitemap_rebuild_rejects_duplicate_or_malformed_db_halo_markers(self):
+        block = db_halo.root_sitemap_block()
+        cases = {
+            "duplicate": f"{block}\n{block}",
+            "missing-end": db_halo.ROOT_SITEMAP_START,
+            "missing-start": db_halo.ROOT_SITEMAP_END,
+            "reversed": (
+                f"{db_halo.ROOT_SITEMAP_END}\n"
+                f"{db_halo.ROOT_SITEMAP_START}"
+            ),
+            "wrong-indentation": (
+                f"<!-- db-halo:start -->\n"
+                f"{db_halo.ROOT_SITEMAP_END}"
+            ),
+            "unknown-pair": (
+                "  <!-- db-halo:begin -->\n"
+                "  <!-- db-halo:finish -->"
+            ),
+        }
+        for label, markers in cases.items():
+            with self.subTest(label=label), tempfile.TemporaryDirectory() as directory:
+                site = pathlib.Path(directory)
+                sitemap_path = site / "sitemap.xml"
+                source = (
+                    '<?xml version="1.0" encoding="UTF-8"?>\n'
+                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                    f"{markers}\n</urlset>\n"
+                )
+                sitemap_path.write_text(source, encoding="utf-8")
+                with (
+                    mock.patch.object(sync.legacy, "SITE", str(site)),
+                    self.assertRaises(ValueError),
+                ):
+                    sync.legacy.rebuild_sitemap({})
+                self.assertEqual(source, sitemap_path.read_text(encoding="utf-8"))
 
     def test_korean_copy_avoids_brand_name_particle_errors(self):
         app_record = record(locale="ko")

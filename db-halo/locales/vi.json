@@ -1,0 +1,145 @@
+{
+  "locale": "vi",
+  "languageName": "Tiếng Việt",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Chuyển đến nội dung chính",
+    "language": "Ngôn ngữ",
+    "support": "Hỗ trợ",
+    "privacy": "Quyền riêng tư",
+    "email": "Gửi email hỗ trợ",
+    "allApps": "Tất cả ứng dụng",
+    "brandHome": "Trang chủ hỗ trợ dB Halo",
+    "navigation": "Điều hướng chính",
+    "footerNavigation": "Điều hướng chân trang"
+  },
+  "support": {
+    "metaDescription": "Trợ giúp chính thức cho dB Halo về mức âm, phân tích phổ, liều tiếng ồn, sự kiện giấc ngủ, quyền truy cập, Lifetime Pro và xử lý sự cố.",
+    "kicker": "Hiểu môi trường âm thanh một cách riêng tư",
+    "title": "Hiểu âm thanh xung quanh bạn",
+    "intro": "dB Halo biến iPhone, iPad và Apple Watch thành công cụ đo mức âm dễ hiểu. Xem ngay mức hiện tại, khám phá tần số trực tiếp, ước tính mức phơi nhiễm tiếng ồn và lưu các phép đo hữu ích; mọi xử lý đều diễn ra trên thiết bị.",
+    "badges": [
+      "Không cần tài khoản",
+      "Không quảng cáo hay theo dõi",
+      "Xử lý âm thanh trên thiết bị",
+      "Lifetime Pro mua một lần"
+    ],
+    "featuresEyebrow": "dB Halo làm được gì",
+    "featuresTitle": "Dễ nhìn ngay, chi tiết khi cần",
+    "features": [
+      {
+        "title": "Máy đo và Halo",
+        "body": "Xem mức hiện tại, thấp nhất, trung bình, cao nhất và đỉnh với Halo rõ ràng, các kiểu trọng số, LAeq và giải thích dễ hiểu."
+      },
+      {
+        "title": "Phổ, RTA và ảnh phổ",
+        "body": "Quan sát năng lượng theo tần số bằng FFT, RTA theo dải quãng tám và ảnh phổ được đồng bộ mà không ngắt phiên phân tích."
+      },
+      {
+        "title": "Liều tiếng ồn",
+        "body": "Theo dõi mức phơi nhiễm ước tính, thời gian còn lại và hướng dẫn NIOSH hoặc OSHA. Kết quả chỉ mang tính thông tin, không quyết định tuân thủ tại nơi làm việc."
+      },
+      {
+        "title": "Sự kiện âm thanh khi ngủ",
+        "body": "Lưu trên thiết bị loại sự kiện nhận dạng được, thời gian và giá trị dB. Chế độ Ngủ không lưu âm thanh thô."
+      },
+      {
+        "title": "Lịch sử và xuất dữ liệu",
+        "body": "Giữ lịch sử và hồ sơ hiệu chuẩn cục bộ, rồi tạo CSV, PDF, AAC, ảnh hoặc video khi bạn yêu cầu."
+      },
+      {
+        "title": "Watch, tiện ích và phím tắt",
+        "body": "Dùng trải nghiệm riêng trên Apple Watch, tiện ích và App Intents; thiết bị ghép đôi chỉ trao đổi dữ liệu cục bộ cần thiết."
+      }
+    ],
+    "quickStartTitle": "Bắt đầu nhanh",
+    "quickStart": [
+      "Mở Máy đo và cho phép dùng micrô khi iOS yêu cầu.",
+      "Đặt thiết bị sao cho micrô không bị che hoặc cọ vào quần áo, rồi chạm Bắt đầu.",
+      "Dùng Halo và giá trị dB hiện tại để xem nhanh; mở Phổ hoặc Liều khi cần chi tiết.",
+      "Chạm Dừng trước khi rời màn hình và lưu kết quả vào Lịch sử nếu muốn giữ lại."
+    ],
+    "permissionsTitle": "Bạn luôn kiểm soát quyền truy cập",
+    "permissions": [
+      "Cần micrô để đo và phân tích. Âm thanh thô của Máy đo, Phổ và Liều chỉ được xử lý trong bộ nhớ và không được lưu.",
+      "Ảnh và video chỉ được truy cập sau khi bạn chọn mục cụ thể bằng trình chọn Ảnh của hệ thống; chỉ lựa chọn đó được xử lý cục bộ.",
+      "Quyền truy cập Sức khỏe là tùy chọn. Khi được phép, dB Halo chỉ ghi mẫu phơi nhiễm âm thanh môi trường và không đọc dữ liệu Sức khỏe."
+    ],
+    "proTitle": "Lifetime Pro và khôi phục",
+    "proBody": "Lifetime Pro là một giao dịch mua không tiêu hao duy nhất, không phải gói đăng ký. App Store hiển thị giá tại địa phương trước khi xác nhận. Khôi phục giao dịch cũ qua dB Halo → Cài đặt → Lifetime Pro → Khôi phục giao dịch mua bằng cùng Apple Account đã mua.",
+    "troubleshootingTitle": "Xử lý sự cố",
+    "troubleshooting": [
+      "Không có số đo: kiểm tra quyền micrô trong Cài đặt iOS, ngắt tuyến âm thanh ngoài ý muốn và bảo đảm ứng dụng khác không dùng micrô.",
+      "Giá trị bất thường: tháo ốp hoặc vật cản gần micrô, tránh tiếng do cầm thiết bị, chọn đúng đầu vào và kiểm tra hồ sơ hiệu chuẩn.",
+      "Watch hoặc tiện ích chưa cập nhật: giữ iPhone và Watch ghép đôi, ở gần nhau, mở dB Halo một lần trên iPhone rồi chờ hệ thống làm mới.",
+      "Chưa khôi phục giao dịch: kiểm tra mạng, dùng Apple Account ban đầu và chạy lại Khôi phục giao dịch mua trong Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Lưu ý quan trọng về phép đo",
+    "accuracyTitle": "Ước tính có cơ sở, không phải thiết bị được chứng nhận",
+    "accuracyBody": "Micrô trên điện thoại và đồng hồ khác nhau theo mẫu máy, vị trí, ốp, môi trường và hiệu chuẩn. dB Halo hữu ích để nâng cao nhận thức và lưu hồ sơ cá nhân, nhưng không phải máy đo mức âm được chứng nhận, không thay thế tư vấn y tế, đánh giá thính lực, quan trắc vệ sinh lao động hoặc thiết bị hiệu chuẩn bắt buộc.",
+    "contactEyebrow": "Bạn cần thêm trợ giúp?",
+    "contactTitle": "Liên hệ hỗ trợ dB Halo",
+    "contactBody": "Hãy cho biết mẫu thiết bị, phiên bản iOS hoặc watchOS, màn hình hay tính năng liên quan và điều bạn mong đợi. Không đính kèm bản ghi riêng tư, ảnh, thông tin sức khỏe hoặc tệp xuất trừ khi thật sự cần để xử lý.",
+    "contactButton": "Gửi email hỗ trợ"
+  },
+  "privacy": {
+    "metaDescription": "Chính sách quyền riêng tư dB Halo: không tài khoản, quảng cáo, phân tích hay theo dõi; phân tích âm thanh và hồ sơ ở lại thiết bị nếu bạn không chủ động gửi đi.",
+    "kicker": "Quyền riêng tư ngay từ thiết kế",
+    "title": "Chính sách quyền riêng tư",
+    "dateLine": "Có hiệu lực ngày 29 tháng 8 năm 2026 · Cập nhật ngày 29 tháng 8 năm 2026",
+    "intro": "dB Halo phân tích âm thanh cục bộ và xử lý ít dữ liệu nhất có thể. Chính sách này giải thích nội dung được xử lý, dữ liệu có thể lưu trên thiết bị và khi nào thông tin rời ứng dụng chỉ vì bạn chỉ định.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Không tài khoản, quảng cáo, phân tích hay theo dõi",
+        "body": "dB Halo không yêu cầu tài khoản và không chứa quảng cáo, công cụ phân tích, theo dõi hoặc SDK bên thứ ba. Lumi Studio không vận hành dịch vụ đám mây cho dB Halo, không tạo hồ sơ người dùng, không bán thông tin cá nhân và không thể xem phép đo hay bản ghi trên thiết bị."
+      },
+      "live-audio-memory-only": {
+        "title": "Âm thanh trực tiếp của Máy đo, Phổ và Liều",
+        "body": "Khi dùng Máy đo, Phổ, RTA, Ảnh phổ hoặc Liều tiếng ồn, mẫu micrô được xử lý trong bộ nhớ thiết bị để tính mức, tần số và ước tính phơi nhiễm. Âm thanh thô không được lưu và không gửi tới Lumi Studio."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Sự kiện giấc ngủ và bản ghi AAC được chủ động bắt đầu",
+        "body": "Chế độ Ngủ chỉ lưu loại sự kiện nhận dạng được, thời gian và giá trị dB, không giữ âm thanh thô khi ngủ. Tệp âm thanh chỉ được tạo khi bạn cố ý bắt đầu ghi AAC và ở lại thiết bị đến khi xóa hoặc xuất."
+      },
+      "photos-picker-local-processing": {
+        "title": "Ảnh và video bạn chọn",
+        "body": "dB Halo dùng Apple PhotosPicker nên chỉ nhận ảnh hoặc video bạn chọn rõ ràng, không có quyền truy cập không giới hạn vào thư viện. Lựa chọn được xử lý cục bộ cho lớp phủ hoặc xuất dữ liệu được hỗ trợ và Lumi Studio không tải lên."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit chỉ dùng để ghi",
+        "body": "Nếu bạn cho phép Sức khỏe và chọn xuất mức phơi nhiễm, dB Halo ghi mẫu phơi nhiễm âm thanh môi trường vào HealthKit. Ứng dụng không đọc dữ liệu Sức khỏe. Quản lý quyền và bản ghi trong ứng dụng Sức khỏe và Cài đặt iOS."
+      },
+      "local-history-calibration-trial": {
+        "title": "Lịch sử, hiệu chuẩn và lượt dùng miễn phí cục bộ",
+        "body": "Phép đo đã lưu, tóm tắt sự kiện, hồ sơ hiệu chuẩn, tùy chọn và bộ đếm lượt dùng miễn phí nằm trong vùng chứa cục bộ của ứng dụng. Bản ghi AAC được chủ động bắt đầu cũng ở cục bộ và chỉ phục vụ tính năng bạn yêu cầu."
+      },
+      "apple-platform-services": {
+        "title": "Dịch vụ nền tảng Apple",
+        "body": "Apple xử lý mua và khôi phục Lifetime Pro qua StoreKit; Lumi Studio không nhận dữ liệu thẻ. WatchConnectivity trao đổi dữ liệu dB Halo cần thiết với Apple Watch đã ghép đôi. Tiện ích và App Intents dùng vùng chứa cục bộ dùng chung. Các dịch vụ này không tạo tài khoản đám mây Lumi Studio."
+      },
+      "user-directed-files-share": {
+        "title": "Tệp và chia sẻ do bạn điều khiển",
+        "body": "CSV, PDF, AAC, ảnh và video chỉ được tạo khi bạn yêu cầu. Màn hình Tệp hoặc Chia sẻ của hệ thống cho phép chọn nơi lưu hay người nhận. dB Halo không tự động tải lên; sau đó nhà cung cấp hoặc người nhận đã chọn kiểm soát bản sao của họ."
+      },
+      "support-email-exception": {
+        "title": "Ngoại lệ đối với email hỗ trợ",
+        "body": "Khi gửi email hỗ trợ, địa chỉ, nội dung và tệp đính kèm đi qua các nhà cung cấp email liên quan; Lumi Studio chỉ nhận để trả lời, bảo vệ và ghi nhận yêu cầu. Thư từ chỉ được giữ trong thời gian hợp lý cần thiết hoặc theo nghĩa vụ pháp lý, rồi xóa hoặc lưu trữ theo nghĩa vụ đó. Không gửi âm thanh, nội dung đa phương tiện hay dữ liệu sức khỏe nhạy cảm nếu không cần."
+      },
+      "deletion-and-retention": {
+        "title": "Lưu giữ và xóa",
+        "body": "Xóa phép đo và bản ghi chủ động bằng các điều khiển tương ứng trong dB Halo. Gỡ ứng dụng sẽ xóa dữ liệu vùng chứa còn lại, ngoại trừ bản sao lưu thiết bị thông thường do bạn và Apple quản lý. Xóa tệp xuất tại nơi lưu, quản lý bản ghi Sức khỏe trong ứng dụng Sức khỏe và gỡ ứng dụng Watch để xóa dữ liệu cục bộ. Bạn có thể yêu cầu xóa email hỗ trợ nếu pháp luật không bắt buộc lưu."
+      },
+      "children-medical-workplace": {
+        "title": "Trẻ em, an toàn và giới hạn pháp lý",
+        "body": "dB Halo không được thiết kế để thu thập thông tin cá nhân của trẻ em. Vì không có tài khoản, chủ thiết bị kiểm soát quyền và chia sẻ khi trẻ em hoặc người thân dùng ứng dụng. Số đo chỉ mang tính thông tin, không phải tư vấn y tế, chẩn đoán thính lực, phép đo được chứng nhận hoặc thay thế quy định an toàn lao động, chuyên gia hay thiết bị hiệu chuẩn bắt buộc."
+      },
+      "effective-and-updated": {
+        "title": "Ngày và thay đổi chính sách",
+        "body": "Chính sách có hiệu lực và được cập nhật ngày 29 tháng 8 năm 2026. Nếu cách dB Halo xử lý dữ liệu thay đổi, trang này sẽ được cập nhật trước khi áp dụng thay đổi ở nơi cần thông báo trước."
+      }
+    },
+    "contactTitle": "Liên hệ về quyền riêng tư",
+    "contactBody": "Đối với câu hỏi về quyền riêng tư hoặc yêu cầu liên quan đến thư hỗ trợ, hãy liên hệ:",
+    "contactButton": "Gửi email về quyền riêng tư"
+  }
+}

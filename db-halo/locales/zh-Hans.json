@@ -1,0 +1,145 @@
+{
+  "locale": "zh-Hans",
+  "languageName": "简体中文",
+  "dir": "ltr",
+  "ui": {
+    "skip": "跳到主要内容",
+    "language": "语言",
+    "support": "支持",
+    "privacy": "隐私",
+    "email": "发送支持邮件",
+    "allApps": "所有 App",
+    "brandHome": "dB Halo 支持首页",
+    "navigation": "主导航",
+    "footerNavigation": "页脚导航"
+  },
+  "support": {
+    "metaDescription": "dB Halo 官方帮助：声级测量、频谱分析、噪声剂量、睡眠事件、权限、Lifetime Pro 与故障排除。",
+    "kicker": "私密的声音感知",
+    "title": "看懂身边的声音",
+    "intro": "dB Halo 让 iPhone、iPad 和 Apple Watch 成为易于理解的声级助手。你可以一眼查看当前音量、深入观察实时频率、估算噪声暴露，并保存有用记录；所有分析都在设备上完成。",
+    "badges": [
+      "无需账号",
+      "无广告、无跟踪",
+      "音频仅在设备上处理",
+      "Lifetime Pro 一次性购买"
+    ],
+    "featuresEyebrow": "dB Halo 的功能",
+    "featuresTitle": "第一眼简单，需要时也有完整细节",
+    "features": [
+      {
+        "title": "声级计与 Halo",
+        "body": "通过清晰的 Halo 查看当前、最低、平均、最高和峰值声级，并获得权重、LAeq 与通俗说明。"
+      },
+      {
+        "title": "频谱、RTA 与声谱图",
+        "body": "在同一段不中断的分析中，通过同步 FFT、倍频程 RTA 和声谱图查看不同频率的能量。"
+      },
+      {
+        "title": "噪声剂量",
+        "body": "查看估算暴露量、剩余时间以及 NIOSH 或 OSHA 指引；结果仅供了解，不是工作场所合规结论。"
+      },
+      {
+        "title": "睡眠声音事件",
+        "body": "在设备上记录识别到的事件类别、发生时间和分贝值；睡眠模式不会保存原始音频。"
+      },
+      {
+        "title": "历史与导出",
+        "body": "保留本地测量历史和校准配置，并在你主动操作时生成 CSV、PDF、AAC、照片或视频输出。"
+      },
+      {
+        "title": "Watch、小组件与快捷指令",
+        "body": "使用 Apple Watch 专属体验、小组件和 App Intents；配对设备只交换完成相应操作所需的本地数据。"
+      }
+    ],
+    "quickStartTitle": "快速开始",
+    "quickStart": [
+      "打开“声级计”，并在 iOS 询问时允许麦克风权限。",
+      "将设备放在不会被遮挡、也不会与衣物摩擦的位置，然后点按“开始”。",
+      "先用 Halo 和当前 dB 值快速判断；需要更多细节时再打开“频谱”或“剂量”。",
+      "离开当前流程前先点按“停止”；如需保留结果，再将它保存到“历史”。"
+    ],
+    "permissionsTitle": "所有权限都由你控制",
+    "permissions": [
+      "声音测量和分析需要麦克风。声级计、频谱与剂量的原始音频只在内存中处理，不会保存。",
+      "只有你通过系统照片选择器选中特定照片或视频后，dB Halo 才能获取并在本地处理这些项目。",
+      "健康权限是可选功能。获得许可后，dB Halo 只写入环境音频暴露样本，不读取“健康”数据。"
+    ],
+    "proTitle": "Lifetime Pro 与恢复购买",
+    "proBody": "Lifetime Pro 是一次性买断的非消耗型购买，不是订阅。确认前，App Store 会显示本地价格。若要恢复以前的购买，请打开 dB Halo →“设置”→“Lifetime Pro”→“恢复购买”，并使用最初购买时的同一 Apple Account。",
+    "troubleshootingTitle": "故障排除",
+    "troubleshooting": [
+      "没有读数：在 iOS“设置”中确认麦克风权限，断开非预期音频路线，并确认没有其他 App 正在占用麦克风。",
+      "数值异常：移除麦克风附近的保护壳或遮挡，避免手持摩擦声，选择正确输入，并检查校准配置。",
+      "Watch 或小组件未更新：让 iPhone 与 Watch 保持配对并处于附近，先在 iPhone 上打开一次 dB Halo，再等待系统刷新。",
+      "购买未恢复：确认设备联网，使用原来的 Apple Account，并在 Lifetime Pro 中再次执行“恢复购买”。"
+    ],
+    "accuracyEyebrow": "重要测量说明",
+    "accuracyTitle": "有依据的估算，不是认证仪器",
+    "accuracyBody": "手机和手表的麦克风会因机型、摆放位置、保护壳、环境与校准而不同。dB Halo 适合日常感知和个人记录，但不是经认证的声级计，也不能替代医疗建议、听力评估、职业卫生监测或法规要求的校准仪器。",
+    "contactEyebrow": "还需要帮助？",
+    "contactTitle": "联系 dB Halo 支持",
+    "contactBody": "请提供设备型号、iOS 或 watchOS 版本、涉及的页面或功能，以及你原本期望的结果。除非确实是处理问题所必需，请勿附上私人录音、照片、健康信息或导出文件。",
+    "contactButton": "发送支持邮件"
+  },
+  "privacy": {
+    "metaDescription": "dB Halo 隐私政策：无需账号、无广告、无分析、无跟踪；除非你主动导出或发邮件，音频分析和记录都保留在设备上。",
+    "kicker": "隐私融入设计",
+    "title": "隐私政策",
+    "dateLine": "生效日期：2026 年 8 月 29 日 · 更新日期：2026 年 8 月 29 日",
+    "intro": "dB Halo 的设计原则是在本地分析声音，并尽量减少数据。本政策准确说明哪些内容会被处理、哪些数据可能保存在你的设备上，以及只有在你主动指定时，哪些信息才会离开 App。",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "无需账号、无广告、无分析、无跟踪",
+        "body": "dB Halo 不要求创建账号，也不包含广告、分析、跟踪或第三方 SDK。Lumi Studio 不为 dB Halo 运营云服务，不建立用户画像、不出售个人信息，也无法查看你设备上的测量或录音。"
+      },
+      "live-audio-memory-only": {
+        "title": "声级计、频谱与剂量的实时音频",
+        "body": "使用声级计、频谱、RTA、声谱图或噪声剂量时，麦克风样本只在设备内存中处理，用于计算声级、频率信息与暴露估算。这些原始音频不会保存，也不会发送给 Lumi Studio。"
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "睡眠事件与主动录制的 AAC",
+        "body": "睡眠模式只保存识别到的事件类别、发生时间和 dB 值，不保留睡眠原始音频。只有你主动开始 AAC 录音时才会创建音频文件；该文件保留在本地，直到你删除或导出。"
+      },
+      "photos-picker-local-processing": {
+        "title": "你选择的照片与视频",
+        "body": "dB Halo 使用 Apple PhotosPicker，因此只能获取你明确选中的照片或视频，而不是随意访问整个图库。选中项目只在本地用于受支持的叠加或导出，Lumi Studio 不会上传它们。"
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit 只写入、不读取",
+        "body": "如果你授予“健康”权限并选择导出暴露数据，dB Halo 会将环境音频暴露样本写入 HealthKit。App 不读取任何“健康”数据。你可以在“健康”App 和 iOS“设置”中管理权限及写入记录。"
+      },
+      "local-history-calibration-trial": {
+        "title": "本地历史、校准与免费次数",
+        "body": "已保存测量、事件摘要、校准配置、偏好设置和免费使用次数记录都存放在 App 的本地容器中。你明确创建的 AAC 录音也只保存在本地；这些数据仅用于提供你请求的功能。"
+      },
+      "apple-platform-services": {
+        "title": "Apple 平台服务",
+        "body": "Lifetime Pro 的购买与恢复由 Apple 通过 StoreKit 处理；Lumi Studio 不会收到你的支付卡信息。WatchConnectivity 只与配对的 Apple Watch 交换 dB Halo 功能所需数据；小组件和 App Intents 使用 App 的共享本地容器。这些系统服务不会创建 Lumi Studio 云账号。"
+      },
+      "user-directed-files-share": {
+        "title": "由你指定的文件与共享",
+        "body": "CSV、PDF、AAC、照片和视频输出只会在你请求时创建。系统“文件”或共享界面让你自行选择目的地或接收者；dB Halo 不会自动上传。选定目的地后，该服务提供商或接收者会管理相应副本。"
+      },
+      "support-email-exception": {
+        "title": "支持邮件例外",
+        "body": "你主动向支持团队发邮件时，电子邮件地址、内容和附件会通过相关邮件服务传输，并由 Lumi Studio 接收，仅用于回复、保障安全和记录该请求。往来邮件只在合理需要或履行法律义务的期间保留，之后依相关义务删除或归档。除非必要，请勿发送敏感音频、媒体或健康信息。"
+      },
+      "deletion-and-retention": {
+        "title": "保留与删除",
+        "body": "你可以使用 dB Halo 内相应控件删除已保存测量和明确录音。移除 App 会删除其余 App 容器数据，但由你和 Apple 管理的普通设备备份不在此限。请在原目的地删除导出文件，在“健康”App 中管理健康记录，并移除 Watch App 以清除手表端数据。法律未要求保留时，你也可以要求支持团队删除往来邮件。"
+      },
+      "children-medical-workplace": {
+        "title": "儿童、安全与法律限制",
+        "body": "dB Halo 的设计目的不是收集儿童个人信息。App 没有账号；儿童或家人使用时，仍由设备所有者决定权限和共享。读数仅供参考，不是医疗建议、听力诊断、认证声级测量，也不能替代职业安全法规、专业人员或法规要求的校准仪器。"
+      },
+      "effective-and-updated": {
+        "title": "政策日期与变更",
+        "body": "本政策自 2026 年 8 月 29 日生效，并于同日更新。如果 dB Halo 的数据处理方式发生变化，在法律要求通知的情况下，我们会先更新本页面，再采用修订后的做法。"
+      }
+    },
+    "contactTitle": "隐私联系方式",
+    "contactBody": "如有隐私问题，或希望处理与支持邮件有关的请求，请联系：",
+    "contactButton": "发送隐私咨询邮件"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "locale": "tr",
+  "languageName": "Türkçe",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Ana içeriğe geç",
+    "language": "Dil",
+    "support": "Destek",
+    "privacy": "Gizlilik",
+    "email": "Desteğe e-posta gönder",
+    "allApps": "Tüm uygulamalar",
+    "brandHome": "dB Halo destek ana sayfası",
+    "navigation": "Ana gezinme",
+    "footerNavigation": "Alt bilgi gezinmesi"
+  },
+  "support": {
+    "metaDescription": "Ses düzeyi, spektrum analizi, gürültü dozu, uyku olayları, izinler, Lifetime Pro ve sorun giderme için resmi dB Halo yardımı.",
+    "kicker": "Özel ses farkındalığı",
+    "title": "Çevrenizdeki sesi anlayın",
+    "intro": "dB Halo; iPhone, iPad ve Apple Watch’u anlaşılır bir ses düzeyi yardımcısına dönüştürür. Güncel düzeyi hemen görün, frekansları canlı inceleyin, gürültü maruziyetini tahmin edin ve yararlı ölçümleri saklayın; tüm işlem aygıtta yapılır.",
+    "badges": [
+      "Hesap gerekmez",
+      "Reklam ve izleme yok",
+      "Ses aygıtta işlenir",
+      "Lifetime Pro tek seferlik satın alma"
+    ],
+    "featuresEyebrow": "dB Halo neler yapar",
+    "featuresTitle": "İlk bakışta sade, gerektiğinde ayrıntılı",
+    "features": [
+      {
+        "title": "Ölçer ve Halo",
+        "body": "Güncel, en düşük, ortalama, en yüksek ve tepe düzeyini net bir Halo, ağırlıklandırmalar, LAeq ve kolay açıklamalarla görün."
+      },
+      {
+        "title": "Spektrum, RTA ve spektrogram",
+        "body": "Etkin analizi kesmeden eşzamanlı FFT, oktav bant RTA ve spektrogram ile frekans enerjisini inceleyin."
+      },
+      {
+        "title": "Gürültü dozu",
+        "body": "Tahmini maruziyeti, kalan süreyi ve NIOSH ya da OSHA rehberini izleyin. Sonuç bilgilendirme amaçlıdır, iş yeri uygunluk kararı değildir."
+      },
+      {
+        "title": "Uyku ses olayları",
+        "body": "Tanınan olay türlerini, saatlerini ve dB değerlerini aygıtta saklayın. Uyku modu ham sesi kaydetmez."
+      },
+      {
+        "title": "Geçmiş ve dışa aktarma",
+        "body": "Geçmişi ve kalibrasyon profillerini yerel olarak tutun; istediğinizde CSV, PDF, AAC, fotoğraf veya video çıktısı oluşturun."
+      },
+      {
+        "title": "Watch, araç takımları ve kestirmeler",
+        "body": "Özel Apple Watch deneyimini, araç takımlarını ve App Intents’i kullanın; eşlenmiş aygıtlar yalnızca gereken yerel verileri paylaşır."
+      }
+    ],
+    "quickStartTitle": "Hızlı başlangıç",
+    "quickStart": [
+      "Ölçer’i açın ve iOS istediğinde mikrofon erişimine izin verin.",
+      "Aygıtı mikrofon kapanmayacak ve giysiye sürtünmeyecek biçimde yerleştirip Başlat’a dokunun.",
+      "Hızlı bir değerlendirme için Halo ve güncel dB değerine bakın; ayrıntı için Spektrum veya Doz’u açın.",
+      "Ekrandan ayrılmadan önce Durdur’a dokunun ve sonucu saklamak istiyorsanız Geçmiş’e kaydedin."
+    ],
+    "permissionsTitle": "İzinler sizin denetiminizdedir",
+    "permissions": [
+      "Ölçüm ve analiz için mikrofon gerekir. Ölçer, Spektrum ve Doz’un ham sesi yalnızca bellekte işlenir ve kaydedilmez.",
+      "Fotoğraf ve videolara ancak sistem Fotoğraflar seçicisinden belirli öğeleri seçtikten sonra erişilir; yalnızca seçiminiz yerel olarak işlenir.",
+      "Sağlık erişimi isteğe bağlıdır. İzin verirseniz dB Halo yalnızca çevresel ses maruziyeti örnekleri yazar ve Sağlık verilerini okumaz."
+    ],
+    "proTitle": "Lifetime Pro ve geri yükleme",
+    "proBody": "Lifetime Pro tek bir tüketilmeyen satın almadır, abonelik değildir. App Store onaydan önce yerel fiyatı gösterir. Önceki satın almayı dB Halo → Ayarlar → Lifetime Pro → Satın Almaları Geri Yükle yolundan, satın alan aynı Apple Account ile geri yükleyin.",
+    "troubleshootingTitle": "Sorun giderme",
+    "troubleshooting": [
+      "Değer yoksa: iOS Ayarları’nda mikrofon iznini kontrol edin, istenmeyen ses yolunu ayırın ve başka bir uygulamanın mikrofonu kullanmadığından emin olun.",
+      "Beklenmeyen değerlerde: mikrofon yakınındaki kılıfı veya engeli kaldırın, tutma gürültüsünden kaçının, doğru girişi seçin ve kalibrasyon profilini denetleyin.",
+      "Watch veya araç takımı güncel değilse: iPhone ile Watch’u eşlenmiş ve yakın tutun, dB Halo’yu iPhone’da bir kez açın ve sistemin yenilenmesini bekleyin.",
+      "Satın alma gelmediyse: bağlantıyı kontrol edin, ilk Apple Account’u kullanın ve Lifetime Pro’dan Satın Almaları Geri Yükle’yi yeniden çalıştırın."
+    ],
+    "accuracyEyebrow": "Önemli ölçüm notu",
+    "accuracyTitle": "Bilinçli bir tahmin, sertifikalı bir cihaz değil",
+    "accuracyBody": "Telefon ve saat mikrofonları modele, konuma, kılıfa, ortama ve kalibrasyona göre değişir. dB Halo farkındalık ve kişisel kayıtlar için yararlıdır ancak sertifikalı ses düzeyi ölçer değildir; tıbbi önerinin, işitme değerlendirmesinin, iş hijyeni ölçümünün veya yasal olarak gereken kalibre cihazın yerini tutmaz.",
+    "contactEyebrow": "Daha fazla yardıma mı ihtiyacınız var?",
+    "contactTitle": "dB Halo desteğine ulaşın",
+    "contactBody": "Aygıt modelini, iOS veya watchOS sürümünü, ilgili ekranı ya da özelliği ve beklediğiniz davranışı yazın. Sorunu çözmek için zorunlu değilse özel kayıt, fotoğraf, sağlık bilgisi veya dışa aktarılmış dosya eklemeyin.",
+    "contactButton": "Desteğe e-posta gönder"
+  },
+  "privacy": {
+    "metaDescription": "dB Halo gizlilik politikası: hesap, reklam, analiz ve izleme yoktur; ses analizi ile kayıtlar açık eyleminiz olmadan aygıtta kalır.",
+    "kicker": "Tasarımdan gelen gizlilik",
+    "title": "Gizlilik Politikası",
+    "dateLine": "Yürürlük: 29 Ağustos 2026 · Güncelleme: 29 Ağustos 2026",
+    "intro": "dB Halo sesi yerel olarak analiz eder ve olabildiğince az veri işler. Bu politika neyin işlendiğini, aygıtta nelerin saklanabileceğini ve bilgilerin yalnızca sizin yönlendirmenizle ne zaman uygulamadan çıktığını açıklar.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Hesap, reklam, analiz veya izleme yok",
+        "body": "dB Halo hesap istemez; reklam, analiz, izleme veya üçüncü taraf SDK içermez. Lumi Studio dB Halo için bulut hizmeti işletmez, kullanıcı profili oluşturmaz, kişisel bilgi satmaz ve aygıttaki ölçüm veya kayıtları göremez."
+      },
+      "live-audio-memory-only": {
+        "title": "Ölçer, Spektrum ve Doz canlı sesi",
+        "body": "Ölçer, Spektrum, RTA, Spektrogram veya Gürültü Dozu kullanılırken mikrofon örnekleri düzey, frekans ve maruziyet tahminleri için aygıt belleğinde işlenir. Ham ses kaydedilmez ve Lumi Studio’ya gönderilmez."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Uyku olayları ve açıkça başlatılan AAC kayıtları",
+        "body": "Uyku modu yalnızca tanınan olay türlerini, saatleri ve dB değerlerini saklar; ham uyku sesini tutmaz. Ses dosyası ancak siz bilerek AAC kaydı başlattığınızda oluşur ve silene ya da dışa aktarıncaya kadar yerel kalır."
+      },
+      "photos-picker-local-processing": {
+        "title": "Seçtiğiniz fotoğraf ve videolar",
+        "body": "dB Halo Apple PhotosPicker kullandığı için tüm arşive sınırsız erişim yerine yalnızca açıkça seçtiğiniz fotoğraf veya videoları alır. Seçim, desteklenen katmanlar ya da dışa aktarma için yerel işlenir ve Lumi Studio tarafından yüklenmez."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit yalnızca yazma amaçlıdır",
+        "body": "Sağlık izni verip maruziyeti dışa aktarmayı seçerseniz dB Halo HealthKit’e çevresel ses maruziyeti örnekleri yazar. Uygulama Sağlık verisi okumaz. İzni ve yazılan kayıtları Sağlık uygulaması ile iOS Ayarları’nda yönetin."
+      },
+      "local-history-calibration-trial": {
+        "title": "Yerel geçmiş, kalibrasyon ve ücretsiz kullanım",
+        "body": "Kaydedilmiş ölçümler, olay özetleri, kalibrasyon profilleri, tercihler ve ücretsiz kullanım sayacı uygulamanın yerel kapsayıcısındadır. Açıkça başlatılan AAC kayıtları da yereldir ve yalnızca istediğiniz özellikleri sağlar."
+      },
+      "apple-platform-services": {
+        "title": "Apple platform hizmetleri",
+        "body": "Lifetime Pro satın alma ve geri yüklemelerini Apple StoreKit ile işler; Lumi Studio kart bilgisi almaz. WatchConnectivity, eşlenmiş Apple Watch ile gereken dB Halo verilerini paylaşır. Araç takımları ve App Intents ortak yerel kapsayıcıyı kullanır. Bu hizmetler Lumi Studio bulut hesabı oluşturmaz."
+      },
+      "user-directed-files-share": {
+        "title": "Sizin yönettiğiniz dosya ve paylaşım",
+        "body": "CSV, PDF, AAC, fotoğraf ve video yalnızca isteğinizle oluşturulur. Sistem Dosyalar veya Paylaş ekranında hedef ya da alıcıyı seçersiniz. dB Halo otomatik yükleme yapmaz; sonrasında seçilen sağlayıcı veya alıcı kendi kopyasını yönetir."
+      },
+      "support-email-exception": {
+        "title": "Destek e-postası istisnası",
+        "body": "Desteğe yazdığınızda adres, mesaj ve ekler ilgili e-posta sağlayıcılarından geçer ve Lumi Studio bunları yalnızca yanıtlamak, güvenliği sağlamak ve isteği belgelemek için alır. Yazışma yalnızca makul ölçüde gereken veya yasal olarak zorunlu süre boyunca tutulur, sonra yükümlülüklere göre silinir ya da arşivlenir. Gerekmedikçe hassas ses, medya veya sağlık bilgisi göndermeyin."
+      },
+      "deletion-and-retention": {
+        "title": "Saklama ve silme",
+        "body": "Kaydedilmiş ölçümleri ve açık kayıtları dB Halo’daki ilgili denetimlerle silin. Uygulamayı kaldırmak, sizin ve Apple’ın yönettiği normal aygıt yedekleri dışında kalan kapsayıcı verilerini siler. Dışa aktarılanları hedefte silin, Sağlık kayıtlarını Sağlık uygulamasında yönetin ve Watch uygulamasını kaldırarak yerel verisini temizleyin. Yasal saklama zorunluluğu yoksa destek e-postalarının silinmesini isteyebilirsiniz."
+      },
+      "children-medical-workplace": {
+        "title": "Çocuklar, güvenlik ve yasal sınırlar",
+        "body": "dB Halo çocukların kişisel bilgilerini toplamak için tasarlanmamıştır. Hesap olmadığından bir çocuk veya aile üyesi kullanırken izin ve paylaşımı aygıt sahibi yönetir. Ölçümler bilgilendirme amaçlıdır; tıbbi öneri, işitme tanısı, sertifikalı ölçüm veya iş güvenliği kuralları, uzmanlar ya da zorunlu kalibre cihazların yerine geçmez."
+      },
+      "effective-and-updated": {
+        "title": "Politika tarihleri ve değişiklikler",
+        "body": "Bu politika 29 Ağustos 2026 tarihinde yürürlüğe girmiş ve güncellenmiştir. dB Halo’nun veri uygulamaları değişirse önceden bildirim gereken yerlerde bu sayfa değişiklik uygulanmadan önce yenilenir."
+      }
+    },
+    "contactTitle": "Gizlilik iletişimi",
+    "contactBody": "Gizlilik soruları veya destek yazışmalarıyla ilgili istekler için:",
+    "contactButton": "Gizlilik için e-posta gönder"
+  }
+}

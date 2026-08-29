@@ -1,0 +1,145 @@
+{
+  "locale": "da",
+  "languageName": "Dansk",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Gå til hovedindhold",
+    "language": "Sprog",
+    "support": "Support",
+    "privacy": "Anonymitet",
+    "email": "Send mail til support",
+    "allApps": "Alle apps",
+    "brandHome": "dB Halo-supportforside",
+    "navigation": "Hovednavigation",
+    "footerNavigation": "Sidefodsnavigation"
+  },
+  "support": {
+    "metaDescription": "Officiel dB Halo-hjælp til lydniveau, spektrumanalyse, støjdosis, søvnhændelser, tilladelser, Lifetime Pro og fejlfinding.",
+    "kicker": "Privat indsigt i lydmiljøet",
+    "title": "Forstå lyden omkring dig",
+    "intro": "dB Halo gør iPhone, iPad og Apple Watch til en lettilgængelig lydniveaumåler. Se det aktuelle niveau, undersøg frekvenser live, anslå støjeksponering, og gem nyttige målinger – alt behandles på enheden.",
+    "badges": [
+      "Ingen konto",
+      "Ingen annoncer eller sporing",
+      "Lyd behandles på enheden",
+      "Lifetime Pro som engangskøb"
+    ],
+    "featuresEyebrow": "Det kan dB Halo",
+    "featuresTitle": "Enkelt ved første blik, detaljeret efter behov",
+    "features": [
+      {
+        "title": "Måler og Halo",
+        "body": "Se aktuelt, laveste, gennemsnitligt, højeste og maksimalt lydniveau med en tydelig Halo, vægtninger, LAeq og lette forklaringer."
+      },
+      {
+        "title": "Spektrum, RTA og spektrogram",
+        "body": "Undersøg frekvensenergi med synkron FFT, oktavbånds-RTA og spektrogram uden at afbryde den aktive analyse."
+      },
+      {
+        "title": "Støjdosis",
+        "body": "Følg anslået eksponering, resterende tid og NIOSH- eller OSHA-retningslinjer. Resultatet er vejledende og ikke en arbejdsmiljøafgørelse."
+      },
+      {
+        "title": "Lydhændelser under søvn",
+        "body": "Gem genkendte hændelsestyper, tidspunkter og dB-værdier på enheden. Søvntilstand gemmer ikke rå lyd."
+      },
+      {
+        "title": "Historik og eksport",
+        "body": "Gem historik og kalibreringsprofiler lokalt, og opret efter eget valg CSV-, PDF-, AAC-, foto- eller videooutput."
+      },
+      {
+        "title": "Watch, widgets og genveje",
+        "body": "Brug den særlige Apple Watch-oplevelse, widgets og App Intents; parrede enheder udveksler kun nødvendige lokale data."
+      }
+    ],
+    "quickStartTitle": "Kom hurtigt i gang",
+    "quickStart": [
+      "Åbn Måler, og tillad mikrofonadgang, når iOS spørger.",
+      "Placér enheden uden at dække mikrofonen eller lade den gnide mod tøj, og tryk på Start.",
+      "Brug Halo og den aktuelle dB-værdi til et hurtigt overblik; åbn Spektrum eller Dosis for flere detaljer.",
+      "Tryk på Stop, før du forlader siden, og gem resultatet i Historik, hvis du vil beholde det."
+    ],
+    "permissionsTitle": "Du styrer tilladelserne",
+    "permissions": [
+      "Mikrofonen kræves til måling og analyse. Rå lyd fra Måler, Spektrum og Dosis behandles kun i hukommelsen og gemmes ikke.",
+      "Fotos og videoer er først tilgængelige, når du vælger bestemte elementer i systemets fotovælger; kun valget behandles lokalt.",
+      "Adgang til Sundhed er valgfri. Med tilladelse skriver dB Halo kun miljømæssig lydeksponering og læser ingen Sundhed-data."
+    ],
+    "proTitle": "Lifetime Pro og gendannelse",
+    "proBody": "Lifetime Pro er ét ikke-forbrugbart køb, ikke et abonnement. App Store viser den lokale pris før godkendelse. Gendan et tidligere køb via dB Halo → Indstillinger → Lifetime Pro → Gendan køb med samme Apple Account som ved købet.",
+    "troubleshootingTitle": "Fejlfinding",
+    "troubleshooting": [
+      "Ingen måling: kontrollér mikrofontilladelsen i iOS-indstillinger, frakobl en uønsket lydrute, og se efter, om en anden app bruger mikrofonen.",
+      "Uventede værdier: fjern et cover eller en blokering ved mikrofonen, undgå håndteringsstøj, vælg den rigtige indgang, og kontrollér kalibreringsprofilen.",
+      "Watch eller widget er ikke opdateret: hold iPhone og Watch parret og tæt på hinanden, åbn dB Halo én gang på iPhone, og vent et øjeblik på systemopdateringen.",
+      "Køb ikke gendannet: kontrollér forbindelsen, brug den oprindelige Apple Account, og kør Gendan køb igen fra Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Vigtig oplysning om måling",
+    "accuracyTitle": "Et oplyst skøn, ikke et certificeret instrument",
+    "accuracyBody": "Mikrofoner i telefoner og ure varierer efter model, placering, cover, miljø og kalibrering. dB Halo er nyttig til opmærksomhed og personlige registreringer, men er ikke en certificeret lydniveaumåler og erstatter ikke lægelig rådgivning, høretest, arbejdshygiejnisk overvågning eller et lovpligtigt kalibreret instrument.",
+    "contactEyebrow": "Har du brug for mere hjælp?",
+    "contactTitle": "Kontakt dB Halo-support",
+    "contactBody": "Oplys enhedsmodel, iOS- eller watchOS-version, den berørte side eller funktion og den forventede adfærd. Vedhæft ikke private optagelser, fotos, helbredsoplysninger eller eksporterede filer, medmindre de er nødvendige for sagen.",
+    "contactButton": "Send mail til support"
+  },
+  "privacy": {
+    "metaDescription": "dB Halos privatlivspolitik: ingen konto, annoncer, analyse eller sporing; lydanalyse og registreringer bliver på enheden uden din udtrykkelige handling.",
+    "kicker": "Anonymitet indbygget fra starten",
+    "title": "Privatlivspolitik",
+    "dateLine": "Gælder fra 29. august 2026 · Opdateret 29. august 2026",
+    "intro": "dB Halo analyserer lyd lokalt og behandler så få data som muligt. Politikken beskriver præcist, hvad der behandles, hvad der kan gemmes på enheden, og hvornår oplysninger kun forlader appen efter dit valg.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Ingen konto, annoncer, analyse eller sporing",
+        "body": "dB Halo kræver ingen konto og indeholder ingen annoncer, analyse, sporing eller tredjeparts-SDK’er. Lumi Studio driver ingen cloudtjeneste til dB Halo, opretter ingen brugerprofil, sælger ingen personoplysninger og kan ikke se målinger eller optagelser på din enhed."
+      },
+      "live-audio-memory-only": {
+        "title": "Live-lyd fra Måler, Spektrum og Dosis",
+        "body": "Når du bruger Måler, Spektrum, RTA, Spektrogram eller Støjdosis, behandles mikrofonprøver i enhedens hukommelse for at beregne niveauer, frekvenser og eksponering. Den rå lyd gemmes ikke og sendes ikke til Lumi Studio."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Søvnhændelser og udtrykkelige AAC-optagelser",
+        "body": "Søvntilstand gemmer kun genkendte kategorier, tidspunkter og dB-værdier og bevarer ingen rå søvnlyd. En lydfil oprettes kun, når du bevidst starter en AAC-optagelse. Den forbliver lokal, til du sletter eller eksporterer den."
+      },
+      "photos-picker-local-processing": {
+        "title": "Fotos og videoer, du vælger",
+        "body": "dB Halo bruger Apples PhotosPicker og modtager derfor kun fotos eller videoer, du udtrykkeligt vælger, ikke fri adgang til biblioteket. Valget behandles lokalt til understøttede overlays eller eksport og uploades ikke af Lumi Studio."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit bruges kun til skrivning",
+        "body": "Hvis du giver Sundhed-adgang og vælger at eksportere eksponering, skriver dB Halo miljømæssige lydeksponeringsprøver til HealthKit. Appen læser ingen Sundhed-data. Administrér tilladelse og skrevne poster i appen Sundhed og iOS-indstillinger."
+      },
+      "local-history-calibration-trial": {
+        "title": "Lokal historik, kalibrering og gratis brug",
+        "body": "Gemte målinger, hændelsesoversigter, kalibreringsprofiler, indstillinger og den lokale tæller for gratis brug ligger i appens lokale beholder. Udtrykkelige AAC-optagelser er også lokale og bruges kun til valgte funktioner."
+      },
+      "apple-platform-services": {
+        "title": "Apple-platformtjenester",
+        "body": "Apple behandler Lifetime Pro-køb og gendannelse via StoreKit; Lumi Studio modtager ingen kortoplysninger. WatchConnectivity udveksler nødvendige dB Halo-data med det parrede Apple Watch. Widgets og App Intents bruger appens fælles lokale beholder. Tjenesterne opretter ingen Lumi Studio-cloudkonto."
+      },
+      "user-directed-files-share": {
+        "title": "Filer og deling efter dit valg",
+        "body": "CSV-, PDF-, AAC-, foto- og videooutput oprettes kun på din anmodning. Systemets Arkiver- eller delingsside lader dig vælge mål eller modtager. dB Halo uploader ikke automatisk; derefter styrer den valgte udbyder eller modtager sin kopi."
+      },
+      "support-email-exception": {
+        "title": "Undtagelse for supportmail",
+        "body": "Når du skriver til support, sendes adresse, besked og vedhæftninger gennem de involverede mailudbydere og modtages kun af Lumi Studio for at besvare, sikre og dokumentere sagen. Korrespondance gemmes kun, så længe det med rimelighed er nødvendigt eller lovpligtigt, og slettes eller arkiveres derefter efter disse krav. Send ikke følsom lyd, medier eller helbredsdata, hvis det ikke er nødvendigt."
+      },
+      "deletion-and-retention": {
+        "title": "Opbevaring og sletning",
+        "body": "Slet gemte målinger og udtrykkelige optagelser med de relevante kontroller i dB Halo. Når appen fjernes, slettes øvrige data i appbeholderen, bortset fra normale enhedssikkerhedskopier, som du og Apple styrer. Slet eksport på destinationen, administrér Sundhed-poster i Sundhed, og fjern Watch-appen for at rydde dens lokale data. Du kan bede om sletning af supportmail, medmindre loven kræver opbevaring."
+      },
+      "children-medical-workplace": {
+        "title": "Børn, sikkerhed og juridiske grænser",
+        "body": "dB Halo er ikke designet til at indsamle børns personoplysninger. Uden en konto styrer enhedsejeren tilladelser og deling, når et barn eller familiemedlem bruger appen. Målinger er vejledende og ikke lægelig rådgivning, hørediagnose, certificeret lydmåling eller erstatning for arbejdsmiljøregler, fagfolk eller krævede kalibrerede instrumenter."
+      },
+      "effective-and-updated": {
+        "title": "Datoer og ændringer",
+        "body": "Politikken gælder fra og blev opdateret den 29. august 2026. Hvis dB Halos datapraksis ændres, opdateres siden før ændringen anvendes, hvor forhåndsmeddelelse er påkrævet."
+      }
+    },
+    "contactTitle": "Kontakt om anonymitet",
+    "contactBody": "Ved spørgsmål om anonymitet eller ønsker vedrørende supportkorrespondance kan du kontakte:",
+    "contactButton": "Send mail om anonymitet"
+  }
+}

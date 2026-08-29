@@ -1,0 +1,145 @@
+{
+  "locale": "nl-NL",
+  "languageName": "Nederlands",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Naar hoofdinhoud",
+    "language": "Taal",
+    "support": "Ondersteuning",
+    "privacy": "Privacy",
+    "email": "E-mail ondersteuning",
+    "allApps": "Alle apps",
+    "brandHome": "Startpagina dB Halo-ondersteuning",
+    "navigation": "Hoofdnavigatie",
+    "footerNavigation": "Voettekstnavigatie"
+  },
+  "support": {
+    "metaDescription": "Officiële dB Halo-hulp voor geluidsniveau, spectrumanalyse, geluidsdosis, slaapgebeurtenissen, machtigingen, Lifetime Pro en problemen.",
+    "kicker": "Privé inzicht in omgevingsgeluid",
+    "title": "Begrijp het geluid om je heen",
+    "intro": "dB Halo maakt van je iPhone, iPad en Apple Watch een toegankelijke geluidsniveaumeter. Bekijk het huidige niveau, onderzoek live frequenties, schat geluidsblootstelling en bewaar nuttige metingen, volledig verwerkt op het apparaat.",
+    "badges": [
+      "Geen account",
+      "Geen reclame of tracking",
+      "Audioverwerking op het apparaat",
+      "Lifetime Pro als eenmalige aankoop"
+    ],
+    "featuresEyebrow": "Wat dB Halo doet",
+    "featuresTitle": "Eenvoudig in één oogopslag, uitgebreid wanneer nodig",
+    "features": [
+      {
+        "title": "Meter en Halo",
+        "body": "Lees huidig, minimum, gemiddeld, maximum en piekniveau af met een duidelijke Halo, wegingen, LAeq en begrijpelijke uitleg."
+      },
+      {
+        "title": "Spectrum, RTA en spectrogram",
+        "body": "Bekijk frequentie-energie via gesynchroniseerde FFT, octaafband-RTA en spectrogram zonder de actieve analysesessie te onderbreken."
+      },
+      {
+        "title": "Geluidsdosis",
+        "body": "Volg geschatte blootstelling, resterende tijd en NIOSH- of OSHA-richtlijnen. Het resultaat is informatief en geen oordeel over arbeidsveiligheid."
+      },
+      {
+        "title": "Slaapgeluiden",
+        "body": "Bewaar herkende gebeurteniscategorieën, tijden en dB-waarden op het apparaat. De slaapstand bewaart geen ruwe audio."
+      },
+      {
+        "title": "Geschiedenis en export",
+        "body": "Bewaar geschiedenis en kalibratieprofielen lokaal en maak op verzoek CSV-, PDF-, AAC-, foto- of video-uitvoer."
+      },
+      {
+        "title": "Watch, widgets en opdrachten",
+        "body": "Gebruik de speciale Apple Watch-ervaring, widgets en App Intents; gekoppelde apparaten wisselen alleen noodzakelijke lokale gegevens uit."
+      }
+    ],
+    "quickStartTitle": "Snel beginnen",
+    "quickStart": [
+      "Open Meter en sta microfoontoegang toe wanneer iOS daarom vraagt.",
+      "Leg het apparaat neer zonder de microfoon te bedekken of langs kleding te laten schuren en tik op Start.",
+      "Gebruik de Halo en huidige dB-waarde voor een snelle indruk; open Spectrum of Dosis voor meer detail.",
+      "Tik op Stop voordat je het scherm verlaat en bewaar het resultaat in Geschiedenis als je het wilt houden."
+    ],
+    "permissionsTitle": "Je houdt controle over machtigingen",
+    "permissions": [
+      "De microfoon is nodig voor meting en analyse. Ruwe audio van Meter, Spectrum en Dosis wordt alleen in het geheugen verwerkt en niet opgeslagen.",
+      "Foto’s en video’s zijn pas toegankelijk nadat je specifieke items kiest in de systeemfotokiezer; dB Halo verwerkt alleen die selectie lokaal.",
+      "Toegang tot Gezondheid is optioneel. Met toestemming schrijft dB Halo uitsluitend omgevingsgeluidsblootstelling en leest het geen Gezondheid-gegevens."
+    ],
+    "proTitle": "Lifetime Pro en herstellen",
+    "proBody": "Lifetime Pro is één niet-verbruikbare aankoop, geen abonnement. De App Store toont vóór bevestiging de lokale prijs. Herstel een eerdere aankoop via dB Halo → Instellingen → Lifetime Pro → Aankopen herstellen met dezelfde Apple Account als bij de aankoop.",
+    "troubleshootingTitle": "Problemen oplossen",
+    "troubleshooting": [
+      "Geen meting: controleer microfoontoegang in iOS-instellingen, verbreek een onbedoelde audioverbinding en kijk of een andere app de microfoon gebruikt.",
+      "Onverwachte waarden: verwijder een hoes of blokkering bij de microfoon, voorkom hanteringsgeluid, kies de juiste ingang en controleer het kalibratieprofiel.",
+      "Watch of widget loopt achter: houd iPhone en Watch gekoppeld en dichtbij, open dB Halo eenmaal op de iPhone en wacht even op systeemverversing.",
+      "Aankoop niet hersteld: controleer internet, gebruik de oorspronkelijke Apple Account en voer Aankopen herstellen opnieuw uit in Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Belangrijke meetinformatie",
+    "accuracyTitle": "Een onderbouwde schatting, geen gecertificeerd instrument",
+    "accuracyBody": "Microfoons van telefoons en horloges verschillen per model, plaatsing, hoes, omgeving en kalibratie. dB Halo is nuttig voor bewustwording en persoonlijke registraties, maar is geen gecertificeerde geluidsniveaumeter en vervangt geen medisch advies, gehooronderzoek, arbeidshygiënische meting of wettelijk vereist gekalibreerd instrument.",
+    "contactEyebrow": "Meer hulp nodig?",
+    "contactTitle": "Neem contact op met dB Halo-ondersteuning",
+    "contactBody": "Vermeld apparaatmodel, iOS- of watchOS-versie, het betrokken scherm of onderdeel en wat je verwachtte. Stuur geen privé-opnamen, foto’s, gezondheidsgegevens of exportbestanden mee tenzij die noodzakelijk zijn voor je vraag.",
+    "contactButton": "E-mail ondersteuning"
+  },
+  "privacy": {
+    "metaDescription": "Privacyverklaring van dB Halo: geen account, reclame, analyse of tracking; audioanalyse en registraties blijven op het apparaat tenzij je zelf exporteert.",
+    "kicker": "Privacy vanaf het ontwerp",
+    "title": "Privacyverklaring",
+    "dateLine": "Geldig vanaf 29 augustus 2026 · Bijgewerkt op 29 augustus 2026",
+    "intro": "dB Halo analyseert geluid lokaal en verwerkt zo weinig mogelijk gegevens. Deze verklaring legt uit wat wordt verwerkt, wat op je apparaat kan staan en wanneer informatie de app alleen op jouw aanwijzing verlaat.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Geen account, reclame, analyse of tracking",
+        "body": "dB Halo vereist geen account en bevat geen reclame, analyse, tracking of SDK’s van derden. Lumi Studio beheert geen cloudservice voor dB Halo, maakt geen gebruikersprofiel, verkoopt geen persoonsgegevens en kan metingen of opnamen op je apparaat niet bekijken."
+      },
+      "live-audio-memory-only": {
+        "title": "Live-audio van Meter, Spectrum en Dosis",
+        "body": "Bij Meter, Spectrum, RTA, Spectrogram of Geluidsdosis worden microfoonmonsters in het apparaatgeheugen verwerkt om niveaus, frequenties en blootstelling te berekenen. De ruwe audio wordt niet opgeslagen en niet naar Lumi Studio gestuurd."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Slaapgebeurtenissen en expliciete AAC-opnamen",
+        "body": "De slaapstand bewaart alleen herkende categorieën, gebeurtenistijden en dB-waarden en geen ruwe slaapopname. Alleen wanneer je bewust een AAC-opname start, ontstaat een audiobestand. Dat blijft lokaal tot je het verwijdert of exporteert."
+      },
+      "photos-picker-local-processing": {
+        "title": "Door jou gekozen foto’s en video’s",
+        "body": "dB Halo gebruikt Apple PhotosPicker en ontvangt alleen foto’s of video’s die je uitdrukkelijk selecteert, zonder onbeperkte toegang tot je bibliotheek. De keuze wordt lokaal verwerkt voor ondersteunde overlays of export en niet door Lumi Studio geüpload."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit alleen schrijven",
+        "body": "Als je Gezondheid-toegang geeft en blootstelling exporteert, schrijft dB Halo omgevingsgeluidsblootstelling naar HealthKit. De app leest geen Gezondheid-gegevens. Beheer toestemming en geschreven registraties in de Gezondheid-app en iOS-instellingen."
+      },
+      "local-history-calibration-trial": {
+        "title": "Lokale geschiedenis, kalibratie en gratis gebruik",
+        "body": "Opgeslagen metingen, gebeurtenissamenvattingen, kalibratieprofielen, voorkeuren en de lokale teller voor gratis gebruik staan in de lokale appcontainer. Expliciete AAC-opnamen blijven eveneens lokaal en dienen alleen de gevraagde functies."
+      },
+      "apple-platform-services": {
+        "title": "Apple-platformdiensten",
+        "body": "Apple verwerkt Lifetime Pro-aankopen en herstel via StoreKit; Lumi Studio ontvangt geen betaalkaartgegevens. WatchConnectivity wisselt met je gekoppelde Apple Watch alleen gegevens uit die dB Halo nodig heeft. Widgets en App Intents gebruiken de gedeelde lokale appcontainer. Deze systeemdiensten maken geen Lumi Studio-cloudaccount."
+      },
+      "user-directed-files-share": {
+        "title": "Bestanden en delen onder jouw regie",
+        "body": "CSV-, PDF-, AAC-, foto- en video-uitvoer wordt alleen op jouw verzoek gemaakt. Via de systeeminterface Bestanden of Delen kies je bestemming of ontvanger. dB Halo uploadt niets automatisch; daarna beheert de gekozen aanbieder of ontvanger zijn kopie."
+      },
+      "support-email-exception": {
+        "title": "Uitzondering voor supportmail",
+        "body": "Als je ondersteuning mailt, gaan adres, bericht en bijlagen via de betrokken e-mailproviders en ontvangt Lumi Studio ze alleen om de vraag te beantwoorden, beveiligen en documenteren. Correspondentie blijft uitsluitend zolang dat redelijk nodig is of wettelijk verplicht, en wordt daarna volgens die verplichtingen verwijderd of gearchiveerd. Stuur geen gevoelige audio-, media- of gezondheidsgegevens als dat niet nodig is."
+      },
+      "deletion-and-retention": {
+        "title": "Bewaren en verwijderen",
+        "body": "Verwijder opgeslagen metingen en expliciete opnamen met de betreffende knoppen in dB Halo. De app verwijderen wist overige appcontainergegevens, behalve normale apparaatback-ups die jij en Apple beheren. Verwijder exports op hun bestemming, beheer Gezondheid-records in de Gezondheid-app en verwijder de Watch-app om lokale Watch-gegevens te wissen. Je kunt verwijdering van supportmail vragen tenzij wettelijke bewaring vereist is."
+      },
+      "children-medical-workplace": {
+        "title": "Kinderen, veiligheid en wettelijke grenzen",
+        "body": "dB Halo is niet ontworpen om persoonsgegevens van kinderen te verzamelen. Zonder account beheert de apparaateigenaar machtigingen en delen wanneer een kind of gezinslid de app gebruikt. Metingen zijn informatief en geen medisch advies, gehoordiagnose, gecertificeerde geluidsmeting of vervanging voor arbeidsveiligheidsregels, deskundigen of verplichte gekalibreerde instrumenten."
+      },
+      "effective-and-updated": {
+        "title": "Datums en wijzigingen",
+        "body": "Deze verklaring geldt vanaf en is bijgewerkt op 29 augustus 2026. Als de gegevenspraktijk van dB Halo verandert, wordt deze pagina waar kennisgeving nodig is bijgewerkt voordat de wijziging ingaat."
+      }
+    },
+    "contactTitle": "Privacycontact",
+    "contactBody": "Neem voor privacyvragen of verzoeken over supportcorrespondentie contact op via:",
+    "contactButton": "E-mail over privacy"
+  }
+}

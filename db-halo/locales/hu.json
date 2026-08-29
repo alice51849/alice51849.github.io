@@ -1,0 +1,145 @@
+{
+  "locale": "hu",
+  "languageName": "Magyar",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Ugrás a fő tartalomhoz",
+    "language": "Nyelv",
+    "support": "Támogatás",
+    "privacy": "Adatvédelem",
+    "email": "E-mail a támogatásnak",
+    "allApps": "Összes app",
+    "brandHome": "dB Halo támogatási kezdőlap",
+    "navigation": "Fő navigáció",
+    "footerNavigation": "Lábléc-navigáció"
+  },
+  "support": {
+    "metaDescription": "Hivatalos dB Halo-súgó hangszinthez, spektrumelemzéshez, zajdózishoz, alvási eseményekhez, engedélyekhez, Lifetime Próhoz és hibaelhárításhoz.",
+    "kicker": "Privát betekintés a hangkörnyezetbe",
+    "title": "Értse meg a környező hangokat",
+    "intro": "A dB Halo az iPhone-t, iPadet és Apple Watchot könnyen érthető hangszintmérő társsá alakítja. Egy pillantással láthatja az aktuális szintet, élőben vizsgálhatja a frekvenciákat, megbecsülheti a zajterhelést és hasznos méréseket őrizhet meg – mindent az eszköz dolgoz fel.",
+    "badges": [
+      "Nincs fiók",
+      "Nincs reklám vagy követés",
+      "Helyi hangfeldolgozás",
+      "Lifetime Pro egyszeri vásárlással"
+    ],
+    "featuresEyebrow": "A dB Halo lehetőségei",
+    "featuresTitle": "Elsőre egyszerű, szükség esetén részletes",
+    "features": [
+      {
+        "title": "Mérő és Halo",
+        "body": "Tekintse meg az aktuális, minimum, átlagos, maximum és csúcsszintet jól látható Halóval, súlyozásokkal, LAeq-vel és közérthető magyarázatokkal."
+      },
+      {
+        "title": "Spektrum, RTA és spektrogram",
+        "body": "Vizsgálja a frekvenciaenergiát szinkronizált FFT-vel, oktávsávos RTA-val és spektrogrammal az aktív elemzés megszakítása nélkül."
+      },
+      {
+        "title": "Zajdózis",
+        "body": "Kövesse a becsült terhelést, a hátralévő időt és a NIOSH vagy OSHA útmutatását. Az eredmény tájékoztató jellegű, nem munkavédelmi megfelelőségi döntés."
+      },
+      {
+        "title": "Alvási hangesemények",
+        "body": "Mentse az eszközön a felismert kategóriákat, időpontokat és dB-értékeket. Az Alvás mód nem tárol nyers hangot."
+      },
+      {
+        "title": "Előzmények és export",
+        "body": "Tartsa helyben az előzményeket és kalibrációs profilokat, majd kérésre készítsen CSV-, PDF-, AAC-, fotó- vagy videokimenetet."
+      },
+      {
+        "title": "Watch, widgetek és parancsok",
+        "body": "Használja az Apple Watch önálló élményét, a widgeteket és az App Intenteket; a párosított eszközök csak a szükséges helyi adatokat cserélik."
+      }
+    ],
+    "quickStartTitle": "Gyors kezdés",
+    "quickStart": [
+      "Nyissa meg a Mérőt, és engedélyezze a mikrofont, amikor az iOS kéri.",
+      "Tegye az eszközt olyan helyre, ahol a mikrofont semmi nem fedi és nem súrlódik ruhához, majd koppintson az Indításra.",
+      "Gyors áttekintéshez nézze a Halót és az aktuális dB-értéket; részletekért nyissa meg a Spektrumot vagy a Dózist.",
+      "Kilépés előtt koppintson a Leállításra, és mentse az eredményt az Előzményekbe, ha meg szeretné őrizni."
+    ],
+    "permissionsTitle": "Az engedélyek az Ön kezében maradnak",
+    "permissions": [
+      "A méréshez és elemzéshez mikrofon kell. A Mérő, Spektrum és Dózis nyers hangja csak a memóriában kerül feldolgozásra, és nem lesz elmentve.",
+      "Fotóhoz és videóhoz csak akkor fér hozzá az app, ha konkrét elemeket választ a rendszer Fotók-választójában; csak ezek feldolgozása történik helyben.",
+      "Az Egészség hozzáférése választható. Engedéllyel a dB Halo csak környezeti hangterhelési mintákat ír, és nem olvas Egészség-adatot."
+    ],
+    "proTitle": "Lifetime Pro és visszaállítás",
+    "proBody": "A Lifetime Pro egyetlen, nem fogyó vásárlás, nem előfizetés. Az App Store jóváhagyás előtt megmutatja a helyi árat. Korábbi vásárlását a dB Halo → Beállítások → Lifetime Pro → Vásárlások visszaállítása útvonalon, az eredeti Apple Accounttal állíthatja vissza.",
+    "troubleshootingTitle": "Hibaelhárítás",
+    "troubleshooting": [
+      "Nincs mérés: ellenőrizze a mikrofonengedélyt az iOS Beállításokban, válasszon le minden nem kívánt hangútvonalat, és nézze meg, nem használja-e más app a mikrofont.",
+      "Váratlan értékek: távolítsa el a tokot vagy akadályt a mikrofon közeléből, kerülje a kezelési zajt, válassza ki a helyes bemenetet, és ellenőrizze a kalibrációs profilt.",
+      "A Watch vagy widget nem friss: tartsa az iPhone-t és a Watchot párosítva és közel, nyissa meg egyszer a dB Halót az iPhone-on, majd várjon a rendszer frissítésére.",
+      "A vásárlás nem állt vissza: ellenőrizze a hálózatot, használja az eredeti Apple Accountot, és futtassa újra a Vásárlások visszaállítását a Lifetime Próban."
+    ],
+    "accuracyEyebrow": "Fontos mérési megjegyzés",
+    "accuracyTitle": "Megalapozott becslés, nem hitelesített műszer",
+    "accuracyBody": "A telefonok és órák mikrofonja modellenként, elhelyezés, tok, környezet és kalibráció szerint eltér. A dB Halo hasznos a tájékozódáshoz és személyes feljegyzésekhez, de nem hitelesített hangszintmérő, és nem helyettesít orvosi tanácsot, hallásvizsgálatot, munkahelyi higiénés mérést vagy jogszabályban előírt kalibrált műszert.",
+    "contactEyebrow": "További segítség kell?",
+    "contactTitle": "Kapcsolat a dB Halo támogatásával",
+    "contactBody": "Írja meg az eszköz modelljét, az iOS vagy watchOS verzióját, az érintett képernyőt vagy funkciót és a várt működést. Ne csatoljon privát felvételt, fotót, egészségügyi adatot vagy exportált fájlt, hacsak az nem feltétlenül szükséges.",
+    "contactButton": "E-mail a támogatásnak"
+  },
+  "privacy": {
+    "metaDescription": "A dB Halo adatvédelmi szabályzata: nincs fiók, reklám, analitika vagy követés; a hangelemzés és a rekordok kifejezett művelet nélkül az eszközön maradnak.",
+    "kicker": "Adatvédelem már a tervezéstől",
+    "title": "Adatvédelmi szabályzat",
+    "dateLine": "Hatályos: 2026. augusztus 29. · Frissítve: 2026. augusztus 29.",
+    "intro": "A dB Halo helyben elemzi a hangot, és a lehető legkevesebb adatot kezeli. Ez a szabályzat bemutatja, mi kerül feldolgozásra, mi maradhat az eszközön, és mikor hagyja el információ az appot kizárólag az Ön utasítására.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Nincs fiók, reklám, analitika vagy követés",
+        "body": "A dB Halo nem kér fiókot, és nem tartalmaz reklámot, analitikát, követést vagy harmadik féltől származó SDK-t. A Lumi Studio nem üzemeltet felhőszolgáltatást a dB Halóhoz, nem készít felhasználói profilt, nem ad el személyes adatot, és nem láthatja az eszközön lévő méréseket vagy felvételeket."
+      },
+      "live-audio-memory-only": {
+        "title": "A Mérő, Spektrum és Dózis élő hangja",
+        "body": "A Mérő, Spektrum, RTA, Spektrogram vagy Zajdózis használatakor a mikrofonmintákat az eszköz memóriája dolgozza fel a szintek, frekvenciák és terhelés becsléséhez. A nyers hang nem lesz elmentve és nem kerül a Lumi Studióhoz."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Alvási események és kifejezett AAC-felvételek",
+        "body": "Az Alvás mód csak a felismert kategóriát, az esemény idejét és a dB-értéket menti, nyers alváshangot nem. Hangfájl csak akkor készül, ha tudatosan elindít egy AAC-felvételt. Az helyben marad, amíg nem törli vagy exportálja."
+      },
+      "photos-picker-local-processing": {
+        "title": "Az Ön által kiválasztott fotók és videók",
+        "body": "A dB Halo az Apple PhotosPickert használja, ezért csak a kifejezetten kiválasztott fotókat vagy videókat kapja meg, a teljes könyvtárhoz nem fér hozzá. A kiválasztás helyben kerül feldolgozásra a támogatott átfedésekhez vagy exporthoz, és a Lumi Studio nem tölti fel."
+      },
+      "healthkit-write-only": {
+        "title": "A HealthKit csak írásra szolgál",
+        "body": "Ha engedélyezi az Egészséget és exportálja a terhelést, a dB Halo környezeti hangterhelési mintákat ír a HealthKitbe. Az app nem olvas Egészség-adatot. Az engedély és a bejegyzések az Egészség appban és az iOS Beállításokban kezelhetők."
+      },
+      "local-history-calibration-trial": {
+        "title": "Helyi előzmények, kalibráció és ingyenes használat",
+        "body": "A mentett mérések, eseményösszegzések, kalibrációs profilok, beállítások és az ingyenes használatok helyi számlálója az app helyi tárolójában található. A kifejezett AAC-felvételek szintén helyiek, és csak a kért funkciókat szolgálják."
+      },
+      "apple-platform-services": {
+        "title": "Apple-platformszolgáltatások",
+        "body": "A Lifetime Pro vásárlását és visszaállítását az Apple kezeli a StoreKiten át; a Lumi Studio nem kap kártyaadatot. A WatchConnectivity a párosított Apple Watchcsal csak a dB Halo funkcióihoz szükséges adatokat cseréli. A widgetek és App Intentek a közös helyi tárolót használják. Ezek nem hoznak létre Lumi Studio-felhőfiókot."
+      },
+      "user-directed-files-share": {
+        "title": "Ön által irányított fájlok és megosztás",
+        "body": "CSV-, PDF-, AAC-, fotó- és videokimenet csak kérésre készül. A rendszer Fájlok vagy Megosztás felületén Ön választ célt vagy címzettet. A dB Halo nem tölt fel automatikusan; ezután a kiválasztott szolgáltató vagy címzett kezeli a saját példányát."
+      },
+      "support-email-exception": {
+        "title": "Kivétel a támogatási e-mailre",
+        "body": "Ha ír a támogatásnak, címe, üzenete és mellékletei az érintett e-mail-szolgáltatókon át jutnak el, és a Lumi Studio kizárólag válaszadás, biztonság és dokumentálás céljából kapja meg őket. A levelezést csak az észszerűen szükséges vagy jogilag kötelező ideig őrizzük, majd e kötelezettségek szerint töröljük vagy archiváljuk. Ne küldjön érzékeny hangot, médiát vagy egészségügyi adatot, ha nem szükséges."
+      },
+      "deletion-and-retention": {
+        "title": "Megőrzés és törlés",
+        "body": "A mentett méréseket és kifejezett felvételeket a dB Halo megfelelő vezérlőivel törölheti. Az app eltávolítása törli a többi helyi adattárolót, kivéve az Ön és az Apple által kezelt szokásos eszközmentéseket. Az exportokat a célhelyen, az Egészség-bejegyzéseket az Egészség appban törölje, a Watch helyi adataihoz pedig távolítsa el a Watch appot. A támogatási levelek törlése kérhető, ha jogi megőrzés nem kötelező."
+      },
+      "children-medical-workplace": {
+        "title": "Gyermekek, biztonság és jogi korlátok",
+        "body": "A dB Halo nem gyermekek személyes adatainak gyűjtésére készült. Fiók nélkül a készülék tulajdonosa kezeli az engedélyeket és megosztást, ha gyermek vagy családtag használja az appot. A mérések tájékoztatóak, és nem orvosi tanács, hallásdiagnózis, hitelesített zajmérés vagy a munkavédelmi szabályok, szakemberek és előírt kalibrált műszerek helyettesítői."
+      },
+      "effective-and-updated": {
+        "title": "Hatály és változások",
+        "body": "A szabályzat 2026. augusztus 29-én lép hatályba és ezen a napon frissült. Ha a dB Halo adatkezelése változik, ahol előzetes értesítés kell, az oldal a változás alkalmazása előtt frissül."
+      }
+    },
+    "contactTitle": "Adatvédelmi kapcsolat",
+    "contactBody": "Adatvédelmi kérdéssel vagy támogatási levelezésre vonatkozó kéréssel itt jelentkezhet:",
+    "contactButton": "E-mail az adatvédelemről"
+  }
+}

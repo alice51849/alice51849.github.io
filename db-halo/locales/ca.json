@@ -1,0 +1,145 @@
+{
+  "locale": "ca",
+  "languageName": "Català",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Ves al contingut principal",
+    "language": "Idioma",
+    "support": "Assistència",
+    "privacy": "Privadesa",
+    "email": "Escriu a assistència",
+    "allApps": "Totes les apps",
+    "brandHome": "Inici de l’assistència de dB Halo",
+    "navigation": "Navegació principal",
+    "footerNavigation": "Navegació del peu"
+  },
+  "support": {
+    "metaDescription": "Ajuda oficial de dB Halo sobre nivell sonor, espectre, dosi de soroll, esdeveniments del son, permisos, Lifetime Pro i resolució de problemes.",
+    "kicker": "Consciència sonora amb privadesa",
+    "title": "Entén el so que t’envolta",
+    "intro": "dB Halo converteix l’iPhone, l’iPad i l’Apple Watch en un company entenedor per mesurar el nivell sonor. Consulta el nivell actual, explora freqüències en directe, estima l’exposició al soroll i conserva mesures útils, sempre amb processament al dispositiu.",
+    "badges": [
+      "Sense compte",
+      "Sense anuncis ni seguiment",
+      "Àudio processat al dispositiu",
+      "Lifetime Pro amb compra única"
+    ],
+    "featuresEyebrow": "Què fa dB Halo",
+    "featuresTitle": "Senzill d’un cop d’ull i detallat quan cal",
+    "features": [
+      {
+        "title": "Sonòmetre i Halo",
+        "body": "Consulta els nivells actual, mínim, mitjà, màxim i de pic amb un Halo clar, ponderacions, LAeq i explicacions planeres."
+      },
+      {
+        "title": "Espectre, RTA i espectrograma",
+        "body": "Examina l’energia de cada freqüència amb FFT, RTA per bandes d’octava i espectrograma sincronitzats, sense interrompre l’anàlisi activa."
+      },
+      {
+        "title": "Dosi de soroll",
+        "body": "Segueix l’exposició estimada, el temps restant i les referències NIOSH o OSHA. El resultat és informatiu i no determina el compliment laboral."
+      },
+      {
+        "title": "Esdeveniments sonors del son",
+        "body": "Desa al dispositiu les categories reconegudes, les hores i els valors en dB. El mode Son no conserva l’àudio original."
+      },
+      {
+        "title": "Historial i exportacions",
+        "body": "Conserva localment l’historial i els perfils de calibratge i crea, quan ho demanis, fitxers CSV, PDF, AAC, fotos o vídeos."
+      },
+      {
+        "title": "Watch, ginys i dreceres",
+        "body": "Fes servir l’experiència pròpia de l’Apple Watch, els ginys i App Intents; els dispositius enllaçats només intercanvien les dades locals necessàries."
+      }
+    ],
+    "quickStartTitle": "Inici ràpid",
+    "quickStart": [
+      "Obre Sonòmetre i permet l’accés al micròfon quan l’iOS ho demani.",
+      "Col·loca el dispositiu sense tapar el micròfon ni fregar-lo amb la roba i toca Inicia.",
+      "Fes servir l’Halo i el valor actual en dB per a una lectura ràpida; obre Espectre o Dosi per veure’n més detalls.",
+      "Toca Atura abans de sortir i desa el resultat a Historial si el vols conservar."
+    ],
+    "permissionsTitle": "Tu controles els permisos",
+    "permissions": [
+      "El micròfon és necessari per mesurar i analitzar. L’àudio original de Sonòmetre, Espectre i Dosi només es tracta a la memòria i no es desa.",
+      "Només s’accedeix a fotos i vídeos després que triïs elements concrets amb el selector de Fotos del sistema; dB Halo processa localment només la selecció.",
+      "L’accés a Salut és opcional. Amb permís, dB Halo només escriu mostres d’exposició al soroll ambiental i no llegeix dades de Salut."
+    ],
+    "proTitle": "Lifetime Pro i restauració",
+    "proBody": "Lifetime Pro és una única compra no consumible, no una subscripció. L’App Store mostra el preu local abans de confirmar. Per restaurar una compra anterior, obre dB Halo → Configuració → Lifetime Pro → Restaura les compres i utilitza el mateix compte d’Apple de la compra.",
+    "troubleshootingTitle": "Resolució de problemes",
+    "troubleshooting": [
+      "Sense lectura: revisa el permís del micròfon a Configuració de l’iOS, desconnecta rutes d’àudio no desitjades i comprova que cap altra app faci servir el micròfon.",
+      "Valors inesperats: treu fundes o obstacles prop del micròfon, evita sorolls de manipulació, tria l’entrada correcta i revisa el perfil de calibratge.",
+      "Watch o giny sense actualitzar: mantén l’iPhone i el Watch enllaçats i a prop, obre dB Halo una vegada a l’iPhone i espera un moment que el sistema s’actualitzi.",
+      "Compra no restaurada: comprova la connexió, fes servir el compte d’Apple original i torna a executar Restaura les compres des de Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Avís important sobre la mesura",
+    "accuracyTitle": "Una estimació informada, no un instrument certificat",
+    "accuracyBody": "Els micròfons de telèfons i rellotges varien segons el model, la posició, la funda, l’entorn i el calibratge. dB Halo és útil per prendre consciència i mantenir registres personals, però no és un sonòmetre certificat ni substitueix assessorament mèdic, una avaluació auditiva, monitoratge d’higiene laboral o un instrument calibrat exigit per la normativa.",
+    "contactEyebrow": "Necessites més ajuda?",
+    "contactTitle": "Contacta amb l’assistència de dB Halo",
+    "contactBody": "Indica el model del dispositiu, la versió de l’iOS o watchOS, la pantalla o funció afectada i què esperaves que passés. No adjuntis enregistraments privats, fotos, dades de salut o fitxers exportats, tret que siguin imprescindibles per a la consulta.",
+    "contactButton": "Escriu a assistència"
+  },
+  "privacy": {
+    "metaDescription": "Política de privadesa de dB Halo: sense compte, anuncis, analítica ni seguiment; l’anàlisi d’àudio i els registres romanen al dispositiu llevat d’una acció expressa.",
+    "kicker": "Privadesa des del disseny",
+    "title": "Política de privadesa",
+    "dateLine": "Vigent des del 29 d’agost de 2026 · Actualitzada el 29 d’agost de 2026",
+    "intro": "dB Halo està dissenyada per analitzar el so localment i reduir al mínim les dades tractades. Aquesta política explica què es processa, què es pot desar al dispositiu i quan una informació surt de l’app només perquè tu ho indiques.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Sense compte, publicitat, analítica ni seguiment",
+        "body": "dB Halo no requereix cap compte ni inclou publicitat, analítica, seguiment o SDK de tercers. Lumi Studio no opera cap servei al núvol per a dB Halo, no crea perfils d’usuari, no ven informació personal i no pot veure les mesures o enregistraments del dispositiu."
+      },
+      "live-audio-memory-only": {
+        "title": "Àudio en directe de Sonòmetre, Espectre i Dosi",
+        "body": "Quan fas servir Sonòmetre, Espectre, RTA, Espectrograma o Dosi de soroll, les mostres del micròfon es processen a la memòria del dispositiu per calcular nivells, freqüències i estimacions d’exposició. L’àudio original no es desa ni s’envia a Lumi Studio."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Esdeveniments del son i enregistraments AAC explícits",
+        "body": "El mode Son només desa categories reconegudes, hores dels esdeveniments i valors en dB; no conserva l’àudio original del son. Només es crea un fitxer d’àudio quan inicies expressament un enregistrament AAC, que roman local fins que l’eliminis o l’exportis."
+      },
+      "photos-picker-local-processing": {
+        "title": "Fotos i vídeos que tries",
+        "body": "dB Halo utilitza PhotosPicker d’Apple i, per tant, només rep les fotos o vídeos que selecciones expressament, sense accés il·limitat a la fototeca. Els elements triats es processen localment per a superposicions o exportacions compatibles i Lumi Studio no els puja."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit només per escriure",
+        "body": "Si autoritzes Salut i tries exportar l’exposició, dB Halo escriu mostres d’exposició al soroll ambiental a HealthKit. L’app no llegeix dades de Salut. Gestiona el permís i els registres escrits des de l’app Salut i Configuració de l’iOS."
+      },
+      "local-history-calibration-trial": {
+        "title": "Historial, calibratge i usos gratuïts locals",
+        "body": "Les mesures desades, resums d’esdeveniments, perfils de calibratge, preferències i el comptador local d’usos gratuïts s’emmagatzemen al contenidor local de l’app. Els enregistraments AAC iniciats expressament també són locals i només serveixen les funcions sol·licitades."
+      },
+      "apple-platform-services": {
+        "title": "Serveis de la plataforma Apple",
+        "body": "Apple processa les compres i restauracions de Lifetime Pro mitjançant StoreKit; Lumi Studio no rep les dades de la targeta. WatchConnectivity intercanvia amb l’Apple Watch enllaçat les dades necessàries per a dB Halo. Els ginys i App Intents utilitzen el contenidor local compartit. Aquests serveis no creen cap compte al núvol de Lumi Studio."
+      },
+      "user-directed-files-share": {
+        "title": "Fitxers i compartició dirigits per tu",
+        "body": "Els fitxers CSV, PDF, AAC, les fotos i els vídeos només es creen quan els demanes. La interfície Fitxers o Compartir del sistema et permet triar destinació o destinatari. dB Halo no els puja automàticament; després, el proveïdor o destinatari triat controla la seva còpia."
+      },
+      "support-email-exception": {
+        "title": "Excepció del correu d’assistència",
+        "body": "Si escrius a assistència, la teva adreça, missatge i adjunts es transmeten mitjançant els proveïdors de correu implicats i Lumi Studio només els rep per respondre, protegir i documentar la sol·licitud. La correspondència es conserva només el temps raonablement necessari o per obligacions legals i després s’elimina o arxiva segons aquestes obligacions. No enviïs àudio, contingut multimèdia o dades de salut sensibles si no és necessari."
+      },
+      "deletion-and-retention": {
+        "title": "Conservació i eliminació",
+        "body": "Elimina mesures i enregistraments explícits amb els controls corresponents de dB Halo. En suprimir l’app s’eliminen les altres dades del contenidor, excepte les còpies normals del dispositiu que gestioneu tu i Apple. Elimina les exportacions a la destinació triada, gestiona els registres de Salut a l’app Salut i suprimeix l’app del Watch per esborrar-ne les dades locals. Pots demanar que s’eliminin els correus d’assistència, llevat d’obligació legal de conservar-los."
+      },
+      "children-medical-workplace": {
+        "title": "Infants, seguretat i límits legals",
+        "body": "dB Halo no està dissenyada per recollir informació personal d’infants. Com que no hi ha compte, el propietari del dispositiu controla permisos i compartició quan la fa servir un infant o familiar. Les lectures són informatives i no constitueixen consell mèdic, diagnòstic auditiu, mesura certificada ni substitueixen normes de seguretat laboral, professionals o instruments calibrats obligatoris."
+      },
+      "effective-and-updated": {
+        "title": "Dates i canvis de la política",
+        "body": "Aquesta política entra en vigor i es va actualitzar el 29 d’agost de 2026. Si canvien les pràctiques de dades de dB Halo, aquesta pàgina s’actualitzarà abans d’aplicar el canvi allà on calgui avisar."
+      }
+    },
+    "contactTitle": "Contacte de privadesa",
+    "contactBody": "Per a preguntes de privadesa o sol·licituds sobre correus d’assistència, contacta amb:",
+    "contactButton": "Escriu sobre privadesa"
+  }
+}
