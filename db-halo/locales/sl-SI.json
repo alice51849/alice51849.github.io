@@ -1,0 +1,145 @@
+{
+  "locale": "sl-SI",
+  "languageName": "Slovenščina",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Pojdi na glavno vsebino",
+    "language": "Jezik",
+    "support": "Podpora",
+    "privacy": "Zasebnost",
+    "email": "Piši podpori",
+    "allApps": "Vse aplikacije",
+    "brandHome": "Domača stran podpore dB Halo",
+    "navigation": "Glavna navigacija",
+    "footerNavigation": "Navigacija v nogi"
+  },
+  "support": {
+    "metaDescription": "Uradna pomoč za dB Halo glede ravni zvoka, spektra, doze hrupa, dogodkov spanja, dovoljenj, Lifetime Pro in odpravljanja težav.",
+    "kicker": "Zaseben vpogled v zvočno okolje",
+    "title": "Razumite zvok okoli sebe",
+    "intro": "dB Halo spremeni iPhone, iPad in Apple Watch v razumljiv merilnik ravni zvoka. Hitro preverite trenutno raven, raziskujte frekvence v živo, ocenite izpostavljenost hrupu in shranite uporabne meritve – vse se obdeluje v napravi.",
+    "badges": [
+      "Brez računa",
+      "Brez oglasov in sledenja",
+      "Zvok se obdeluje v napravi",
+      "Lifetime Pro kot enkratni nakup"
+    ],
+    "featuresEyebrow": "Kaj omogoča dB Halo",
+    "featuresTitle": "Na prvi pogled preprosto, po potrebi podrobno",
+    "features": [
+      {
+        "title": "Merilnik in Halo",
+        "body": "Oglejte si trenutno, najnižjo, povprečno, najvišjo in konično raven z jasnim Halom, utežitvami, LAeq in razumljivimi pojasnili."
+      },
+      {
+        "title": "Spekter, RTA in spektrogram",
+        "body": "Preglejte energijo frekvenc s sinhroniziranim FFT, oktavnim RTA in spektrogramom, ne da bi prekinili aktivno analizo."
+      },
+      {
+        "title": "Doza hrupa",
+        "body": "Spremljajte ocenjeno izpostavljenost, preostali čas in smernice NIOSH ali OSHA. Rezultat je informativen, ne odločitev o skladnosti na delovnem mestu."
+      },
+      {
+        "title": "Zvočni dogodki med spanjem",
+        "body": "V napravo shranite prepoznane kategorije, čase in vrednosti dB. Način Spanje ne shranjuje surovega zvoka."
+      },
+      {
+        "title": "Zgodovina in izvoz",
+        "body": "Lokalno hranite zgodovino in profile umerjanja ter na zahtevo ustvarite CSV, PDF, AAC, fotografije ali videoposnetke."
+      },
+      {
+        "title": "Watch, pripomočki in bližnjice",
+        "body": "Uporabljajte namensko izkušnjo Apple Watch, pripomočke in App Intents; seznanjene naprave izmenjajo le nujne lokalne podatke."
+      }
+    ],
+    "quickStartTitle": "Hitri začetek",
+    "quickStart": [
+      "Odprite Merilnik in dovolite mikrofon, ko vas iOS vpraša.",
+      "Napravo postavite tako, da mikrofon ni pokrit in se ne drgne ob oblačila, nato tapnite Začni.",
+      "Za hitro oceno uporabite Halo in trenutno vrednost dB; za podrobnosti odprite Spekter ali Dozo.",
+      "Pred odhodom tapnite Ustavi in rezultat shranite v Zgodovino, če ga želite obdržati."
+    ],
+    "permissionsTitle": "Dovoljenja ostanejo pod vašim nadzorom",
+    "permissions": [
+      "Mikrofon je potreben za merjenje in analizo. Surovi zvok Merilnika, Spektra in Doze se obdela le v pomnilniku in se ne shrani.",
+      "Fotografije in videoposnetki so dostopni šele, ko izberete določene elemente v sistemskem izbirniku Fotografij; le izbor se obdela lokalno.",
+      "Dostop do Zdravja ni obvezen. Z dovoljenjem dB Halo samo zapisuje vzorce izpostavljenosti okoljskemu hrupu in ne bere podatkov Zdravja."
+    ],
+    "proTitle": "Lifetime Pro in obnovitev",
+    "proBody": "Lifetime Pro je enkratni nepotrošni nakup, ne naročnina. App Store pred potrditvijo pokaže lokalno ceno. Prejšnji nakup obnovite prek dB Halo → Nastavitve → Lifetime Pro → Obnovi nakupe z istim Apple Accountom kot ob nakupu.",
+    "troubleshootingTitle": "Odpravljanje težav",
+    "troubleshooting": [
+      "Ni meritve: preverite dovoljenje mikrofona v nastavitvah iOS, odklopite neželeno zvočno pot in preverite, ali mikrofon uporablja druga aplikacija.",
+      "Nepričakovane vrednosti: odstranite ovitek ali oviro ob mikrofonu, preprečite zvok rokovanja, izberite pravi vhod in preverite profil umerjanja.",
+      "Watch ali pripomoček ni posodobljen: iPhone in Watch naj ostaneta seznanjena in blizu, enkrat odprite dB Halo na iPhonu in počakajte na osvežitev sistema.",
+      "Nakup ni obnovljen: preverite povezavo, uporabite prvotni Apple Account in znova zaženite Obnovi nakupe v Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Pomembno opozorilo o meritvi",
+    "accuracyTitle": "Utemeljena ocena, ne certificiran instrument",
+    "accuracyBody": "Mikrofoni telefonov in ur se razlikujejo glede na model, položaj, ovitek, okolje in umerjanje. dB Halo je uporaben za ozaveščenost in osebne zapise, vendar ni certificiran merilnik ravni zvoka ter ne nadomešča zdravniškega nasveta, pregleda sluha, meritev varnosti pri delu ali zakonsko zahtevanega umerjenega instrumenta.",
+    "contactEyebrow": "Potrebujete dodatno pomoč?",
+    "contactTitle": "Obrnite se na podporo dB Halo",
+    "contactBody": "Navedite model naprave, različico iOS ali watchOS, prizadeti zaslon ali funkcijo in pričakovano vedenje. Ne prilagajte zasebnih posnetkov, fotografij, zdravstvenih podatkov ali izvoženih datotek, razen če so nujni za rešitev.",
+    "contactButton": "Piši podpori"
+  },
+  "privacy": {
+    "metaDescription": "Pravilnik o zasebnosti dB Halo: brez računa, oglasov, analitike in sledenja; zvočna analiza in zapisi ostanejo v napravi brez vašega izrecnega dejanja.",
+    "kicker": "Zasebnost že v zasnovi",
+    "title": "Pravilnik o zasebnosti",
+    "dateLine": "Velja od 29. avgusta 2026 · Posodobljeno 29. avgusta 2026",
+    "intro": "dB Halo analizira zvok lokalno in obdeluje čim manj podatkov. Ta pravilnik opisuje, kaj se obdeluje, kaj lahko ostane v napravi in kdaj informacije zapustijo aplikacijo samo po vaši izbiri.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Brez računa, oglasov, analitike in sledenja",
+        "body": "dB Halo ne zahteva računa ter ne vsebuje oglasov, analitike, sledenja ali SDK-jev tretjih oseb. Lumi Studio ne upravlja storitve v oblaku za dB Halo, ne ustvarja uporabniškega profila, ne prodaja osebnih podatkov in ne more videti meritev ali posnetkov v napravi."
+      },
+      "live-audio-memory-only": {
+        "title": "Zvok v živo za Merilnik, Spekter in Dozo",
+        "body": "Pri uporabi Merilnika, Spektra, RTA, Spektrograma ali Doze hrupa se vzorci mikrofona obdelajo v pomnilniku naprave za izračun ravni, frekvenc in izpostavljenosti. Surovi zvok se ne shrani in ne pošlje Lumi Studiu."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Dogodki spanja in izrecni posnetki AAC",
+        "body": "Način Spanje shrani samo prepoznane kategorije, čase dogodkov in vrednosti dB ter ne hrani surovega zvoka spanja. Zvočna datoteka nastane le, ko zavestno zaženete snemanje AAC. Ostane lokalna, dokler je ne izbrišete ali izvozite."
+      },
+      "photos-picker-local-processing": {
+        "title": "Fotografije in videoposnetki, ki jih izberete",
+        "body": "dB Halo uporablja Apple PhotosPicker, zato prejme le izrecno izbrane fotografije ali videoposnetke, ne neomejenega dostopa do knjižnice. Izbor se obdela lokalno za podprte prekrivne elemente ali izvoz in ga Lumi Studio ne naloži."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit samo za zapisovanje",
+        "body": "Če dovolite Zdravje in izberete izvoz izpostavljenosti, dB Halo zapiše vzorce izpostavljenosti okoljskemu hrupu v HealthKit. Aplikacija ne bere podatkov Zdravja. Dovoljenje in zapisane podatke upravljajte v aplikaciji Zdravje in nastavitvah iOS."
+      },
+      "local-history-calibration-trial": {
+        "title": "Lokalna zgodovina, umerjanje in brezplačna uporaba",
+        "body": "Shranjene meritve, povzetki dogodkov, profili umerjanja, nastavitve in lokalni števec brezplačnih uporab so v lokalnem vsebniku aplikacije. Izrecni posnetki AAC so prav tako lokalni in služijo le izbranim funkcijam."
+      },
+      "apple-platform-services": {
+        "title": "Storitve platforme Apple",
+        "body": "Apple obdela nakupe in obnovitve Lifetime Pro prek StoreKita; Lumi Studio ne prejme podatkov kartice. WatchConnectivity izmenja potrebne podatke dB Halo s seznanjeno uro Apple Watch. Pripomočki in App Intents uporabljajo skupni lokalni vsebnik aplikacije. Te storitve ne ustvarijo računa Lumi Studio v oblaku."
+      },
+      "user-directed-files-share": {
+        "title": "Datoteke in deljenje pod vašim nadzorom",
+        "body": "CSV, PDF, AAC, fotografije in videoposnetki nastanejo le na vašo zahtevo. Sistemski pogled Datoteke ali Deli omogoča izbiro cilja ali prejemnika. dB Halo ničesar ne naloži samodejno; izbrani ponudnik ali prejemnik nato upravlja svojo kopijo."
+      },
+      "support-email-exception": {
+        "title": "Izjema za e-pošto podpore",
+        "body": "Ko pišete podpori, se naslov, sporočilo in priloge prenesejo prek vključenih ponudnikov e-pošte, Lumi Studio pa jih prejme samo za odgovor, varnost in dokumentiranje zahteve. Korespondenca se hrani le razumno potreben ali zakonsko zahtevan čas ter nato izbriše ali arhivira v skladu s temi obveznostmi. Ne pošiljajte občutljivega zvoka, medijev ali zdravstvenih podatkov, če niso nujni."
+      },
+      "deletion-and-retention": {
+        "title": "Hramba in izbris",
+        "body": "Shranjene meritve in izrecne posnetke izbrišite z ustreznimi kontrolami dB Halo. Odstranitev aplikacije izbriše druge podatke vsebnika, razen običajnih varnostnih kopij naprave, ki jih upravljate vi in Apple. Izvoze izbrišite na cilju, podatke Zdravja upravljajte v aplikaciji Zdravje, aplikacijo Watch pa odstranite za brisanje lokalnih podatkov. Zahtevate lahko izbris e-pošte podpore, če zakon ne zahteva hrambe."
+      },
+      "children-medical-workplace": {
+        "title": "Otroci, varnost in pravne omejitve",
+        "body": "dB Halo ni zasnovan za zbiranje osebnih podatkov otrok. Brez računa lastnik naprave nadzira dovoljenja in deljenje, ko aplikacijo uporablja otrok ali družinski član. Meritve so informativne in niso zdravniški nasvet, diagnoza sluha, certificirana meritev ali nadomestilo za predpise varnosti pri delu, strokovnjake oziroma zahtevane umerjene instrumente."
+      },
+      "effective-and-updated": {
+        "title": "Datumi in spremembe pravilnika",
+        "body": "Pravilnik velja od 29. avgusta 2026 in je bil takrat posodobljen. Če se ravnanje s podatki v dB Halo spremeni, bo stran tam, kjer je potrebno predhodno obvestilo, posodobljena pred uvedbo spremembe."
+      }
+    },
+    "contactTitle": "Kontakt za zasebnost",
+    "contactBody": "Za vprašanja o zasebnosti ali zahteve glede korespondence podpore pišite na:",
+    "contactButton": "Piši o zasebnosti"
+  }
+}

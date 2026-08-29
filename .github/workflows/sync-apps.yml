@@ -47,6 +47,13 @@ jobs:
         if: always()
         run: python3 .github/scripts/test_sync_root_app_pages.py -q
 
+      - name: Verify deterministic dB Halo exact-50 site
+        if: always()
+        run: |
+          python3 .github/scripts/test_db_halo_site.py -q
+          python3 scripts/generate_db_halo_site.py --check
+          python3 scripts/validate_db_halo_site.py
+
       - name: Commit & push if anything changed
         id: publish
         run: |

@@ -1,0 +1,145 @@
+{
+  "locale": "fi",
+  "languageName": "Suomi",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Siirry pääsisältöön",
+    "language": "Kieli",
+    "support": "Tuki",
+    "privacy": "Tietosuoja",
+    "email": "Lähetä viesti tukeen",
+    "allApps": "Kaikki apit",
+    "brandHome": "dB Halo -tuen etusivu",
+    "navigation": "Päänavigointi",
+    "footerNavigation": "Alatunnisteen navigointi"
+  },
+  "support": {
+    "metaDescription": "dB Halon virallinen ohje äänitasoon, spektrianalyysiin, meluannokseen, unitapahtumiin, käyttöoikeuksiin, Lifetime Prohon ja vianmääritykseen.",
+    "kicker": "Yksityinen näkymä ääniympäristöön",
+    "title": "Ymmärrä ympärilläsi oleva ääni",
+    "intro": "dB Halo tekee iPhonesta, iPadista ja Apple Watchista helposti ymmärrettävän äänitasomittarin. Näe nykyinen taso, tutki taajuuksia reaaliajassa, arvioi melualtistus ja säilytä hyödylliset mittaukset – kaikki käsitellään laitteessa.",
+    "badges": [
+      "Ei tiliä",
+      "Ei mainoksia tai seurantaa",
+      "Ääni käsitellään laitteessa",
+      "Lifetime Pro kertamaksulla"
+    ],
+    "featuresEyebrow": "Mitä dB Halo tekee",
+    "featuresTitle": "Ensi silmäyksellä yksinkertainen, tarvittaessa tarkka",
+    "features": [
+      {
+        "title": "Mittari ja Halo",
+        "body": "Näe nykyinen, pienin, keskimääräinen, suurin ja huipputaso selkeällä Halolla sekä painotukset, LAeq ja ymmärrettävät selitykset."
+      },
+      {
+        "title": "Spektri, RTA ja spektrogrammi",
+        "body": "Tutki taajuusenergiaa synkronoidulla FFT:llä, oktaavikaista-RTA:lla ja spektrogrammilla keskeyttämättä aktiivista analyysiä."
+      },
+      {
+        "title": "Meluannos",
+        "body": "Seuraa arvioitua altistusta, jäljellä olevaa aikaa ja NIOSH- tai OSHA-ohjeita. Tulos on suuntaa antava, ei työturvallisuuspäätös."
+      },
+      {
+        "title": "Unen äänitapahtumat",
+        "body": "Tallenna tunnistetut luokat, ajat ja dB-arvot laitteeseen. Unitila ei tallenna raakaa ääntä."
+      },
+      {
+        "title": "Historia ja vienti",
+        "body": "Säilytä historia ja kalibrointiprofiilit paikallisesti ja luo pyynnöstä CSV-, PDF-, AAC-, kuva- tai videotiedostoja."
+      },
+      {
+        "title": "Watch, widgetit ja oikotiet",
+        "body": "Käytä Apple Watchille suunniteltua näkymää, widgettejä ja App Intents -toimintoja; paritetut laitteet vaihtavat vain tarvittavat paikalliset tiedot."
+      }
+    ],
+    "quickStartTitle": "Pika-aloitus",
+    "quickStart": [
+      "Avaa Mittari ja salli mikrofonin käyttö, kun iOS kysyy.",
+      "Aseta laite niin, ettei mikrofoni peity tai hankaa vaatteisiin, ja napauta Aloita.",
+      "Katso nopea arvio Halosta ja nykyisestä dB-arvosta; avaa Spektri tai Annos, kun tarvitset lisätietoja.",
+      "Napauta Lopeta ennen näkymästä poistumista ja tallenna tulos Historiaan, jos haluat säilyttää sen."
+    ],
+    "permissionsTitle": "Sinä hallitset käyttöoikeuksia",
+    "permissions": [
+      "Mikrofonia tarvitaan mittaukseen ja analyysiin. Mittarin, Spektrin ja Annoksen raaka ääni käsitellään vain muistissa eikä sitä tallenneta.",
+      "Kuvat ja videot ovat käytettävissä vasta, kun valitset tietyt kohteet järjestelmän kuvavalitsimella; vain valitut kohteet käsitellään paikallisesti.",
+      "Terveys-käyttö on valinnainen. Luvalla dB Halo kirjoittaa vain ympäristömelualtistuksen näytteitä eikä lue Terveys-tietoja."
+    ],
+    "proTitle": "Lifetime Pro ja palautus",
+    "proBody": "Lifetime Pro on yksi kulumaton kertaostos, ei tilaus. App Store näyttää paikallisen hinnan ennen vahvistusta. Palauta aiempi osto kohdasta dB Halo → Asetukset → Lifetime Pro → Palauta ostot samalla Apple Accountilla, jolla osto tehtiin.",
+    "troubleshootingTitle": "Vianmääritys",
+    "troubleshooting": [
+      "Ei mittausta: tarkista mikrofonilupa iOS-asetuksissa, irrota tahaton äänireitti ja varmista, ettei toinen appi käytä mikrofonia.",
+      "Odottamattomat arvot: poista kotelo tai este mikrofonin läheltä, vältä käsittelyääniä, valitse oikea tulo ja tarkista kalibrointiprofiili.",
+      "Watch tai widget ei päivity: pidä iPhone ja Watch paritettuna ja lähellä, avaa dB Halo kerran iPhonessa ja odota hetki järjestelmän päivitystä.",
+      "Osto ei palaudu: tarkista verkkoyhteys, käytä alkuperäistä Apple Accountia ja suorita Palauta ostot uudelleen Lifetime Prossa."
+    ],
+    "accuracyEyebrow": "Tärkeä mittaushuomautus",
+    "accuracyTitle": "Perusteltu arvio, ei sertifioitu mittalaite",
+    "accuracyBody": "Puhelinten ja kellojen mikrofonit vaihtelevat mallin, sijoittelun, kotelon, ympäristön ja kalibroinnin mukaan. dB Halo auttaa havainnoinnissa ja henkilökohtaisissa muistiinpanoissa, mutta ei ole sertifioitu äänitasomittari eikä korvaa lääketieteellistä neuvontaa, kuulontutkimusta, työhygieenistä mittausta tai lain edellyttämää kalibroitua laitetta.",
+    "contactEyebrow": "Tarvitsetko lisää apua?",
+    "contactTitle": "Ota yhteyttä dB Halo -tukeen",
+    "contactBody": "Kerro laitteen malli, iOS- tai watchOS-versio, kyseinen näkymä tai toiminto ja odotettu tulos. Älä liitä yksityisiä tallenteita, kuvia, terveystietoja tai vietyjä tiedostoja, elleivät ne ole asian ratkaisemiseksi välttämättömiä.",
+    "contactButton": "Lähetä viesti tukeen"
+  },
+  "privacy": {
+    "metaDescription": "dB Halon tietosuojakäytäntö: ei tiliä, mainoksia, analytiikkaa tai seurantaa; äänianalyysi ja tiedot pysyvät laitteessa ilman omaa nimenomaista toimintaasi.",
+    "kicker": "Tietosuoja suunnittelun lähtökohtana",
+    "title": "Tietosuojakäytäntö",
+    "dateLine": "Voimassa 29.8.2026 alkaen · Päivitetty 29.8.2026",
+    "intro": "dB Halo analysoi äänen paikallisesti ja käsittelee mahdollisimman vähän tietoja. Tässä kuvataan, mitä käsitellään, mitä laitteeseen voidaan tallentaa ja milloin tieto poistuu apista vain sinun valintasi vuoksi.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Ei tiliä, mainoksia, analytiikkaa tai seurantaa",
+        "body": "dB Halo ei vaadi tiliä eikä sisällä mainoksia, analytiikkaa, seurantaa tai kolmannen osapuolen SDK:ita. Lumi Studio ei ylläpidä dB Halolle pilvipalvelua, luo käyttäjäprofiilia, myy henkilötietoja eikä voi nähdä laitteesi mittauksia tai tallenteita."
+      },
+      "live-audio-memory-only": {
+        "title": "Mittarin, Spektrin ja Annoksen reaaliaikainen ääni",
+        "body": "Mittaria, Spektriä, RTA:ta, Spektrogrammia tai Meluannosta käytettäessä mikrofoninäytteet käsitellään laitteen muistissa tasojen, taajuuksien ja altistusarvioiden laskemiseksi. Raakaa ääntä ei tallenneta eikä lähetetä Lumi Studiolle."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Unitapahtumat ja nimenomaiset AAC-tallenteet",
+        "body": "Unitila tallentaa vain tunnistetut luokat, tapahtuma-ajat ja dB-arvot eikä säilytä raakaa uniääntä. Äänitiedosto syntyy vain, kun käynnistät tarkoituksella AAC-tallennuksen. Se pysyy paikallisena, kunnes poistat tai viet sen."
+      },
+      "photos-picker-local-processing": {
+        "title": "Valitsemasi kuvat ja videot",
+        "body": "dB Halo käyttää Applen PhotosPickeria ja saa siksi vain nimenomaisesti valitsemasi kuvat tai videot, ei vapaata pääsyä kirjastoosi. Valinta käsitellään paikallisesti tuettuja peittokuvia tai vientiä varten, eikä Lumi Studio lataa sitä."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit vain kirjoitukseen",
+        "body": "Jos annat Terveys-luvan ja viet altistuksen, dB Halo kirjoittaa ympäristömelualtistuksen näytteitä HealthKitiin. Appi ei lue Terveys-tietoja. Hallitse lupaa ja kirjoitettuja tietoja Terveys-apissa ja iOS-asetuksissa."
+      },
+      "local-history-calibration-trial": {
+        "title": "Paikallinen historia, kalibrointi ja maksuton käyttö",
+        "body": "Tallennetut mittaukset, tapahtumayhteenvedot, kalibrointiprofiilit, asetukset ja maksuttomien käyttökertojen paikallinen laskuri ovat apin paikallisessa säiliössä. Nimenomaiset AAC-tallenteet ovat myös paikallisia ja palvelevat vain valittuja toimintoja."
+      },
+      "apple-platform-services": {
+        "title": "Applen alustapalvelut",
+        "body": "Apple käsittelee Lifetime Pro -ostot ja palautukset StoreKitillä; Lumi Studio ei saa korttitietoja. WatchConnectivity vaihtaa tarvittavat dB Halo -tiedot paritetun Apple Watchin kanssa. Widgetit ja App Intents käyttävät apin jaettua paikallista säiliötä. Palvelut eivät luo Lumi Studion pilvitiliä."
+      },
+      "user-directed-files-share": {
+        "title": "Hallitsemasi tiedostot ja jako",
+        "body": "CSV-, PDF-, AAC-, kuva- ja videotiedostoja luodaan vain pyynnöstäsi. Järjestelmän Tiedostot- tai jakonäkymässä valitset kohteen tai vastaanottajan. dB Halo ei lataa mitään automaattisesti; valittu palvelu tai vastaanottaja hallitsee sen jälkeen omaa kopiota."
+      },
+      "support-email-exception": {
+        "title": "Tukisähköpostin poikkeus",
+        "body": "Kun lähetät tukeen sähköpostia, osoite, viesti ja liitteet kulkevat mukana olevien sähköpostipalvelujen kautta ja Lumi Studio vastaanottaa ne vain vastatakseen, suojatakseen ja dokumentoidakseen asian. Kirjeenvaihto säilytetään vain kohtuullisen tarpeen tai lakivelvoitteen ajan ja poistetaan tai arkistoidaan sen jälkeen velvoitteen mukaisesti. Älä lähetä arkaluonteista ääntä, mediaa tai terveystietoa, ellei se ole tarpeen."
+      },
+      "deletion-and-retention": {
+        "title": "Säilytys ja poistaminen",
+        "body": "Poista tallennetut mittaukset ja nimenomaiset tallenteet dB Halon vastaavilla toiminnoilla. Apin poistaminen poistaa muut appisäiliön tiedot lukuun ottamatta tavallisia laitevarmuuskopioita, joita sinä ja Apple hallitsette. Poista viennit kohteesta, hallitse Terveys-tietoja Terveys-apissa ja poista Watch-appi sen paikallisten tietojen tyhjentämiseksi. Tukiviestien poistoa voi pyytää, ellei laki vaadi säilytystä."
+      },
+      "children-medical-workplace": {
+        "title": "Lapset, turvallisuus ja oikeudelliset rajat",
+        "body": "dB Haloa ei ole suunniteltu lasten henkilötietojen keräämiseen. Ilman tiliä laitteen omistaja hallitsee lupia ja jakamista lapsen tai perheenjäsenen käyttäessä appia. Mittaukset ovat suuntaa antavia eivätkä lääketieteellisiä neuvoja, kuulodiagnoosi, sertifioitu melumittaus tai korvike työturvallisuussäännöille, ammattilaisille tai vaadituille kalibroiduille laitteille."
+      },
+      "effective-and-updated": {
+        "title": "Päivämäärät ja muutokset",
+        "body": "Käytäntö tulee voimaan ja on päivitetty 29.8.2026. Jos dB Halon tietokäytännöt muuttuvat, sivu päivitetään ennen muutoksen käyttöönottoa siellä, missä ennakkoilmoitus vaaditaan."
+      }
+    },
+    "contactTitle": "Tietosuojayhteys",
+    "contactBody": "Tietosuojakysymyksissä tai tukikirjeenvaihtoa koskevissa pyynnöissä ota yhteyttä:",
+    "contactButton": "Lähetä tietosuojaviesti"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "locale": "pt-PT",
+  "languageName": "Português (Portugal)",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Saltar para o conteúdo principal",
+    "language": "Idioma",
+    "support": "Suporte",
+    "privacy": "Privacidade",
+    "email": "Enviar e-mail ao suporte",
+    "allApps": "Todas as apps",
+    "brandHome": "Início do suporte dB Halo",
+    "navigation": "Navegação principal",
+    "footerNavigation": "Navegação do rodapé"
+  },
+  "support": {
+    "metaDescription": "Ajuda oficial do dB Halo para nível sonoro, análise de espectro, dose de ruído, eventos do sono, permissões, Lifetime Pro e resolução de problemas.",
+    "kicker": "Consciência sonora com privacidade",
+    "title": "Compreenda o som à sua volta",
+    "intro": "O dB Halo transforma o iPhone, iPad e Apple Watch num companheiro acessível para compreender o nível sonoro. Veja o nível atual, explore frequências em direto, estime a exposição ao ruído e guarde medições úteis, sempre com processamento no dispositivo.",
+    "badges": [
+      "Sem conta",
+      "Sem publicidade nem seguimento",
+      "Áudio processado no dispositivo",
+      "Lifetime Pro com compra única"
+    ],
+    "featuresEyebrow": "O que faz o dB Halo",
+    "featuresTitle": "Simples à primeira vista, detalhado quando é preciso",
+    "features": [
+      {
+        "title": "Sonómetro e Halo",
+        "body": "Consulte os níveis atual, mínimo, médio, máximo e de pico com um Halo claro, ponderações, LAeq e explicações simples."
+      },
+      {
+        "title": "Espectro, RTA e espetrograma",
+        "body": "Analise a energia por frequência com FFT, RTA por bandas de oitava e espetrograma sincronizados, sem interromper a sessão ativa."
+      },
+      {
+        "title": "Dose de ruído",
+        "body": "Acompanhe a exposição estimada, o tempo restante e as orientações NIOSH ou OSHA. O resultado é informativo e não determina conformidade laboral."
+      },
+      {
+        "title": "Eventos sonoros do sono",
+        "body": "Guarde no dispositivo as categorias reconhecidas, as horas e os valores em dB. O modo Sono não conserva áudio em bruto."
+      },
+      {
+        "title": "Histórico e exportações",
+        "body": "Mantenha localmente o histórico e os perfis de calibração e crie, quando pedir, ficheiros CSV, PDF, AAC, fotografias ou vídeos."
+      },
+      {
+        "title": "Watch, widgets e atalhos",
+        "body": "Utilize a experiência dedicada do Apple Watch, widgets e App Intents; os dispositivos emparelhados só trocam os dados locais necessários."
+      }
+    ],
+    "quickStartTitle": "Início rápido",
+    "quickStart": [
+      "Abra Sonómetro e permita o acesso ao microfone quando o iOS pedir.",
+      "Coloque o dispositivo sem tapar o microfone nem o deixar roçar na roupa e toque em Iniciar.",
+      "Use o Halo e o valor atual em dB para uma leitura rápida; abra Espectro ou Dose para mais detalhes.",
+      "Toque em Parar antes de sair e guarde o resultado no Histórico se o quiser conservar."
+    ],
+    "permissionsTitle": "As permissões permanecem sob o seu controlo",
+    "permissions": [
+      "O microfone é necessário para medir e analisar. O áudio em bruto do Sonómetro, Espectro e Dose é processado em memória e não é guardado.",
+      "As fotografias e vídeos só são acedidos depois de escolher elementos específicos no seletor Fotografias do sistema; o dB Halo processa localmente apenas esses elementos.",
+      "O acesso a Saúde é opcional. Com autorização, o dB Halo apenas escreve amostras de exposição ao ruído ambiental e não lê dados de Saúde."
+    ],
+    "proTitle": "Lifetime Pro e restauro",
+    "proBody": "Lifetime Pro é uma compra única não consumível, não uma subscrição. A App Store mostra o preço local antes da confirmação. Para restaurar uma compra, abra dB Halo → Definições → Lifetime Pro → Restaurar compras e use a mesma Conta Apple da compra original.",
+    "troubleshootingTitle": "Resolução de problemas",
+    "troubleshooting": [
+      "Sem leitura: verifique a permissão do microfone nas Definições do iOS, desligue rotas de áudio indesejadas e confirme que outra app não está a usar o microfone.",
+      "Valores inesperados: retire capas ou obstáculos junto ao microfone, evite ruído de manuseamento, escolha a entrada correta e reveja o perfil de calibração.",
+      "Watch ou widget desatualizado: mantenha o iPhone e o Watch emparelhados e próximos, abra uma vez o dB Halo no iPhone e aguarde a atualização do sistema.",
+      "Compra não restaurada: verifique a ligação, use a Conta Apple original e execute novamente Restaurar compras em Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Nota importante sobre a medição",
+    "accuracyTitle": "Uma estimativa informada, não um instrumento certificado",
+    "accuracyBody": "Os microfones de telefones e relógios variam conforme o modelo, posição, capa, ambiente e calibração. O dB Halo é útil para consciência e registos pessoais, mas não é um sonómetro certificado nem substitui aconselhamento médico, avaliação auditiva, monitorização de higiene ocupacional ou um instrumento calibrado exigido por lei.",
+    "contactEyebrow": "Precisa de mais ajuda?",
+    "contactTitle": "Contactar o suporte dB Halo",
+    "contactBody": "Indique o modelo do dispositivo, a versão do iOS ou watchOS, o ecrã ou função em causa e o que esperava que acontecesse. Não anexe gravações privadas, fotografias, dados de saúde ou ficheiros exportados, salvo se forem indispensáveis ao pedido.",
+    "contactButton": "Enviar e-mail ao suporte"
+  },
+  "privacy": {
+    "metaDescription": "Política de privacidade do dB Halo: sem conta, publicidade, análise ou seguimento; a análise de áudio e os registos ficam no dispositivo salvo ação explícita.",
+    "kicker": "Privacidade desde a conceção",
+    "title": "Política de privacidade",
+    "dateLine": "Em vigor desde 29 de agosto de 2026 · Atualizada em 29 de agosto de 2026",
+    "intro": "O dB Halo foi concebido para analisar o som localmente e reduzir ao mínimo os dados tratados. Esta política explica o que é processado, o que pode ficar no dispositivo e quando uma informação sai da app apenas porque o utilizador assim o indica.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Sem conta, publicidade, análise ou seguimento",
+        "body": "O dB Halo não exige conta e não inclui publicidade, análise, seguimento ou SDK de terceiros. A Lumi Studio não opera um serviço cloud para o dB Halo, não cria perfis de utilizador, não vende informações pessoais e não consegue ver medições ou gravações existentes no dispositivo."
+      },
+      "live-audio-memory-only": {
+        "title": "Áudio em direto do Sonómetro, Espectro e Dose",
+        "body": "Ao usar Sonómetro, Espectro, RTA, Espetrograma ou Dose de ruído, as amostras do microfone são processadas na memória do dispositivo para calcular níveis, frequências e estimativas de exposição. Esse áudio em bruto não é guardado nem enviado à Lumi Studio."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Eventos do sono e gravações AAC explícitas",
+        "body": "O modo Sono guarda apenas categorias reconhecidas, horas dos eventos e valores em dB; não conserva o áudio original do sono. Só é criado um ficheiro de áudio quando inicia deliberadamente uma gravação AAC, que permanece local até ser eliminada ou exportada."
+      },
+      "photos-picker-local-processing": {
+        "title": "Fotografias e vídeos escolhidos pelo utilizador",
+        "body": "O dB Halo usa o PhotosPicker da Apple e, por isso, recebe apenas as fotografias ou vídeos escolhidos expressamente, sem acesso ilimitado à fototeca. Os elementos selecionados são processados localmente para sobreposições ou exportações suportadas e não são carregados pela Lumi Studio."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit apenas para escrita",
+        "body": "Se autorizar Saúde e escolher exportar a exposição, o dB Halo escreve amostras de exposição ao ruído ambiental no HealthKit. A app não lê dados de Saúde. Gira a permissão e os registos escritos na app Saúde e nas Definições do iOS."
+      },
+      "local-history-calibration-trial": {
+        "title": "Histórico, calibração e utilizações gratuitas locais",
+        "body": "As medições guardadas, resumos de eventos, perfis de calibração, preferências e o contador local de utilizações gratuitas ficam no contentor local da app. As gravações AAC iniciadas expressamente também são locais e servem apenas as funções pedidas."
+      },
+      "apple-platform-services": {
+        "title": "Serviços da plataforma Apple",
+        "body": "A Apple processa as compras e restauros de Lifetime Pro através do StoreKit; a Lumi Studio não recebe dados do cartão. O WatchConnectivity troca com o Apple Watch emparelhado os dados necessários às funções do dB Halo. Widgets e App Intents usam o contentor local partilhado da app. Estes serviços do sistema não criam uma conta cloud da Lumi Studio."
+      },
+      "user-directed-files-share": {
+        "title": "Ficheiros e partilhas dirigidos pelo utilizador",
+        "body": "Os resultados CSV, PDF, AAC, fotografia e vídeo só são criados quando pedidos. A interface Ficheiros ou Partilhar do sistema permite escolher destino ou destinatário. O dB Halo não os carrega automaticamente; depois, o fornecedor ou destinatário escolhido controla a respetiva cópia."
+      },
+      "support-email-exception": {
+        "title": "Exceção do e-mail de suporte",
+        "body": "Ao escrever ao suporte, o endereço, mensagem e anexos passam pelos fornecedores de e-mail envolvidos e são recebidos pela Lumi Studio apenas para responder, proteger e documentar o pedido. A correspondência é conservada apenas pelo período razoavelmente necessário ou por obrigações legais e depois eliminada ou arquivada segundo essas obrigações. Não envie áudio, conteúdos multimédia ou dados de saúde sensíveis se não forem necessários."
+      },
+      "deletion-and-retention": {
+        "title": "Conservação e eliminação",
+        "body": "Elimine medições e gravações explícitas através dos controlos correspondentes no dB Halo. Ao remover a app, apaga os restantes dados do contentor, exceto cópias de segurança normais do dispositivo geridas por si e pela Apple. Elimine exportações no destino escolhido, gira registos de Saúde na app Saúde e remova a app do Watch para apagar os dados locais. Pode pedir a eliminação de e-mails de suporte, salvo obrigação legal de conservação."
+      },
+      "children-medical-workplace": {
+        "title": "Crianças, segurança e limites legais",
+        "body": "O dB Halo não foi concebido para recolher informações pessoais de crianças. Como não existe conta, o proprietário do dispositivo controla permissões e partilhas quando uma criança ou familiar usa a app. As leituras são informativas e não são aconselhamento médico, diagnóstico auditivo, medição certificada nem substituem regras de segurança no trabalho, profissionais ou instrumentos calibrados obrigatórios."
+      },
+      "effective-and-updated": {
+        "title": "Datas e alterações da política",
+        "body": "Esta política entra em vigor e foi atualizada em 29 de agosto de 2026. Se as práticas de dados do dB Halo mudarem, esta página será atualizada antes da aplicação da alteração quando for exigido aviso prévio."
+      }
+    },
+    "contactTitle": "Contacto de privacidade",
+    "contactBody": "Para questões de privacidade ou pedidos sobre correspondência de suporte, contacte:",
+    "contactButton": "Enviar e-mail sobre privacidade"
+  }
+}

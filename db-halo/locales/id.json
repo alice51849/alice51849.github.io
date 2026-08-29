@@ -1,0 +1,145 @@
+{
+  "locale": "id",
+  "languageName": "Bahasa Indonesia",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Lewati ke konten utama",
+    "language": "Bahasa",
+    "support": "Dukungan",
+    "privacy": "Privasi",
+    "email": "Kirim email ke dukungan",
+    "allApps": "Semua app",
+    "brandHome": "Beranda dukungan dB Halo",
+    "navigation": "Navigasi utama",
+    "footerNavigation": "Navigasi footer"
+  },
+  "support": {
+    "metaDescription": "Bantuan resmi dB Halo untuk tingkat suara, analisis spektrum, dosis kebisingan, peristiwa tidur, izin, Lifetime Pro, dan pemecahan masalah.",
+    "kicker": "Memahami lingkungan suara secara privat",
+    "title": "Pahami suara di sekitar Anda",
+    "intro": "dB Halo menjadikan iPhone, iPad, dan Apple Watch alat yang mudah dipahami untuk memantau tingkat suara. Lihat tingkat saat ini, periksa frekuensi langsung, perkirakan paparan kebisingan, dan simpan pengukuran berguna; semua pemrosesan berlangsung di perangkat.",
+    "badges": [
+      "Tanpa akun",
+      "Tanpa iklan atau pelacakan",
+      "Audio diproses di perangkat",
+      "Lifetime Pro sekali beli"
+    ],
+    "featuresEyebrow": "Yang dilakukan dB Halo",
+    "featuresTitle": "Sederhana sekilas, terperinci saat diperlukan",
+    "features": [
+      {
+        "title": "Pengukur dan Halo",
+        "body": "Lihat tingkat saat ini, minimum, rata-rata, maksimum, dan puncak dengan Halo yang jelas, pembobotan, LAeq, serta penjelasan sederhana."
+      },
+      {
+        "title": "Spektrum, RTA, dan spektrogram",
+        "body": "Periksa energi frekuensi melalui FFT, RTA pita oktaf, dan spektrogram yang tersinkron tanpa menghentikan sesi analisis aktif."
+      },
+      {
+        "title": "Dosis kebisingan",
+        "body": "Pantau perkiraan paparan, sisa waktu, dan panduan NIOSH atau OSHA. Hasilnya informatif, bukan keputusan kepatuhan tempat kerja."
+      },
+      {
+        "title": "Peristiwa suara saat tidur",
+        "body": "Simpan kategori yang dikenali, waktu, dan nilai dB di perangkat. Mode Tidur tidak menyimpan audio mentah."
+      },
+      {
+        "title": "Riwayat dan ekspor",
+        "body": "Simpan riwayat dan profil kalibrasi secara lokal, lalu buat CSV, PDF, AAC, foto, atau video saat Anda memintanya."
+      },
+      {
+        "title": "Watch, widget, dan pintasan",
+        "body": "Gunakan pengalaman khusus Apple Watch, widget, dan App Intents; perangkat yang dipasangkan hanya bertukar data lokal yang diperlukan."
+      }
+    ],
+    "quickStartTitle": "Mulai cepat",
+    "quickStart": [
+      "Buka Pengukur dan izinkan mikrofon saat diminta oleh iOS.",
+      "Letakkan perangkat tanpa menutup mikrofon atau menggesekkannya ke pakaian, lalu ketuk Mulai.",
+      "Gunakan Halo dan nilai dB saat ini untuk melihat sekilas; buka Spektrum atau Dosis untuk detail.",
+      "Ketuk Berhenti sebelum keluar dan simpan hasil ke Riwayat jika ingin mempertahankannya."
+    ],
+    "permissionsTitle": "Izin tetap dalam kendali Anda",
+    "permissions": [
+      "Mikrofon diperlukan untuk pengukuran dan analisis. Audio mentah Pengukur, Spektrum, dan Dosis hanya diproses dalam memori dan tidak disimpan.",
+      "Foto dan video baru dapat diakses setelah Anda memilih item tertentu lewat pemilih Foto sistem; hanya pilihan tersebut yang diproses secara lokal.",
+      "Akses Kesehatan bersifat opsional. Dengan izin, dB Halo hanya menulis sampel paparan audio lingkungan dan tidak membaca data Kesehatan."
+    ],
+    "proTitle": "Lifetime Pro dan pemulihan",
+    "proBody": "Lifetime Pro adalah satu pembelian non-konsumsi, bukan langganan. App Store menampilkan harga lokal sebelum konfirmasi. Pulihkan pembelian lama melalui dB Halo → Pengaturan → Lifetime Pro → Pulihkan Pembelian dengan Apple Account yang sama seperti saat membeli.",
+    "troubleshootingTitle": "Pemecahan masalah",
+    "troubleshooting": [
+      "Tidak ada bacaan: periksa izin mikrofon di Pengaturan iOS, putuskan jalur audio yang tidak diinginkan, dan pastikan app lain tidak memakai mikrofon.",
+      "Nilai tidak sesuai: lepaskan casing atau penghalang dekat mikrofon, hindari suara dari memegang perangkat, pilih input yang benar, dan periksa profil kalibrasi.",
+      "Watch atau widget belum diperbarui: jaga iPhone dan Watch tetap dipasangkan dan berdekatan, buka dB Halo sekali di iPhone, lalu tunggu penyegaran sistem.",
+      "Pembelian belum pulih: periksa internet, gunakan Apple Account asli, dan jalankan Pulihkan Pembelian lagi dari Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Catatan penting tentang pengukuran",
+    "accuracyTitle": "Perkiraan yang beralasan, bukan alat bersertifikat",
+    "accuracyBody": "Mikrofon ponsel dan jam berbeda menurut model, penempatan, casing, lingkungan, dan kalibrasi. dB Halo berguna untuk kesadaran dan catatan pribadi, tetapi bukan pengukur tingkat suara bersertifikat serta tidak menggantikan nasihat medis, penilaian pendengaran, pemantauan higiene kerja, atau alat terkalibrasi yang diwajibkan.",
+    "contactEyebrow": "Perlu bantuan lebih lanjut?",
+    "contactTitle": "Hubungi dukungan dB Halo",
+    "contactBody": "Sertakan model perangkat, versi iOS atau watchOS, layar atau fitur terkait, serta perilaku yang Anda harapkan. Jangan lampirkan rekaman privat, foto, informasi kesehatan, atau file ekspor kecuali benar-benar diperlukan.",
+    "contactButton": "Kirim email ke dukungan"
+  },
+  "privacy": {
+    "metaDescription": "Kebijakan privasi dB Halo: tanpa akun, iklan, analitik, atau pelacakan; analisis audio dan catatan tetap di perangkat tanpa tindakan tegas Anda.",
+    "kicker": "Privasi sejak tahap desain",
+    "title": "Kebijakan Privasi",
+    "dateLine": "Berlaku 29 Agustus 2026 · Diperbarui 29 Agustus 2026",
+    "intro": "dB Halo menganalisis suara secara lokal dan memproses data seminimal mungkin. Kebijakan ini menjelaskan apa yang diproses, apa yang dapat tersimpan di perangkat, dan kapan informasi keluar dari app hanya karena Anda mengarahkannya.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Tanpa akun, iklan, analitik, atau pelacakan",
+        "body": "dB Halo tidak memerlukan akun dan tidak berisi iklan, analitik, pelacakan, atau SDK pihak ketiga. Lumi Studio tidak mengoperasikan layanan cloud untuk dB Halo, tidak membuat profil pengguna, tidak menjual informasi pribadi, dan tidak dapat melihat pengukuran atau rekaman di perangkat."
+      },
+      "live-audio-memory-only": {
+        "title": "Audio langsung Pengukur, Spektrum, dan Dosis",
+        "body": "Saat memakai Pengukur, Spektrum, RTA, Spektrogram, atau Dosis kebisingan, sampel mikrofon diproses dalam memori perangkat untuk menghitung tingkat, frekuensi, dan perkiraan paparan. Audio mentah tidak disimpan dan tidak dikirim ke Lumi Studio."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Peristiwa tidur dan rekaman AAC yang dimulai secara tegas",
+        "body": "Mode Tidur hanya menyimpan kategori yang dikenali, waktu peristiwa, dan nilai dB, bukan audio tidur mentah. File audio hanya dibuat saat Anda sengaja memulai rekaman AAC dan tetap lokal sampai dihapus atau diekspor."
+      },
+      "photos-picker-local-processing": {
+        "title": "Foto dan video yang Anda pilih",
+        "body": "dB Halo menggunakan Apple PhotosPicker sehingga hanya menerima foto atau video yang Anda pilih secara tegas, bukan akses tanpa batas ke pustaka. Pilihan diproses secara lokal untuk lapisan atau ekspor yang didukung dan tidak diunggah oleh Lumi Studio."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit hanya untuk menulis",
+        "body": "Jika Anda mengizinkan Kesehatan dan memilih ekspor paparan, dB Halo menulis sampel paparan audio lingkungan ke HealthKit. App tidak membaca data Kesehatan. Kelola izin dan catatan tertulis di app Kesehatan serta Pengaturan iOS."
+      },
+      "local-history-calibration-trial": {
+        "title": "Riwayat, kalibrasi, dan penggunaan gratis lokal",
+        "body": "Pengukuran tersimpan, ringkasan peristiwa, profil kalibrasi, preferensi, dan penghitung penggunaan gratis berada dalam kontainer lokal app. Rekaman AAC yang dimulai secara tegas juga lokal dan hanya digunakan untuk fitur yang diminta."
+      },
+      "apple-platform-services": {
+        "title": "Layanan platform Apple",
+        "body": "Apple memproses pembelian dan pemulihan Lifetime Pro melalui StoreKit; Lumi Studio tidak menerima data kartu. WatchConnectivity bertukar data dB Halo yang diperlukan dengan Apple Watch pasangan. Widget dan App Intents memakai kontainer lokal bersama. Layanan ini tidak membuat akun cloud Lumi Studio."
+      },
+      "user-directed-files-share": {
+        "title": "File dan berbagi yang Anda arahkan",
+        "body": "CSV, PDF, AAC, foto, dan video hanya dibuat atas permintaan Anda. Layar File atau Bagikan sistem memungkinkan Anda memilih tujuan atau penerima. dB Halo tidak mengunggah otomatis; setelah itu penyedia atau penerima pilihan mengendalikan salinannya."
+      },
+      "support-email-exception": {
+        "title": "Pengecualian email dukungan",
+        "body": "Saat Anda mengirim email ke dukungan, alamat, pesan, dan lampiran melewati penyedia email terkait dan diterima Lumi Studio hanya untuk menjawab, mengamankan, serta mendokumentasikan permintaan. Korespondensi disimpan hanya selama wajar diperlukan atau diwajibkan hukum, lalu dihapus atau diarsipkan sesuai kewajiban tersebut. Jangan kirim audio, media, atau data kesehatan sensitif bila tidak diperlukan."
+      },
+      "deletion-and-retention": {
+        "title": "Penyimpanan dan penghapusan",
+        "body": "Hapus pengukuran dan rekaman tegas dengan kontrol terkait di dB Halo. Menghapus app menghapus data kontainer lainnya, kecuali cadangan perangkat biasa yang dikelola Anda dan Apple. Hapus ekspor di tujuan, kelola catatan Kesehatan dalam app Kesehatan, dan hapus app Watch untuk membersihkan data lokalnya. Anda dapat meminta penghapusan email dukungan kecuali hukum mewajibkan penyimpanan."
+      },
+      "children-medical-workplace": {
+        "title": "Anak, keselamatan, dan batas hukum",
+        "body": "dB Halo tidak dirancang untuk mengumpulkan informasi pribadi anak. Tanpa akun, pemilik perangkat mengendalikan izin dan berbagi saat app dipakai anak atau anggota keluarga. Bacaan bersifat informatif dan bukan nasihat medis, diagnosis pendengaran, pengukuran bersertifikat, atau pengganti aturan keselamatan kerja, tenaga ahli, maupun alat terkalibrasi yang diwajibkan."
+      },
+      "effective-and-updated": {
+        "title": "Tanggal dan perubahan kebijakan",
+        "body": "Kebijakan ini berlaku dan diperbarui pada 29 Agustus 2026. Jika praktik data dB Halo berubah, halaman ini akan diperbarui sebelum perubahan diterapkan di tempat yang mewajibkan pemberitahuan."
+      }
+    },
+    "contactTitle": "Kontak privasi",
+    "contactBody": "Untuk pertanyaan privasi atau permintaan tentang korespondensi dukungan, hubungi:",
+    "contactButton": "Kirim email tentang privasi"
+  }
+}

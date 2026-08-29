@@ -1,0 +1,145 @@
+{
+  "locale": "ro",
+  "languageName": "Română",
+  "dir": "ltr",
+  "ui": {
+    "skip": "Mergi la conținutul principal",
+    "language": "Limbă",
+    "support": "Asistență",
+    "privacy": "Confidențialitate",
+    "email": "Trimite e-mail asistenței",
+    "allApps": "Toate aplicațiile",
+    "brandHome": "Pagina de asistență dB Halo",
+    "navigation": "Navigare principală",
+    "footerNavigation": "Navigare subsol"
+  },
+  "support": {
+    "metaDescription": "Ajutor oficial dB Halo pentru nivel sonor, analiză spectrală, doză de zgomot, evenimente de somn, permisiuni, Lifetime Pro și depanare.",
+    "kicker": "Înțelegerea privată a mediului sonor",
+    "title": "Înțelege sunetul din jurul tău",
+    "intro": "dB Halo transformă iPhone, iPad și Apple Watch într-un instrument ușor de înțeles pentru nivelul sonor. Vezi nivelul curent, explorează frecvențe în timp real, estimează expunerea la zgomot și păstrează măsurători utile, toate procesate pe dispozitiv.",
+    "badges": [
+      "Fără cont",
+      "Fără reclame sau urmărire",
+      "Audio procesat pe dispozitiv",
+      "Lifetime Pro cu plată unică"
+    ],
+    "featuresEyebrow": "Ce face dB Halo",
+    "featuresTitle": "Simplu la prima vedere, detaliat când ai nevoie",
+    "features": [
+      {
+        "title": "Sonometru și Halo",
+        "body": "Vezi nivelul curent, minim, mediu, maxim și de vârf cu un Halo clar, ponderări, LAeq și explicații pe înțelesul tuturor."
+      },
+      {
+        "title": "Spectru, RTA și spectrogramă",
+        "body": "Analizează energia frecvențelor cu FFT, RTA pe benzi de octavă și spectrogramă sincronizate, fără întreruperea sesiunii active."
+      },
+      {
+        "title": "Doză de zgomot",
+        "body": "Urmărește expunerea estimată, timpul rămas și recomandările NIOSH sau OSHA. Rezultatul este informativ, nu o decizie de conformitate la locul de muncă."
+      },
+      {
+        "title": "Evenimente sonore în somn",
+        "body": "Salvează pe dispozitiv categoriile recunoscute, orele și valorile dB. Modul Somn nu păstrează sunetul brut."
+      },
+      {
+        "title": "Istoric și export",
+        "body": "Păstrează local istoricul și profilurile de calibrare și creează, la cerere, fișiere CSV, PDF, AAC, fotografii sau videoclipuri."
+      },
+      {
+        "title": "Watch, widgeturi și scurtături",
+        "body": "Folosește experiența dedicată Apple Watch, widgeturile și App Intents; dispozitivele asociate schimbă numai datele locale necesare."
+      }
+    ],
+    "quickStartTitle": "Pornire rapidă",
+    "quickStart": [
+      "Deschide Sonometru și permite accesul la microfon când solicită iOS.",
+      "Așază dispozitivul fără să acoperi microfonul sau să îl freci de haine și atinge Pornește.",
+      "Folosește Halo și valoarea dB curentă pentru o citire rapidă; deschide Spectru sau Doză pentru detalii.",
+      "Atinge Oprește înainte de a ieși și salvează rezultatul în Istoric dacă vrei să îl păstrezi."
+    ],
+    "permissionsTitle": "Tu controlezi permisiunile",
+    "permissions": [
+      "Microfonul este necesar pentru măsurare și analiză. Sunetul brut pentru Sonometru, Spectru și Doză este procesat doar în memorie și nu este salvat.",
+      "Fotografiile și videoclipurile sunt accesate numai după ce alegi elemente concrete în selectorul Foto al sistemului; doar selecția este procesată local.",
+      "Accesul la Sănătate este opțional. Cu permisiune, dB Halo doar scrie mostre de expunere la zgomot ambiental și nu citește date din Sănătate."
+    ],
+    "proTitle": "Lifetime Pro și restaurarea",
+    "proBody": "Lifetime Pro este o singură achiziție neconsumabilă, nu un abonament. App Store afișează prețul local înainte de confirmare. Restaurează o achiziție prin dB Halo → Configurări → Lifetime Pro → Restaurează achizițiile, folosind același Apple Account ca la cumpărare.",
+    "troubleshootingTitle": "Depanare",
+    "troubleshooting": [
+      "Nu apare nicio valoare: verifică permisiunea microfonului în Configurări iOS, deconectează o rută audio nedorită și vezi dacă altă aplicație folosește microfonul.",
+      "Valori neașteptate: îndepărtează husa sau obstacolele de lângă microfon, evită zgomotul de manipulare, selectează intrarea corectă și verifică profilul de calibrare.",
+      "Watch sau widget neactualizat: ține iPhone și Watch asociate și aproape, deschide o dată dB Halo pe iPhone și așteaptă puțin actualizarea sistemului.",
+      "Achiziția nu s-a restaurat: verifică internetul, folosește Apple Account inițial și repetă Restaurează achizițiile din Lifetime Pro."
+    ],
+    "accuracyEyebrow": "Notă importantă despre măsurare",
+    "accuracyTitle": "O estimare informată, nu un instrument certificat",
+    "accuracyBody": "Microfoanele telefoanelor și ceasurilor diferă după model, poziție, husă, mediu și calibrare. dB Halo este util pentru conștientizare și evidențe personale, dar nu este un sonometru certificat și nu înlocuiește sfatul medical, evaluarea auzului, monitorizarea igienei ocupaționale sau un instrument calibrat impus prin lege.",
+    "contactEyebrow": "Ai nevoie de ajutor suplimentar?",
+    "contactTitle": "Contactează asistența dB Halo",
+    "contactBody": "Menționează modelul dispozitivului, versiunea iOS sau watchOS, ecranul ori funcția afectată și comportamentul așteptat. Nu atașa înregistrări private, fotografii, date de sănătate sau fișiere exportate decât dacă sunt esențiale pentru solicitare.",
+    "contactButton": "Trimite e-mail asistenței"
+  },
+  "privacy": {
+    "metaDescription": "Politica de confidențialitate dB Halo: fără cont, reclame, analiză sau urmărire; analiza audio și evidențele rămân pe dispozitiv fără acțiunea ta expresă.",
+    "kicker": "Confidențialitate din faza de proiectare",
+    "title": "Politica de confidențialitate",
+    "dateLine": "În vigoare din 29 august 2026 · Actualizată la 29 august 2026",
+    "intro": "dB Halo analizează sunetul local și procesează cât mai puține date. Politica descrie ce este procesat, ce poate rămâne pe dispozitiv și când informația părăsește aplicația numai la indicația ta.",
+    "sections": {
+      "no-account-ads-analytics-tracking": {
+        "title": "Fără cont, reclame, analiză sau urmărire",
+        "body": "dB Halo nu cere cont și nu conține reclame, analiză, urmărire sau SDK-uri terțe. Lumi Studio nu operează un serviciu cloud pentru dB Halo, nu creează profiluri de utilizator, nu vinde informații personale și nu poate vedea măsurătorile ori înregistrările de pe dispozitiv."
+      },
+      "live-audio-memory-only": {
+        "title": "Audio live pentru Sonometru, Spectru și Doză",
+        "body": "Când folosești Sonometru, Spectru, RTA, Spectrogramă sau Doză de zgomot, mostrele microfonului sunt procesate în memoria dispozitivului pentru niveluri, frecvențe și estimări de expunere. Sunetul brut nu este salvat și nu este trimis către Lumi Studio."
+      },
+      "sleep-events-and-explicit-aac": {
+        "title": "Evenimente de somn și înregistrări AAC explicite",
+        "body": "Modul Somn păstrează doar categoriile recunoscute, orele evenimentelor și valorile dB, nu sunetul brut din timpul somnului. Un fișier audio este creat numai când pornești intenționat o înregistrare AAC și rămâne local până îl ștergi sau exporți."
+      },
+      "photos-picker-local-processing": {
+        "title": "Fotografii și videoclipuri alese de tine",
+        "body": "dB Halo folosește PhotosPicker de la Apple și primește doar fotografiile sau videoclipurile selectate expres, fără acces nelimitat la bibliotecă. Selecția este procesată local pentru suprapuneri ori exporturi acceptate și nu este încărcată de Lumi Studio."
+      },
+      "healthkit-write-only": {
+        "title": "HealthKit numai pentru scriere",
+        "body": "Dacă permiți Sănătate și alegi exportul expunerii, dB Halo scrie mostre de expunere la zgomot ambiental în HealthKit. Aplicația nu citește date din Sănătate. Gestionează permisiunea și înregistrările scrise în aplicația Sănătate și Configurări iOS."
+      },
+      "local-history-calibration-trial": {
+        "title": "Istoric, calibrare și utilizări gratuite locale",
+        "body": "Măsurătorile salvate, rezumatele evenimentelor, profilurile de calibrare, preferințele și contorul local al utilizărilor gratuite se află în containerul local al aplicației. Înregistrările AAC pornite explicit sunt tot locale și servesc doar funcțiilor cerute."
+      },
+      "apple-platform-services": {
+        "title": "Servicii ale platformei Apple",
+        "body": "Apple procesează achizițiile și restaurările Lifetime Pro prin StoreKit; Lumi Studio nu primește datele cardului. WatchConnectivity schimbă cu Apple Watch asociat datele necesare funcțiilor dB Halo. Widgeturile și App Intents folosesc containerul local partajat al aplicației. Aceste servicii nu creează un cont cloud Lumi Studio."
+      },
+      "user-directed-files-share": {
+        "title": "Fișiere și partajare controlate de tine",
+        "body": "Fișierele CSV, PDF, AAC, fotografiile și videoclipurile sunt create numai la cerere. Interfața Fișiere sau Partajare a sistemului permite alegerea destinației ori destinatarului. dB Halo nu încarcă automat; apoi furnizorul sau destinatarul ales controlează propria copie."
+      },
+      "support-email-exception": {
+        "title": "Excepția e-mailului de asistență",
+        "body": "Când scrii asistenței, adresa, mesajul și atașamentele trec prin furnizorii de e-mail implicați și sunt primite de Lumi Studio doar pentru răspuns, securizare și documentarea solicitării. Corespondența este păstrată numai cât este rezonabil necesar sau impus legal, apoi ștearsă ori arhivată conform acelor obligații. Nu trimite audio, conținut media sau date de sănătate sensibile dacă nu sunt necesare."
+      },
+      "deletion-and-retention": {
+        "title": "Păstrare și ștergere",
+        "body": "Șterge măsurătorile salvate și înregistrările explicite prin comenzile corespunzătoare din dB Halo. Eliminarea aplicației șterge restul datelor containerului, cu excepția copiilor obișnuite ale dispozitivului gestionate de tine și Apple. Șterge exporturile la destinație, gestionează datele Sănătate în aplicația Sănătate și elimină aplicația Watch pentru a-i șterge datele locale. Poți cere ștergerea e-mailurilor de asistență dacă legea nu impune păstrarea."
+      },
+      "children-medical-workplace": {
+        "title": "Copii, siguranță și limite juridice",
+        "body": "dB Halo nu este proiectat să colecteze informațiile personale ale copiilor. Fără cont, proprietarul dispozitivului controlează permisiunile și partajarea când aplicația este folosită de un copil sau membru al familiei. Valorile sunt informative și nu reprezintă sfat medical, diagnostic auditiv, măsurare certificată sau înlocuitor pentru norme de securitate în muncă, specialiști ori instrumente calibrate obligatorii."
+      },
+      "effective-and-updated": {
+        "title": "Datele și modificările politicii",
+        "body": "Politica intră în vigoare și a fost actualizată la 29 august 2026. Dacă practicile de date dB Halo se schimbă, pagina va fi actualizată înainte de aplicarea schimbării acolo unde este necesară notificarea prealabilă."
+      }
+    },
+    "contactTitle": "Contact pentru confidențialitate",
+    "contactBody": "Pentru întrebări despre confidențialitate sau solicitări privind corespondența cu asistența, contactează:",
+    "contactButton": "Trimite e-mail despre confidențialitate"
+  }
+}

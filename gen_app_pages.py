@@ -18,6 +18,9 @@ SITE = os.path.dirname(os.path.abspath(__file__))
 APPS_JSON = os.path.expanduser("~/threads-autopilot/apps.json")
 BASE = "https://alice51849.github.io"
 MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o")
+sys.path.insert(0, os.path.join(SITE, "scripts"))
+
+from managed_blocks import extract_allowlisted_sitemap_blocks
 
 # slug→(icon 檔名, 截圖檔名或 None) — github.io 既有資源命名
 ICON = {  # threads slug → github.io icon slug
@@ -324,8 +327,11 @@ def _sitemap_lastmod(path, previous, today, runner=subprocess.run):
 def rebuild_sitemap(apps):
     sitemap_path=os.path.join(SITE,"sitemap.xml")
     previous={}
+    managed_blocks=()
     if os.path.exists(sitemap_path):
-        old=open(sitemap_path,encoding="utf-8").read()
+        with open(sitemap_path,encoding="utf-8") as handle:
+            old=handle.read()
+        managed_blocks=extract_allowlisted_sitemap_blocks(old)
         previous=dict(re.findall(
             r"<url><loc>([^<]+)</loc><lastmod>(\d{4}-\d{2}-\d{2})</lastmod></url>",
             old,
@@ -355,10 +361,12 @@ def rebuild_sitemap(apps):
     for url,path in entries:
         lastmod=_sitemap_lastmod(path,previous.get(url),today)
         body+=f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod></url>\n"
+    for block in managed_blocks:
+        body+=block+"\n"
     body+="</urlset>\n"
     with open(sitemap_path,"w",encoding="utf-8") as handle:
         handle.write(body)
-    return len(entries)
+    return len(entries)+sum(block.count("<url><loc>") for block in managed_blocks)
 
 
 def main():
