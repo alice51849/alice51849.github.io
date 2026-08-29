@@ -23,6 +23,10 @@ const ROOT  = process.cwd();
 const DATA  = path.join(ROOT, 'assets', 'data.js');
 const ICONS = path.join(ROOT, 'assets', 'icons');
 const SHOTS = path.join(ROOT, 'assets', 'shots');
+const CHANNEL = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'scripts', 'publisher_root_channel.json'), 'utf8'),
+);
+export const ROOT_SLUGS = CHANNEL.root_slugs;
 const TARGET_LOCALES = { en: ['en-US', 'en-GB', 'en-AU'], zh: ['zh-Hant', 'zh-Hans'], ja: ['ja'], ko: ['ko'] };
 export const GUIDE_CATALOG_URL = (
   'https://alice51849.github.io/ios-app-guide/' +
@@ -54,7 +58,7 @@ async function itunesLookup(id) {
   } catch { return null; }
 }
 
-export async function verifiedGuideIds(fetcher = fetch) {
+export async function verifiedGuideApps(fetcher = fetch) {
   const response = await fetcher(GUIDE_CATALOG_URL, {
     headers: { Accept: 'application/json' },
   });
@@ -71,9 +75,11 @@ export async function verifiedGuideIds(fetcher = fetch) {
   ) {
     throw new Error('Guide catalog shape is invalid');
   }
-  const ids = new Set();
+  const apps = new Map();
+  const keys = new Set();
   for (const app of document.apps) {
     const appId = String(app && app.app_store_id || '');
+    const key = String(app && app.key || '');
     const storeUrl = String(app && app.app_store_url || '');
     const match = storeUrl.match(
       /^https:\/\/apps\.apple\.com\/(?:[a-z]{2}\/)?app\/id(\d+)(?:\?.*)?$/
@@ -82,15 +88,40 @@ export async function verifiedGuideIds(fetcher = fetch) {
       !app ||
       app.verified_live !== true ||
       !/^\d{8,}$/.test(appId) ||
+      !/^[a-z0-9]+$/.test(key) ||
       !match ||
       match[1] !== appId ||
-      ids.has(appId)
+      apps.has(appId) ||
+      keys.has(key)
     ) {
-      throw new Error(`Guide catalog app identity is invalid: ${appId}`);
+      throw new Error(
+        `Guide catalog app identity is invalid: ${key}/${appId}`,
+      );
     }
-    ids.add(appId);
+    apps.set(appId, key);
+    keys.add(key);
   }
-  return ids;
+  return apps;
+}
+export async function verifiedGuideIds(fetcher = fetch) {
+  return new Set((await verifiedGuideApps(fetcher)).keys());
+}
+export function validateGuideRoster(apps) {
+  const expected = new Set(Object.keys(ROOT_SLUGS));
+  const actual = new Set(apps.values());
+  const missing = [...expected].filter((key) => !actual.has(key)).sort();
+  const extra = [...actual].filter((key) => !expected.has(key)).sort();
+  if (
+    CHANNEL.expected_app_count !== expected.size ||
+    apps.size !== CHANNEL.expected_app_count ||
+    missing.length ||
+    extra.length
+  ) {
+    throw new Error(
+      `Guide/root roster differs: missing=${missing.join(',')} ` +
+      `extra=${extra.join(',')}`,
+    );
+  }
 }
 // 撈 App Store iPhone hero 截圖,下載到 assets/shots/{slug}.jpg
 async function fetchHeroShot(appleId, slug) {
@@ -117,7 +148,6 @@ const pick = (list, locales, field) => {
   for (const loc of locales) { const hit = list.find((x) => x.attributes.locale === loc); if (hit && hit.attributes[field]) return hit.attributes[field]; }
   const any = list.find((x) => x.attributes[field]); return any ? any.attributes[field] : '';
 };
-const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'app';
 const trim = (s, n = 116) => { s = (s || '').replace(/\s+/g, ' ').trim(); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; };
 
 async function main() {
@@ -130,15 +160,16 @@ async function main() {
   let next = '/v1/apps?limit=200&fields[apps]=name,bundleId';
   while (next) { const j = await api(next); apps.push(...j.data); next = j.links && j.links.next; }
   console.log(`• Account has ${apps.length} apps; site already lists ${existingIds.size}.`);
-  const verifiedIds = await verifiedGuideIds();
-  console.log(`• Verified public Guide catalog has ${verifiedIds.size} live apps.`);
+  const verifiedApps = await verifiedGuideApps();
+  validateGuideRoster(verifiedApps);
+  console.log(`• Verified public Guide catalog has ${verifiedApps.size} live apps.`);
 
   // 2) find live apps not yet on the site
   const additions = [];
   for (const app of apps) {
     const appleId = app.id;
     if (existingIds.has(appleId)) continue;
-    if (!verifiedIds.has(appleId)) {
+    if (!verifiedApps.has(appleId)) {
       console.log(
         `  – ${app.attributes.name} (${appleId}) not in verified Guide catalog — skipped`
       );
@@ -170,8 +201,13 @@ async function main() {
     const genres = (it.genres || []).concat(it.primaryGenreName || []);
     const cat = genres.some((g) => /education|kids|family/i.test(g)) ? 'kids' : 'tools';
     const badge = (it.price > 0) ? 'Pro' : (/\blite\b/i.test(it.trackName) ? 'Lite' : (/\bpro\b/i.test(it.trackName) ? 'Pro' : ''));  // paid apps → Pro
-    let slug = slugify(it.trackName || app.attributes.name);
-    while (existingSlugs.has(slug)) slug += '-' + appleId.slice(-3);
+    const key = verifiedApps.get(appleId);
+    const slug = ROOT_SLUGS[key];
+    if (!slug || existingSlugs.has(slug)) {
+      throw new Error(
+        `Verified Guide root slug is missing or duplicated: ${key}/${slug}`,
+      );
+    }
     existingSlugs.add(slug);
     const iconUrl = it.artworkUrl512 || it.artworkUrl100 || it.artworkUrl60;
 

@@ -3,12 +3,16 @@ import test from 'node:test';
 
 import {
   GUIDE_CATALOG_URL,
+  ROOT_SLUGS,
+  validateGuideRoster,
+  verifiedGuideApps,
   verifiedGuideIds,
 } from './sync-apps.mjs';
 
 
-function app(id = '1234567890') {
+function app(id = '1234567890', key = `sample${id}`) {
   return {
+    key,
     app_store_id: id,
     app_store_url: `https://apps.apple.com/us/app/id${id}`,
     verified_live: true,
@@ -37,6 +41,37 @@ test('verified Guide IDs are accepted exactly once', async () => {
     return response(document);
   });
   assert.deepEqual([...ids].sort(), ['1234567890', '2345678901']);
+});
+
+test('verified Guide apps preserve the canonical roster key', async () => {
+  const document = {
+    locale: 'en-US',
+    record_count: 2,
+    apps: [
+      app('1234567890', 'sampleone'),
+      app('2345678901', 'sampletwo'),
+    ],
+  };
+  const apps = await verifiedGuideApps(async () => response(document));
+  assert.deepEqual(
+    [...apps.entries()],
+    [
+      ['1234567890', 'sampleone'],
+      ['2345678901', 'sampletwo'],
+    ],
+  );
+});
+
+test('root slug contract must cover the exact verified Guide roster', () => {
+  const apps = new Map(
+    Object.keys(ROOT_SLUGS).map((key, index) => [
+      String(7000000000 + index),
+      key,
+    ]),
+  );
+  assert.doesNotThrow(() => validateGuideRoster(apps));
+  apps.delete(apps.keys().next().value);
+  assert.throws(() => validateGuideRoster(apps), /Guide\/root roster differs/);
 });
 
 test('incomplete or unverified Guide catalogs fail closed', async () => {

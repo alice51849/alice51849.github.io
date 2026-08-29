@@ -820,56 +820,9 @@ def validate_all_pages(
 
 
 def main() -> None:
-    catalogs = load_catalogs()
-    source_apps = legacy.parse_datajs(ROOT / "assets" / "data.js")
-    apps, id_to_slug = prepare_live_apps(source_apps, catalogs)
-    changed = 0
-    created = 0
-    for app_id, slug in sorted(id_to_slug.items(), key=lambda item: item[1]):
-        for lang in CATALOG_LOCALES:
-            record = catalogs[lang][app_id]
-            app = dict(apps[slug])
-            app["name"] = record["name"]
-            app["name_i18n"] = {lang: record["name"]}
-            app["sub_i18n"] = {
-                lang: record.get("subtitle")
-                or (app.get("sub_i18n") or {}).get(lang, "")
-            }
-            app["category"] = record["category"]
-            path = page_path(slug, lang)
-            existed = path.exists()
-            source = path.read_text(encoding="utf-8") if existed else ""
-            content = catalog_content(app, record, lang)
-            expected_marker = content["generation_marker"]
-            needs_catalog_build = (
-                not existed
-                or expected_marker not in source
-            )
-            if needs_catalog_build:
-                legacy.build_page(
-                    slug,
-                    app,
-                    content,
-                    lang,
-                )
-                if not existed:
-                    created += 1
-            if sync_page(path, record, lang):
-                changed += 1
-    homepage = ROOT / "index.html"
-    if rebuild_home_nav(homepage, apps, catalogs):
-        changed += 1
-    if sync_homepage_app_count(homepage, len(apps)):
-        changed += 1
-    if rebuild_llms(ROOT / "llms.txt", apps, catalogs):
-        changed += 1
-    sitemap_count = legacy.rebuild_sitemap(apps)
-    validate_all_pages(apps, catalogs)
-    print(
-        f"root app sync: apps={len(apps)} locales={len(CATALOG_LOCALES)} "
-        f"pages={len(apps) * len(CATALOG_LOCALES)} created={created} "
-        f"updated={changed} sitemap={sitemap_count}"
-    )
+    from publisher_root_channel import main as publisher_channel_main
+
+    publisher_channel_main()
 
 
 if __name__ == "__main__":
