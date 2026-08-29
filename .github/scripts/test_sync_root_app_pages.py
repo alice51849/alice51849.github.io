@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 import pathlib
@@ -467,7 +468,6 @@ def synthetic_publisher_sources(contract: dict) -> dict:
         token = locale.replace("-", "_").lower()
         localized[locale] = {}
         publisher_records[locale] = {}
-        rows = {}
         for key, app in finder.items():
             app_id = app["app_store_id"]
             name = f"{key} {locale}"
@@ -534,11 +534,6 @@ def synthetic_publisher_sources(contract: dict) -> dict:
                 "is_ranking": False,
                 "verified_live": True,
             }
-            rows[name] = {
-                "purchase_label": "Free to start · one-time unlock",
-                "guide_label": "Guide",
-                "app_store_label": "App Store",
-            }
         ui[locale] = {
             "headers": [
                 "App",
@@ -553,14 +548,63 @@ def synthetic_publisher_sources(contract: dict) -> dict:
                 "Editorial intended-use context, not measured search "
                 "volume, rankings, reviews, or endorsements."
             ),
-            "rows": rows,
+            "purchase_labels": {
+                "paid_upfront": "Paid download",
+                "free_with_lifetime_unlock": (
+                    "Free to start · one-time unlock"
+                ),
+            },
+            "guide_label": "Guide",
+            "app_store_label": "App Store",
         }
     return {
         "finder": finder,
         "localized": localized,
         "publisher": publisher_records,
         "ui": ui,
+        "publisher_i18n_digest": "a" * 64,
         "modified": "2026-08-30",
+    }
+
+
+def synthetic_publisher_i18n(contract: dict) -> bytes:
+    strings = sorted(publisher.REQUIRED_UI_STRINGS)
+    payload = {
+        "schema_version": 1,
+        "source_locale": "en-US",
+        "strings": strings,
+        "localizations": {
+            locale: {
+                source: f"{locale} {source}"
+                for source in strings
+            }
+            for locale in contract["official_locales"]
+        },
+    }
+    return (
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    ).encode()
+
+
+def synthetic_publisher_dataset(
+    contract: dict,
+    sources: dict,
+) -> dict:
+    records = [
+        copy.deepcopy(sources["publisher"][locale][key])
+        for locale in contract["official_locales"]
+        for key in contract["root_slugs"]
+    ]
+    return {
+        "app_count": contract["expected_app_count"],
+        "locale_count": contract["expected_locale_count"],
+        "record_count": len(records),
+        "locales": contract["official_locales"],
+        "query_origin": "publisher_authored_editorially_localized",
+        "measured_search_volume": False,
+        "is_ranking": False,
+        "dateModified": "2026-08-30",
+        "records": records,
     }
 
 
@@ -572,6 +616,9 @@ def write_publisher_site_fixture(
     app_root = root / "app"
     app_root.mkdir(parents=True)
     supplements = set(contract["supplemental_app_keys"])
+    app_owned = set(
+        contract["page_management"]["app_owned_exact50"]
+    )
     for key, slug in contract["root_slugs"].items():
         if key in supplements:
             continue
@@ -582,10 +629,61 @@ def write_publisher_site_fixture(
             f'<a href="https://apps.apple.com/app/id{app_id}">App Store</a>',
             encoding="utf-8",
         )
+        if key in app_owned:
+            for locale in contract["official_locales"]:
+                locale_path = app_root / slug / locale / "index.html"
+                locale_path.parent.mkdir(parents=True)
+                locale_path.write_text(
+                    (
+                        '<a href="https://apps.apple.com/app/'
+                        f'id{app_id}">App Store</a>'
+                    ),
+                    encoding="utf-8",
+                )
+            manifest_path = (
+                root
+                / contract["page_management"]["app_owned_exact50"][key]
+            )
+            manifest_path.write_text(
+                json.dumps(
+                    {
+                        "appId": app_id,
+                        "slug": slug,
+                        "locales": contract["official_locales"],
+                        "localeCount": 50,
+                    }
+                ),
+                encoding="utf-8",
+            )
+    datajs = []
+    for key, slug in contract["root_slugs"].items():
+        app_id = sources["finder"][key]["app_store_id"]
+        datajs.append(
+            {
+                "slug": slug,
+                "cat": "tools",
+                "icon": f"assets/icons/{slug}.png",
+                "url": f"https://apps.apple.com/us/app/id{app_id}",
+                "badge": "",
+                "name": {"en": key},
+                "sub": {"en": f"{key} subtitle"},
+                "blurb": {"en": f"{key} description"},
+                "shot": None,
+            }
+        )
+    assets = root / "assets"
+    assets.mkdir()
+    (assets / "data.js").write_text(
+        "window.APPS="
+        + json.dumps(datajs, ensure_ascii=False)
+        + ";\n",
+        encoding="utf-8",
+    )
     (root / "index.html").write_text(
         '<meta property="og:description" content="探索 38 款獨立 iPhone App，'
         '查看逐款核實的功能、購買方式與正確 App Store 直達。">'
-        '<style>.applinks{old}</style><nav class="applinks"></nav>',
+        '<style>.applinks{old}</style><nav class="applinks"></nav>'
+        "<script>const appCount=()=>String(window.APPS.length);</script>",
         encoding="utf-8",
     )
     (root / "llms.txt").write_text(
@@ -635,38 +733,185 @@ class PublisherRootChannelTests(unittest.TestCase):
             "100-notes-studio",
             contract["root_slugs"]["notesstudio100"],
         )
+        management = contract["page_management"]
+        self.assertEqual(35, len(management["legacy_datajs"]))
+        self.assertEqual(8, len(management["publisher_exact50"]))
+        self.assertEqual(
+            {
+                "dailymatelite",
+                "wifiaidlite",
+                "wordmatelite",
+            },
+            set(management["app_owned_exact50"]),
+        )
+        self.assertEqual(
+            set(contract["root_slugs"]),
+            set(management["legacy_datajs"])
+            | set(management["publisher_exact50"])
+            | set(management["app_owned_exact50"]),
+        )
 
-    def test_publisher_html_yields_native_first_party_and_row_labels(self):
-        records = {
-            "sample": {
-                "app_name": "Sample App",
-                "publisher_disclosure": (
-                    "Native first-party disclosure by Lumi Studio."
-                ),
+    def test_publisher_i18n_uses_verified_source_bytes_and_fails_closed(self):
+        contract = publisher.load_contract()
+        source = synthetic_publisher_i18n(contract)
+        verified = copy.deepcopy(contract)
+        verified["publisher_i18n_source_sha256"] = hashlib.sha256(
+            source
+        ).hexdigest()
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "publisher-i18n.json"
+            path.write_bytes(source)
+            ui, digest = publisher._publisher_i18n(
+                verified,
+                path=path,
+            )
+            self.assertEqual(
+                verified["publisher_i18n_source_sha256"],
+                digest,
+            )
+            self.assertEqual(
+                "zh-Hant First-party publisher catalog",
+                ui["zh-Hant"]["first_party_heading"],
+            )
+            path.write_bytes(source + b" ")
+            with self.assertRaisesRegex(
+                publisher.PublisherRootError,
+                "digest drifted",
+            ):
+                publisher._publisher_i18n(verified, path=path)
+            with self.assertRaisesRegex(
+                publisher.PublisherRootError,
+                "unavailable",
+            ):
+                publisher._publisher_i18n(
+                    verified,
+                    path=path.with_name("missing.json"),
+                )
+
+    def test_publisher_records_reject_wrong_canonical_app_store_identity(self):
+        contract = publisher.load_contract()
+        sources = synthetic_publisher_sources(contract)
+        payload = synthetic_publisher_dataset(contract, sources)
+        payload["records"][0]["canonical_app_store_url"] = (
+            "https://example.com/app/id9999999999"
+        )
+        with self.assertRaisesRegex(
+            ValueError,
+            "canonical|App Store URL",
+        ):
+            publisher._publisher_records(
+                payload,
+                contract,
+                sources["finder"],
+            )
+
+    def test_daily_flow_calls_legacy_35_page_sync_and_validator_once(self):
+        contract = publisher.load_contract()
+        sources = synthetic_publisher_sources(contract)
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            write_publisher_site_fixture(root, contract, sources)
+            cards = publisher.load_datajs_cards(root, contract, sources)
+            for key in contract["page_management"]["legacy_datajs"]:
+                slug = contract["root_slugs"][key]
+                for lang in sync.CATALOG_LOCALES:
+                    path = publisher._legacy_page_path(root, slug, lang)
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text("<html></html>", encoding="utf-8")
+            with (
+                mock.patch.object(
+                    publisher.legacy_sync,
+                    "sync_page",
+                    return_value=False,
+                ) as sync_page,
+                mock.patch.object(
+                    publisher.legacy_sync,
+                    "validate_all_pages",
+                ) as validate_all,
+            ):
+                stats = publisher.sync_legacy_pages(
+                    root,
+                    contract,
+                    sources,
+                    cards,
+                )
+            self.assertEqual(35, stats["apps"])
+            self.assertEqual(140, stats["pages"])
+            self.assertEqual(140, sync_page.call_count)
+            validate_all.assert_called_once()
+            written_slugs = {
+                call.args[0].relative_to(root / "app").parts[0]
+                for call in sync_page.call_args_list
             }
+            self.assertEqual(
+                {
+                    contract["root_slugs"][key]
+                    for key in contract["page_management"]["legacy_datajs"]
+                },
+                written_slugs,
+            )
+            self.assertFalse(
+                written_slugs
+                & {
+                    contract["root_slugs"][key]
+                    for key in contract["supplemental_app_keys"]
+                }
+            )
+
+    def test_daily_legacy_validator_rejects_drift_wrong_id_and_price(self):
+        app_record = record()
+        old_url = "https://apps.apple.com/tw/app/id1234567890?uo=4"
+        payload = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Sample App",
+            "installUrl": old_url,
+            "downloadUrl": old_url,
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+            },
         }
-        source = """
-<section class="card"><h2>Native publisher heading</h2>
-<p>Native first-party disclosure by Lumi Studio.</p>
-<p>Native editorial context; not a ranking or endorsement.</p></section>
-<table><thead><tr>
-<th>App</th><th>Query</th><th>Context</th>
-<th>Purchase</th><th>Guide</th><th>App Store</th>
-</tr></thead><tbody><tr>
-<td><strong>Sample App</strong></td><td>Query</td><td>Context</td>
-<td>Pay once</td><td><a>Guide</a></td><td><a>App Store</a></td>
-</tr></tbody></table>
+        source = f"""<!doctype html>
+<html><head>
+<meta name="viewport" content="width=device-width">
+<script type="application/ld+json">{json.dumps(payload)}</script>
+</head><body>
+<!-- verified-catalog-page:0000000000000000 -->
+<a href="{old_url}">Download</a>
+<a href="{old_url}">App Store</a>
+Made by Lumi Studio — pay once, no ads, privacy-first.
+</body></html>
 """
-        ui = publisher._publisher_locale_ui(source, records)
-        self.assertEqual(
-            "Native publisher heading",
-            ui["first_party_heading"],
-        )
-        self.assertIn("not a ranking", ui["non_ranking_notice"])
-        self.assertEqual(
-            "Pay once",
-            ui["rows"]["Sample App"]["purchase_label"],
-        )
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "index.html"
+            path.write_text(source, encoding="utf-8")
+            sync.sync_page(path, app_record, "en")
+            valid = path.read_text(encoding="utf-8")
+        sync.validate_page_source(valid, app_record, "en", "valid")
+        mutants = {
+            "drift": valid.replace(
+                "<!-- verified-catalog-page:",
+                "<!-- removed-page-marker:",
+            ),
+            "wrong-id": valid.replace("1234567890", "9999999999"),
+            "wrong-price": valid.replace(
+                '"price": "4.99"',
+                '"price": "9.99"',
+            ),
+        }
+        for label, mutant in mutants.items():
+            with (
+                self.subTest(label=label),
+                self.assertRaises(ValueError),
+            ):
+                sync.validate_page_source(
+                    mutant,
+                    app_record,
+                    "en",
+                    label,
+                )
 
     def test_exact50_generation_home_roster_plan_and_second_run_are_stable(self):
         contract = publisher.load_contract()
@@ -674,6 +919,7 @@ class PublisherRootChannelTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = pathlib.Path(directory)
             write_publisher_site_fixture(root, contract, sources)
+            cards = publisher.load_datajs_cards(root, contract, sources)
             first = publisher.generate_supplemental_pages(
                 root,
                 contract,
@@ -682,7 +928,7 @@ class PublisherRootChannelTests(unittest.TestCase):
             self.assertEqual(408, first["pages"])
             self.assertEqual(408, first["created"])
             self.assertTrue(
-                publisher.rebuild_home(root, contract, sources)
+                publisher.rebuild_home(root, contract, sources, cards)
             )
             self.assertTrue(
                 publisher.rebuild_llms(root, contract, sources)
@@ -695,15 +941,21 @@ class PublisherRootChannelTests(unittest.TestCase):
                 )
             )
             publisher.validate_root_roster(root, contract, sources)
+            publisher.validate_app_owned_pages(root, contract, sources)
             publisher.validate_supplemental_pages(
                 root,
                 contract,
                 sources,
             )
+            publisher.validate_home_consistency(root, contract, cards)
             plan = publisher.raw_get_plan(contract, sources)
             self.assertEqual(408, plan["request_count"])
             self.assertFalse(plan["deployment_performed"])
             self.assertFalse(plan["public_exposure_claimed"])
+            self.assertEqual(
+                sources["publisher_i18n_digest"],
+                plan["sources"]["publisher_i18n_source_sha256"],
+            )
             first_digest = tree_digest(root)
 
             second = publisher.generate_supplemental_pages(
@@ -713,7 +965,7 @@ class PublisherRootChannelTests(unittest.TestCase):
             )
             self.assertEqual(408, second["unchanged"])
             self.assertFalse(
-                publisher.rebuild_home(root, contract, sources)
+                publisher.rebuild_home(root, contract, sources, cards)
             )
             self.assertFalse(
                 publisher.rebuild_llms(root, contract, sources)
@@ -726,6 +978,153 @@ class PublisherRootChannelTests(unittest.TestCase):
                 )
             )
             self.assertEqual(first_digest, tree_digest(root))
+
+    def test_visible_cards_og_applinks_and_root_count_must_match(self):
+        contract = publisher.load_contract()
+        sources = synthetic_publisher_sources(contract)
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            write_publisher_site_fixture(root, contract, sources)
+            cards = publisher.load_datajs_cards(root, contract, sources)
+            incomplete = publisher.legacy_sync.legacy.parse_datajs(
+                root / "assets" / "data.js"
+            )
+            incomplete.pop(next(iter(incomplete)))
+            with (
+                mock.patch.object(
+                    publisher.legacy_sync.legacy,
+                    "parse_datajs",
+                    return_value=incomplete,
+                ),
+                self.assertRaisesRegex(
+                    publisher.PublisherRootBlocked,
+                    "visible cards are not exact46",
+                ),
+            ):
+                publisher.load_datajs_cards(root, contract, sources)
+            publisher.generate_supplemental_pages(root, contract, sources)
+            publisher.rebuild_home(root, contract, sources, cards)
+            publisher.validate_home_consistency(root, contract, cards)
+            original = (root / "index.html").read_text(encoding="utf-8")
+
+            (root / "index.html").write_text(
+                original.replace("探索 46 款", "探索 45 款"),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                publisher.PublisherRootBlocked,
+                "counts differ",
+            ):
+                publisher.validate_home_consistency(root, contract, cards)
+
+            (root / "index.html").write_text(
+                re.sub(
+                    r'<a href="/app/[^"]+/">[^<]+</a>',
+                    "",
+                    original,
+                    count=1,
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                publisher.PublisherRootBlocked,
+                "counts differ",
+            ):
+                publisher.validate_home_consistency(root, contract, cards)
+
+            (root / "index.html").write_text(original, encoding="utf-8")
+            fewer_cards = dict(cards)
+            fewer_cards.pop(next(iter(fewer_cards)))
+            with self.assertRaisesRegex(
+                publisher.PublisherRootBlocked,
+                "counts differ",
+            ):
+                publisher.validate_home_consistency(
+                    root,
+                    contract,
+                    fewer_cards,
+                )
+
+    def test_dom_and_jsonld_validation_rejects_link_and_identity_mutants(self):
+        contract = publisher.load_contract()
+        sources = synthetic_publisher_sources(contract)
+        key = contract["supplemental_app_keys"][0]
+        locale = "en-US"
+        slug = contract["root_slugs"][key]
+        publisher_record = sources["publisher"][locale][key]
+        catalog = sources["localized"][locale][key]
+        ui = sources["ui"][locale]
+        source = publisher.render_page(
+            key=key,
+            slug=slug,
+            locale=locale,
+            canonical_locale=locale,
+            contract=contract,
+            publisher=publisher_record,
+            catalog=catalog,
+            ui=ui,
+            modified=sources["modified"],
+        )
+        kwargs = {
+            "key": key,
+            "slug": slug,
+            "locale": locale,
+            "canonical_locale": locale,
+            "contract": contract,
+            "publisher": publisher_record,
+            "catalog": catalog,
+            "ui": ui,
+        }
+        publisher.validate_rendered_page(source, **kwargs)
+
+        matched = re.search(
+            r'(<script type="application/ld\+json">)(.*?)(</script>)',
+            source,
+            flags=re.DOTALL,
+        )
+        self.assertIsNotNone(matched)
+        base_payload = json.loads(matched.group(2))
+        payload = copy.deepcopy(base_payload)
+        payload["downloadUrl"] = publisher_record[
+            "canonical_app_store_url"
+        ]
+        jsonld_mutant = (
+            source[: matched.start()]
+            + matched.group(1)
+            + json.dumps(payload, separators=(",", ":"))
+            + matched.group(3)
+            + source[matched.end() :]
+        )
+        with self.assertRaisesRegex(ValueError, "JSON-LD links"):
+            publisher.validate_rendered_page(jsonld_mutant, **kwargs)
+
+        price_payload = copy.deepcopy(base_payload)
+        price_payload["offers"]["price"] = "9.99"
+        price_mutant = (
+            source[: matched.start()]
+            + matched.group(1)
+            + json.dumps(price_payload, separators=(",", ":"))
+            + matched.group(3)
+            + source[matched.end() :]
+        )
+        with self.assertRaisesRegex(ValueError, "JSON-LD price"):
+            publisher.validate_rendered_page(price_mutant, **kwargs)
+
+        foreign_id_mutant = source.replace(
+            "</main>",
+            '<a href="https://apps.apple.com/app/id9999999999">Other</a>'
+            "</main>",
+        )
+        with self.assertRaisesRegex(ValueError, "another App Store ID"):
+            publisher.validate_rendered_page(foreign_id_mutant, **kwargs)
+
+        cta_mutant = source.replace(
+            publisher_record["app_store_url"].replace("&", "&amp;"),
+            publisher_record["canonical_app_store_url"],
+            1,
+        )
+        with self.assertRaisesRegex(ValueError, "CTA href"):
+            publisher.validate_rendered_page(cta_mutant, **kwargs)
 
     def test_unsafe_publisher_semantics_block_before_writing(self):
         contract = publisher.load_contract()

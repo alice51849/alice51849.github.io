@@ -781,6 +781,8 @@ def rebuild_llms(
 def validate_all_pages(
     apps: dict[str, dict],
     catalogs: dict[str, dict[str, dict]],
+    *,
+    externally_managed_slugs: frozenset[str] = PRELAUNCH_APP_SLUGS,
 ) -> None:
     expected = set()
     for slug, app in apps.items():
@@ -804,12 +806,12 @@ def validate_all_pages(
         path.resolve()
         for path in (ROOT / "app").glob("*/*/index.html")
     )
-    prelaunch = {
+    externally_managed = {
         path.resolve()
-        for slug in PRELAUNCH_APP_SLUGS
+        for slug in externally_managed_slugs
         for path in (ROOT / "app" / slug).glob("**/index.html")
     }
-    unexpected = sorted(actual - expected - prelaunch)
+    unexpected = sorted(actual - expected - externally_managed)
     if unexpected:
         raise ValueError(
             "non-live root app pages remain: "

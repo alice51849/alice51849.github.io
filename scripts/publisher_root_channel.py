@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import date
 import hashlib
 import html
+from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
@@ -19,6 +20,7 @@ import urllib.parse
 import urllib.request
 
 from managed_blocks import extract_allowlisted_sitemap_blocks
+import sync_root_app_pages as legacy_sync
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,9 +28,6 @@ BASE = "https://alice51849.github.io"
 CHANNEL_PATH = Path(__file__).with_name("publisher_root_channel.json")
 PUBLISHER_DATASET_FILENAME = (
     "lumi-studio-publisher-search-intent-catalog.json"
-)
-PUBLISHER_HTML_FILENAME = (
-    "lumi-studio-publisher-search-intent-catalog.html"
 )
 MARKER_PREFIX = "<!-- publisher-root-page:"
 RTL_LOCALES = frozenset({"ar-SA", "he", "ur-PK"})
@@ -52,22 +51,37 @@ HOME_OG_COUNT_RE = re.compile(
     r'(<meta property="og:description" content="探索 )\d+'
     r'( 款獨立 iPhone App，查看逐款核實的功能、購買方式與正確 App Store 直達。">)'
 )
-TAG_RE = re.compile(r"<[^>]+>", flags=re.DOTALL)
-SECTION_RE = re.compile(
-    r'<section class="card"><h2>(?P<heading>.*?)</h2>'
-    r"(?P<body>.*?)</section>",
-    flags=re.DOTALL,
-)
-TABLE_RE = re.compile(
-    r"<table><thead><tr>(?P<head>.*?)</tr></thead>"
-    r"<tbody>(?P<body>.*?)</tbody></table>",
-    flags=re.DOTALL,
-)
-ROW_RE = re.compile(r"<tr>(.*?)</tr>", flags=re.DOTALL)
-TH_RE = re.compile(r"<th>(.*?)</th>", flags=re.DOTALL)
-TD_RE = re.compile(r"<td>(.*?)</td>", flags=re.DOTALL)
 SAFE_SLUG_RE = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 SAFE_CAMPAIGN_RE = re.compile(r"[a-z0-9_]{1,30}")
+UI_APP = "App"
+UI_PUBLISHER_QUERY = "Publisher query"
+UI_DECISION_CONTEXT = "Decision context"
+UI_PURCHASE_MODEL = "Purchase model"
+UI_GUIDE = "Guide"
+UI_APP_STORE = "App Store"
+UI_FIRST_PARTY = "First-party publisher catalog"
+UI_NON_RANKING = (
+    "The queries are editorial descriptions of intended use cases, not "
+    "measured search-volume data, rankings, independent reviews, or user "
+    "endorsements."
+)
+UI_PURCHASE_LABELS = {
+    "paid_upfront": "Paid download",
+    "free_with_lifetime_unlock": "Free to start · one-time unlock",
+}
+REQUIRED_UI_STRINGS = frozenset(
+    {
+        UI_APP,
+        UI_PUBLISHER_QUERY,
+        UI_DECISION_CONTEXT,
+        UI_PURCHASE_MODEL,
+        UI_GUIDE,
+        UI_APP_STORE,
+        UI_FIRST_PARTY,
+        UI_NON_RANKING,
+        *UI_PURCHASE_LABELS.values(),
+    }
+)
 CATEGORY_SCHEMA = {
     "education": "EducationalApplication",
     "finance": "FinanceApplication",
@@ -104,18 +118,13 @@ class PublisherRootBlocked(PublisherRootError):
     """One or more apps lack safe publisher-page semantics."""
 
 
-def _plain_text(fragment: str) -> str:
-    value = TAG_RE.sub(" ", fragment)
-    return " ".join(html.unescape(value).split())
-
-
-def _request_text(
+def _request_bytes(
     url: str,
     *,
     opener=None,
     sleeper=None,
     attempts: int = 3,
-) -> str:
+) -> bytes:
     opener = urllib.request.urlopen if opener is None else opener
     sleeper = time.sleep if sleeper is None else sleeper
     request = urllib.request.Request(
@@ -128,20 +137,40 @@ def _request_text(
     for attempt in range(attempts):
         try:
             with opener(request, timeout=30) as response:
-                return response.read().decode("utf-8")
+                return response.read()
         except urllib.error.HTTPError as error:
             transient = error.code in {408, 429} or 500 <= error.code <= 599
             if not transient or attempt == attempts - 1:
                 raise PublisherRootError(
                     f"public GET failed: HTTP {error.code} {url}"
                 ) from error
-        except (OSError, UnicodeDecodeError) as error:
+        except OSError as error:
             if attempt == attempts - 1:
                 raise PublisherRootError(
                     f"public GET failed after {attempts} attempts: {url}"
                 ) from error
         sleeper(2 * (attempt + 1))
     raise AssertionError("unreachable")
+
+
+def _request_text(
+    url: str,
+    *,
+    opener=None,
+    sleeper=None,
+    attempts: int = 3,
+) -> str:
+    try:
+        return _request_bytes(
+            url,
+            opener=opener,
+            sleeper=sleeper,
+            attempts=attempts,
+        ).decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise PublisherRootError(
+            f"public GET was not UTF-8: {url}"
+        ) from error
 
 
 def _load_json(
@@ -168,6 +197,7 @@ def load_contract(path: Path = CHANNEL_PATH) -> dict[str, Any]:
     root_slugs = payload.get("root_slugs")
     locales = payload.get("official_locales")
     supplements = payload.get("supplemental_app_keys")
+    management = payload.get("page_management")
     if (
         payload.get("schema_version") != 1
         or payload.get("expected_app_count") != 46
@@ -175,6 +205,7 @@ def load_contract(path: Path = CHANNEL_PATH) -> dict[str, Any]:
         or not isinstance(root_slugs, dict)
         or not isinstance(locales, list)
         or not isinstance(supplements, list)
+        or not isinstance(management, dict)
     ):
         raise ValueError("invalid publisher root channel contract")
     if (
@@ -187,6 +218,40 @@ def load_contract(path: Path = CHANNEL_PATH) -> dict[str, Any]:
         raise ValueError("publisher root channel counts are not exact")
     if not set(supplements).issubset(root_slugs):
         raise ValueError("publisher root supplements are outside the roster")
+    legacy_keys = management.get("legacy_datajs")
+    publisher_keys = management.get("publisher_exact50")
+    app_owned = management.get("app_owned_exact50")
+    if (
+        not isinstance(legacy_keys, list)
+        or not isinstance(publisher_keys, list)
+        or not isinstance(app_owned, dict)
+        or len(legacy_keys) != 35
+        or len(publisher_keys) != 8
+        or len(app_owned) != 3
+        or len(set(legacy_keys)) != len(legacy_keys)
+        or len(set(publisher_keys)) != len(publisher_keys)
+    ):
+        raise ValueError("publisher root management counts are invalid")
+    partitions = [
+        set(legacy_keys),
+        set(publisher_keys),
+        set(app_owned),
+    ]
+    if (
+        set(supplements) != partitions[1]
+        or any(partitions[i] & partitions[j] for i in range(3) for j in range(i))
+        or set().union(*partitions) != set(root_slugs)
+    ):
+        raise ValueError("publisher root management ownership is ambiguous")
+    for key, manifest in app_owned.items():
+        if (
+            key not in root_slugs
+            or not isinstance(manifest, str)
+            or not manifest.startswith(f"app/{root_slugs[key]}/")
+            or not manifest.endswith("/manifest.json")
+            or ".." in Path(manifest).parts
+        ):
+            raise ValueError(f"invalid app-owned management path: {key}")
     slugs = list(root_slugs.values())
     if len(set(slugs)) != len(slugs):
         raise ValueError("publisher root slugs are not unique")
@@ -202,7 +267,6 @@ def load_contract(path: Path = CHANNEL_PATH) -> dict[str, Any]:
         "canonical_catalog_url",
         "localized_catalog_base_url",
         "publisher_dataset_url",
-        "publisher_locale_page_base_url",
     ):
         value = payload.get(field)
         if (
@@ -210,6 +274,15 @@ def load_contract(path: Path = CHANNEL_PATH) -> dict[str, Any]:
             or not value.startswith("https://alice51849.github.io/")
         ):
             raise ValueError(f"invalid publisher root source URL: {field}")
+    i18n_url = payload.get("publisher_i18n_source_url")
+    if (
+        not isinstance(i18n_url, str)
+        or not i18n_url.startswith(
+            "https://raw.githubusercontent.com/"
+            "alice51849/ios-app-guide/"
+        )
+    ):
+        raise ValueError("invalid publisher i18n source URL")
     digest = payload.get("publisher_i18n_source_sha256")
     if (
         not isinstance(digest, str)
@@ -412,6 +485,18 @@ def _publisher_records(
             raise ValueError(
                 f"publisher intent identity is invalid: {locale}/{key}"
             )
+        app_id = str(record["app_store_id"])
+        try:
+            _validate_app_store_url(
+                record.get("canonical_app_store_url"),
+                app_id,
+            )
+            _validate_campaign_url(record.get("app_store_url"), app_id)
+        except ValueError as error:
+            raise ValueError(
+                f"publisher intent App Store URL is invalid: "
+                f"{locale}/{key}: {error}"
+            ) from error
         result[locale][key] = record
     expected = set(finder)
     for locale, records in result.items():
@@ -425,65 +510,97 @@ def _publisher_records(
     return result, modified
 
 
-def _publisher_locale_ui(
-    source: str,
-    records: dict[str, dict[str, Any]],
-) -> dict[str, Any]:
-    first_party_heading = ""
-    non_ranking_notice = ""
-    for match in SECTION_RE.finditer(source):
-        paragraphs = re.findall(
-            r"<p(?:\s+[^>]*)?>(.*?)</p>",
-            match.group("body"),
-            flags=re.DOTALL,
-        )
-        if len(paragraphs) < 2:
-            continue
-        disclosure = _plain_text(paragraphs[0])
-        if "Lumi Studio" in disclosure:
-            first_party_heading = _plain_text(match.group("heading"))
-            non_ranking_notice = _plain_text(paragraphs[1])
-            break
-    if (
-        len(first_party_heading) < 3
-        or len(non_ranking_notice) < 20
-    ):
-        raise ValueError("localized first-party/non-ranking copy is missing")
-
-    table = TABLE_RE.search(source)
-    if table is None:
-        raise ValueError("localized publisher table is missing")
-    headers = [_plain_text(value) for value in TH_RE.findall(table["head"])]
-    if len(headers) != 6 or any(not value for value in headers):
-        raise ValueError("localized publisher table headings are invalid")
-    rows: dict[str, dict[str, str]] = {}
-    for row in ROW_RE.findall(table["body"]):
-        cells = [_plain_text(value) for value in TD_RE.findall(row)]
-        if len(cells) != 6 or not cells[0]:
-            continue
-        rows[cells[0]] = {
-            "purchase_label": cells[3],
-            "guide_label": cells[4],
-            "app_store_label": cells[5],
-        }
-    for record in records.values():
-        name = str(record["app_name"])
-        labels = rows.get(name)
-        if (
-            labels is None
-            or len(labels["purchase_label"]) < 2
-            or len(labels["guide_label"]) < 2
-            or len(labels["app_store_label"]) < 2
-        ):
-            raise ValueError(
-                f"localized publisher row labels are missing: {name}"
+def _publisher_i18n(
+    contract: dict[str, Any],
+    *,
+    path: Path | None,
+    opener=None,
+    sleeper=None,
+) -> tuple[dict[str, dict[str, Any]], str]:
+    try:
+        source = (
+            path.read_bytes()
+            if path is not None
+            else _request_bytes(
+                contract["publisher_i18n_source_url"],
+                opener=opener,
+                sleeper=sleeper,
             )
-    return {
-        "headers": headers,
-        "first_party_heading": first_party_heading,
-        "non_ranking_notice": non_ranking_notice,
-        "rows": rows,
-    }
+        )
+    except OSError as error:
+        location = (
+            str(path)
+            if path is not None
+            else contract["publisher_i18n_source_url"]
+        )
+        raise PublisherRootError(
+            f"publisher i18n source is unavailable: {location}"
+        ) from error
+    digest = hashlib.sha256(source).hexdigest()
+    if digest != contract["publisher_i18n_source_sha256"]:
+        raise PublisherRootError(
+            "publisher i18n source digest drifted: "
+            f"expected={contract['publisher_i18n_source_sha256']} "
+            f"actual={digest}"
+        )
+    try:
+        payload = json.loads(source.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise PublisherRootError(
+            "publisher i18n source is not valid UTF-8 JSON"
+        ) from error
+    strings = payload.get("strings") if isinstance(payload, dict) else None
+    localizations = (
+        payload.get("localizations") if isinstance(payload, dict) else None
+    )
+    if (
+        not isinstance(payload, dict)
+        or payload.get("schema_version") != 1
+        or payload.get("source_locale") != "en-US"
+        or not isinstance(strings, list)
+        or len(strings) != len(set(strings))
+        or not REQUIRED_UI_STRINGS.issubset(strings)
+        or not isinstance(localizations, dict)
+        or set(localizations) != set(contract["official_locales"])
+    ):
+        raise ValueError("publisher i18n source contract is invalid")
+    expected_strings = set(strings)
+    result: dict[str, dict[str, Any]] = {}
+    for locale in contract["official_locales"]:
+        mapping = localizations[locale]
+        if not isinstance(mapping, dict) or set(mapping) != expected_strings:
+            raise ValueError(f"publisher i18n locale is incomplete: {locale}")
+        for source_text, translated in mapping.items():
+            if (
+                not isinstance(source_text, str)
+                or not isinstance(translated, str)
+                or not translated.strip()
+                or "\n" in translated
+                or "\r" in translated
+            ):
+                raise ValueError(
+                    f"publisher i18n value is invalid: "
+                    f"{locale}/{source_text}"
+                )
+        result[locale] = {
+            "headers": [
+                mapping[UI_APP],
+                mapping[UI_PUBLISHER_QUERY],
+                mapping[UI_DECISION_CONTEXT],
+                mapping[UI_PURCHASE_MODEL],
+                mapping[UI_GUIDE],
+                mapping[UI_APP_STORE],
+            ],
+            "first_party_heading": mapping[UI_FIRST_PARTY],
+            "non_ranking_notice": mapping[UI_NON_RANKING],
+            "purchase_labels": {
+                purchase_model: mapping[source_text]
+                for purchase_model, source_text in UI_PURCHASE_LABELS.items()
+            },
+            "guide_label": mapping[UI_GUIDE],
+            "app_store_label": mapping[UI_APP_STORE],
+        }
+    return result, digest
 
 
 def load_sources(
@@ -492,7 +609,7 @@ def load_sources(
     finder_path: Path | None = None,
     publisher_dataset_path: Path | None = None,
     localized_catalog_dir: Path | None = None,
-    publisher_pages_dir: Path | None = None,
+    publisher_i18n_path: Path | None = None,
     opener=None,
     sleeper=None,
 ) -> dict[str, Any]:
@@ -514,8 +631,14 @@ def load_sources(
         contract,
         finder,
     )
+    ui, i18n_digest = _publisher_i18n(
+        contract,
+        path=publisher_i18n_path,
+        opener=opener,
+        sleeper=sleeper,
+    )
 
-    def load_locale(locale: str) -> tuple[str, object, str]:
+    def load_locale(locale: str) -> tuple[str, object]:
         catalog_path = (
             localized_catalog_dir / f"{locale}.json"
             if localized_catalog_dir is not None
@@ -529,56 +652,193 @@ def load_sources(
             opener=opener,
             sleeper=sleeper,
         )
-        page_path = (
-            publisher_pages_dir
-            / locale
-            / "data"
-            / PUBLISHER_HTML_FILENAME
-            if publisher_pages_dir is not None
-            else None
-        )
-        page = (
-            page_path.read_text(encoding="utf-8")
-            if page_path is not None
-            else _request_text(
-                (
-                    f"{contract['publisher_locale_page_base_url']}/{locale}/"
-                    f"data/{PUBLISHER_HTML_FILENAME}"
-                ),
-                opener=opener,
-                sleeper=sleeper,
-            )
-        )
-        return locale, catalog, page
+        return locale, catalog
 
     localized_payloads: dict[str, object] = {}
-    publisher_pages: dict[str, str] = {}
     with ThreadPoolExecutor(max_workers=8) as executor:
-        for locale, catalog, page in executor.map(
+        for locale, catalog in executor.map(
             load_locale,
             contract["official_locales"],
         ):
             localized_payloads[locale] = catalog
-            publisher_pages[locale] = page
     localized = _localized_records(
         localized_payloads,
         contract,
         finder,
     )
-    ui = {
-        locale: _publisher_locale_ui(
-            publisher_pages[locale],
-            publisher[locale],
-        )
-        for locale in contract["official_locales"]
-    }
     return {
         "finder": finder,
         "localized": localized,
         "publisher": publisher,
         "ui": ui,
+        "publisher_i18n_digest": i18n_digest,
         "modified": modified,
     }
+
+
+def load_datajs_cards(
+    site: Path,
+    contract: dict[str, Any],
+    sources: dict[str, Any],
+) -> dict[str, dict[str, Any]]:
+    cards_by_slug = legacy_sync.legacy.parse_datajs(
+        site / "assets" / "data.js"
+    )
+    key_by_id = {
+        record["app_store_id"]: key
+        for key, record in sources["finder"].items()
+    }
+    cards: dict[str, dict[str, Any]] = {}
+    for slug, card in cards_by_slug.items():
+        try:
+            app_id = legacy_sync.app_id_from_url(card.get("url"))
+        except ValueError as error:
+            raise PublisherRootBlocked(
+                f"BLOCKED data.js card has an invalid App Store URL: {slug}"
+            ) from error
+        key = key_by_id.get(app_id)
+        if key is None:
+            raise PublisherRootBlocked(
+                f"BLOCKED data.js contains a non-canonical app: {slug}/{app_id}"
+            )
+        if key in cards:
+            raise PublisherRootBlocked(
+                f"BLOCKED data.js duplicates canonical app key: {key}"
+            )
+        expected_slug = contract["root_slugs"][key]
+        if slug != expected_slug:
+            raise PublisherRootBlocked(
+                "BLOCKED data.js/root slug drift: "
+                f"{key} expected={expected_slug} actual={slug}"
+            )
+        cards[key] = card
+    expected = set(contract["root_slugs"])
+    if set(cards) != expected:
+        raise PublisherRootBlocked(
+            "BLOCKED visible cards are not exact46: "
+            f"missing={sorted(expected - set(cards))}, "
+            f"extra={sorted(set(cards) - expected)}"
+        )
+    return cards
+
+
+def _legacy_page_path(site: Path, slug: str, lang: str) -> Path:
+    if lang == "en":
+        return site / "app" / slug / "index.html"
+    return site / "app" / slug / lang / "index.html"
+
+
+def sync_legacy_pages(
+    site: Path,
+    contract: dict[str, Any],
+    sources: dict[str, Any],
+    cards: dict[str, dict[str, Any]],
+) -> dict[str, int]:
+    legacy_keys = contract["page_management"]["legacy_datajs"]
+    external_keys = (
+        set(contract["page_management"]["publisher_exact50"])
+        | set(contract["page_management"]["app_owned_exact50"])
+    )
+    legacy_apps: dict[str, dict[str, Any]] = {}
+    catalogs: dict[str, dict[str, dict[str, Any]]] = {
+        lang: {} for lang in legacy_sync.CATALOG_LOCALES
+    }
+    changed = 0
+    seen_paths: set[Path] = set()
+    for key in legacy_keys:
+        card = cards[key]
+        slug = contract["root_slugs"][key]
+        legacy_apps[slug] = card
+        app_id = sources["finder"][key]["app_store_id"]
+        for lang, locale in legacy_sync.CATALOG_LOCALES.items():
+            record = sources["localized"][locale][key]
+            catalogs[lang][app_id] = record
+            path = _legacy_page_path(site, slug, lang)
+            resolved = path.resolve()
+            if resolved in seen_paths:
+                raise ValueError(f"duplicate legacy page write: {path}")
+            seen_paths.add(resolved)
+            if not path.is_file():
+                raise PublisherRootBlocked(
+                    f"BLOCKED legacy-managed page is missing: {path}"
+                )
+            if legacy_sync.sync_page(path, record, lang):
+                changed += 1
+
+    original_root = legacy_sync.ROOT
+    legacy_sync.ROOT = site
+    try:
+        legacy_sync.validate_all_pages(
+            legacy_apps,
+            catalogs,
+            externally_managed_slugs=frozenset(
+                contract["root_slugs"][key] for key in external_keys
+            ),
+        )
+    finally:
+        legacy_sync.ROOT = original_root
+    return {
+        "apps": len(legacy_keys),
+        "pages": len(legacy_keys) * len(legacy_sync.CATALOG_LOCALES),
+        "updated": changed,
+    }
+
+
+def validate_app_owned_pages(
+    site: Path,
+    contract: dict[str, Any],
+    sources: dict[str, Any],
+) -> None:
+    official_locales = set(contract["official_locales"])
+    canonical_ids = {
+        record["app_store_id"] for record in sources["finder"].values()
+    }
+    for key, relative_manifest in contract["page_management"][
+        "app_owned_exact50"
+    ].items():
+        manifest_path = site / relative_manifest
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (
+            OSError,
+            UnicodeDecodeError,
+            json.JSONDecodeError,
+        ) as error:
+            raise PublisherRootBlocked(
+                f"BLOCKED app-owned manifest is unavailable: {relative_manifest}"
+            ) from error
+        app_id = sources["finder"][key]["app_store_id"]
+        slug = contract["root_slugs"][key]
+        locales = manifest.get("locales")
+        if (
+            str(manifest.get("appId", "")) != app_id
+            or not isinstance(locales, list)
+            or set(locales) != official_locales
+            or len(locales) != len(official_locales)
+            or manifest.get("slug", slug) != slug
+        ):
+            raise PublisherRootBlocked(
+                f"BLOCKED app-owned manifest drifted: {key}"
+            )
+        paths = [
+            _page_path(site, slug, None),
+            *(
+                _page_path(site, slug, locale)
+                for locale in contract["official_locales"]
+            ),
+        ]
+        for path in paths:
+            if not path.is_file():
+                raise PublisherRootBlocked(
+                    f"BLOCKED app-owned exact50 page is missing: {path}"
+                )
+            ids = set(APP_STORE_URL_RE.findall(
+                path.read_text(encoding="utf-8")
+            ))
+            if app_id not in ids or not ids.issubset(canonical_ids):
+                raise PublisherRootBlocked(
+                    f"BLOCKED app-owned page identity drifted: {path}"
+                )
 
 
 def _validate_supplemental_eligibility(
@@ -690,7 +950,11 @@ def _page_marker(
                 "ui": {
                     "first_party_heading": ui["first_party_heading"],
                     "non_ranking_notice": ui["non_ranking_notice"],
-                    "row": ui["rows"][publisher["app_name"]],
+                    "purchase_label": ui["purchase_labels"][
+                        publisher["purchase_model"]
+                    ],
+                    "guide_label": ui["guide_label"],
+                    "app_store_label": ui["app_store_label"],
                 },
             },
             ensure_ascii=False,
@@ -730,7 +994,7 @@ def render_page(
         "\n<link rel=\"alternate\" hreflang=\"x-default\" "
         f'href="{html.escape(_page_url(slug, None), quote=True)}">'
     )
-    row = ui["rows"][publisher["app_name"]]
+    purchase_label = ui["purchase_labels"][publisher["purchase_model"]]
     search_terms = [
         str(term).strip()
         for term in catalog["search_terms"][:10]
@@ -789,7 +1053,7 @@ def render_page(
         "offers": {
             "@type": "Offer",
             "url": campaign_url,
-            "description": row["purchase_label"],
+            "description": purchase_label,
         },
         "additionalProperty": [
             {
@@ -845,7 +1109,7 @@ a{{color:#6540b8;text-decoration:none}}a:hover{{text-decoration:underline}}.shel
 <body>
 {marker}
 <div class="shell" data-app-key="{html.escape(key, quote=True)}" data-query-origin="publisher_authored_editorially_localized" data-ranking="false">
-<header><a class="brand" href="/">Lumi Studio</a><a href="{html.escape(publisher['canonical_guide_url'], quote=True)}">{html.escape(row['guide_label'])}</a></header>
+<header><a class="brand" href="/">Lumi Studio</a><a href="{html.escape(publisher['canonical_guide_url'], quote=True)}">{html.escape(ui['guide_label'])}</a></header>
 <main>
 <section class="hero">
 <div class="mark" aria-hidden="true">{html.escape(str(publisher['app_name']).strip()[:1])}</div>
@@ -860,10 +1124,10 @@ a{{color:#6540b8;text-decoration:none}}a:hover{{text-decoration:underline}}.shel
 <ul class="terms" aria-label="{html.escape(ui['headers'][1], quote=True)}">{terms_html}</ul>
 </article>
 <aside class="card">
-<div class="price"><span>{html.escape(row['purchase_label'])}</span>{price_html}</div>
+<div class="price"><span>{html.escape(purchase_label)}</span>{price_html}</div>
 <div class="actions">
 <a class="cta" href="{html.escape(campaign_url, quote=True)}" rel="noopener">{html.escape(str(publisher['app_store_cta_label']))}</a>
-<a class="guide" href="{html.escape(str(publisher['canonical_guide_url']), quote=True)}">↗ {html.escape(row['guide_label'])}: {html.escape(str(publisher['app_name']))}</a>
+<a class="guide" href="{html.escape(str(publisher['canonical_guide_url']), quote=True)}">↗ {html.escape(ui['guide_label'])}: {html.escape(str(publisher['app_name']))}</a>
 </div>
 </aside>
 <aside class="card disclosure">
@@ -932,6 +1196,7 @@ def rebuild_home(
     site: Path,
     contract: dict[str, Any],
     sources: dict[str, Any],
+    cards: dict[str, dict[str, Any]],
 ) -> bool:
     links = []
     for key, slug in contract["root_slugs"].items():
@@ -956,7 +1221,7 @@ def rebuild_home(
     if count != 1:
         raise ValueError("home page app navigation block is missing")
     updated, count = HOME_OG_COUNT_RE.subn(
-        rf"\g<1>{contract['expected_app_count']}\g<2>",
+        rf"\g<1>{len(cards)}\g<2>",
         updated,
         count=1,
     )
@@ -1098,6 +1363,224 @@ def validate_root_roster(
             )
 
 
+def validate_home_consistency(
+    site: Path,
+    contract: dict[str, Any],
+    cards: dict[str, dict[str, Any]],
+) -> None:
+    source = (site / "index.html").read_text(encoding="utf-8")
+    og_match = re.search(
+        r'property="og:description" content="探索 (\d+) 款獨立 iPhone App',
+        source,
+    )
+    nav_match = APP_NAV_RE.search(source)
+    if og_match is None or nav_match is None:
+        raise ValueError("home count or app navigation is missing")
+    nav_slugs = re.findall(
+        r'<a href="/app/([a-z0-9-]+)/">',
+        nav_match.group(0),
+    )
+    root_slugs = {
+        path.parent.name
+        for path in (site / "app").glob("*/index.html")
+    }
+    expected_slugs = set(contract["root_slugs"].values())
+    counts = {
+        "visible_cards": len(cards),
+        "og": int(og_match.group(1)),
+        "applinks": len(nav_slugs),
+        "root_pages": len(root_slugs),
+    }
+    if (
+        set(cards) != set(contract["root_slugs"])
+        or set(nav_slugs) != expected_slugs
+        or len(nav_slugs) != len(set(nav_slugs))
+        or root_slugs != expected_slugs
+        or set(counts.values()) != {contract["expected_app_count"]}
+        or "const appCount=()=>String(window.APPS.length);" not in source
+    ):
+        raise PublisherRootBlocked(
+            f"BLOCKED home/data.js/root counts differ: {counts}"
+        )
+
+
+class _RenderedPageInspector(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.smart_app_ids: list[str] = []
+        self.canonical_urls: list[str] = []
+        self.alternates: dict[str, str] = {}
+        self.anchors: list[dict[str, str]] = []
+        self.json_ld_sources: list[str] = []
+        self.visible_text: list[str] = []
+        self._script_type = ""
+        self._script_parts: list[str] = []
+
+    def handle_starttag(
+        self,
+        tag: str,
+        attrs: list[tuple[str, str | None]],
+    ) -> None:
+        values = {key: value or "" for key, value in attrs}
+        if tag == "meta" and values.get("name") == "apple-itunes-app":
+            matched = re.search(r"(?:^|,)\s*app-id=(\d+)", values["content"])
+            if matched:
+                self.smart_app_ids.append(matched.group(1))
+        elif tag == "link":
+            rel = set(values.get("rel", "").split())
+            if "canonical" in rel:
+                self.canonical_urls.append(values.get("href", ""))
+            if "alternate" in rel and values.get("hreflang"):
+                self.alternates[values["hreflang"]] = values.get("href", "")
+        elif tag == "a":
+            self.anchors.append(
+                {
+                    "href": values.get("href", ""),
+                    "class": values.get("class", ""),
+                }
+            )
+        elif tag == "script":
+            self._script_type = values.get("type", "")
+            self._script_parts = []
+
+    def handle_data(self, data: str) -> None:
+        if self._script_type:
+            self._script_parts.append(data)
+        elif data.strip():
+            self.visible_text.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "script":
+            if self._script_type == "application/ld+json":
+                self.json_ld_sources.append("".join(self._script_parts))
+            self._script_type = ""
+            self._script_parts = []
+
+
+def _software_application(source: str) -> dict[str, Any]:
+    inspector = _RenderedPageInspector()
+    inspector.feed(source)
+    inspector.close()
+    applications = []
+    for raw in inspector.json_ld_sources:
+        payload = json.loads(raw)
+        items = payload if isinstance(payload, list) else [payload]
+        applications.extend(
+            item
+            for item in items
+            if isinstance(item, dict)
+            and item.get("@type") == "SoftwareApplication"
+        )
+    if len(applications) != 1:
+        raise ValueError("publisher page must contain one SoftwareApplication")
+    return applications[0]
+
+
+def validate_rendered_page(
+    source: str,
+    *,
+    key: str,
+    slug: str,
+    locale: str,
+    canonical_locale: str | None,
+    contract: dict[str, Any],
+    publisher: dict[str, Any],
+    catalog: dict[str, Any],
+    ui: dict[str, Any],
+) -> None:
+    inspector = _RenderedPageInspector()
+    inspector.feed(source)
+    inspector.close()
+    app_id = str(publisher["app_store_id"])
+    campaign_url = str(publisher["app_store_url"])
+    canonical_url = _page_url(slug, canonical_locale)
+    found_ids = set(APP_STORE_URL_RE.findall(source))
+    if found_ids != {app_id}:
+        raise ValueError(
+            f"publisher page contains another App Store ID: {key}/{locale}"
+        )
+    if inspector.smart_app_ids != [app_id]:
+        raise ValueError(
+            f"publisher page Smart App Banner drifted: {key}/{locale}"
+        )
+    if inspector.canonical_urls != [canonical_url]:
+        raise ValueError(
+            f"publisher page canonical URL drifted: {key}/{locale}"
+        )
+    expected_alternates = {
+        item: _page_url(slug, item)
+        for item in contract["official_locales"]
+    }
+    expected_alternates["x-default"] = _page_url(slug, None)
+    if inspector.alternates != expected_alternates:
+        raise ValueError(
+            f"publisher page hreflang drifted: {key}/{locale}"
+        )
+    cta_hrefs = [
+        anchor["href"]
+        for anchor in inspector.anchors
+        if "cta" in anchor["class"].split()
+    ]
+    if cta_hrefs != [campaign_url]:
+        raise ValueError(
+            f"publisher page CTA href drifted: {key}/{locale}"
+        )
+    application = _software_application(source)
+    expected_same_as = [
+        publisher["canonical_guide_url"],
+        publisher["canonical_app_store_url"],
+    ]
+    if (
+        application.get("installUrl") != campaign_url
+        or application.get("downloadUrl") != campaign_url
+        or application.get("sameAs") != expected_same_as
+    ):
+        raise ValueError(
+            f"publisher page JSON-LD links drifted: {key}/{locale}"
+        )
+    offers = application.get("offers")
+    purchase_label = ui["purchase_labels"][publisher["purchase_model"]]
+    if (
+        not isinstance(offers, dict)
+        or offers.get("@type") != "Offer"
+        or offers.get("url") != campaign_url
+        or offers.get("description") != purchase_label
+    ):
+        raise ValueError(
+            f"publisher page JSON-LD offer drifted: {key}/{locale}"
+        )
+    storefront = catalog.get("storefront_facts")
+    if isinstance(storefront, dict) and (
+        offers.get("price") != storefront["price"]
+        or offers.get("priceCurrency") != storefront["currency"]
+    ):
+        raise ValueError(
+            f"publisher page JSON-LD price drifted: {key}/{locale}"
+        )
+    if not isinstance(storefront, dict) and (
+        "price" in offers or "priceCurrency" in offers
+    ):
+        raise ValueError(
+            f"publisher page JSON-LD unavailable price drifted: {key}/{locale}"
+        )
+    visible = " ".join(" ".join(inspector.visible_text).split())
+    expected_visible = (
+        publisher["app_store_cta_label"],
+        publisher["publisher_query"],
+        publisher["decision_context"],
+        publisher["publisher_disclosure"],
+        ui["non_ranking_notice"],
+        purchase_label,
+    )
+    if MARKER_PREFIX not in source or any(
+        " ".join(str(value).split()) not in visible
+        for value in expected_visible
+    ):
+        raise ValueError(
+            f"publisher page visible content drifted: {key}/{locale}"
+        )
+
+
 def validate_supplemental_pages(
     site: Path,
     contract: dict[str, Any],
@@ -1126,34 +1609,17 @@ def validate_supplemental_pages(
         for locale, canonical_locale in targets:
             path = _page_path(site, slug, canonical_locale)
             source = path.read_text(encoding="utf-8")
-            publisher = sources["publisher"][locale][key]
-            expected = (
-                publisher["app_store_id"],
-                publisher["app_store_url"],
-                publisher["canonical_guide_url"],
-                publisher["publisher_query"],
-                publisher["decision_context"],
-                publisher["publisher_disclosure"],
-                sources["ui"][locale]["non_ranking_notice"],
+            validate_rendered_page(
+                source,
+                key=key,
+                slug=slug,
+                locale=locale,
+                canonical_locale=canonical_locale,
+                contract=contract,
+                publisher=sources["publisher"][locale][key],
+                catalog=sources["localized"][locale][key],
+                ui=sources["ui"][locale],
             )
-            if MARKER_PREFIX not in source or any(
-                html.escape(str(value), quote=True) not in source
-                and html.escape(str(value)) not in source
-                for value in expected
-            ):
-                raise ValueError(
-                    f"supplemental publisher page drifted: {key}/{locale}"
-                )
-            for hreflang in contract["official_locales"]:
-                needle = (
-                    f'hreflang="{hreflang}" '
-                    f'href="{_page_url(slug, hreflang)}"'
-                )
-                if needle not in source:
-                    raise ValueError(
-                        f"supplemental hreflang is missing: "
-                        f"{key}/{locale}/{hreflang}"
-                    )
 
 
 def raw_get_plan(
@@ -1206,11 +1672,11 @@ def raw_get_plan(
                 contract["localized_catalog_base_url"]
             ),
             "publisher_dataset": contract["publisher_dataset_url"],
-            "publisher_locale_page_base": (
-                contract["publisher_locale_page_base_url"]
+            "publisher_i18n_source": (
+                contract["publisher_i18n_source_url"]
             ),
             "publisher_i18n_source_sha256": (
-                contract["publisher_i18n_source_sha256"]
+                sources["publisher_i18n_digest"]
             ),
         },
         "requests": requests,
@@ -1224,7 +1690,7 @@ def run(
     finder_path: Path | None = None,
     publisher_dataset_path: Path | None = None,
     localized_catalog_dir: Path | None = None,
-    publisher_pages_dir: Path | None = None,
+    publisher_i18n_path: Path | None = None,
     raw_get_plan_path: Path | None = None,
     today: str | None = None,
     opener=None,
@@ -1236,14 +1702,16 @@ def run(
         finder_path=finder_path,
         publisher_dataset_path=publisher_dataset_path,
         localized_catalog_dir=localized_catalog_dir,
-        publisher_pages_dir=publisher_pages_dir,
+        publisher_i18n_path=publisher_i18n_path,
         opener=opener,
         sleeper=sleeper,
     )
+    cards = load_datajs_cards(site, contract, sources)
     _validate_supplemental_eligibility(contract, sources)
+    legacy_stats = sync_legacy_pages(site, contract, sources, cards)
     stats = generate_supplemental_pages(site, contract, sources)
     changed_shared = 0
-    if rebuild_home(site, contract, sources):
+    if rebuild_home(site, contract, sources, cards):
         changed_shared += 1
     if rebuild_llms(site, contract, sources):
         changed_shared += 1
@@ -1253,7 +1721,9 @@ def run(
     if rebuild_sitemap(site, contract, today=stable_today):
         changed_shared += 1
     validate_root_roster(site, contract, sources)
+    validate_app_owned_pages(site, contract, sources)
     validate_supplemental_pages(site, contract, sources)
+    validate_home_consistency(site, contract, cards)
     if raw_get_plan_path is not None:
         _write_if_changed(
             raw_get_plan_path,
@@ -1267,14 +1737,25 @@ def run(
     print(
         "PUBLISHER_ROOT_SYNC "
         f"canonical={contract['expected_app_count']} "
+        f"legacy={legacy_stats['apps']}/{legacy_stats['pages']} "
         f"supplements={len(contract['supplemental_app_keys'])} "
+        f"app_owned={len(contract['page_management']['app_owned_exact50'])} "
         f"locales={contract['expected_locale_count']} "
         f"pages={stats['pages']} created={stats['created']} "
         f"updated={stats['updated']} unchanged={stats['unchanged']} "
-        f"shared={changed_shared}",
+        f"legacy_updated={legacy_stats['updated']} shared={changed_shared}",
         flush=True,
     )
-    return {**stats, "shared": changed_shared}
+    return {
+        **stats,
+        "legacy_apps": legacy_stats["apps"],
+        "legacy_pages": legacy_stats["pages"],
+        "legacy_updated": legacy_stats["updated"],
+        "app_owned": len(
+            contract["page_management"]["app_owned_exact50"]
+        ),
+        "shared": changed_shared,
+    }
 
 
 def main() -> None:
@@ -1284,7 +1765,7 @@ def main() -> None:
     parser.add_argument("--finder", type=Path)
     parser.add_argument("--publisher-dataset", type=Path)
     parser.add_argument("--localized-catalog-dir", type=Path)
-    parser.add_argument("--publisher-pages-dir", type=Path)
+    parser.add_argument("--publisher-i18n", type=Path)
     parser.add_argument("--raw-get-plan", type=Path)
     parser.add_argument("--today")
     args = parser.parse_args()
@@ -1302,9 +1783,9 @@ def main() -> None:
             if args.localized_catalog_dir
             else None
         ),
-        publisher_pages_dir=(
-            args.publisher_pages_dir.resolve()
-            if args.publisher_pages_dir
+        publisher_i18n_path=(
+            args.publisher_i18n.resolve()
+            if args.publisher_i18n
             else None
         ),
         raw_get_plan_path=(
