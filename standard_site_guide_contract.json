@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-29T11:48:59.723Z",
+  "generated_at": "2026-08-30T10:44:03.413Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -152,6 +152,12 @@
       "app_key": "lumimath",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3tr3r",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3tr3r\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-math-game-for-kids-that-i-pay-for-once-and-has-absolutely-no-in-app-purchases-or-ads.html",
+      "app_key": "lumimath",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3xne4",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3xne4\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-phonics-app-for-homeschoolers-that-also-generates-printable-practice-worksheets.html",
