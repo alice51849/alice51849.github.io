@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-08-30T10:44:03.413Z",
+  "generated_at": "2026-08-31T11:53:19.064Z",
   "publication": {
     "url": "https://alice51849.github.io/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -148,6 +148,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l\">"
     },
     {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-kids-math-app-that-can-generate-printable-worksheets-i-can-use-for-off-screen-practice.html",
+      "app_key": "lumimathpro",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4pn76",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4pn76\">"
+    },
+    {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-math-app-for-kids-that-tracks-which-types-of-problems-they-get-wrong-and-focuses-practice-there.html",
       "app_key": "lumimath",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3tr3r",
@@ -164,6 +170,12 @@
       "app_key": "lumiletterspro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3iill",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3iill\">"
+    },
+    {
+      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-an-app-that-turns-toothbrushing-and-morning-routines-into-a-game-for-my-4-year-old.html",
+      "app_key": "lumimission",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou\">"
     },
     {
       "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/real-hourly-wage-spending-calculator-app-pay-once-no-tracking.html",
