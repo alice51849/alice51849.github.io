@@ -2,6 +2,13 @@
 
 > A concise index of independent iPhone apps by Alice51849, with verified App Store links and transparent purchase details across photo, productivity, finance, learning, travel, and family tasks.
 
+## Start here
+
+- App directory with every app's guide and support site — https://open.cait518.cc/app/
+- English guides for every app — https://open.cait518.cc/ios-app-guide/
+- Sitemap index covering the guides and all support sites — https://open.cait518.cc/sitemap-index.xml
+- Contact — hourstag.app@gmail.com
+
 ## Apps
 
 - AI Brief — Better context. Better answers. — https://apps.apple.com/us/app/id6791658210
@@ -42,16 +49,67 @@
 
 ## Machine-readable app discovery
 
-- Verified iOS App Catalog API (50 App Store locales) — https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/
-- OpenAPI 3.1 contract — https://alice51849.github.io/ios-app-guide/api/v1/ios-app-catalog/openapi.json
+- Verified iOS App Catalog API (50 App Store locales) — https://open.cait518.cc/ios-app-guide/api/v1/ios-app-catalog/
+- OpenAPI 3.1 contract — https://open.cait518.cc/ios-app-guide/api/v1/ios-app-catalog/openapi.json
 - RFC 9727 API Catalog — https://alice51849.github.io/.well-known/api-catalog
 - Agentic Resource Discovery (ARD) catalog — https://alice51849.github.io/.well-known/ai-catalog.json
 - Lumi App Finder MCP server card — https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json
 - Official MCP Registry entry — https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.alice51849%2Flumi-app-finder&version=latest&limit=10
-- Traditional Chinese Zhuyin app comparison (first-party maintained, not an independent ranking) — https://alice51849.github.io/awesome-zhuyin-bopomofo-apps/
+- Traditional Chinese Zhuyin app comparison (first-party maintained, not an independent ranking) — https://open.cait518.cc/awesome-zhuyin-bopomofo-apps/
 
 ## Live social discovery
 
 - App guide Atom feed — https://alice51849.github.io/bridgy-feed.xml
 - Bridged Bluesky app guides — https://bsky.app/profile/alice51849.github.io.web.brid.gy
 - ActivityPub app guide profile — https://web.brid.gy/alice51849.github.io
+
+## App guides and support sites
+
+Every app below has a first-party English guide page and its own support site. Full directory: https://open.cait518.cc/app/
+
+- 100 Notes Studio — guide: https://open.cait518.cc/ios-app-guide/en-US/notesstudio100.html — support: https://open.cait518.cc/100notes-support/
+- AI Brief — guide: https://open.cait518.cc/ios-app-guide/en-US/aibriefpack.html — support: https://open.cait518.cc/aibrief-support/
+- Aim990 — guide: https://open.cait518.cc/ios-app-guide/en-US/aim990.html — support: https://open.cait518.cc/aim990-support/
+- Aim990 Plus — guide: https://open.cait518.cc/ios-app-guide/en-US/aim990plus.html — support: https://open.cait518.cc/aim990-plus-support/
+- BattAI — guide: https://open.cait518.cc/ios-app-guide/en-US/battai.html — support: https://open.cait518.cc/battai-support/
+- CalDaily — guide: https://open.cait518.cc/ios-app-guide/en-US/caldaily.html — support: https://open.cait518.cc/caldaily-support/
+- CV Desk — guide: https://open.cait518.cc/ios-app-guide/en-US/cvdesk.html — support: https://open.cait518.cc/cvdesk-support/
+- Cyca — guide: https://open.cait518.cc/ios-app-guide/en-US/cyca.html — support: https://open.cait518.cc/cyca-support/
+- DailyMate — guide: https://open.cait518.cc/ios-app-guide/en-US/dailymate.html — support: https://open.cait518.cc/dailymate-support/
+- DailyMate Lite — guide: https://open.cait518.cc/ios-app-guide/en-US/dailymatelite.html — support: https://open.cait518.cc/dailymate-lite-support/
+- G+Money — guide: https://open.cait518.cc/ios-app-guide/en-US/gmoney.html — support: https://open.cait518.cc/gmoney-support/
+- G+Money Lite — guide: https://open.cait518.cc/ios-app-guide/en-US/gmoneylite.html — support: https://open.cait518.cc/gmoney-lite-support/
+- HoursTag Lite — guide: https://open.cait518.cc/ios-app-guide/en-US/hourstaglite.html — support: https://open.cait518.cc/hourstag-lite-support/
+- HoursTag: Hours to Buy — guide: https://open.cait518.cc/ios-app-guide/en-US/hourstag.html — support: https://open.cait518.cc/hourstag-support/
+- LockHour Pro — guide: https://open.cait518.cc/ios-app-guide/en-US/lockhour.html — support: https://open.cait518.cc/lockhour-support/
+- Lumi Bopomofo — guide: https://open.cait518.cc/ios-app-guide/en-US/lumibopomofo.html — support: https://open.cait518.cc/lumi-support/
+- Lumi Bopomofo Pro — guide: https://open.cait518.cc/ios-app-guide/en-US/lumibopomofopro.html — support: https://open.cait518.cc/lumi-bopomofo-pro-support/
+- Lumi Letters — guide: https://open.cait518.cc/ios-app-guide/en-US/lumiletters.html — support: https://open.cait518.cc/lumi-letters-support/
+- Lumi Letters Pro — guide: https://open.cait518.cc/ios-app-guide/en-US/lumiletterspro.html — support: https://open.cait518.cc/lumi-letters-pro-support/
+- Lumi Math Planet — guide: https://open.cait518.cc/ios-app-guide/en-US/lumimath.html — support: https://open.cait518.cc/lumi-math-support/
+- Lumi Math Pro — guide: https://open.cait518.cc/ios-app-guide/en-US/lumimathpro.html — support: https://open.cait518.cc/lumi-math-pro-support/
+- Lumi Mission Planet — guide: https://open.cait518.cc/ios-app-guide/en-US/lumimission.html — support: https://open.cait518.cc/lumi-mission-support/
+- Lumi Mission Planet Pro — guide: https://open.cait518.cc/ios-app-guide/en-US/lumimissionpro.html — support: https://open.cait518.cc/lumi-mission-pro-support/
+- Lumi Trip Planet — guide: https://open.cait518.cc/ios-app-guide/en-US/tripplanet.html — support: https://open.cait518.cc/trip-planet-support/
+- Lumi Weather — guide: https://open.cait518.cc/ios-app-guide/en-US/lumiweather.html — support: https://open.cait518.cc/lumi-weather-support/
+- Mask My File — guide: https://open.cait518.cc/ios-app-guide/en-US/maskmyfile.html — support: https://open.cait518.cc/maskmyfile-support/
+- Mochi — guide: https://open.cait518.cc/ios-app-guide/en-US/mochi.html — support: https://open.cait518.cc/mochitodo-support/
+- Mochi DoneStamp — guide: https://open.cait518.cc/ios-app-guide/en-US/mochidonestamp.html — support: https://open.cait518.cc/mochi-donestamp-support/
+- MoneyTag: Income & Expense — guide: https://open.cait518.cc/ios-app-guide/en-US/moneytag.html — support: https://open.cait518.cc/moneytag-support/
+- OnePage PPT — guide: https://open.cait518.cc/ios-app-guide/en-US/onepageppt.html — support: https://open.cait518.cc/onepageppt-support/
+- PhotoCream — guide: https://open.cait518.cc/ios-app-guide/en-US/photocream.html — support: https://open.cait518.cc/photocream-support/
+- PicClear — guide: https://open.cait518.cc/ios-app-guide/en-US/picclear.html — support: https://open.cait518.cc/picclear-support/
+- SaveTag — guide: https://open.cait518.cc/ios-app-guide/en-US/savetag.html — support: https://open.cait518.cc/savetag-support/
+- ScanTo Pro — guide: https://open.cait518.cc/ios-app-guide/en-US/scanto.html — support: https://open.cait518.cc/scanto-support/
+- Sereno — guide: https://open.cait518.cc/ios-app-guide/en-US/sereno.html — support: https://open.cait518.cc/sereno-support/
+- ShotInbox AI — guide: https://open.cait518.cc/ios-app-guide/en-US/shotinbox.html — support: https://open.cait518.cc/shotinbox-support/
+- Snapport — guide: https://open.cait518.cc/ios-app-guide/en-US/snapport.html — support: https://open.cait518.cc/snapport-support/
+- Snapport Lite — guide: https://open.cait518.cc/ios-app-guide/en-US/snapportlite.html — support: https://open.cait518.cc/snapport-lite-support/
+- Sono Note — guide: https://open.cait518.cc/ios-app-guide/en-US/sononote.html — support: https://open.cait518.cc/sono-note-support/
+- TripBee Lite — guide: https://open.cait518.cc/ios-app-guide/en-US/tripbeelite.html — support: https://open.cait518.cc/tripbee-lite-support/
+- TripBee Pro: Trip Planner — guide: https://open.cait518.cc/ios-app-guide/en-US/tripbee.html — support: https://open.cait518.cc/tripbee-support/
+- Unblurry — guide: https://open.cait518.cc/ios-app-guide/en-US/unblurry.html — support: https://open.cait518.cc/unblurry-support/
+- WiFi Aid — guide: https://open.cait518.cc/ios-app-guide/en-US/wifiaid.html — support: https://open.cait518.cc/wifiaid-support/
+- WiFi Aid Lite — guide: https://open.cait518.cc/ios-app-guide/en-US/wifiaidlite.html — support: https://open.cait518.cc/wifiaid-lite-support/
+- Wordmate Lite — guide: https://open.cait518.cc/ios-app-guide/en-US/wordmatelite.html — support: https://open.cait518.cc/wordmate-lite-support/
+- Wordmate: Learn 44 Languages — guide: https://open.cait518.cc/ios-app-guide/en-US/wordmate.html — support: https://open.cait518.cc/wordmate-support/

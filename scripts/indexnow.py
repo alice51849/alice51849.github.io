@@ -10,10 +10,10 @@ import urllib.parse
 import urllib.request
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HOST = "alice51849.github.io"
+HOST = "open.cait518.cc"
 KEY = "6326858eafb428d855f18d778c3c3fb1"
 ENDPOINT = "https://api.indexnow.org/indexnow"
-USER_AGENT = "LumiRootIndexNow/1.0 (+https://alice51849.github.io/)"
+USER_AGENT = "LumiRootIndexNow/1.0 (+https://open.cait518.cc/)"
 
 
 def sitemap_urls(path):

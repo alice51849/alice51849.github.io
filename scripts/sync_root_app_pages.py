@@ -78,7 +78,7 @@ HOME_OG_COUNT_RE = re.compile(
 )
 USER_AGENT = (
     "LumiRootAppPageSync/1.0 "
-    "(+https://alice51849.github.io/)"
+    "(+https://open.cait518.cc/)"
 )
 VERIFIED_PAGE_MARKER_PREFIX = "<!-- verified-catalog-page:"
 

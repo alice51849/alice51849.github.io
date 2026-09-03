@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Agentic Resource Discovery (ARD)
-Agentmap: https://alice51849.github.io/.well-known/ai-catalog.json
+Agentmap: https://open.cait518.cc/.well-known/ai-catalog.json
 
 # AI assistants & answer engines — explicitly welcome (GEO)
 User-agent: GPTBot
@@ -32,35 +32,63 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://alice51849.github.io/sitemap.xml
-Sitemap: https://alice51849.github.io/ios-app-guide/sitemap_index.xml
-Sitemap: https://alice51849.github.io/ios-app-guide/resourcesync/resourcelist.xml
-Sitemap: https://alice51849.github.io/awesome-zhuyin-bopomofo-apps/sitemap.xml
+# Site-wide indexes
+Sitemap: https://open.cait518.cc/sitemap-index.xml
+Sitemap: https://open.cait518.cc/sitemap.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/resourcesync/resourcelist.xml
+Sitemap: https://open.cait518.cc/awesome-zhuyin-bopomofo-apps/sitemap.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_index.xml
 
 # Support & help sites (one sitemap per app)
-Sitemap: https://alice51849.github.io/100notes-support/sitemap.xml
-Sitemap: https://alice51849.github.io/aim990-support/sitemap.xml
-Sitemap: https://alice51849.github.io/astrea-support/sitemap.xml
-Sitemap: https://alice51849.github.io/caldaily-support/sitemap.xml
-Sitemap: https://alice51849.github.io/cvdesk-support/sitemap.xml
-Sitemap: https://alice51849.github.io/cyca-support/sitemap.xml
-Sitemap: https://alice51849.github.io/gmoney-support/sitemap.xml
-Sitemap: https://alice51849.github.io/hourstag-support/sitemap.xml
-Sitemap: https://alice51849.github.io/lockhour-support/sitemap.xml
-Sitemap: https://alice51849.github.io/lumi-letters-support/sitemap.xml
-Sitemap: https://alice51849.github.io/lumi-math-support/sitemap.xml
-Sitemap: https://alice51849.github.io/lumi-mission-support/sitemap.xml
-Sitemap: https://alice51849.github.io/lumi-support/sitemap.xml
-Sitemap: https://alice51849.github.io/lumi-weather-support/sitemap.xml
-Sitemap: https://alice51849.github.io/mochitodo-support/sitemap.xml
-Sitemap: https://alice51849.github.io/photocream-support/sitemap.xml
-Sitemap: https://alice51849.github.io/picclear-support/sitemap.xml
-Sitemap: https://alice51849.github.io/scanto-support/sitemap.xml
-Sitemap: https://alice51849.github.io/sereno-support/sitemap.xml
-Sitemap: https://alice51849.github.io/snapport-lite-support/sitemap.xml
-Sitemap: https://alice51849.github.io/snapport-support/sitemap.xml
-Sitemap: https://alice51849.github.io/sono-note-support/sitemap.xml
-Sitemap: https://alice51849.github.io/trip-planet-support/sitemap.xml
-Sitemap: https://alice51849.github.io/tripbee-support/sitemap.xml
-Sitemap: https://alice51849.github.io/unblurry-support/sitemap.xml
-Sitemap: https://alice51849.github.io/zafe-support/sitemap.xml
+Sitemap: https://open.cait518.cc/100notes-support/sitemap.xml
+Sitemap: https://open.cait518.cc/aibrief-support/sitemap.xml
+Sitemap: https://open.cait518.cc/aim990-plus-support/sitemap.xml
+Sitemap: https://open.cait518.cc/aim990-support/sitemap.xml
+Sitemap: https://open.cait518.cc/astrea-support/sitemap.xml
+Sitemap: https://open.cait518.cc/battai-support/sitemap.xml
+Sitemap: https://open.cait518.cc/caldaily-support/sitemap.xml
+Sitemap: https://open.cait518.cc/cvdesk-support/sitemap.xml
+Sitemap: https://open.cait518.cc/cyca-support/sitemap.xml
+Sitemap: https://open.cait518.cc/dailymate-lite-support/sitemap.xml
+Sitemap: https://open.cait518.cc/dailymate-support/sitemap.xml
+Sitemap: https://open.cait518.cc/gmoney-lite-support/sitemap.xml
+Sitemap: https://open.cait518.cc/gmoney-support/sitemap.xml
+Sitemap: https://open.cait518.cc/hourstag-lite-support/sitemap.xml
+Sitemap: https://open.cait518.cc/hourstag-support/sitemap.xml
+Sitemap: https://open.cait518.cc/ledmovingtext-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lockhour-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-bopomofo-pro-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-letters-pro-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-letters-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-math-pro-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-math-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-mission-pro-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-mission-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-support/sitemap.xml
+Sitemap: https://open.cait518.cc/lumi-weather-support/sitemap.xml
+Sitemap: https://open.cait518.cc/maskmyfile-support/sitemap.xml
+Sitemap: https://open.cait518.cc/mochi-donestamp-support/sitemap.xml
+Sitemap: https://open.cait518.cc/mochitodo-support/sitemap.xml
+Sitemap: https://open.cait518.cc/moneytag-support/sitemap.xml
+Sitemap: https://open.cait518.cc/onepageppt-support/sitemap.xml
+Sitemap: https://open.cait518.cc/photocream-support/sitemap.xml
+Sitemap: https://open.cait518.cc/picclear-support/sitemap.xml
+Sitemap: https://open.cait518.cc/qrcodehalo-support/sitemap.xml
+Sitemap: https://open.cait518.cc/savetag-support/sitemap.xml
+Sitemap: https://open.cait518.cc/scanto-support/sitemap.xml
+Sitemap: https://open.cait518.cc/sereno-support/sitemap.xml
+Sitemap: https://open.cait518.cc/shotinbox-support/sitemap.xml
+Sitemap: https://open.cait518.cc/snapport-lite-support/sitemap.xml
+Sitemap: https://open.cait518.cc/snapport-support/sitemap.xml
+Sitemap: https://open.cait518.cc/sono-note-support/sitemap.xml
+Sitemap: https://open.cait518.cc/trip-planet-support/sitemap.xml
+Sitemap: https://open.cait518.cc/tripbee-lite-support/sitemap.xml
+Sitemap: https://open.cait518.cc/tripbee-support/sitemap.xml
+Sitemap: https://open.cait518.cc/unblurry-support/sitemap.xml
+Sitemap: https://open.cait518.cc/wifiaid-lite-support/sitemap.xml
+Sitemap: https://open.cait518.cc/wifiaid-support/sitemap.xml
+Sitemap: https://open.cait518.cc/wordmate-lite-support/sitemap.xml
+Sitemap: https://open.cait518.cc/wordmate-support/sitemap.xml
+Sitemap: https://open.cait518.cc/zafe-support/sitemap.xml
+Sitemap: https://open.cait518.cc/zodira-support/sitemap.xml

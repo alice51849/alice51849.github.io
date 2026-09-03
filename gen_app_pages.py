@@ -16,7 +16,10 @@ import os, sys, json, re, argparse, subprocess, urllib.request, urllib.error, ti
 
 SITE = os.path.dirname(os.path.abspath(__file__))
 APPS_JSON = os.path.expanduser("~/threads-autopilot/apps.json")
-BASE = "https://alice51849.github.io"
+# Public canonical host. The GitHub Pages origin is served on this
+# first-party domain through a Cloudflare tunnel, so every published
+# link, canonical and sitemap entry uses it.
+BASE = "https://open.cait518.cc"
 MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o")
 sys.path.insert(0, os.path.join(SITE, "scripts"))
 
@@ -244,7 +247,7 @@ h2{{font-size:23px;font-weight:800;margin-bottom:14px}}
 </div>
 <div class="foot">
 <div>{c_made}</div>
-<div style="margin-top:8px"><a href="/">{c_all}</a> · <a href="{store}" rel="noopener">App Store</a></div>
+<div style="margin-top:8px"><a href="/app/">{c_all}</a> · <a href="{store}" rel="noopener">App Store</a></div>
 </div>
 </body>
 </html>
@@ -338,6 +341,7 @@ def rebuild_sitemap(apps):
         ))
     entries=[
         (f"{BASE}/",os.path.join(SITE,"index.html")),
+        (f"{BASE}/app/",os.path.join(SITE,"app","index.html")),
         (f"{BASE}/.well-known/ai-catalog.json",os.path.join(SITE,".well-known","ai-catalog.json")),
         (f"{BASE}/.well-known/lumi-app-finder.mcp.json",os.path.join(SITE,".well-known","lumi-app-finder.mcp.json")),
         (f"{BASE}/.well-known/api-catalog",os.path.join(SITE,".well-known","api-catalog")),

@@ -47,6 +47,13 @@ jobs:
         if: always()
         run: python3 .github/scripts/test_sync_root_app_pages.py -q
 
+      - name: Sync the root link hub (App Store + guide + support per app)
+        if: always()
+        run: |
+          python3 .github/scripts/test_gen_link_hub.py -q
+          python3 scripts/gen_link_hub.py
+          python3 scripts/gen_link_hub.py --check
+
       - name: Verify deterministic dB Halo exact-50 site
         if: always()
         run: |

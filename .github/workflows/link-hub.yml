@@ -1,0 +1,55 @@
+name: Sync root link hub
+
+# The root site is the link graph hub: every app reachable from the home page
+# and /app/ with its App Store listing, English guide, and support site.
+on:
+  schedule:
+    - cron: "41 19 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-root-link-hub
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify the link hub contract
+        run: python3 .github/scripts/test_gen_link_hub.py -q
+      - name: Regenerate the hub from the vendored snapshot
+        run: python3 scripts/gen_link_hub.py
+      - name: Verify the regenerated hub is deterministic
+        run: python3 scripts/gen_link_hub.py --check
+      - name: Verify the root app page contract still holds
+        run: python3 .github/scripts/test_sync_root_app_pages.py -q
+      - name: Persist hub changes
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "Root link hub is already current."
+            exit 0
+          fi
+          git config user.name "lumi-link-hub-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: sync root link hub"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            if [[ "$attempt" -lt 3 ]]; then
+              sleep $((attempt * 10))
+            fi
+          done
+          exit 1

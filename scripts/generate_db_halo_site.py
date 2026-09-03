@@ -21,7 +21,7 @@ from managed_blocks import (
 ROOT = Path(__file__).resolve().parents[1]
 SITE_ROOT = ROOT / "db-halo"
 LOCALES_ROOT = SITE_ROOT / "locales"
-BASE_URL = "https://alice51849.github.io"
+BASE_URL = "https://open.cait518.cc"
 SITE_PATH = "/db-halo"
 EMAIL = "hourstag.app@gmail.com"
 LASTMOD = "2026-08-29"
