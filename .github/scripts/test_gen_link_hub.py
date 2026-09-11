@@ -208,6 +208,11 @@ class DiscoveryTests(unittest.TestCase):
         for bot in (*SEARCH_CRAWLERS, "UnlistedSearchCrawler"):
             self.assertTrue(policy.allowed(
                 bot, f"{hub.GUIDE_BASE}/en-US/alpha.html", f"{hub.BASE}/robots.txt"))
+            self.assertTrue(policy.allowed(
+                bot, f"{hub.GUIDE_BASE}/assets/app-store-share-v1.js",
+                f"{hub.BASE}/robots.txt"))
+            self.assertFalse(policy.allowed(
+                bot, f"{hub.BASE}/scripts/gen_link_hub.py", f"{hub.BASE}/robots.txt"))
             self.assertFalse(policy.conflicts(bot))
         for bot in TRAINING_CRAWLERS:
             self.assertFalse(policy.allowed(

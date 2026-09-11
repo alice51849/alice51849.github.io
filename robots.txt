@@ -11,6 +11,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -18,6 +19,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: PerplexityBot
 Allow: /
@@ -25,6 +27,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Applebot
 Allow: /
@@ -32,6 +35,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Googlebot
 Allow: /
@@ -39,6 +43,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Bingbot
 Allow: /
@@ -46,6 +51,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: ChatGPT-User
 Allow: /
@@ -53,6 +59,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Perplexity-User
 Allow: /
@@ -60,6 +67,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Claude-User
 Allow: /
@@ -67,6 +75,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Claude-SearchBot
 Allow: /
@@ -74,6 +83,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Claude-Web
 Allow: /
@@ -81,6 +91,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: anthropic-ai
 Allow: /
@@ -88,6 +99,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: BraveSearchBot
 Allow: /
@@ -95,6 +107,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: DuckDuckBot
 Allow: /
@@ -102,6 +115,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: cohere-ai
 Allow: /
@@ -109,6 +123,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: YandexBot
 Allow: /
@@ -116,6 +131,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: PetalBot
 Allow: /
@@ -123,6 +139,7 @@ Disallow: /.git/
 Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
+Disallow: /scripts/
 
 User-agent: Amazonbot
 Disallow: /

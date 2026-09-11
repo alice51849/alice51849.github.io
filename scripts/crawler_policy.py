@@ -29,7 +29,7 @@ OTHER_ALLOWED_CRAWLERS = (
     "cohere-ai", "YandexBot", "PetalBot",
 )
 PRIVATE_PATHS = (
-    "/.git/", "/.github/", "/_engine/", "/ios-app-guide/_engine/",
+    "/.git/", "/.github/", "/_engine/", "/ios-app-guide/_engine/", "/scripts/",
 )
 CRAWLER_SOURCES = {
     "OAI-SearchBot": {
@@ -203,11 +203,14 @@ class PageSignals(HTMLParser):
         self.canonicals: list[str] = []
         self.alternates: list[tuple[str, str]] = []
         self.assets: list[str] = []
+        self.base_href: str | None = None
         self.directives: list[tuple[str, str]] = []
         self.feed(text)
 
     def handle_starttag(self, tag, attrs):
         data = dict(attrs)
+        if tag == "base" and self.base_href is None and data.get("href"):
+            self.base_href = data["href"]
         if tag == "meta":
             self.directives.append(((data.get("name") or "").casefold(),
                                     data.get("content") or ""))
@@ -218,7 +221,7 @@ class PageSignals(HTMLParser):
                 self.canonicals.append(href)
             if "alternate" in rel and data.get("hreflang"):
                 self.alternates.append((data["hreflang"], href))
-            if "stylesheet" in rel or "icon" in rel:
+            if set(rel) & {"stylesheet", "icon", "preload", "modulepreload", "manifest"}:
                 self.assets.append(href)
         if tag in {"script", "img"} and data.get("src"):
             self.assets.append(data["src"])
