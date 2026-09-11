@@ -130,7 +130,8 @@ class Rule:
             expression += r"\Z"
         if re.match(expression, path) is None:
             return None
-        return len(re.sub(r"%[0-9A-F]{2}", "x", literal.replace("*", "")))
+        # Google's longest-match priority includes wildcard and end-anchor bytes.
+        return len(pattern)
 
 
 class RobotsPolicy:
