@@ -23,6 +23,10 @@ import re
 import sys
 import urllib.request
 
+from crawler_policy import (
+    OTHER_ALLOWED_CRAWLERS, SEARCH_CRAWLERS,
+    render_robots as render_crawler_robots,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "link-hub.json"
@@ -82,21 +86,7 @@ EXTRA_SITEMAPS = (
 # Declared in robots.txt only: a sitemap index may not nest another index.
 INDEX_ONLY_SITEMAPS = (f"{GUIDE_BASE}/sitemap_index.xml",)
 
-AI_CRAWLERS = (
-    "GPTBot",
-    "OAI-SearchBot",
-    "ChatGPT-User",
-    "PerplexityBot",
-    "Perplexity-User",
-    "Google-Extended",
-    "ClaudeBot",
-    "Claude-Web",
-    "anthropic-ai",
-    "Applebot-Extended",
-    "Amazonbot",
-    "Bingbot",
-    "cohere-ai",
-)
+AI_CRAWLERS = (*SEARCH_CRAWLERS, *OTHER_ALLOWED_CRAWLERS)
 
 
 class HubError(RuntimeError):
@@ -500,34 +490,17 @@ def render_sitemap_index(data: dict) -> str:
 
 
 def render_robots(data: dict) -> str:
-    crawlers = "\n".join(
-        f"User-agent: {name}\nAllow: /" for name in AI_CRAWLERS
+    policy = render_crawler_robots(
+        (
+            f"{BASE}/sitemap-index.xml", f"{BASE}/sitemap.xml",
+            *EXTRA_SITEMAPS, *INDEX_ONLY_SITEMAPS, *support_sitemaps(data),
+        ),
+        GUIDE_BASE,
     )
-    sitemaps = "\n".join(
-        f"Sitemap: {loc}"
-        for loc in (
-            f"{BASE}/sitemap-index.xml",
-            f"{BASE}/sitemap.xml",
-            *EXTRA_SITEMAPS,
-            *INDEX_ONLY_SITEMAPS,
-        )
+    return policy + (
+        "\n# Optional Agentic Resource Discovery, not a submission endpoint\n"
+        f"Agentmap: {BASE}/.well-known/ai-catalog.json\n"
     )
-    support = "\n".join(f"Sitemap: {loc}" for loc in support_sitemaps(data))
-    return f"""User-agent: *
-Allow: /
-
-# Agentic Resource Discovery (ARD)
-Agentmap: {BASE}/.well-known/ai-catalog.json
-
-# AI assistants & answer engines — explicitly welcome (GEO)
-{crawlers}
-
-# Site-wide indexes
-{sitemaps}
-
-# Support & help sites (one sitemap per app)
-{support}
-"""
 
 
 def render_llms_section(data: dict) -> str:
@@ -538,6 +511,14 @@ def render_llms_section(data: dict) -> str:
             "Every app below has a first-party English guide page and its own "
             f"support site. Full directory: {BASE}/app/"
         ),
+        "",
+        f"- Crawl policy: {BASE}/robots.txt",
+        f"- Optional agent discovery catalog: {BASE}/.well-known/ai-catalog.json",
+        f"- Root sitemap index: {BASE}/sitemap-index.xml",
+        f"- Guide sitemap index: {GUIDE_BASE}/sitemap_index.xml",
+        f"- Guide AI reading index: {GUIDE_BASE}/llms.txt",
+        f"- All 50 localized catalogs: {GUIDE_BASE}/llms/index.json",
+        f"- Verified live JSON catalog: {CATALOG_URL}",
         "",
     ]
     for app in data["apps"]:

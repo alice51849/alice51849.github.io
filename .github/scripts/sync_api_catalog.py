@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import argparse
 import pathlib
 import re
 import time
@@ -12,7 +13,7 @@ import urllib.parse
 import urllib.request
 
 
-SITE = "https://alice51849.github.io"
+SITE = "https://open.cait518.cc"
 GUIDE_SITE = f"{SITE}/ios-app-guide"
 SOURCE_URL = f"{GUIDE_SITE}/.well-known/api-catalog"
 APP_INDEX_URL = f"{GUIDE_SITE}/api/v1/ios-app-catalog/index.json"
@@ -32,6 +33,11 @@ MCP_REGISTRY_URL = (
     "&version=latest&limit=10"
 )
 MCP_SERVER_NAME = "io.github.alice51849/lumi-app-finder"
+# A published Registry card is immutable evidence, not a generated page canonical.
+MCP_WEBSITE_URL = "https://alice51849.github.io/ios-app-guide/"
+MCP_CATALOG_URL = (
+    MCP_WEBSITE_URL + "data/lumi-studio-publisher-search-intent-catalog.json"
+)
 MCP_OFFICIAL_META_KEY = "io.modelcontextprotocol.registry/official"
 MCP_IDENTIFIER = "urn:air:alice51849.github.io:mcp:lumi-app-finder"
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
@@ -308,7 +314,7 @@ def validate_mcp_card(document: object, app_index: dict) -> dict:
         raise ValueError("unexpected MCP server name")
     if document.get("title") != "Lumi App Finder":
         raise ValueError("unexpected MCP server title")
-    if document.get("websiteUrl") != f"{GUIDE_SITE}/":
+    if document.get("websiteUrl") != MCP_WEBSITE_URL:
         raise ValueError("MCP website URL drifted")
     version = document.get("version")
     if not isinstance(version, str) or not SEMVER_RE.fullmatch(version):
@@ -356,10 +362,7 @@ def validate_mcp_card(document: object, app_index: dict) -> dict:
         f"{app_index['locale_count']} Apple locales"
     ):
         raise ValueError("MCP publisher coverage metadata is stale")
-    if metadata.get("catalog") != (
-        f"{GUIDE_SITE}/data/"
-        "lumi-studio-publisher-search-intent-catalog.json"
-    ):
+    if metadata.get("catalog") != MCP_CATALOG_URL:
         raise ValueError("MCP publisher catalog URL drifted")
     return document
 
@@ -517,6 +520,13 @@ def agent_catalog_document(mcp_card: dict, app_index: dict) -> dict:
                         f"{GUIDE_SITE}/data/"
                         "lumi-studio-publisher-search-intent-catalog.json"
                     ),
+                    "robotsUrl": f"{SITE}/robots.txt",
+                    "sitemapUrl": f"{GUIDE_SITE}/sitemap_index.xml",
+                    "llmsUrl": f"{GUIDE_SITE}/llms.txt",
+                    "localizedCatalogUrl": f"{GUIDE_SITE}/llms/index.json",
+                    "verifiedCatalogUrl": (
+                        f"{GUIDE_SITE}/data/verified-ios-app-finder-catalog.json"
+                    ),
                     "mcpRegistryUrl": MCP_REGISTRY_URL,
                     "publisherDisclosure": (
                         "First-party publisher catalog; relevance matches "
@@ -588,6 +598,15 @@ def validate_agent_catalog(
         raise ValueError("ARD metadata values must be scalar")
     for key in ("catalogUrl", "mcpRegistryUrl"):
         _https_url(metadata.get(key), f"ARD metadata.{key}")
+    expected_discovery = {
+        "robotsUrl": f"{SITE}/robots.txt",
+        "sitemapUrl": f"{GUIDE_SITE}/sitemap_index.xml",
+        "llmsUrl": f"{GUIDE_SITE}/llms.txt",
+        "localizedCatalogUrl": f"{GUIDE_SITE}/llms/index.json",
+        "verifiedCatalogUrl": f"{GUIDE_SITE}/data/verified-ios-app-finder-catalog.json",
+    }
+    if any(metadata.get(key) != value for key, value in expected_discovery.items()):
+        raise ValueError("ARD canonical crawler discovery links drifted")
     _https_url(host["documentationUrl"], "ARD host documentation")
     _https_url(entry["url"], "ARD resource URL")
     return document
@@ -636,6 +655,24 @@ def sync_agent_catalog(
     return tuple(changed)
 
 
+def canonicalize_published_agent_catalog(document: dict, card: dict) -> dict:
+    """Migrate discovery URLs without claiming a fresh MCP release or inventory."""
+    entries = document.get("entries", [])
+    if len(entries) != 1 or entries[0].get("version") != card.get("version"):
+        raise ValueError("published ARD/MCP snapshot versions differ")
+    metadata = entries[0].get("metadata", {})
+    count = metadata.get("appCount")
+    if (type(count) is not int or count <= 0
+            or metadata.get("localeCount") != len(OFFICIAL_LOCALES)):
+        raise ValueError("published ARD coverage snapshot is invalid")
+    snapshot = {"record_count": count, "locale_count": len(OFFICIAL_LOCALES)}
+    validate_mcp_card(card, snapshot)
+    updated = agent_catalog_document(card, snapshot)
+    if updated["entries"][0]["description"] != entries[0].get("description"):
+        raise ValueError("URL migration would change published coverage claims")
+    return validate_agent_catalog(updated, card, snapshot)
+
+
 def main() -> None:
     api_changed = sync_catalog()
     agent_changed = sync_agent_catalog()
@@ -652,4 +689,15 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--canonicalize-published-discovery", action="store_true",
+                        help="only migrate URLs in the existing version-bound ARD snapshot")
+    args = parser.parse_args()
+    if args.canonicalize_published_discovery:
+        prior = json.loads(AI_CATALOG_TARGET.read_text())
+        card = json.loads(MCP_CARD_TARGET.read_text())
+        changed = _write_json_if_changed(
+            AI_CATALOG_TARGET, canonicalize_published_agent_catalog(prior, card))
+        print("Canonicalized published ARD URLs." if changed else "ARD URLs are current.")
+    else:
+        main()

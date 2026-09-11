@@ -12,6 +12,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import gen_link_hub as hub  # noqa: E402
+from crawler_policy import RobotsPolicy, SEARCH_CRAWLERS, TRAINING_CRAWLERS  # noqa: E402
 
 
 def snapshot() -> dict:
@@ -200,11 +201,18 @@ class DiscoveryTests(unittest.TestCase):
             self.assertIn(location, document)
         self.assertNotIn("sitemap_index.xml", document)
 
-    def test_robots_allows_everyone_and_declares_every_sitemap(self):
+    def test_robots_separates_search_training_and_declares_every_sitemap(self):
         data = hub.load_data()
         robots = hub.render_robots(data)
-        self.assertTrue(robots.startswith("User-agent: *\nAllow: /\n"))
-        self.assertNotIn("Disallow:", robots)
+        policy = RobotsPolicy(robots)
+        for bot in (*SEARCH_CRAWLERS, "UnlistedSearchCrawler"):
+            self.assertTrue(policy.allowed(
+                bot, f"{hub.GUIDE_BASE}/en-US/alpha.html", f"{hub.BASE}/robots.txt"))
+            self.assertFalse(policy.conflicts(bot))
+        for bot in TRAINING_CRAWLERS:
+            self.assertFalse(policy.allowed(
+                bot, f"{hub.GUIDE_BASE}/en-US/alpha.html", f"{hub.BASE}/robots.txt"))
+            self.assertFalse(policy.conflicts(bot))
         self.assertIn(f"Sitemap: {hub.BASE}/sitemap-index.xml", robots)
         self.assertIn(f"Sitemap: {hub.GUIDE_BASE}/sitemap_index.xml", robots)
         for location in hub.support_sitemaps(data):
@@ -217,6 +225,9 @@ class DiscoveryTests(unittest.TestCase):
         self.assertIn(hub.LLMS_SECTION_TITLE, once)
         self.assertEqual(once, hub.merge_llms(once, data))
         self.assertIn("## Other", once)
+        self.assertIn(f"{hub.BASE}/robots.txt", once)
+        self.assertIn(f"{hub.GUIDE_BASE}/llms/index.json", once)
+        self.assertIn(hub.CATALOG_URL, once)
 
 
 class RepositoryStateTests(unittest.TestCase):

@@ -97,7 +97,7 @@ def mcp_card(record_count: int = 28, locale_count: int = 50) -> dict:
             f"Find iOS apps by task across {record_count} live apps and "
             f"{locale_count} Apple locales, with direct App Store links."
         ),
-        "websiteUrl": f"{catalog.GUIDE_SITE}/",
+        "websiteUrl": catalog.MCP_WEBSITE_URL,
         "repository": {
             "url": "https://github.com/alice51849/lumi-mcp",
             "source": "github",
@@ -116,10 +116,7 @@ def mcp_card(record_count: int = 28, locale_count: int = 50) -> dict:
         ],
         "_meta": {
             "io.modelcontextprotocol.registry/publisher-provided": {
-                "catalog": (
-                    f"{catalog.GUIDE_SITE}/data/"
-                    "lumi-studio-publisher-search-intent-catalog.json"
-                ),
+                "catalog": catalog.MCP_CATALOG_URL,
                 "coverage": (
                     f"{record_count} verified live iOS apps across all "
                     f"{locale_count} Apple locales"
@@ -170,6 +167,30 @@ class FakeResponse:
 
 
 class CatalogTests(unittest.TestCase):
+    def test_published_discovery_url_migration_preserves_version_and_coverage(self):
+        card = mcp_card()
+        prior = catalog.agent_catalog_document(card, app_index())
+        prior["host"]["documentationUrl"] = (
+            "https://alice51849.github.io/ios-app-guide/about.html")
+        prior["entries"][0]["url"] = (
+            "https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json")
+        migrated = catalog.canonicalize_published_agent_catalog(prior, card)
+        self.assertEqual(migrated["entries"][0]["version"], card["version"])
+        self.assertEqual(migrated["entries"][0]["metadata"]["appCount"], 28)
+        self.assertEqual(migrated["entries"][0]["metadata"]["robotsUrl"],
+                         f"{catalog.SITE}/robots.txt")
+        self.assertEqual(card["websiteUrl"], catalog.MCP_WEBSITE_URL)
+        migrated["entries"][0]["metadata"]["llmsUrl"] = "https://wrong.example/llms.txt"
+        with self.assertRaisesRegex(ValueError, "canonical crawler"):
+            catalog.validate_agent_catalog(migrated, card, app_index())
+
+    def test_published_discovery_migration_rejects_mixed_release_evidence(self):
+        card = mcp_card()
+        prior = catalog.agent_catalog_document(card, app_index())
+        prior["entries"][0]["version"] = "9.9.9"
+        with self.assertRaisesRegex(ValueError, "versions differ"):
+            catalog.canonicalize_published_agent_catalog(prior, card)
+
     def test_registry_url_uses_supported_search_endpoint(self):
         parsed = urllib.parse.urlsplit(catalog.MCP_REGISTRY_URL)
         self.assertEqual("https", parsed.scheme)

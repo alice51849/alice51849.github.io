@@ -67,6 +67,14 @@
 
 Every app below has a first-party English guide page and its own support site. Full directory: https://open.cait518.cc/app/
 
+- Crawl policy: https://open.cait518.cc/robots.txt
+- Optional agent discovery catalog: https://open.cait518.cc/.well-known/ai-catalog.json
+- Root sitemap index: https://open.cait518.cc/sitemap-index.xml
+- Guide sitemap index: https://open.cait518.cc/ios-app-guide/sitemap_index.xml
+- Guide AI reading index: https://open.cait518.cc/ios-app-guide/llms.txt
+- All 50 localized catalogs: https://open.cait518.cc/ios-app-guide/llms/index.json
+- Verified live JSON catalog: https://open.cait518.cc/ios-app-guide/data/verified-ios-app-finder-catalog.json
+
 - 100 Notes Studio — guide: https://open.cait518.cc/ios-app-guide/en-US/notesstudio100.html — support: https://open.cait518.cc/100notes-support/
 - AI Brief — guide: https://open.cait518.cc/ios-app-guide/en-US/aibriefpack.html — support: https://open.cait518.cc/aibrief-support/
 - Aim990 — guide: https://open.cait518.cc/ios-app-guide/en-US/aim990.html — support: https://open.cait518.cc/aim990-support/

@@ -2,14 +2,14 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "Lumi Studio",
-    "documentationUrl": "https://alice51849.github.io/ios-app-guide/about.html"
+    "documentationUrl": "https://open.cait518.cc/ios-app-guide/about.html"
   },
   "entries": [
     {
       "identifier": "urn:air:alice51849.github.io:mcp:lumi-app-finder",
       "displayName": "Lumi App Finder",
       "type": "application/mcp-server-card+json",
-      "url": "https://alice51849.github.io/.well-known/lumi-app-finder.mcp.json",
+      "url": "https://open.cait518.cc/.well-known/lumi-app-finder.mcp.json",
       "description": "First-party task and buyer-need discovery across 28 verified live Lumi Studio iOS apps and all 50 Apple locales, returning localized context and direct App Store links; text relevance is not an independent ranking.",
       "tags": [
         "iOS",
@@ -37,7 +37,12 @@
       "metadata": {
         "appCount": 28,
         "localeCount": 50,
-        "catalogUrl": "https://alice51849.github.io/ios-app-guide/data/lumi-studio-publisher-search-intent-catalog.json",
+        "catalogUrl": "https://open.cait518.cc/ios-app-guide/data/lumi-studio-publisher-search-intent-catalog.json",
+        "robotsUrl": "https://open.cait518.cc/robots.txt",
+        "sitemapUrl": "https://open.cait518.cc/ios-app-guide/sitemap_index.xml",
+        "llmsUrl": "https://open.cait518.cc/ios-app-guide/llms.txt",
+        "localizedCatalogUrl": "https://open.cait518.cc/ios-app-guide/llms/index.json",
+        "verifiedCatalogUrl": "https://open.cait518.cc/ios-app-guide/data/verified-ios-app-finder-catalog.json",
         "mcpRegistryUrl": "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.alice51849%2Flumi-app-finder&version=latest&limit=10",
         "publisherDisclosure": "First-party publisher catalog; relevance matches are not independent rankings."
       }
