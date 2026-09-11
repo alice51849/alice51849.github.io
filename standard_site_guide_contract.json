@@ -1,11 +1,11 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-09-03T10:23:10.274Z",
+  "generated_at": "2026-09-11T10:02:48.802Z",
   "publication": {
-    "url": "https://alice51849.github.io/ios-app-guide",
+    "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
     "well_known": {
-      "request_url": "https://alice51849.github.io/.well-known/site.standard.publication/ios-app-guide",
+      "request_url": "https://open.cait518.cc/.well-known/site.standard.publication/ios-app-guide",
       "request_path": "/.well-known/site.standard.publication/ios-app-guide",
       "content_type": "text/plain; charset=utf-8",
       "body": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg\n",
@@ -16,253 +16,253 @@
   },
   "documents": [
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/app-to-block-social-media-and-youtube-before-bed-iphone.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/app-to-block-social-media-and-youtube-before-bed-iphone.html",
       "app_key": "lockhour",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/batch-redact-the-same-private-text-from-up-to-100-files-on-iphone.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/batch-redact-the-same-private-text-from-up-to-100-files-on-iphone.html",
       "app_key": "maskmyfile",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyvclt",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyvclt\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-aesthetic-to-do-list-app-iphone-no-subscription.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-aesthetic-to-do-list-app-iphone-no-subscription.html",
       "app_key": "mochi",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl6sqzu",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl6sqzu\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-app-to-track-spending-on-a-johor-bahru-weekend-trip-in-sgd-and-myr.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-app-to-track-spending-on-a-johor-bahru-weekend-trip-in-sgd-and-myr.html",
       "app_key": "gmoney",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzowyj",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzowyj\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-free-travel-expense-tracker-with-currency-conversion-for-iphone.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-free-travel-expense-tracker-with-currency-conversion-for-iphone.html",
       "app_key": "gmoneylite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxv63d",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxv63d\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-organize-context-for-ai-app.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-organize-context-for-ai-app.html",
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-private-app-to-organize-screenshots-and-documents-into-context-before-using-ai.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-private-app-to-organize-screenshots-and-documents-into-context-before-using-ai.html",
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kx7u4h\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/best-turn-screenshots-into-ai-brief-app.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-turn-screenshots-into-ai-brief-app.html",
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxka6n",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxka6n\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/chore-chart-no-ads-app-for-young-kids-pay-once-no-subscription.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/chore-chart-no-ads-app-for-young-kids-pay-once-no-subscription.html",
       "app_key": "lumimissionpro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5k5ym",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5k5ym\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/counting-1-10-preschool-numbers-app-no-ads-pay-once-offline.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/counting-1-10-preschool-numbers-app-no-ads-pay-once-offline.html",
       "app_key": "lumimathpro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4eyt6",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4eyt6\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/do-i-need-a-photo-on-my-resume-and-how-long-should-it-be.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/do-i-need-a-photo-on-my-resume-and-how-long-should-it-be.html",
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-can-my-child-prepare-for-grade-1-bopomofo-over-the-summer-before-school-starts.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-can-my-child-prepare-for-grade-1-bopomofo-over-the-summer-before-school-starts.html",
       "app_key": "lumibopomofo",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2jvtt",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2jvtt\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-do-i-find-a-kids-learning-app-that-isn-t-addictive-or-manipulative.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-do-i-find-a-kids-learning-app-that-isn-t-addictive-or-manipulative.html",
       "app_key": "lumiletters",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl35qjp",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl35qjp\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-do-i-get-my-3-year-old-to-do-their-morning-routine-without-nagging-every-single-morning.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-do-i-get-my-3-year-old-to-do-their-morning-routine-without-nagging-every-single-morning.html",
       "app_key": "lumimission",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl54uyj",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl54uyj\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-do-i-know-if-today-s-weather-is-suitable-for-taking-my-toddler-to-the-playground.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-do-i-know-if-today-s-weather-is-suitable-for-taking-my-toddler-to-the-playground.html",
       "app_key": "lumiweather",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl67e5d",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl67e5d\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-does-a-period-tracking-app-calculate-the-fertile-window.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-does-a-period-tracking-app-calculate-the-fertile-window.html",
       "app_key": "cyca",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzfpva",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzfpva\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-many-hours-a-year-do-my-subscriptions-actually-cost-me.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-many-hours-a-year-do-my-subscriptions-actually-cost-me.html",
       "app_key": "hourstag",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn2jrku",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn2jrku\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-prepare-for-toeic-while-working-full-time-with-limited-study-time.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-prepare-for-toeic-while-working-full-time-with-limited-study-time.html",
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyx3fg",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyx3fg\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-split-and-track-group-travel-expenses-in-multiple-currencies-without-linking-a-bank.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-split-and-track-group-travel-expenses-in-multiple-currencies-without-linking-a-bank.html",
       "app_key": "gmoney",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzrbnt",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzrbnt\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-study-for-the-toeic-listening-and-reading-test-in-30-days.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-study-for-the-toeic-listening-and-reading-test-in-30-days.html",
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyzbfj\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/how-to-tailor-my-resume-to-a-specific-job-description-on-my-phone.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-tailor-my-resume-to-a-specific-job-description-on-my-phone.html",
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-bopomofo-app-with-no-ads-or-tracking-that-is-safe-for-a-preschooler.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-bopomofo-app-with-no-ads-or-tracking-that-is-safe-for-a-preschooler.html",
       "app_key": "lumibopomofopro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-kids-math-app-that-can-generate-printable-worksheets-i-can-use-for-off-screen-practice.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-kids-math-app-that-can-generate-printable-worksheets-i-can-use-for-off-screen-practice.html",
       "app_key": "lumimathpro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4pn76",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4pn76\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-math-app-for-kids-that-tracks-which-types-of-problems-they-get-wrong-and-focuses-practice-there.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-math-app-for-kids-that-tracks-which-types-of-problems-they-get-wrong-and-focuses-practice-there.html",
       "app_key": "lumimath",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3tr3r",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3tr3r\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-math-game-for-kids-that-i-pay-for-once-and-has-absolutely-no-in-app-purchases-or-ads.html",
-      "app_key": "lumimath",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-math-game-for-kids-that-i-pay-for-once-and-has-absolutely-no-in-app-purchases-or-ads.html",
+      "app_key": "lumimathpro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3xne4",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3xne4\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-a-phonics-app-for-homeschoolers-that-also-generates-printable-practice-worksheets.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-phonics-app-for-homeschoolers-that-also-generates-printable-practice-worksheets.html",
       "app_key": "lumiletterspro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3iill",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3iill\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/is-there-an-app-that-turns-toothbrushing-and-morning-routines-into-a-game-for-my-4-year-old.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-an-app-that-turns-toothbrushing-and-morning-routines-into-a-game-for-my-4-year-old.html",
       "app_key": "lumimission",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/real-hourly-wage-spending-calculator-app-pay-once-no-tracking.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/real-hourly-wage-spending-calculator-app-pay-once-no-tracking.html",
       "app_key": "hourstag",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn2wulg",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn2wulg\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/travel-budget-app-with-category-statistics-and-one-time-lifetime-unlock.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/travel-budget-app-with-category-statistics-and-one-time-lifetime-unlock.html",
       "app_key": "gmoneylite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3ky74si",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3ky74si\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/travel-expense-tracker-with-saved-or-manual-exchange-rates-offline.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/travel-expense-tracker-with-saved-or-manual-exchange-rates-offline.html",
       "app_key": "gmoneylite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyj53s",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kyj53s\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-app-to-track-daily-spending-between-singapore-and-malaysia-as-a-cross-border-commuter.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/what-is-the-best-app-to-track-daily-spending-between-singapore-and-malaysia-as-a-cross-border-commuter.html",
       "app_key": "gmoney",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkztndr",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkztndr\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/which-period-tracking-apps-keep-all-data-on-the-phone-only.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/which-period-tracking-apps-keep-all-data-on-the-phone-only.html",
       "app_key": "cyca",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzhwci",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzhwci\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/why-do-i-feel-irritable-and-exhausted-before-my-period-every-month.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/why-do-i-feel-irritable-and-exhausted-before-my-period-every-month.html",
       "app_key": "cyca",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzk52v",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzk52v\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/answers/why-does-my-resume-get-rejected-by-ats-and-how-do-i-fix-it.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/why-does-my-resume-get-rejected-by-ats-and-how-do-i-fix-it.html",
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzdmdb",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzdmdb\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/aim990plus.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/aim990plus.html",
       "app_key": "aim990plus",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz5kpm",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz5kpm\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/battai.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/battai.html",
       "app_key": "battai",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mu3cpuz2o6j2",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mu3cpuz2o6j2\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/caldaily.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/caldaily.html",
       "app_key": "caldaily",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mskgsxqtlyje",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mskgsxqtlyje\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/dailymate.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/dailymate.html",
       "app_key": "dailymate",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/dailymatelite.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/dailymatelite.html",
       "app_key": "dailymatelite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mshxyecihgj5",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mshxyecihgj5\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/hourstaglite.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/hourstaglite.html",
       "app_key": "hourstaglite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry\">"
     },
     {
-      "canonical_url": "https://alice51849.github.io/ios-app-guide/en-US/mochidonestamp.html",
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/mochidonestamp.html",
       "app_key": "mochidonestamp",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7cqtt",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7cqtt\">"

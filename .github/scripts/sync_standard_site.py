@@ -11,18 +11,21 @@ import os
 from pathlib import Path
 import re
 import secrets
+import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts"))
+from public_site import PUBLIC_ROOT, PUBLIC_SITE
 
 EXPECTED_DID = "did:plc:kboucnzkxzmqmatvhes4xlt4"
-PUBLICATION_URL = "https://alice51849.github.io/ios-app-guide"
+PUBLICATION_URL = PUBLIC_SITE
 COLLECTION = "site.standard.publication"
 DOCUMENT_COLLECTION = "site.standard.document"
 XRPC_BASE = "https://bsky.social/xrpc"
-ROOT = Path(__file__).resolve().parents[2]
 TARGET = (
     ROOT
     / ".well-known"
@@ -42,7 +45,7 @@ APP_KEY_RE = re.compile(r"[a-z0-9][a-z0-9-]{0,127}")
 MAX_RECORDS = 5_000
 USER_AGENT = (
     "LumiStudioStandardSiteSync/1.0 "
-    "(+https://alice51849.github.io/)"
+    f"(+{PUBLIC_ROOT}/)"
 )
 
 
@@ -293,7 +296,7 @@ def guide_contract(publication_uri: str, payload: object) -> dict:
             "url": PUBLICATION_URL,
             "at_uri": publication_uri,
             "well_known": {
-                "request_url": "https://alice51849.github.io" + endpoint_path,
+                "request_url": PUBLIC_ROOT + endpoint_path,
                 "request_path": endpoint_path,
                 "content_type": "text/plain; charset=utf-8",
                 "body": body,

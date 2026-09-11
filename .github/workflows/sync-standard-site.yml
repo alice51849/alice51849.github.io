@@ -24,14 +24,22 @@ jobs:
         with:
           python-version: "3.12"
       - name: Verify fail-closed sync behavior
-        run: python3 .github/scripts/test_sync_standard_site.py -q
+        run: |
+          python3 .github/scripts/test_sync_standard_site.py -q
+          python3 .github/scripts/test_root_discovery.py -q
       - name: Sync public Standard.site verifier
         run: python3 .github/scripts/sync_standard_site.py --write
+      - name: Generate canonical root discovery
+        run: |
+          python3 scripts/gen_root_discovery.py
+          python3 scripts/gen_root_discovery.py --check
       - name: Persist verifier changes
         run: |
           targets=(
             ".well-known/site.standard.publication/ios-app-guide"
             "standard_site_guide_contract.json"
+            ".well-known/resourcesync"
+            "llms.txt"
           )
           if [[ ! -f "${targets[0]}" ]]; then
             echo "Publication has not been created yet."

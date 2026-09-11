@@ -194,7 +194,7 @@ class StandardSiteSyncTests(unittest.TestCase):
             )
             self.assertTrue(changed)
             self.assertEqual(
-                "https://alice51849.github.io/ios-app-guide/"
+                syncer.PUBLICATION_URL + "/"
                 "answers/alpha.html",
                 contract["documents"][0]["canonical_url"],
             )

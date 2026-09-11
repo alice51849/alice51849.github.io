@@ -27,12 +27,13 @@ from crawler_policy import (
     OTHER_ALLOWED_CRAWLERS, SEARCH_CRAWLERS,
     render_robots as render_crawler_robots,
 )
+from public_site import PUBLIC_ROOT, PUBLIC_SITE, canonical_public_links
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "link-hub.json"
 
-BASE = "https://open.cait518.cc"
-GUIDE_BASE = f"{BASE}/ios-app-guide"
+BASE = PUBLIC_ROOT
+GUIDE_BASE = PUBLIC_SITE
 CATALOG_URL = f"{GUIDE_BASE}/data/verified-ios-app-finder-catalog.json"
 CROSSPROMO_PATH = Path.home() / (
     ".growth-runtime/engine/support_network/crosspromo_config.json"
@@ -539,7 +540,7 @@ def merge_llms(source: str, data: dict) -> str:
         )
     else:
         merged = source.rstrip("\n") + "\n\n" + section
-    return merged.rstrip("\n") + "\n"
+    return canonical_public_links(merged.rstrip("\n") + "\n")
 
 
 def _page_language(source: str) -> str:
