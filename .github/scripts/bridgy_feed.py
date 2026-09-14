@@ -26,6 +26,11 @@ STATE_VERSION = 1
 SITE = "https://alice51849.github.io"
 GUIDE_SITE = f"{SITE}/ios-app-guide"
 LINKSET_URL = f"{GUIDE_SITE}/linkset.json"
+# Guide 的 canonical 主機已搬到 open.cait518.cc，linkset 的 anchor／href 改用它；
+# github.io 仍提供同一棵樹，而 Bridgy Fed 的 feed 與送達檢查以 github.io 為準。
+# 兩個主機的 linkset 都接受，候選 bridge URL 一律正規化回 GUIDE_SITE。
+CANONICAL_GUIDE_SITE = "https://open.cait518.cc/ios-app-guide"
+LINKSET_GUIDE_SITES = (GUIDE_SITE, CANONICAL_GUIDE_SITE)
 FEED_URL = f"{SITE}/bridgy-feed.xml"
 USER_AGENT = (
     "LumiStudioBridgyFeed/1.0 "
@@ -289,7 +294,11 @@ def request_bytes(
 def _portfolio_entry(payload: object) -> dict[str, object]:
     if not isinstance(payload, dict) or not isinstance(payload.get("linkset"), list):
         raise ValueError("linkset has an invalid top-level structure")
-    anchors = {f"{GUIDE_SITE}/", f"{GUIDE_SITE}/index.html"}
+    anchors = {
+        f"{site}{suffix}"
+        for site in LINKSET_GUIDE_SITES
+        for suffix in ("/", "/index.html")
+    }
     entries = [
         entry
         for entry in payload["linkset"]
@@ -359,6 +368,7 @@ def parse_candidates(payload: object) -> list[dict[str, str]]:
     entry = _portfolio_entry(payload)
     contexts = _guide_contexts(payload)
     guide = urllib.parse.urlsplit(GUIDE_SITE)
+    hosts = {urllib.parse.urlsplit(site).netloc for site in LINKSET_GUIDE_SITES}
     prefix = f"{guide.path.rstrip('/')}/guides/"
     candidates: list[dict[str, str]] = []
     seen: set[str] = set()
@@ -369,7 +379,7 @@ def parse_candidates(payload: object) -> list[dict[str, str]]:
         parsed = urllib.parse.urlsplit(href)
         if (
             parsed.scheme != "https"
-            or parsed.netloc != guide.netloc
+            or parsed.netloc not in hosts
             or not parsed.path.startswith(prefix)
             or parsed.query
             or parsed.fragment
@@ -390,7 +400,7 @@ def parse_candidates(payload: object) -> list[dict[str, str]]:
             {
                 "slug": slug,
                 "name": _item_title(item),
-                "url": href,
+                "url": f"{GUIDE_SITE}/guides/{slug}.html",
                 "store_url": _store_url(context, href),
             }
         )

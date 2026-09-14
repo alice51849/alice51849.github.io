@@ -626,5 +626,30 @@ class WiringTests(unittest.TestCase):
         self.assertEqual(1, summary.text.count(store_url))
 
 
+class CanonicalGuideHostTests(unittest.TestCase):
+    """Guide 的 linkset 改用 open.cait518.cc 後，bridge URL 仍須維持 github.io。"""
+
+    CANONICAL = "https://open.cait518.cc/ios-app-guide"
+
+    def rehost(self, document: dict[str, object], site: str) -> dict[str, object]:
+        return json.loads(json.dumps(document).replace(feed.GUIDE_SITE, site))
+
+    def test_canonical_host_linkset_is_normalized_to_bridge_urls(self):
+        candidates = feed.parse_candidates(self.rehost(payload("one", "two"), self.CANONICAL))
+        self.assertEqual(
+            sorted([f"{feed.GUIDE_SITE}/guides/one.html", f"{feed.GUIDE_SITE}/guides/two.html"]),
+            sorted(candidate["url"] for candidate in candidates),
+        )
+        original = feed.parse_candidates(payload("one", "two"))
+        self.assertEqual(
+            sorted((item["slug"], item["store_url"]) for item in original),
+            sorted((item["slug"], item["store_url"]) for item in candidates),
+        )
+
+    def test_foreign_host_linkset_is_still_rejected(self):
+        with self.assertRaises(ValueError):
+            feed.parse_candidates(self.rehost(payload("one"), "https://example.com/ios-app-guide"))
+
+
 if __name__ == "__main__":
     unittest.main()
