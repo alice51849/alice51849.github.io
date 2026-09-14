@@ -45,11 +45,11 @@
     "wifiaid",
     "wifiaidlite",
     "wordmate",
-    "wordmatelite"
+    "wordmatelite",
+    "zipbox"
   ],
-  "last_slot": "2026-09-03T12:00:00Z",
+  "last_slot": "2026-09-14T00:00:00Z",
   "remaining": [
-    "lumiletters",
     "lumiletterspro",
     "lumimath",
     "lumimathpro",
@@ -78,7 +78,8 @@
     "wifiaid",
     "wifiaidlite",
     "wordmate",
-    "wordmatelite"
+    "wordmatelite",
+    "zipbox"
   ],
   "version": 1
 }
