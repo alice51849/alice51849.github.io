@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-09-17T04:59:54.992Z",
+  "generated_at": "2026-09-18T10:09:04.621Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -20,6 +20,12 @@
       "app_key": "lockhour",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/app-to-track-project-expenses-and-income-separately.html",
+      "app_key": "moneytag",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56j7un",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56j7un\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/batch-redact-the-same-private-text-from-up-to-100-files-on-iphone.html",
@@ -206,6 +212,12 @@
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/when-did-i-last-do-it-app-with-undo-and-reminders.html",
+      "app_key": "mochidonestamp",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq565yg4",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq565yg4\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/which-period-tracking-apps-keep-all-data-on-the-phone-only.html",
