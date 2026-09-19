@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-09-18T10:09:04.621Z",
+  "generated_at": "2026-09-19T04:43:01.451Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -26,6 +26,12 @@
       "app_key": "moneytag",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56j7un",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56j7un\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/app-to-turn-meeting-notes-into-a-one-page-summary-slide.html",
+      "app_key": "onepageppt",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq577jud",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq577jud\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/batch-redact-the-same-private-text-from-up-to-100-files-on-iphone.html",
@@ -182,6 +188,12 @@
       "app_key": "lumimission",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/pdf-annotation-app-for-ipad-with-apple-pencil-no-subscription.html",
+      "app_key": "notesstudio100",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56uepm",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56uepm\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/real-hourly-wage-spending-calculator-app-pay-once-no-tracking.html",
