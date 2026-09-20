@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-09-19T04:43:01.451Z",
+  "generated_at": "2026-09-20T04:56:43.824Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -62,6 +62,12 @@
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kwset7\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-pay-once-film-filter-app-for-iphone-with-no-subscription.html",
+      "app_key": "photocream",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7hzfp",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7hzfp\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-private-app-to-organize-screenshots-and-documents-into-context-before-using-ai.html",
@@ -128,6 +134,12 @@
       "app_key": "hourstag",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn2jrku",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn2jrku\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-clean-up-thousands-of-screenshots-and-old-photos-on-iphone-safely.html",
+      "app_key": "picclear",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqblahi7e",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqblahi7e\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-prepare-for-toeic-while-working-full-time-with-limited-study-time.html",
