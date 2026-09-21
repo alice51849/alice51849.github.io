@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-09-20T04:56:43.824Z",
+  "generated_at": "2026-09-21T04:58:02.149Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -148,6 +148,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkyx3fg\">"
     },
     {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-scan-receipts-and-invoices-to-pdf-for-filing-taxes-without-a-cloud-account.html",
+      "app_key": "scanto",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqblbdhtb",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqblbdhtb\">"
+    },
+    {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-split-and-track-group-travel-expenses-in-multiple-currencies-without-linking-a-bank.html",
       "app_key": "gmoney",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzrbnt",
@@ -206,6 +212,12 @@
       "app_key": "notesstudio100",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56uepm",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq56uepm\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/read-later-app-that-saves-links-from-any-app-with-tags.html",
+      "app_key": "savetag",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq5a4zd6",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq5a4zd6\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/real-hourly-wage-spending-calculator-app-pay-once-no-tracking.html",
