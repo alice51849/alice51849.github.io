@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-09-21T04:58:02.149Z",
+  "generated_at": "2026-09-22T10:27:19.054Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -50,6 +50,12 @@
       "app_key": "gmoney",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzowyj",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzowyj\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-brown-noise-app-for-adhd-focus-iphone-buy-once-no-subscription.html",
+      "app_key": "sereno",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqblc3nmd",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqblc3nmd\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/best-free-travel-expense-tracker-with-currency-conversion-for-iphone.html",
@@ -314,6 +320,12 @@
       "app_key": "mochidonestamp",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7cqtt",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl7cqtt\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/shotinbox.html",
+      "app_key": "shotinbox",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mtxowiyrlmnd",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mtxowiyrlmnd\">"
     }
   ]
 }
