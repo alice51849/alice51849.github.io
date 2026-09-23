@@ -11,6 +11,7 @@
     "cyca",
     "dailymate",
     "dailymatelite",
+    "dbhalo",
     "gmoney",
     "gmoneylite",
     "hourstag",
@@ -95,7 +96,8 @@
     "wifiaidlite",
     "wordmate",
     "wordmatelite",
-    "zipbox"
+    "zipbox",
+    "dbhalo"
   ],
   "version": 1
 }
