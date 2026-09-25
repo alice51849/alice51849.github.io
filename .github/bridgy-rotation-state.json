@@ -40,6 +40,7 @@
     "snapport",
     "snapportlite",
     "sononote",
+    "stayclock",
     "tripbee",
     "tripbeelite",
     "tripplanet",
@@ -50,9 +51,8 @@
     "wordmatelite",
     "zipbox"
   ],
-  "last_slot": "2026-09-24T18:00:00Z",
+  "last_slot": "2026-09-25T00:00:00Z",
   "remaining": [
-    "dailymatelite",
     "gmoney",
     "gmoneylite",
     "hourstag",
@@ -90,7 +90,8 @@
     "wordmate",
     "wordmatelite",
     "zipbox",
-    "dbhalo"
+    "dbhalo",
+    "stayclock"
   ],
   "version": 1
 }
