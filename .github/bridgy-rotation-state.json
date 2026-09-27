@@ -7,6 +7,7 @@
     "aim990plus",
     "battai",
     "caldaily",
+    "countdaysnow",
     "cvdesk",
     "cyca",
     "dailymate",
@@ -41,6 +42,7 @@
     "snapportlite",
     "sononote",
     "stayclock",
+    "studydown",
     "tripbee",
     "tripbeelite",
     "tripplanet",
@@ -82,7 +84,9 @@
     "wordmatelite",
     "zipbox",
     "dbhalo",
-    "stayclock"
+    "stayclock",
+    "countdaysnow",
+    "studydown"
   ],
   "version": 1
 }
