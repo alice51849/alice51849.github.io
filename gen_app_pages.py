@@ -27,7 +27,7 @@ from managed_blocks import extract_allowlisted_sitemap_blocks
 
 # slug→(icon 檔名, 截圖檔名或 None) — github.io 既有資源命名
 ICON = {  # threads slug → github.io icon slug
- "cvdesk":"cv-desk","sononote":"sono-note","unblurry":"unblurry-pro","zodira":"zodira",
+ "cvdesk":"cv-desk","sononote":"sono-note","unblurry":"unblurry-pro",
  "aim990":"aim990","mochi":"mochi-todo","snapport":"snapport","picclear":"picclear-pro",
  "scanto":"scanto-pro","cyca":"cyca","gmoney":"g-money","hourstag":"hourstag",
  "lockhour":"lockhour-pro","photocream":"photocream-pro",

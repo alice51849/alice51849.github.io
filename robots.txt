@@ -161,7 +161,6 @@ Sitemap: https://open.cait518.cc/100notes-support/sitemap.xml
 Sitemap: https://open.cait518.cc/aibrief-support/sitemap.xml
 Sitemap: https://open.cait518.cc/aim990-plus-support/sitemap.xml
 Sitemap: https://open.cait518.cc/aim990-support/sitemap.xml
-Sitemap: https://open.cait518.cc/astrea-support/sitemap.xml
 Sitemap: https://open.cait518.cc/battai-support/sitemap.xml
 Sitemap: https://open.cait518.cc/caldaily-support/sitemap.xml
 Sitemap: https://open.cait518.cc/cvdesk-support/sitemap.xml
@@ -207,7 +206,6 @@ Sitemap: https://open.cait518.cc/wifiaid-support/sitemap.xml
 Sitemap: https://open.cait518.cc/wordmate-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/wordmate-support/sitemap.xml
 Sitemap: https://open.cait518.cc/zafe-support/sitemap.xml
-Sitemap: https://open.cait518.cc/zodira-support/sitemap.xml
 
 # Optional Agentic Resource Discovery, not a submission endpoint
 Agentmap: https://open.cait518.cc/.well-known/ai-catalog.json
