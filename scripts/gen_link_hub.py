@@ -79,10 +79,25 @@ LLMS_SECTION_RE = re.compile(
     flags=re.DOTALL,
 )
 
+# High-intent child sitemaps of the guide.  The guide's 584-child sitemap_index.xml
+# sat "pending" in Google Search Console for weeks, and the 65 decision routes
+# (no inbound internal links) were unknown to Google, so the small high-value
+# lists are declared here directly for every engine that reads the root robots.txt.
+PRIORITY_GUIDE_SITEMAPS = (
+    f"{GUIDE_BASE}/sitemap-high-intent-decision-routes.xml",
+    f"{GUIDE_BASE}/sitemap_apps.xml",
+    f"{GUIDE_BASE}/sitemap_guides.xml",
+    f"{GUIDE_BASE}/sitemap_alternatives.xml",
+    f"{GUIDE_BASE}/sitemap_app_install_decisions.xml",
+    f"{GUIDE_BASE}/sitemap_tools.xml",
+    f"{GUIDE_BASE}/sitemap_hubs.xml",
+    f"{GUIDE_BASE}/sitemap_hero_tasks.xml",
+)
 EXTRA_SITEMAPS = (
     f"{GUIDE_BASE}/sitemap.xml",
     f"{GUIDE_BASE}/resourcesync/resourcelist.xml",
     f"{BASE}/awesome-zhuyin-bopomofo-apps/sitemap.xml",
+    *PRIORITY_GUIDE_SITEMAPS,
 )
 # Declared in robots.txt only: a sitemap index may not nest another index.
 INDEX_ONLY_SITEMAPS = (f"{GUIDE_BASE}/sitemap_index.xml",)

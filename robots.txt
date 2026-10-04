@@ -156,6 +156,14 @@ Sitemap: https://open.cait518.cc/sitemap.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/sitemap.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/resourcesync/resourcelist.xml
 Sitemap: https://open.cait518.cc/awesome-zhuyin-bopomofo-apps/sitemap.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap-high-intent-decision-routes.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_apps.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_guides.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_alternatives.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_app_install_decisions.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_tools.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_hubs.xml
+Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_hero_tasks.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_index.xml
 Sitemap: https://open.cait518.cc/100notes-support/sitemap.xml
 Sitemap: https://open.cait518.cc/aibrief-support/sitemap.xml
