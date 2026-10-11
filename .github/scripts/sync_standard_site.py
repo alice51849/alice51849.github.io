@@ -42,6 +42,9 @@ DOCUMENT_AT_URI_RE = re.compile(
     r"[234567abcdefghij][234567abcdefghijklmnopqrstuvwxyz]{12}"
 )
 APP_KEY_RE = re.compile(r"[a-z0-9][a-z0-9-]{0,127}")
+# 已下架退役的 App：PDS 上的舊 document 記錄保留不刪，但不再列入指南合約，
+# 否則指南站退役清理移除它的頁面後，geo-daily 的 Standard.site 同步會因頁面不存在而失敗。
+RETIRED_APP_KEYS = frozenset({"aim990plus"})  # 2026-10-10 Caitlyn 要求下架並移除 Aim990 Plus
 MAX_RECORDS = 5_000
 USER_AGENT = (
     "LumiStudioStandardSiteSync/1.0 "
@@ -258,6 +261,8 @@ def guide_contract(publication_uri: str, payload: object) -> dict:
             or APP_KEY_RE.fullmatch(tags[0]) is None
         ):
             raise SyncError("Standard.site document has an invalid app key")
+        if tags[0] in RETIRED_APP_KEYS:
+            continue
         if canonical in seen_canonicals or uri in seen_uris:
             raise SyncError("Standard.site documents contain duplicate identities")
         seen_canonicals.add(canonical)

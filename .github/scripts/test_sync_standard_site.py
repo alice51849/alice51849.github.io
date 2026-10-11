@@ -217,6 +217,16 @@ class StandardSiteSyncTests(unittest.TestCase):
             )
             self.assertFalse(changed)
 
+    def test_retired_app_documents_are_left_out_of_the_guide_contract(self):
+        payload = document_payload()
+        retired = json.loads(json.dumps(document_payload(
+            path="/en-US/aim990plus.html", app_key="aim990plus",
+        )["records"][0]))
+        retired["uri"] = DOCUMENT_URI[:-1] + ("b" if DOCUMENT_URI[-1] != "b" else "c")
+        payload["records"].append(retired)
+        contract = syncer.guide_contract(AT_URI, payload)
+        self.assertEqual(["alpha"], [d["app_key"] for d in contract["documents"]])
+
     def test_guide_contract_rejects_unsafe_or_ambiguous_documents(self):
         cases = (
             document_payload(site="at://did:plc:other/site.standard.publication/x"),
