@@ -4,9 +4,9 @@
     "lumibopomofo",
     "aibriefpack",
     "aim990",
-    "aim990plus",
     "battai",
     "caldaily",
+    "claudeusagemini",
     "countdaysnow",
     "cvdesk",
     "cyca",
@@ -80,7 +80,8 @@
     "wifiaidlite",
     "wordmate",
     "wordmatelite",
-    "zipbox"
+    "zipbox",
+    "claudeusagemini"
   ],
   "version": 1
 }
