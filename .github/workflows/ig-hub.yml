@@ -1,0 +1,54 @@
+name: Instagram profile-link hub
+
+# https://open.cait518.cc/ig/ is the link on the Instagram profile: Instagram never turns a URL in a caption
+# or a comment into a link, so every post says "Link in bio → tap <app>" and this page has the app, one tap
+# from the App Store (ct=ig_bio_<app>). The page is built in the public ios-app-guide repo every time an
+# Instagram post is recorded (.github/scripts/ig_bio_hub.py, committed to .github/growth/ig-hub/index.html);
+# this copies it here when it changed, after the same checks (ig_hub_sync.py). Every 10 minutes, so a new
+# post's app is on top of the page within minutes of the post.
+on:
+  schedule:
+    - cron: "3-59/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-hub
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify the hub checks
+        run: python3 .github/scripts/test_ig_hub_sync.py -q
+      - name: Copy the hub page from ios-app-guide (only a page that passes the checks)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 .github/scripts/ig_hub_sync.py
+      - name: Persist the hub page
+        run: |
+          if [[ -z "$(git status --porcelain -- ig/index.html)" ]]; then
+            echo "The hub page is already current."
+            exit 0
+          fi
+          git config user.name "lumi-ig-hub-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ig/index.html
+          git commit -m "chore: sync Instagram profile-link hub"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            if [[ "$attempt" -lt 3 ]]; then
+              sleep $((attempt * 10))
+            fi
+          done
+          exit 1
