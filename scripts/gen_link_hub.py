@@ -21,6 +21,7 @@ import json
 from pathlib import Path
 import re
 import sys
+import urllib.error
 import urllib.request
 
 from crawler_policy import (
@@ -37,6 +38,14 @@ GUIDE_BASE = PUBLIC_SITE
 CATALOG_URL = f"{GUIDE_BASE}/data/verified-ios-app-finder-catalog.json"
 CROSSPROMO_PATH = Path.home() / (
     ".growth-runtime/engine/support_network/crosspromo_config.json"
+)
+# Published Google Play listings (00_GrowthEngine geo/data/android_live_snapshot.json),
+# keyed by the iOS App Store id so each app also gets its Play direct link.
+ANDROID_SNAPSHOT_PATH = Path.home() / (
+    ".growth-runtime/engine/geo/data/android_live_snapshot.json"
+)
+PLAY_URL_RE = re.compile(
+    r"https://play\.google\.com/store/apps/details\?id=[A-Za-z0-9_.]+"
 )
 
 # Apple App Store campaign attribution: provider token + per-surface campaign.
@@ -124,6 +133,12 @@ def load_data(path: Path = DATA_PATH) -> dict:
         raise HubError("link hub snapshot has no apps")
     if not isinstance(support_sites, list) or not support_sites:
         raise HubError("link hub snapshot has no support sites")
+    sitemaps = data.get("support_sitemaps", {})
+    if not isinstance(sitemaps, dict) or set(sitemaps) - set(support_sites):
+        raise HubError("support sitemap overrides name an unknown site")
+    for slug, url in sitemaps.items():
+        if url is not None and not str(url).startswith(f"{BASE}/{slug}/"):
+            raise HubError(f"{slug!r} sitemap override leaves its site")
     seen_keys: set[str] = set()
     seen_ids: set[str] = set()
     for app in apps:
@@ -149,24 +164,60 @@ def load_data(path: Path = DATA_PATH) -> dict:
             raise HubError(f"duplicate app entry: {app['key']!r}")
         if app["support_slug"] not in support_sites:
             raise HubError(f"{app['key']!r} points at an unknown support site")
+        play = app.get("play_url")
+        if play is not None and not PLAY_URL_RE.fullmatch(str(play)):
+            raise HubError(f"{app['key']!r} has a malformed Google Play link")
         seen_keys.add(app["key"])
         seen_ids.add(app["app_store_id"])
     return data
 
 
-def refresh_data(path: Path = DATA_PATH) -> dict:
-    """Rebuild the vendored snapshot from first-party sources (local only)."""
-
+def _fetch(url: str) -> tuple[int, str]:
     request = urllib.request.Request(
-        CATALOG_URL,
-        headers={"User-Agent": f"LumiRootLinkHub/1.0 (+{BASE}/)"},
+        url, headers={"User-Agent": f"LumiRootLinkHub/1.0 (+{BASE}/)"}
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        catalog = json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return response.status, response.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as error:
+        return error.code, ""
+
+
+def _support_sitemap(slug: str) -> str | None:
+    """The live sitemap of one support site: /sitemap.xml, else its robots."""
+
+    default = f"{BASE}/{slug}/sitemap.xml"
+    if _fetch(default)[0] == 200:
+        return default
+    status, robots = _fetch(f"{BASE}/{slug}/robots.txt")
+    if status == 200:
+        for line in robots.splitlines():
+            name, _, value = line.partition(":")
+            value = value.strip()
+            if (
+                name.strip().casefold() == "sitemap"
+                and value.startswith(f"{BASE}/{slug}/")
+                and _fetch(value)[0] == 200
+            ):
+                return value
+    return None
+
+
+def refresh_data(
+    path: Path = DATA_PATH,
+    crosspromo_path: Path = CROSSPROMO_PATH,
+    android_snapshot_path: Path = ANDROID_SNAPSHOT_PATH,
+) -> dict:
+    """Rebuild the vendored snapshot from first-party sources (needs network)."""
+
+    status, body = _fetch(CATALOG_URL)
+    if status != 200:
+        raise HubError(f"verified finder catalog returned HTTP {status}")
+    catalog = json.loads(body)
     if not isinstance(catalog.get("apps"), list) or not catalog["apps"]:
         raise HubError("verified finder catalog is empty")
 
-    crosspromo = json.loads(CROSSPROMO_PATH.read_text(encoding="utf-8"))
+    crosspromo = json.loads(crosspromo_path.read_text(encoding="utf-8"))
     sites = crosspromo.get("sites")
     if not isinstance(sites, dict) or not sites:
         raise HubError("support network config has no sites")
@@ -178,6 +229,16 @@ def refresh_data(path: Path = DATA_PATH) -> dict:
         if app_key in app_to_slug:
             raise HubError(f"two support sites claim {app_key!r}")
         app_to_slug[app_key] = slug
+    android = json.loads(android_snapshot_path.read_text(encoding="utf-8"))
+    play_by_store_id = {
+        str(entry["ios_app_id"]): str(entry["play_url"])
+        for entry in (android.get("apps") or {}).values()
+        if entry.get("ios_app_id") and PLAY_URL_RE.fullmatch(
+            str(entry.get("play_url") or "")
+        )
+    }
+    previous = load_data(path) if path.exists() else {"support_sites": []}
+    support_sites = set(sites) | set(previous["support_sites"])
 
     apps = []
     for record in catalog["apps"]:
@@ -185,25 +246,36 @@ def refresh_data(path: Path = DATA_PATH) -> dict:
             continue
         key = str(record["key"])
         slug = app_to_slug.get(key)
+        if not slug and _fetch(f"{BASE}/{key}-support/")[0] == 200:
+            # Live support site that the network config does not claim yet.
+            slug = f"{key}-support"
         if not slug:
             raise HubError(f"{key!r} has no support site")
-        apps.append(
-            {
-                "key": key,
-                "name": str(record["name"]),
-                "app_store_id": str(record["app_store_id"]),
-                "category": str(record["category"]),
-                "category_label_en": str(record["category_labels"]["en"]),
-                "category_label_zh": str(record["category_labels"]["zh-Hant"]),
-                "summary_en": str(record["summaries"]["en"]),
-                "summary_zh": str(record["summaries"]["zh-Hant"]),
-                "purchase_en": str(record["purchase_labels"]["en"]),
-                "purchase_zh": str(record["purchase_labels"]["zh-Hant"]),
-                "support_slug": slug,
-                "guide_path": f"en-US/{key}.html",
-            }
-        )
+        support_sites.add(slug)
+        entry = {
+            "key": key,
+            "name": str(record["name"]),
+            "app_store_id": str(record["app_store_id"]),
+            "category": str(record["category"]),
+            "category_label_en": str(record["category_labels"]["en"]),
+            "category_label_zh": str(record["category_labels"]["zh-Hant"]),
+            "summary_en": str(record["summaries"]["en"]),
+            "summary_zh": str(record["summaries"]["zh-Hant"]),
+            "purchase_en": str(record["purchase_labels"]["en"]),
+            "purchase_zh": str(record["purchase_labels"]["zh-Hant"]),
+            "support_slug": slug,
+            "guide_path": f"en-US/{key}.html",
+        }
+        play = play_by_store_id.get(entry["app_store_id"])
+        if play:
+            entry["play_url"] = play
+        apps.append(entry)
     apps.sort(key=lambda app: (app["name"].casefold(), app["key"]))
+    overrides: dict[str, str | None] = {}
+    for slug in sorted(support_sites):
+        live = _support_sitemap(slug)
+        if live != f"{BASE}/{slug}/sitemap.xml":
+            overrides[slug] = live
     data = {
         "schema_version": 1,
         "source": {
@@ -211,8 +283,10 @@ def refresh_data(path: Path = DATA_PATH) -> dict:
             "catalog_date_modified": catalog.get("date_modified", ""),
             "publisher_disclosure": catalog.get("publisher_disclosure", ""),
             "support_network": "support_network/crosspromo_config.json",
+            "android_live": "geo/data/android_live_snapshot.json",
         },
-        "support_sites": sorted(sites),
+        "support_sites": sorted(support_sites),
+        "support_sitemaps": overrides,
         "apps": apps,
     }
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -243,8 +317,30 @@ def support_url(app: dict) -> str:
     return f"{BASE}/{app['support_slug']}/"
 
 
+def play_url(app: dict) -> str | None:
+    """Google Play direct link with install-referrer campaign, if published."""
+
+    if not app.get("play_url"):
+        return None
+    return (
+        f"{app['play_url']}&referrer=utm_source%3Dopen_cait518"
+        f"%26utm_campaign%3D{CAMPAIGN_PREFIX}{app['key']}"
+    )
+
+
 def support_sitemaps(data: dict) -> list[str]:
-    return [f"{BASE}/{slug}/sitemap.xml" for slug in data["support_sites"]]
+    overrides = data.get("support_sitemaps", {})
+    locations = []
+    for slug in data["support_sites"]:
+        location = overrides.get(slug, f"{BASE}/{slug}/sitemap.xml")
+        if location:
+            locations.append(location)
+    return locations
+
+
+def _play_link(app: dict) -> str:
+    url = play_url(app)
+    return f'<a class="store" href="{_attr(url)}">Google Play</a>' if url else ""
 
 
 def _attr(value: str) -> str:
@@ -303,6 +399,7 @@ def _card(app: dict) -> str:
         f'<p class="en">{html.escape(_clip(app["summary_en"], 150))}</p>'
         '<p class="links">'
         f'<a class="store" href="{_attr(store_url(app))}">App Store</a>'
+        f"{_play_link(app)}"
         f'<a href="{_attr(guide_url(app))}">English guide</a>'
         f'<a href="{_attr(support_url(app))}">支援中心</a>'
         "</p>"
@@ -446,7 +543,8 @@ def render_home_block(data: dict) -> str:
         f'<span>{html.escape(app["category_label_zh"])}'
         f" · {html.escape(app['purchase_zh'])}</span> "
         f'<a href="{_attr(store_url(app))}">App Store</a>'
-        f'<a href="{_attr(guide_url(app))}">English guide</a>'
+        + (f'<a href="{_attr(play_url(app))}">Google Play</a>' if play_url(app) else "")
+        + f'<a href="{_attr(guide_url(app))}">English guide</a>'
         f'<a href="{_attr(support_url(app))}">支援</a>'
         "</li>"
         for app in data["apps"]
@@ -538,10 +636,13 @@ def render_llms_section(data: dict) -> str:
         "",
     ]
     for app in data["apps"]:
-        lines.append(
-            f"- {app['name']} — guide: {guide_url(app)} — "
-            f"support: {support_url(app)}"
+        line = (
+            f"- {app['name']} — App Store: {store_url(app)} — "
+            f"guide: {guide_url(app)} — support: {support_url(app)}"
         )
+        if play_url(app):
+            line += f" — Google Play: {play_url(app)}"
+        lines.append(line)
     return "\n".join(lines) + "\n"
 
 
@@ -572,7 +673,8 @@ def render_app_block(app: dict, language: str) -> str:
         f'<a href="{_attr(guide_url(app))}">{html.escape(guide_label)}</a>'
         " · "
         f'<a href="{_attr(support_url(app))}">{html.escape(support_label)}</a>'
-        "</div>\n"
+        + (f' · <a href="{_attr(play_url(app))}">Google Play</a>' if play_url(app) else "")
+        + "</div>\n"
         f"{APP_BLOCK_END}"
     )
 
@@ -635,13 +737,32 @@ def main() -> int:
         help="rebuild data/link-hub.json from first-party sources first",
     )
     parser.add_argument(
+        "--crosspromo",
+        type=Path,
+        default=CROSSPROMO_PATH,
+        help="support network config used by --refresh",
+    )
+    parser.add_argument(
+        "--android-snapshot",
+        type=Path,
+        default=ANDROID_SNAPSHOT_PATH,
+        help="published Google Play snapshot used by --refresh",
+    )
+    parser.add_argument(
         "--check",
         action="store_true",
         help="fail if any generated file is out of date",
     )
     args = parser.parse_args()
 
-    data = refresh_data() if args.refresh else load_data()
+    data = (
+        refresh_data(
+            crosspromo_path=args.crosspromo,
+            android_snapshot_path=args.android_snapshot,
+        )
+        if args.refresh
+        else load_data()
+    )
     rendered = build(data)
     stale = []
     for relative in sorted(rendered):

@@ -171,10 +171,12 @@ Sitemap: https://open.cait518.cc/aim990-plus-support/sitemap.xml
 Sitemap: https://open.cait518.cc/aim990-support/sitemap.xml
 Sitemap: https://open.cait518.cc/battai-support/sitemap.xml
 Sitemap: https://open.cait518.cc/caldaily-support/sitemap.xml
+Sitemap: https://open.cait518.cc/countdaysnow-support/sitemap.xml
 Sitemap: https://open.cait518.cc/cvdesk-support/sitemap.xml
 Sitemap: https://open.cait518.cc/cyca-support/sitemap.xml
 Sitemap: https://open.cait518.cc/dailymate-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/dailymate-support/sitemap.xml
+Sitemap: https://open.cait518.cc/dbhalo-support/sitemap.xml
 Sitemap: https://open.cait518.cc/gmoney-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/gmoney-support/sitemap.xml
 Sitemap: https://open.cait518.cc/hourstag-lite-support/sitemap.xml
@@ -205,14 +207,18 @@ Sitemap: https://open.cait518.cc/shotinbox-support/sitemap.xml
 Sitemap: https://open.cait518.cc/snapport-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/snapport-support/sitemap.xml
 Sitemap: https://open.cait518.cc/sono-note-support/sitemap.xml
+Sitemap: https://open.cait518.cc/stayclock-support/bm-sitemap.xml
+Sitemap: https://open.cait518.cc/studydown-support/sitemap.xml
 Sitemap: https://open.cait518.cc/trip-planet-support/sitemap.xml
 Sitemap: https://open.cait518.cc/tripbee-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/tripbee-support/sitemap.xml
 Sitemap: https://open.cait518.cc/unblurry-support/sitemap.xml
+Sitemap: https://open.cait518.cc/usagenow-support/sitemap.xml
 Sitemap: https://open.cait518.cc/wifiaid-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/wifiaid-support/sitemap.xml
 Sitemap: https://open.cait518.cc/wordmate-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/wordmate-support/sitemap.xml
+Sitemap: https://open.cait518.cc/zipbox-support/sitemap.xml
 
 # Optional Agentic Resource Discovery, not a submission endpoint
 Agentmap: https://open.cait518.cc/.well-known/ai-catalog.json

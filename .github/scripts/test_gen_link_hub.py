@@ -187,6 +187,53 @@ class AppPageTests(unittest.TestCase):
         self.assertNotIn(ROOT / "app" / "index.html", hub.app_pages())
 
 
+class PlayAndSitemapTests(unittest.TestCase):
+    def test_play_link_carries_a_campaign_and_appears_on_every_surface(self):
+        data = snapshot()
+        data["apps"][0]["play_url"] = (
+            "https://play.google.com/store/apps/details?id=com.example.alpha"
+        )
+        url = hub.play_url(data["apps"][0])
+        self.assertIn("utm_campaign%3Dhome_alpha", url)
+        self.assertIsNone(hub.play_url(data["apps"][1]))
+        self.assertIn(url.replace("&", "&amp;"), hub.render_hub_page(data))
+        self.assertIn(url.replace("&", "&amp;"), hub.render_home_block(data))
+        self.assertIn(url, hub.render_llms_section(data))
+        self.assertIn("Google Play", hub.render_app_block(data["apps"][0], "en"))
+        self.assertNotIn("Google Play", hub.render_app_block(data["apps"][1], "en"))
+
+    def test_rejects_a_malformed_play_link(self):
+        data = snapshot()
+        data["apps"][0]["play_url"] = "https://example.com/alpha"
+        self._roundtrip_rejects(data)
+
+    def test_sitemap_override_replaces_or_drops_the_default(self):
+        data = snapshot()
+        data["support_sitemaps"] = {
+            "alpha-support": f"{hub.BASE}/alpha-support/bm-sitemap.xml",
+            "spare-support": None,
+        }
+        locations = hub.support_sitemaps(data)
+        self.assertEqual(locations, [
+            f"{hub.BASE}/alpha-support/bm-sitemap.xml",
+            f"{hub.BASE}/beta-support/sitemap.xml",
+        ])
+
+    def test_rejects_an_override_that_leaves_its_site(self):
+        data = snapshot()
+        data["support_sitemaps"] = {"alpha-support": f"{hub.BASE}/beta-support/sitemap.xml"}
+        self._roundtrip_rejects(data)
+
+    def _roundtrip_rejects(self, data):
+        import json
+        import tempfile
+        with tempfile.TemporaryDirectory() as folder:
+            path = pathlib.Path(folder) / "hub.json"
+            path.write_text(json.dumps(data), encoding="utf-8")
+            with self.assertRaises(hub.HubError):
+                hub.load_data(path)
+
+
 class DiscoveryTests(unittest.TestCase):
     def test_sitemap_index_lists_guides_and_every_support_site(self):
         data = hub.load_data()
@@ -194,7 +241,7 @@ class DiscoveryTests(unittest.TestCase):
         locations = document.count("<sitemap>")
         self.assertEqual(
             locations,
-            1 + len(hub.EXTRA_SITEMAPS) + len(data["support_sites"]),
+            1 + len(hub.EXTRA_SITEMAPS) + len(hub.support_sitemaps(data)),
         )
         self.assertIn(f"{hub.GUIDE_BASE}/sitemap.xml", document)
         for location in hub.support_sitemaps(data):

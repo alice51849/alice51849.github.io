@@ -3,8 +3,9 @@
  "source": {
   "catalog": "https://open.cait518.cc/ios-app-guide/data/verified-ios-app-finder-catalog.json",
   "catalog_date_modified": "2026-07-20",
-  "publisher_disclosure": "First-party catalogue published by Lumi Studio, the developer of every listed app; not an independent review or third-party ranking.",
-  "support_network": "support_network/crosspromo_config.json"
+  "publisher_disclosure": "First-party catalogue of the complete Lumi Studio live-app roster. Availability is reported per app; unknown is not verified live. Not an independent review or third-party ranking.",
+  "support_network": "support_network/crosspromo_config.json",
+  "android_live": "geo/data/android_live_snapshot.json"
  },
  "support_sites": [
   "100notes-support",
@@ -13,10 +14,12 @@
   "aim990-support",
   "battai-support",
   "caldaily-support",
+  "countdaysnow-support",
   "cvdesk-support",
   "cyca-support",
   "dailymate-lite-support",
   "dailymate-support",
+  "dbhalo-support",
   "gmoney-lite-support",
   "gmoney-support",
   "hourstag-lite-support",
@@ -47,15 +50,22 @@
   "snapport-lite-support",
   "snapport-support",
   "sono-note-support",
+  "stayclock-support",
+  "studydown-support",
   "trip-planet-support",
   "tripbee-lite-support",
   "tripbee-support",
   "unblurry-support",
+  "usagenow-support",
   "wifiaid-lite-support",
   "wifiaid-support",
   "wordmate-lite-support",
-  "wordmate-support"
+  "wordmate-support",
+  "zipbox-support"
  ],
+ "support_sitemaps": {
+  "stayclock-support": "https://open.cait518.cc/stayclock-support/bm-sitemap.xml"
+ },
  "apps": [
   {
    "key": "notesstudio100",
@@ -69,7 +79,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "100notes-support",
-   "guide_path": "en-US/notesstudio100.html"
+   "guide_path": "en-US/notesstudio100.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.NotesStudio100"
   },
   {
    "key": "aibriefpack",
@@ -83,7 +94,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "aibrief-support",
-   "guide_path": "en-US/aibriefpack.html"
+   "guide_path": "en-US/aibriefpack.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.AIBriefPack"
   },
   {
    "key": "aim990",
@@ -92,26 +104,13 @@
    "category": "education",
    "category_label_en": "Education",
    "category_label_zh": "學習",
-   "summary_en": "Daily L&R study plans, weak-spot drills & score tracking toward 990",
-   "summary_zh": "在Aim990，我們知道準備TOEIC(R)考試的挑戰，因此我們設計了一個為期30天的學習計劃，幫助你高效提升聽力與閱讀能力。",
+   "summary_en": "Aim990 is a diagnostic English coach for TOEIC Listening & Reading-style study.",
+   "summary_zh": "Aim990 是為多益聽力與閱讀風格準備打造的診斷式教練，不是題庫堆疊。每次打開，練習內容都由你自己的作答紀錄決定。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "aim990-support",
-   "guide_path": "en-US/aim990.html"
-  },
-  {
-   "key": "aim990plus",
-   "name": "Aim990 Plus",
-   "app_store_id": "6792483140",
-   "category": "kids",
-   "category_label_en": "Kids & learning",
-   "category_label_zh": "兒童與學習",
-   "summary_en": "Train for clear decisions under exam pressure",
-   "summary_zh": "把零散刷題，整理成真正能承受時間壓力的備考節奏。",
-   "purchase_en": "Paid download",
-   "purchase_zh": "付費下載",
-   "support_slug": "aim990-plus-support",
-   "guide_path": "en-US/aim990plus.html"
+   "guide_path": "en-US/aim990.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.aim990"
   },
   {
    "key": "battai",
@@ -125,7 +124,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "battai-support",
-   "guide_path": "en-US/battai.html"
+   "guide_path": "en-US/battai.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.BattAI"
   },
   {
    "key": "caldaily",
@@ -139,7 +139,22 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "caldaily-support",
-   "guide_path": "en-US/caldaily.html"
+   "guide_path": "en-US/caldaily.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.CalDaily"
+  },
+  {
+   "key": "countdaysnow",
+   "name": "CountDaysNow",
+   "app_store_id": "6807079789",
+   "category": "productivity",
+   "category_label_en": "Productivity",
+   "category_label_zh": "效率工具",
+   "summary_en": "Plan backwards from the dates that matter.",
+   "summary_zh": "• 每日焦點",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "countdaysnow-support",
+   "guide_path": "en-US/countdaysnow.html"
   },
   {
    "key": "cvdesk",
@@ -153,7 +168,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "cvdesk-support",
-   "guide_path": "en-US/cvdesk.html"
+   "guide_path": "en-US/cvdesk.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.cvdesk"
   },
   {
    "key": "cyca",
@@ -181,7 +197,8 @@
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "dailymate-support",
-   "guide_path": "en-US/dailymate.html"
+   "guide_path": "en-US/dailymate.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.caitlyn.dailymate"
   },
   {
    "key": "dailymatelite",
@@ -195,7 +212,22 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "dailymate-lite-support",
-   "guide_path": "en-US/dailymatelite.html"
+   "guide_path": "en-US/dailymatelite.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.DailyMateLite"
+  },
+  {
+   "key": "dbhalo",
+   "name": "dB Halo",
+   "app_store_id": "6806826699",
+   "category": "utility",
+   "category_label_en": "More",
+   "category_label_zh": "更多",
+   "summary_en": "From a home workshop and HVAC rumble to a gym floor or concert venue, dB Halo helps you understand sound without sending data off your device.",
+   "summary_zh": "周遭聲音有多大？能量集中在哪些頻段？依所選標準預估，安全時長還剩多少？dB Halo 把即時聲級、聲學分析、噪音劑量與睡眠聲音紀錄整合在同一個 App，所有處理都在裝置端完成。支援 iPhone、iPad 與 Apple Watch。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "dbhalo-support",
+   "guide_path": "en-US/dbhalo.html"
   },
   {
    "key": "gmoney",
@@ -204,12 +236,13 @@
    "category": "finance",
    "category_label_en": "Money & travel",
    "category_label_zh": "理財與旅行",
-   "summary_en": "Convert + log every expense in one tap — offline",
+   "summary_en": "G+Money is two everyday tools in one — a lightning-fast currency converter and a beautiful expense tracker — built for daily life and travel alike.",
    "summary_zh": "G+Money 把兩個每天都會用到的工具合而為一——超快的貨幣換算 ＋ 精美的記帳——生活與旅行都適用。完全離線、完全私密。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "gmoney-support",
-   "guide_path": "en-US/gmoney.html"
+   "guide_path": "en-US/gmoney.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.caitlai.globi"
   },
   {
    "key": "gmoneylite",
@@ -223,7 +256,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "gmoney-lite-support",
-   "guide_path": "en-US/gmoneylite.html"
+   "guide_path": "en-US/gmoneylite.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.GMoneyLite"
   },
   {
    "key": "hourstaglite",
@@ -237,7 +271,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "hourstag-lite-support",
-   "guide_path": "en-US/hourstaglite.html"
+   "guide_path": "en-US/hourstaglite.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.hourstaglite"
   },
   {
    "key": "hourstag",
@@ -251,7 +286,22 @@
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "hourstag-support",
-   "guide_path": "en-US/hourstag.html"
+   "guide_path": "en-US/hourstag.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.caitlyn.hourstag"
+  },
+  {
+   "key": "ledmovingtext",
+   "name": "LED Moving Text",
+   "app_store_id": "6806639602",
+   "category": "utility",
+   "category_label_en": "More",
+   "category_label_zh": "更多",
+   "summary_en": "Cue Flow handles moments that need more than one sign.",
+   "summary_zh": "打上一句話，手機就變成一面會發光、會跑的大字看板，隔著整個場館、月台或人群都看得清楚。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "ledmovingtext-support",
+   "guide_path": "en-US/ledmovingtext.html"
   },
   {
    "key": "lockhour",
@@ -265,7 +315,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lockhour-support",
-   "guide_path": "en-US/lockhour.html"
+   "guide_path": "en-US/lockhour.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.focuslockpro.app"
   },
   {
    "key": "lumibopomofo",
@@ -275,11 +326,12 @@
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
    "summary_en": "Lumi Bopomofo is a gentle, playful way for young children to learn the Bopomofo (Zhuyin) phonetic system.",
-   "summary_zh": "Lumi 注音星球 是一款專為學齡前與低年級孩子（約 4–7 歲）設計的注音符號學習遊戲。",
+   "summary_zh": "讓孩子快樂踏出注音的第一步，從一場可愛的星球冒險開始！",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lumi-support",
-   "guide_path": "en-US/lumibopomofo.html"
+   "guide_path": "en-US/lumibopomofo.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LumiZhuyin"
   },
   {
    "key": "lumibopomofopro",
@@ -289,11 +341,12 @@
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
    "summary_en": "Help your child fall in love with Chinese phonics through one adorable space adventure.",
-   "summary_zh": "讓孩子愛上注音, 從一場可愛的星球冒險開始.",
+   "summary_zh": "讓孩子愛上注音，從一場可愛的星球冒險開始。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "lumi-bopomofo-pro-support",
-   "guide_path": "en-US/lumibopomofopro.html"
+   "guide_path": "en-US/lumibopomofopro.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LumiZhuyinPro"
   },
   {
    "key": "lumiletters",
@@ -307,7 +360,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lumi-letters-support",
-   "guide_path": "en-US/lumiletters.html"
+   "guide_path": "en-US/lumiletters.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LumiLettersLite"
   },
   {
    "key": "lumiletterspro",
@@ -321,7 +375,8 @@
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "lumi-letters-pro-support",
-   "guide_path": "en-US/lumiletterspro.html"
+   "guide_path": "en-US/lumiletterspro.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LumiLetters"
   },
   {
    "key": "lumimath",
@@ -335,7 +390,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lumi-math-support",
-   "guide_path": "en-US/lumimath.html"
+   "guide_path": "en-US/lumimath.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LumiMathFree"
   },
   {
    "key": "lumimathpro",
@@ -349,7 +405,8 @@
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "lumi-math-pro-support",
-   "guide_path": "en-US/lumimathpro.html"
+   "guide_path": "en-US/lumimathpro.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LumiMathPlanet"
   },
   {
    "key": "lumimission",
@@ -363,7 +420,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lumi-mission-support",
-   "guide_path": "en-US/lumimission.html"
+   "guide_path": "en-US/lumimission.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.lumimissionlite"
   },
   {
    "key": "lumimissionpro",
@@ -377,21 +435,8 @@
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "lumi-mission-pro-support",
-   "guide_path": "en-US/lumimissionpro.html"
-  },
-  {
-   "key": "tripplanet",
-   "name": "Lumi Trip Planet",
-   "app_store_id": "6787193643",
-   "category": "kids",
-   "category_label_en": "Kids & learning",
-   "category_label_zh": "兒童與學習",
-   "summary_en": "Turn every family trip into a tiny space adventure.",
-   "summary_zh": "將每次家庭旅行變成一次小小的太空冒險。",
-   "purchase_en": "Free to start · one-time unlock",
-   "purchase_zh": "免費開始 · 一次性解鎖",
-   "support_slug": "trip-planet-support",
-   "guide_path": "en-US/tripplanet.html"
+   "guide_path": "en-US/lumimissionpro.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.lumi.mochimissionplanet"
   },
   {
    "key": "lumiweather",
@@ -400,12 +445,13 @@
    "category": "kids",
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
-   "summary_en": "Some mornings you stand at the window with a wriggling toddler and one quiet worry: is it too cold, too hot, too wet to take them out today?",
-   "summary_zh": "有些早晨，你抱著扭來扭去的孩子站在窗邊，心裡只有一個小小的擔心：今天會不會太冷、太熱、太濕，不適合帶他出門？",
+   "summary_en": "Lumi Weather tells you in one glance whether now is a good time to go outside, what to wear, and whether you need an umbrella or sunscreen.",
+   "summary_zh": "一眼看懂現在適不適合出門、該穿什麼、要不要帶傘或擦防曬，Lumi天氣星球把天氣預報變成一句清楚的答案。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lumi-weather-support",
-   "guide_path": "en-US/lumiweather.html"
+   "guide_path": "en-US/lumiweather.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LumiWeather"
   },
   {
    "key": "maskmyfile",
@@ -414,12 +460,13 @@
    "category": "photo-utility",
    "category_label_en": "Photo & utility",
    "category_label_zh": "照片與實用工具",
-   "summary_en": "Share safely without losing the context people actually need. Mask My File finds private details before you share.",
+   "summary_en": "Share safely without losing the context people actually need.",
    "summary_zh": "安全分享，同時保留有用的脈絡。Mask My File 會在你送出檔案前找出私密資訊，永久遮蔽後，再重新開啟並驗證輸出的新檔案，確認無誤才顯示 Private Ready。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "maskmyfile-support",
-   "guide_path": "en-US/maskmyfile.html"
+   "guide_path": "en-US/maskmyfile.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.MaskMyFile"
   },
   {
    "key": "mochi",
@@ -428,12 +475,13 @@
    "category": "productivity",
    "category_label_en": "Productivity",
    "category_label_zh": "效率工具",
-   "summary_en": "Cute, cozy checklists with a satisfying tap to complete — free, no ads",
+   "summary_en": "Mochi is the cute, cozy to-do list that makes getting organized feel good.",
    "summary_zh": "Mochi 是一款可愛又療癒的待辦清單 App，讓安排生活不再只是壓力，而是一件有質感的小事。寫下任務，輕點小圓圈完成打勾，讓每一次完成都帶來舒服的成就感。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "mochitodo-support",
-   "guide_path": "en-US/mochi.html"
+   "guide_path": "en-US/mochi.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.MochiTodo"
   },
   {
    "key": "mochidonestamp",
@@ -447,7 +495,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "mochi-donestamp-support",
-   "guide_path": "en-US/mochidonestamp.html"
+   "guide_path": "en-US/mochidonestamp.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.MochiDoneStamp"
   },
   {
    "key": "moneytag",
@@ -461,7 +510,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "moneytag-support",
-   "guide_path": "en-US/moneytag.html"
+   "guide_path": "en-US/moneytag.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.MoneyTag"
   },
   {
    "key": "onepageppt",
@@ -475,7 +525,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "onepageppt-support",
-   "guide_path": "en-US/onepageppt.html"
+   "guide_path": "en-US/onepageppt.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.OnePagePPT"
   },
   {
    "key": "photocream",
@@ -484,12 +535,13 @@
    "category": "photo-utility",
    "category_label_en": "Photo & utility",
    "category_label_zh": "照片與實用工具",
-   "summary_en": "100+ real film looks, grain, halation & light leaks",
+   "summary_en": "PhotoCream Pro turns your phone into a premium film camera and a pro photo studio.",
    "summary_zh": "PhotoCream Pro 是您在 iPhone 和 iPad 上的終極拍攝夥伴。無論您是懷舊攝影愛好者還是自拍達人，這款應用都能滿足您的需求。超過100種真實膠片濾鏡，讓每張照片都充滿藝術感。即時預覽功能讓您在拍攝前即可看到濾鏡效果，捕捉完美瞬間。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "photocream-support",
-   "guide_path": "en-US/photocream.html"
+   "guide_path": "en-US/photocream.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.photocream"
   },
   {
    "key": "picclear",
@@ -503,7 +555,23 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "picclear-support",
-   "guide_path": "en-US/picclear.html"
+   "guide_path": "en-US/picclear.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.picclear.app"
+  },
+  {
+   "key": "qrcodehalo",
+   "name": "QR Code Halo",
+   "app_store_id": "6806779853",
+   "category": "utility",
+   "category_label_en": "More",
+   "category_label_zh": "更多",
+   "summary_en": "QR Code Halo is built around Inspect, Decide, Act.",
+   "summary_zh": "預設掃描後會自動執行；到設定關閉「掃描後自動執行」即可先檢查，歷史紀錄中按「安全檢查」。流程固定是檢查、判斷、行動，讓你先看清內容、風險依據與可執行範圍，再決定下一步。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "qrcodehalo-support",
+   "guide_path": "en-US/qrcodehalo.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.QRCodeHalo"
   },
   {
    "key": "savetag",
@@ -517,7 +585,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "savetag-support",
-   "guide_path": "en-US/savetag.html"
+   "guide_path": "en-US/savetag.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.SaveTag"
   },
   {
    "key": "scanto",
@@ -531,7 +600,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "scanto-support",
-   "guide_path": "en-US/scanto.html"
+   "guide_path": "en-US/scanto.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.OfflineScannerPro"
   },
   {
    "key": "sereno",
@@ -540,12 +610,13 @@
    "category": "sleep-sound",
    "category_label_en": "Sleep & focus",
    "category_label_zh": "睡眠與專注",
-   "summary_en": "A high-end sound machine for sleep, focus & calm — free to try, unlock once",
+   "summary_en": "Sereno turns your phone into a high-end sound machine for sleep, focus, and calm.",
    "summary_zh": "Sereno 將您的手機變成高端的睡眠、專注和寧靜的音效機。數十種精心調整的聲音在您的設備上即時生成，並融合成超過 1000 種獨特的音景——因此雨聲永不重複，海洋聲音永不重複，只是一種無盡的、柔和的混合，伴您度過整個夜晚。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "sereno-support",
-   "guide_path": "en-US/sereno.html"
+   "guide_path": "en-US/sereno.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.Sereno"
   },
   {
    "key": "shotinbox",
@@ -559,7 +630,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "shotinbox-support",
-   "guide_path": "en-US/shotinbox.html"
+   "guide_path": "en-US/shotinbox.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.ShotInbox"
   },
   {
    "key": "snapport",
@@ -568,12 +640,13 @@
    "category": "photo-utility",
    "category_label_en": "Photo & utility",
    "category_label_zh": "照片與實用工具",
-   "summary_en": "Make your own at home in 30 seconds",
-   "summary_zh": "在家製作護照、簽證與證件照——用更沉著、更私密的方式完成。Snapport 提供常用尺寸範本、臉部對齊指引、背景工具與可列印版型，所有處理都直接在你的 iPhone 上完成。",
+   "summary_en": "Take passport, visa, and ID photos at home — the calm, private way.",
+   "summary_zh": "在家拍攝護照照片、簽證照片與證件照——用更沉著、更私密的方式完成。Snapport 只負責準備照片，證件本身由發證機關或單位核發。Snapport 提供常用尺寸範本、臉部對齊指引、背景工具與可列印版型，所有處理都直接在你的 iPhone 上完成。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "snapport-support",
-   "guide_path": "en-US/snapport.html"
+   "guide_path": "en-US/snapport.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.snapport.app"
   },
   {
    "key": "snapportlite",
@@ -582,12 +655,13 @@
    "category": "photo-utility",
    "category_label_en": "Photo & utility",
    "category_label_zh": "照片與實用工具",
-   "summary_en": "Snapport Lite",
-   "summary_zh": "Snapport Lite",
+   "summary_en": "Snapport Lite crops your portrait to the size you choose, right on your device.",
+   "summary_zh": "需要特定尺寸的照片嗎？Snapport Lite 直接在你的裝置上，把人像照片精準裁成你選的尺寸。拍一張新照片或從相簿挑選，依導引對齊臉部、整理背景，就能匯出。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "snapport-lite-support",
-   "guide_path": "en-US/snapportlite.html"
+   "guide_path": "en-US/snapportlite.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.SnapportLite"
   },
   {
    "key": "sononote",
@@ -601,7 +675,51 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "sono-note-support",
-   "guide_path": "en-US/sononote.html"
+   "guide_path": "en-US/sononote.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.caitlyn.clearnotevoice"
+  },
+  {
+   "key": "stayclock",
+   "name": "Stay Clock",
+   "app_store_id": "6814035888",
+   "category": "utility",
+   "category_label_en": "More",
+   "category_label_zh": "更多",
+   "summary_en": "Stay Clock turns your iPhone or iPad into an always-on desk clock you can read from across the room.",
+   "summary_zh": "Stay Clock 把你的 iPhone 或 iPad 變成一座全天候桌鐘,隔著房間也看得清楚。大大的時間顯示、配合每款錶面的行事曆,還有一款同步出現在 StandBy、鎖定畫面、主畫面小工具與 Apple Watch 的錶面設計。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "stayclock-support",
+   "guide_path": "en-US/stayclock.html"
+  },
+  {
+   "key": "studydown",
+   "name": "Studydown",
+   "app_store_id": "6807335593",
+   "category": "productivity",
+   "category_label_en": "Productivity",
+   "category_label_zh": "效率工具",
+   "summary_en": "Put your phone down. See your effort add up.",
+   "summary_zh": "把手機螢幕朝下，為真正重要的事留點時間。推進專案、閱讀、學語言、練琴，都能在 Studydown 建立自己的項目，把每次投入累積成看得見的紀錄。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "studydown-support",
+   "guide_path": "en-US/studydown.html"
+  },
+  {
+   "key": "tripplanet",
+   "name": "Trip Planet: Kids Quest",
+   "app_store_id": "6787193643",
+   "category": "kids",
+   "category_label_en": "Kids & learning",
+   "category_label_zh": "兒童與學習",
+   "summary_en": "Turn every family trip into a tiny space adventure.",
+   "summary_zh": "把每一次親子旅行，變成孩子會期待的星際冒險。長途飛行、漫長車程和飯店住宿，都能化為 3 到 10 歲孩子的小任務；完成就能收集獎勵，每走完一趟旅程，還會在旅行護照蓋上印章。兩位家長可以用各自的裝置共享同一趟旅程。沒有廣告，也沒有第三方追蹤。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "trip-planet-support",
+   "guide_path": "en-US/tripplanet.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.TripPlanet"
   },
   {
    "key": "tripbeelite",
@@ -615,7 +733,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "tripbee-lite-support",
-   "guide_path": "en-US/tripbeelite.html"
+   "guide_path": "en-US/tripbeelite.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.TripbeeLite"
   },
   {
    "key": "tripbee",
@@ -629,7 +748,8 @@
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "tripbee-support",
-   "guide_path": "en-US/tripbee.html"
+   "guide_path": "en-US/tripbee.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.Tripbee"
   },
   {
    "key": "unblurry",
@@ -643,7 +763,22 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "unblurry-support",
-   "guide_path": "en-US/unblurry.html"
+   "guide_path": "en-US/unblurry.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.unblurry.app"
+  },
+  {
+   "key": "claudeusagemini",
+   "name": "UsageNow",
+   "app_store_id": "6818607603",
+   "category": "productivity",
+   "category_label_en": "Productivity",
+   "category_label_zh": "效率工具",
+   "summary_en": "UsageNow shows how much of each AI plan you have left and exactly when it resets, right on your Home Screen, and warns you before you run out.",
+   "summary_zh": "工作做到一半，AI 額度突然用完？UsageNow 直接在主畫面告訴你每個 AI 方案還剩多少用量，以及確切的重置時間，並在額度用完之前提醒你。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "usagenow-support",
+   "guide_path": "en-US/claudeusagemini.html"
   },
   {
    "key": "wifiaid",
@@ -652,12 +787,13 @@
    "category": "photo-utility",
    "category_label_en": "Photo & utility",
    "category_label_zh": "照片與實用工具",
-   "summary_en": "Find the most likely connection problem with independent path, DNS, TCP, TLS, timing and signal checks.",
+   "summary_en": "Find the most likely connection problem with independent path, DNS, TCP, TLS, timing and stability checks.",
    "summary_zh": "用多路徑、DNS、TCP、TLS、回應時間與穩定度檢查，找出最可能的連線問題。App Store 一次付費買斷，無訂閱、無廣告、無追蹤。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "wifiaid-support",
-   "guide_path": "en-US/wifiaid.html"
+   "guide_path": "en-US/wifiaid.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.WiFiAid"
   },
   {
    "key": "wifiaidlite",
@@ -666,26 +802,28 @@
    "category": "utility",
    "category_label_en": "More",
    "category_label_zh": "更多",
-   "summary_en": "Find the real problem. Each tool includes one free complete use. Optional one-time lifetime unlock for unlimited use—no subscription, ads or tracking.",
+   "summary_en": "Find the real problem.",
    "summary_zh": "「網路又卡住了」——問題到底出在路由器、DNS、ISP,還是網站本身?WiFi Aid Lite 用多條獨立路徑同時檢測 DNS、TCP、TLS、回應時間與穩定度,交叉比對各項證據,告訴你最可能的故障原因,不必再瞎猜、重開機碰運氣。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "wifiaid-lite-support",
-   "guide_path": "en-US/wifiaidlite.html"
+   "guide_path": "en-US/wifiaidlite.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.WiFiAidLite"
   },
   {
    "key": "wordmatelite",
    "name": "Wordmate Lite",
    "app_store_id": "6797601720",
-   "category": "kids",
-   "category_label_en": "Kids & learning",
-   "category_label_zh": "兒童與學習",
+   "category": "education",
+   "category_label_en": "Education",
+   "category_label_zh": "學習",
    "summary_en": "Five words. One minute. A trail you can actually see.",
    "summary_zh": "很多人的外語進度，是停在「還沒把單字卡做好」的那一步。Wordmate Lite 想拿掉的就是這一步。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "wordmate-lite-support",
-   "guide_path": "en-US/wordmatelite.html"
+   "guide_path": "en-US/wordmatelite.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.WordmateLite"
   },
   {
    "key": "wordmate",
@@ -694,12 +832,27 @@
    "category": "education",
    "category_label_en": "Education",
    "category_label_zh": "學習",
-   "summary_en": "Learn useful vocabulary in 44 languages with natural examples, a Home Screen widget and Apple Watch",
+   "summary_en": "Make every spare moment useful with Wordmate, a complete vocabulary app for 44 languages.",
    "summary_zh": "把零碎時間變成真正的字彙累積。Wordmate 將 44 種語言的結構化單字學習帶到 iPhone、iPad、主畫面互動小工具與 Apple Watch；從手中到手腕，通勤、排隊或短暫空檔都能自然接續。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "wordmate-support",
-   "guide_path": "en-US/wordmate.html"
+   "guide_path": "en-US/wordmate.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.caitlyn.flashdot"
+  },
+  {
+   "key": "zipbox",
+   "name": "Zipbox",
+   "app_store_id": "6806776579",
+   "category": "utility",
+   "category_label_en": "More",
+   "category_label_zh": "更多",
+   "summary_en": "Zipbox is a paid App Store download. One purchase includes every feature, with no in-app purchases, subscriptions or ads.",
+   "summary_zh": "Zipbox 是 App Store 付費下載 App，一次購買就包含全部功能，沒有 App 內購買、訂閱或廣告。13 種格式全都在裝置本機處理。",
+   "purchase_en": "Paid download",
+   "purchase_zh": "付費下載",
+   "support_slug": "zipbox-support",
+   "guide_path": "en-US/zipbox.html"
   }
  ]
 }
