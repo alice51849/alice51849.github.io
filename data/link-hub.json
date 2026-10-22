@@ -20,6 +20,7 @@
   "dailymate-lite-support",
   "dailymate-support",
   "dbhalo-support",
+  "easyam-support",
   "gmoney-lite-support",
   "gmoney-support",
   "hourstag-lite-support",
@@ -134,7 +135,7 @@
    "category": "utility",
    "category_label_en": "More",
    "category_label_zh": "更多",
-   "summary_en": "A calculator you will actually keep using, because it remembers the thinking",
+   "summary_en": "A calculator you will actually keep using, because it remembers the thinking behind each number.",
    "summary_zh": "一台你會真的留著用的計算機，因為它記得每個數字背後的來龍去脈。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
@@ -154,7 +155,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "countdaysnow-support",
-   "guide_path": "en-US/countdaysnow.html"
+   "guide_path": "en-US/countdaysnow.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.CountDaysNow"
   },
   {
    "key": "cvdesk",
@@ -183,7 +185,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "cyca-support",
-   "guide_path": "en-US/cyca.html"
+   "guide_path": "en-US/cyca.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.cyca"
   },
   {
    "key": "dailymate",
@@ -192,8 +195,8 @@
    "category": "kids",
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
-   "summary_en": "Learn a language in the form you actually use it: complete sentences, not isolated vocabulary.",
-   "summary_zh": "學語言不該只背零散單字，而是要從完整句子理解真實用法。DailyMate 收錄 47 種學習語言、8,400 句實用生活會話，依 14 大主題與 84 個具體情境清楚整理。一次付費即可使用完整 App，沒有訂閱。",
+   "summary_en": "Know the words but still freeze mid-conversation?",
+   "summary_zh": "會背單字，卻還是開不了口？DailyMate 讓你用完整的句子學語言，每一句都附上道地的回應，學到的就是人們真正會說的話。收錄 47 種學習語言、8,400 句實用生活短句，整理成 14 大主題與 84 個真實情境，從打招呼、點餐、購物、交通、旅遊到職場、看診與緊急狀況，一應俱全。主畫面小工具與",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "dailymate-support",
@@ -227,7 +230,23 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "dbhalo-support",
-   "guide_path": "en-US/dbhalo.html"
+   "guide_path": "en-US/dbhalo.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.dBHalo"
+  },
+  {
+   "key": "easyam",
+   "name": "EasyAM",
+   "app_store_id": "6821790092",
+   "category": "utility",
+   "category_label_en": "More",
+   "category_label_zh": "更多",
+   "summary_en": "EasyAM decides for you, day by day: it rings on workdays and stays quiet on public holidays and your days off.",
+   "summary_zh": "明天早上的鬧鐘，到底要不要響？EasyAM 每天幫你判斷：上班日照響，國定假日和你的休假安靜不響，遇到補班日也會照常叫你起床。",
+   "purchase_en": "Free to start · one-time unlock",
+   "purchase_zh": "免費開始 · 一次性解鎖",
+   "support_slug": "easyam-support",
+   "guide_path": "en-US/easyam.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.Offday"
   },
   {
    "key": "gmoney",
@@ -301,7 +320,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "ledmovingtext-support",
-   "guide_path": "en-US/ledmovingtext.html"
+   "guide_path": "en-US/ledmovingtext.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.LEDMovingText"
   },
   {
    "key": "lockhour",
@@ -355,8 +375,8 @@
    "category": "kids",
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
-   "summary_en": "Download free, play first, and unlock only if your child loves it.",
-   "summary_zh": "免費下載，先玩玩看，喜歡再一次解鎖。",
+   "summary_en": "Lumi Letters Lite turns the English alphabet into a dreamy starry adventure for ages three to seven.",
+   "summary_zh": "Lumi 字母星球 Lite 把學英文字母變成一場夢幻星空大冒險：三到七歲的孩子聽字母名稱與發音，沿著筆順輔助線進行英文字母描寫，描出大寫與小寫，一路收集可愛的字母夥伴。無廣告，離線也能玩。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lumi-letters-support",
@@ -370,8 +390,8 @@
    "category": "kids",
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
-   "summary_en": "Welcome to Lumi Letters",
-   "summary_zh": "歡迎來到 Lumi 字母星球",
+   "summary_en": "Real phonics for little learners: hear the sound, find it in the word, trace the letter.",
+   "summary_zh": "聽音、找音、描寫：專為小朋友設計的英文自然發音。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "lumi-letters-pro-support",
@@ -385,8 +405,8 @@
    "category": "kids",
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
-   "summary_en": "Some apps teach math. This one makes a child love it.",
-   "summary_zh": "有些 App 教數學。這一款，讓孩子愛上數學。",
+   "summary_en": "Solve a question and a little planet lights up.",
+   "summary_zh": "答對一題，小星球就亮起來。Lumi 數學星球把數數、加減法、九九乘法、時鐘與錢幣，變成一場溫柔的太空冒險。46 種題型全都看圖就懂，也能朗讀題目。家長可以查看學習進度、針對弱項加強練習，並列印附解答的學習單。無廣告、無訂閱。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "lumi-math-support",
@@ -431,7 +451,7 @@
    "category_label_en": "Kids & learning",
    "category_label_zh": "兒童與學習",
    "summary_en": "Getting a small child to brush teeth, finish meals or tidy toys should not take a battle every single day.",
-   "summary_zh": "要三到七歲的孩子乖乖刷牙、吃完飯、收玩具,不該每天都像打仗。",
+   "summary_zh": "要三到七歲的孩子乖乖刷牙、吃完飯、收玩具，不該每天都像打仗。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "lumi-mission-pro-support",
@@ -536,7 +556,7 @@
    "category_label_en": "Photo & utility",
    "category_label_zh": "照片與實用工具",
    "summary_en": "PhotoCream Pro turns your phone into a premium film camera and a pro photo studio.",
-   "summary_zh": "PhotoCream Pro 是您在 iPhone 和 iPad 上的終極拍攝夥伴。無論您是懷舊攝影愛好者還是自拍達人，這款應用都能滿足您的需求。超過100種真實膠片濾鏡，讓每張照片都充滿藝術感。即時預覽功能讓您在拍攝前即可看到濾鏡效果，捕捉完美瞬間。",
+   "summary_zh": "PhotoCream Pro 把你的手機變成一台質感底片相機，同時也是一間隨身的專業修圖工作室。不用扛著老相機、不用花時間等沖掃，打開 App 就能即時拍出道地的底片氛圍，拍完再細細調整每一個細節——全部在裝置上完成，無訂閱、無廣告。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "photocream-support",
@@ -565,8 +585,8 @@
    "category": "utility",
    "category_label_en": "More",
    "category_label_zh": "更多",
-   "summary_en": "QR Code Halo is built around Inspect, Decide, Act.",
-   "summary_zh": "預設掃描後會自動執行；到設定關閉「掃描後自動執行」即可先檢查，歷史紀錄中按「安全檢查」。流程固定是檢查、判斷、行動，讓你先看清內容、風險依據與可執行範圍，再決定下一步。",
+   "summary_en": "QR Code Halo acts the moment it reads a code.",
+   "summary_zh": "QR Code Halo 掃到就直接執行。用相機掃描或選擇照片：網址直接用瀏覽器開啟，Passkey 登入碼與 App 連結直接交給 iOS，Wi-Fi 碼會跳出 iOS 的加入網路提示，電話、簡訊、Email 與地點則交給各自的 App。聯絡人和行程會開啟 iOS",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "qrcodehalo-support",
@@ -611,7 +631,7 @@
    "category_label_en": "Sleep & focus",
    "category_label_zh": "睡眠與專注",
    "summary_en": "Sereno turns your phone into a high-end sound machine for sleep, focus, and calm.",
-   "summary_zh": "Sereno 將您的手機變成高端的睡眠、專注和寧靜的音效機。數十種精心調整的聲音在您的設備上即時生成，並融合成超過 1000 種獨特的音景——因此雨聲永不重複，海洋聲音永不重複，只是一種無盡的、柔和的混合，伴您度過整個夜晚。",
+   "summary_zh": "Sereno 將您的手機變成高端的睡眠、專注和寧靜的音效機。雨聲、海浪、風聲、火焰等皆為實地錄音，融合成超過 1000 種獨特的音景，並在您聆聽時隨機交織——沒有固定循環，只有柔和的混音，伴您度過整個夜晚。",
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "sereno-support",
@@ -690,7 +710,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "stayclock-support",
-   "guide_path": "en-US/stayclock.html"
+   "guide_path": "en-US/stayclock.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.StayClock"
   },
   {
    "key": "studydown",
@@ -704,7 +725,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "studydown-support",
-   "guide_path": "en-US/studydown.html"
+   "guide_path": "en-US/studydown.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.Studydown"
   },
   {
    "key": "tripplanet",
@@ -743,8 +765,8 @@
    "category": "travel",
    "category_label_en": "Travel",
    "category_label_zh": "旅行",
-   "summary_en": "Plan every trip in one beautiful, private, offline app.",
-   "summary_zh": "把每一段旅程，都整理成漂亮、私密、完全離線的隨身計畫書。",
+   "summary_en": "Plan offline, sync privately with iCloud and invite others to edit a shared trip. One-time purchase, no ads and no tracking.",
+   "summary_zh": "離線規劃行程，以 iCloud 私密同步，並邀請他人共同編輯共享旅程。一次購買，無廣告、無追蹤。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "tripbee-support",
@@ -788,7 +810,7 @@
    "category_label_en": "Photo & utility",
    "category_label_zh": "照片與實用工具",
    "summary_en": "Find the most likely connection problem with independent path, DNS, TCP, TLS, timing and stability checks.",
-   "summary_zh": "用多路徑、DNS、TCP、TLS、回應時間與穩定度檢查，找出最可能的連線問題。App Store 一次付費買斷，無訂閱、無廣告、無追蹤。",
+   "summary_zh": "「網路又卡住了」——問題到底出在路由器、DNS、ISP,還是網站本身?WiFi Aid 用多條獨立路徑同時檢測 DNS、TCP、TLS、回應時間與穩定度,交叉比對各項證據,告訴你最可能的故障原因,不必再瞎猜、重開機碰運氣。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "wifiaid-support",
@@ -832,8 +854,8 @@
    "category": "education",
    "category_label_en": "Education",
    "category_label_zh": "學習",
-   "summary_en": "Make every spare moment useful with Wordmate, a complete vocabulary app for 44 languages.",
-   "summary_zh": "把零碎時間變成真正的字彙累積。Wordmate 將 44 種語言的結構化單字學習帶到 iPhone、iPad、主畫面互動小工具與 Apple Watch；從手中到手腕，通勤、排隊或短暫空檔都能自然接續。",
+   "summary_en": "Learn real vocabulary in 44 languages, one spare minute at a time.",
+   "summary_zh": "把零碎時間變成真正的字彙累積。Wordmate 將 44 種語言的單字整理成 14 個實用主題、初中高 3 個級別，學英文時每個單字都附例句，還能聽發音。主畫面互動式小工具與手錶都能直接背單字，通勤、排隊也不中斷。一次購買，無訂閱、無內購。",
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "wordmate-support",
@@ -852,7 +874,8 @@
    "purchase_en": "Paid download",
    "purchase_zh": "付費下載",
    "support_slug": "zipbox-support",
-   "guide_path": "en-US/zipbox.html"
+   "guide_path": "en-US/zipbox.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.Zipbox"
   }
  ]
 }

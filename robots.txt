@@ -177,6 +177,7 @@ Sitemap: https://open.cait518.cc/cyca-support/sitemap.xml
 Sitemap: https://open.cait518.cc/dailymate-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/dailymate-support/sitemap.xml
 Sitemap: https://open.cait518.cc/dbhalo-support/sitemap.xml
+Sitemap: https://open.cait518.cc/easyam-support/sitemap.xml
 Sitemap: https://open.cait518.cc/gmoney-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/gmoney-support/sitemap.xml
 Sitemap: https://open.cait518.cc/hourstag-lite-support/sitemap.xml
