@@ -21,6 +21,7 @@
   "dailymate-support",
   "dbhalo-support",
   "easyam-support",
+  "gbago-support",
   "gmoney-lite-support",
   "gmoney-support",
   "hourstag-lite-support",
@@ -65,6 +66,7 @@
   "zipbox-support"
  ],
  "support_sitemaps": {
+  "gbago-support": null,
   "stayclock-support": "https://open.cait518.cc/stayclock-support/bm-sitemap.xml"
  },
  "apps": [
@@ -277,6 +279,21 @@
    "support_slug": "gmoney-lite-support",
    "guide_path": "en-US/gmoneylite.html",
    "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.GMoneyLite"
+  },
+  {
+   "key": "gbago",
+   "name": "GBAGo",
+   "app_store_id": "6804564400",
+   "category": "utility",
+   "category_label_en": "More",
+   "category_label_zh": "更多",
+   "summary_en": "GBAGo is designed around one promise: never lose your progress again.",
+   "summary_zh": "除 Lumi Studio 自製的三款原創 demo 卡帶外，GBAGo 不包含遊戲或內容目錄。請僅從「檔案」匯入由你自行創作，或依適用法律獲授權使用的檔案。",
+   "purchase_en": "Paid download",
+   "purchase_zh": "付費下載",
+   "support_slug": "gbago-support",
+   "guide_path": "en-US/gbago.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.GBAGo"
   },
   {
    "key": "hourstaglite",
