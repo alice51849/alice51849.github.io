@@ -124,6 +124,13 @@ Disallow: /.github/
 Disallow: /_engine/
 Disallow: /ios-app-guide/_engine/
 
+User-agent: Google-Extended
+Allow: /
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /_engine/
+Disallow: /ios-app-guide/_engine/
+
 User-agent: Amazonbot
 Disallow: /
 
@@ -140,9 +147,6 @@ User-agent: ClaudeBot
 Disallow: /
 
 User-agent: CloudflareBrowserRenderingCrawler
-Disallow: /
-
-User-agent: Google-Extended
 Disallow: /
 
 User-agent: GPTBot
