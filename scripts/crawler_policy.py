@@ -18,15 +18,16 @@ SEARCH_CRAWLERS = (
 )
 # Preserve the canonical host's existing Cloudflare training opt-outs. These
 # product tokens must never be replaced by a generic "*bot*" block.
+# Google-Extended is deliberately absent (debate verdict 2026-10-31, topic 1):
+# it also governs Gemini Apps grounding and has no effect on Google Search.
 TRAINING_CRAWLERS = (
     "Amazonbot", "Applebot-Extended", "Bytespider", "CCBot", "ClaudeBot",
-    "CloudflareBrowserRenderingCrawler", "Google-Extended", "GPTBot",
-    "meta-externalagent",
+    "CloudflareBrowserRenderingCrawler", "GPTBot", "meta-externalagent",
 )
 OTHER_ALLOWED_CRAWLERS = (
     "ChatGPT-User", "Perplexity-User", "Claude-User", "Claude-SearchBot",
     "Claude-Web", "anthropic-ai", "BraveSearchBot", "DuckDuckBot",
-    "cohere-ai", "YandexBot", "PetalBot",
+    "cohere-ai", "YandexBot", "PetalBot", "Google-Extended",
 )
 PRIVATE_PATHS = (
     "/.git/", "/.github/", "/_engine/", "/ios-app-guide/_engine/",
