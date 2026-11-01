@@ -263,7 +263,8 @@
    "purchase_en": "Free to start · one-time unlock",
    "purchase_zh": "免費開始 · 一次性解鎖",
    "support_slug": "duo-wallpaper-studio-support",
-   "guide_path": "en-US/duowallpaperstudio.html"
+   "guide_path": "en-US/duowallpaperstudio.html",
+   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.DuoWallpaperStudio"
   },
   {
    "key": "gmoney",
