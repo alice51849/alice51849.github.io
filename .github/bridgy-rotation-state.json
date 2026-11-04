@@ -30,6 +30,7 @@
     "lumimissionpro",
     "lumiweather",
     "maskmyfile",
+    "metrotimehelper",
     "mochi",
     "mochidonestamp",
     "moneytag",
@@ -109,7 +110,8 @@
     "wifiaidlite",
     "wordmate",
     "wordmatelite",
-    "zipbox"
+    "zipbox",
+    "metrotimehelper"
   ],
   "version": 1
 }
