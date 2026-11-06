@@ -15,6 +15,7 @@
     "dbhalo",
     "duowallpaperstudio",
     "easyam",
+    "foldparty",
     "gbago",
     "gmoney",
     "gmoneylite",
@@ -49,6 +50,7 @@
     "stayclock",
     "studydown",
     "tripbee",
+    "tripbeecute",
     "tripbeelite",
     "tripplanet",
     "unblurry",
@@ -58,9 +60,8 @@
     "wordmatelite",
     "zipbox"
   ],
-  "last_slot": "2026-11-05T18:00:00Z",
+  "last_slot": "2026-11-06T00:00:00Z",
   "remaining": [
-    "dailymate",
     "dailymatelite",
     "dbhalo",
     "duowallpaperstudio",
@@ -106,7 +107,9 @@
     "wordmate",
     "wordmatelite",
     "zipbox",
-    "metrotimehelper"
+    "metrotimehelper",
+    "foldparty",
+    "tripbeecute"
   ],
   "version": 1
 }
