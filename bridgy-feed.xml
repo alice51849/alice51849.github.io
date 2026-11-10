@@ -5,11 +5,23 @@
   <subtitle>A six-hour high-intent rotation across every live Lumi Studio app.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://alice51849.github.io/bridgy-feed.xml" />
   <link rel="alternate" type="text/html" href="https://alice51849.github.io/" />
-  <updated>2026-11-09T18:00:00Z</updated>
+  <updated>2026-11-10T00:00:00Z</updated>
   <author>
     <name>Lumi Studio</name>
     <uri>https://alice51849.github.io/</uri>
   </author>
+  <entry>
+    <id>tag:alice51849.github.io,2026:bridgy:2026-11-10T00</id>
+    <title>Lumi Letters — independent iOS app guide</title>
+    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
+    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/lumiletters.html?bridgy=2026-11-10-00" />
+    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6778748533" title="Lumi Letters on the App Store" />
+    <published>2026-11-10T00:00:00Z</published>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: Lumi Letters. Practice ABCs, phonics, and letter tracing through kid-friendly activities. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/Phonics"&gt;#Phonics&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/EarlyLearning"&gt;#EarlyLearning&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/KidsApps"&gt;#KidsApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6778748533"&gt;https://apps.apple.com/app/id6778748533&lt;/a&gt;&lt;/p&gt;</content>
+    <summary xml:lang="en">Today's Lumi Studio app guide: Lumi Letters. Practice ABCs, phonics, and letter tracing through kid-friendly activities. Read the guide and see if it fits. #Phonics #EarlyLearning #KidsApps
+App Store: https://apps.apple.com/app/id6778748533</summary>
+  </entry>
   <entry>
     <id>tag:alice51849.github.io,2026:bridgy:2026-11-09T18</id>
     <title>LockHour Pro — independent iOS app guide</title>
@@ -93,17 +105,5 @@ App Store: https://apps.apple.com/app/id6755782939</summary>
     <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: GBAGo. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/IndieApps"&gt;#IndieApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6804564400"&gt;https://apps.apple.com/app/id6804564400&lt;/a&gt;&lt;/p&gt;</content>
     <summary xml:lang="en">Today's Lumi Studio app guide: GBAGo. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. #iOSApps #IndieApps
 App Store: https://apps.apple.com/app/id6804564400</summary>
-  </entry>
-  <entry>
-    <id>tag:alice51849.github.io,2026:bridgy:2026-11-07T00</id>
-    <title>EasyAM — independent iOS app guide</title>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-    <link rel="alternate" type="text/html" href="https://alice51849.github.io/ios-app-guide/guides/easyam.html?bridgy=2026-11-07-00" />
-    <link rel="related" type="text/html" href="https://apps.apple.com/app/id6821790092" title="EasyAM on the App Store" />
-    <published>2026-11-07T00:00:00Z</published>
-    <updated>2026-11-07T00:00:00Z</updated>
-    <content type="html" xml:lang="en">&lt;p&gt;Today&amp;#x27;s Lumi Studio app guide: EasyAM. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. &lt;a href="https://bsky.app/hashtag/iOSApps"&gt;#iOSApps&lt;/a&gt; &lt;a href="https://bsky.app/hashtag/IndieApps"&gt;#IndieApps&lt;/a&gt;&lt;br&gt;App Store: &lt;a href="https://apps.apple.com/app/id6821790092"&gt;https://apps.apple.com/app/id6821790092&lt;/a&gt;&lt;/p&gt;</content>
-    <summary xml:lang="en">Today's Lumi Studio app guide: EasyAM. Explore practical use cases before visiting the App Store. Read the guide and see if it fits. #iOSApps #IndieApps
-App Store: https://apps.apple.com/app/id6821790092</summary>
   </entry>
 </feed>
