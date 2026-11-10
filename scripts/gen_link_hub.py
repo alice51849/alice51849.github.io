@@ -241,6 +241,7 @@ def refresh_data(
     support_sites = set(sites) | set(previous["support_sites"])
 
     apps = []
+    skipped_no_support = []
     for record in catalog["apps"]:
         if not record.get("verified_live"):
             continue
@@ -250,7 +251,12 @@ def refresh_data(
             # Live support site that the network config does not claim yet.
             slug = f"{key}-support"
         if not slug:
-            raise HubError(f"{key!r} has no support site")
+            # 新上線款（例：foldparty 喵喵派對）支援站尚未建立時，只略過這一款並警告，
+            # 不讓單一款擋住全站 59 款 Google Play 直連的刷新（2026-11-11）。
+            # 支援站建好（crosspromo_config 登記或 <key>-support/ 回 200）後下一輪自動納入。
+            print(f"WARNING: {key!r} has no support site yet; skipped in link hub", file=sys.stderr)
+            skipped_no_support.append(key)
+            continue
         support_sites.add(slug)
         entry = {
             "key": key,
