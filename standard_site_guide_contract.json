@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-11T01:01:26.300Z",
+  "generated_at": "2026-11-12T14:11:07.123Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -278,6 +278,12 @@
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzdmdb",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzdmdb\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/wishlist-app-that-shows-how-many-work-hours-to-buy-a-goal-pay-once-private.html",
+      "app_key": "hourstag",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn3c736",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn3c736\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/battai.html",
