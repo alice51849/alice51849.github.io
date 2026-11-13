@@ -68,7 +68,32 @@
   "zipbox-support"
  ],
  "support_sitemaps": {
+  "100notes-support": null,
+  "aibrief-support": null,
+  "aim990-plus-support": null,
+  "aim990-support": null,
+  "battai-support": null,
+  "caldaily-support": null,
+  "countdaysnow-support": null,
+  "cvdesk-support": null,
+  "cyca-support": null,
+  "dailymate-lite-support": null,
+  "dailymate-support": null,
+  "dbhalo-support": null,
+  "duo-wallpaper-studio-support": null,
+  "easyam-support": null,
   "gbago-support": null,
+  "gmoney-lite-support": null,
+  "gmoney-support": null,
+  "hourstag-lite-support": null,
+  "hourstag-support": null,
+  "ledmovingtext-support": null,
+  "lockhour-support": null,
+  "lumi-bopomofo-pro-support": null,
+  "lumi-letters-pro-support": null,
+  "lumi-letters-support": null,
+  "lumi-math-pro-support": null,
+  "lumi-math-support": null,
   "stayclock-support": "https://open.cait518.cc/stayclock-support/bm-sitemap.xml"
  },
  "apps": [
@@ -911,21 +936,6 @@
    "support_slug": "wordmate-support",
    "guide_path": "en-US/wordmate.html",
    "play_url": "https://play.google.com/store/apps/details?id=com.caitlyn.flashdot"
-  },
-  {
-   "key": "zipbox",
-   "name": "Zipbox",
-   "app_store_id": "6806776579",
-   "category": "utility",
-   "category_label_en": "More",
-   "category_label_zh": "更多",
-   "summary_en": "Open RAR, 7z, ZIP and 10 more archive formats right on your iPhone.",
-   "summary_zh": "手機直接打開 RAR、7z、ZIP 等 13 種壓縮檔。不用先解壓就能看裡面有什麼，照片、影片、PDF、文字和程式碼都能預覽，只取出你要的那一個檔案。",
-   "purchase_en": "Paid download",
-   "purchase_zh": "付費下載",
-   "support_slug": "zipbox-support",
-   "guide_path": "en-US/zipbox.html",
-   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.Zipbox"
   }
  ]
 }
