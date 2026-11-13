@@ -21,6 +21,7 @@
     "gmoneylite",
     "hourstag",
     "hourstaglite",
+    "kumo",
     "ledmovingtext",
     "lockhour",
     "lumiletters",
@@ -60,9 +61,8 @@
     "wordmatelite",
     "zipbox"
   ],
-  "last_slot": "2026-11-13T12:00:00Z",
+  "last_slot": "2026-11-13T18:00:00Z",
   "remaining": [
-    "picclear",
     "qrcodehalo",
     "savetag",
     "scanto",
@@ -84,7 +84,8 @@
     "zipbox",
     "metrotimehelper",
     "foldparty",
-    "tripbeecute"
+    "tripbeecute",
+    "kumo"
   ],
   "version": 1
 }
