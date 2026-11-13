@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-12T14:11:07.123Z",
+  "generated_at": "2026-11-13T13:41:22.583Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -20,6 +20,12 @@
       "app_key": "lockhour",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2b2po\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/app-to-prepare-context-for-ai-prompts-from-screenshots-and-documents.html",
+      "app_key": "aibriefpack",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq53mkeg",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq53mkeg\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/app-to-track-project-expenses-and-income-separately.html",
@@ -176,6 +182,12 @@
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/iphone-battery-capacity-app-with-honest-estimates.html",
+      "app_key": "battai",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq53z7fr",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq53z7fr\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-bopomofo-app-with-no-ads-or-tracking-that-is-safe-for-a-preschooler.html",
