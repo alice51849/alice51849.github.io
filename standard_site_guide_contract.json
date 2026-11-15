@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-14T00:43:54.881Z",
+  "generated_at": "2026-11-15T13:02:44.024Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -316,6 +316,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3myhsh7drhbxd\">"
     },
     {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/countdaysnow.html",
+      "app_key": "countdaysnow",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3myhsh7drvvxd",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3myhsh7drvvxd\">"
+    },
+    {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/dailymate.html",
       "app_key": "dailymate",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzmirk",
@@ -344,6 +350,12 @@
       "app_key": "shotinbox",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mtxowiyrlmnd",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mtxowiyrlmnd\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/tools/battery-wear-range-sheet.html",
+      "app_key": "battai",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mutqj6loobjo",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mutqj6loobjo\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/tools/bill-split-sheet.html",
