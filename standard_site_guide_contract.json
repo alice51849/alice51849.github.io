@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-15T13:02:44.024Z",
+  "generated_at": "2026-11-16T14:04:38.373Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -110,6 +110,12 @@
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz7o3b\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/everyday-phrases-app-in-47-languages-one-time-purchase.html",
+      "app_key": "dailymate",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq54erui",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq54erui\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-can-my-child-prepare-for-grade-1-bopomofo-over-the-summer-before-school-starts.html",
@@ -332,6 +338,12 @@
       "app_key": "dailymatelite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mshxyecihgj5",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mshxyecihgj5\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/dbhalo.html",
+      "app_key": "dbhalo",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mw3zbzq4ecbo",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mw3zbzq4ecbo\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/hourstaglite.html",
