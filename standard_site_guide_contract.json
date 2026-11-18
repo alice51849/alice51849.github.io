@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-17T15:20:15.871Z",
+  "generated_at": "2026-11-18T15:17:30.004Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -356,6 +356,18 @@
       "app_key": "easyam",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3myhsh7dsbn67",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3myhsh7dsbn67\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/foldparty.html",
+      "app_key": "foldparty",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mznjq2gehhev",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mznjq2gehhev\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/gbago.html",
+      "app_key": "gbago",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3myleeis4lnny",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3myleeis4lnny\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/hourstaglite.html",
