@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-18T15:17:30.004Z",
+  "generated_at": "2026-11-19T14:50:58.614Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -92,6 +92,12 @@
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxka6n",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrtua3kxka6n\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/budget-app-for-going-abroad-that-works-offline-with-saved-rates.html",
+      "app_key": "gmoneylite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq54ptaf",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq54ptaf\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/chore-chart-no-ads-app-for-young-kids-pay-once-no-subscription.html",
