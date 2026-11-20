@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-19T14:50:58.614Z",
+  "generated_at": "2026-11-20T14:27:11.519Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -26,6 +26,12 @@
       "app_key": "aibriefpack",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq53mkeg",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq53mkeg\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/app-to-stop-impulse-buying-by-showing-hours-of-work.html",
+      "app_key": "hourstaglite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq553l77",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mv5slq553l77\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/app-to-track-project-expenses-and-income-separately.html",
@@ -380,6 +386,12 @@
       "app_key": "hourstaglite",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/kumo.html",
+      "app_key": "kumo",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3n274exfc7z2a",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3n274exfc7z2a\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/mochidonestamp.html",
