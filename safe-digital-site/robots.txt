@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /safe-digital-site/go/
+
+Sitemap: https://open.cait518.cc/safe-digital-site/sitemap-index.xml
