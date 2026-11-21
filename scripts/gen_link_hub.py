@@ -106,6 +106,9 @@ EXTRA_SITEMAPS = (
     f"{GUIDE_BASE}/sitemap.xml",
     f"{GUIDE_BASE}/resourcesync/resourcelist.xml",
     f"{BASE}/awesome-zhuyin-bopomofo-apps/sitemap.xml",
+    # 數位安心誌 (built from alice51849/safe-digital-site): crawler discovery only,
+    # deliberately not linked from the home page or /app/.
+    f"{BASE}/safe-digital-site/sitemap-0.xml",
     *PRIORITY_GUIDE_SITEMAPS,
 )
 # Declared in robots.txt only: a sitemap index may not nest another index.

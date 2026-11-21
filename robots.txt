@@ -160,6 +160,7 @@ Sitemap: https://open.cait518.cc/sitemap.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/sitemap.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/resourcesync/resourcelist.xml
 Sitemap: https://open.cait518.cc/awesome-zhuyin-bopomofo-apps/sitemap.xml
+Sitemap: https://open.cait518.cc/safe-digital-site/sitemap-0.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/sitemap-high-intent-decision-routes.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_apps.xml
 Sitemap: https://open.cait518.cc/ios-app-guide/sitemap_guides.xml
