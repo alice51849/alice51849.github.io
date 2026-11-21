@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-20T14:27:11.519Z",
+  "generated_at": "2026-11-21T14:36:54.025Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -416,6 +416,18 @@
       "app_key": "caldaily",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3muwdls4iftwq",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3muwdls4iftwq\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/tools/purchase-worktime-sheet.html",
+      "app_key": "hourstaglite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mutqj6lp6cqo",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mutqj6lp6cqo\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/tools/trip-budget-sheet.html",
+      "app_key": "gmoneylite",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3muwdls4irpxt",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3muwdls4irpxt\">"
     }
   ]
 }
