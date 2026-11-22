@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-21T14:36:54.025Z",
+  "generated_at": "2026-11-22T16:31:06.065Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -388,10 +388,22 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl26dry\">"
     },
     {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/jellyday.html",
+      "app_key": "jellyday",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3n2w22oqaetrq",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3n2w22oqaetrq\">"
+    },
+    {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/kumo.html",
       "app_key": "kumo",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3n274exfc7z2a",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3n274exfc7z2a\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/ledmovingtext.html",
+      "app_key": "ledmovingtext",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mvtunmrf5kqr",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mvtunmrf5kqr\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/en-US/mochidonestamp.html",
