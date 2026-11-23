@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-22T16:31:06.065Z",
+  "generated_at": "2026-11-23T00:24:56.449Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -160,6 +160,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzfpva\">"
     },
     {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-does-lockhour-pro-actually-block-apps-on-iphone.html",
+      "app_key": "lockhour",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2dxak",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2dxak\">"
+    },
+    {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-many-hours-a-year-do-my-subscriptions-actually-cost-me.html",
       "app_key": "hourstag",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrwjlnn2jrku",
@@ -200,6 +206,12 @@
       "app_key": "cvdesk",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkzbngi\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/how-to-teach-bopomofo-to-a-young-child-living-outside-taiwan.html",
+      "app_key": "lumibopomofo",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2n6el",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2n6el\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/iphone-battery-capacity-app-with-honest-estimates.html",
