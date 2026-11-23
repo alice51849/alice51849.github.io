@@ -21,6 +21,7 @@
     "gmoneylite",
     "hourstag",
     "hourstaglite",
+    "jellyday",
     "kumo",
     "ledmovingtext",
     "lockhour",
@@ -61,9 +62,8 @@
     "wordmatelite",
     "zipbox"
   ],
-  "last_slot": "2026-11-23T06:00:00Z",
+  "last_slot": "2026-11-23T12:00:00Z",
   "remaining": [
-    "foldparty",
     "gbago",
     "gmoney",
     "gmoneylite",
@@ -107,7 +107,8 @@
     "wifiaidlite",
     "wordmate",
     "wordmatelite",
-    "zipbox"
+    "zipbox",
+    "jellyday"
   ],
   "version": 1
 }
