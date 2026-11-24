@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-23T00:24:56.449Z",
+  "generated_at": "2026-11-24T16:33:46.295Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -250,10 +250,22 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3iill\">"
     },
     {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-phonics-app-for-kids-that-has-no-ads-and-no-monthly-subscription.html",
+      "app_key": "lumiletters",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3bfvy",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3bfvy\">"
+    },
+    {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-an-app-that-turns-toothbrushing-and-morning-routines-into-a-game-for-my-4-year-old.html",
       "app_key": "lumimission",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5bcou\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-an-app-to-prepare-my-6-year-old-for-wmi-or-similar-math-competitions.html",
+      "app_key": "lumimath",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl43liw",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl43liw\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/pdf-annotation-app-for-ipad-with-apple-pencil-no-subscription.html",
