@@ -216,7 +216,6 @@ Sitemap: https://open.cait518.cc/shotinbox-support/sitemap.xml
 Sitemap: https://open.cait518.cc/snapport-lite-support/sitemap.xml
 Sitemap: https://open.cait518.cc/snapport-support/sitemap.xml
 Sitemap: https://open.cait518.cc/sono-note-support/sitemap.xml
-Sitemap: https://open.cait518.cc/stayclock-support/bm-sitemap.xml
 Sitemap: https://open.cait518.cc/studydown-support/sitemap.xml
 Sitemap: https://open.cait518.cc/trip-planet-support/sitemap.xml
 Sitemap: https://open.cait518.cc/tripbee-lite-support/sitemap.xml

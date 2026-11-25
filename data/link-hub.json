@@ -68,7 +68,7 @@
   "zipbox-support"
  ],
  "support_sitemaps": {
-  "stayclock-support": "https://open.cait518.cc/stayclock-support/bm-sitemap.xml"
+  "stayclock-support": null
  },
  "apps": [
   {
@@ -745,21 +745,6 @@
    "support_slug": "sono-note-support",
    "guide_path": "en-US/sononote.html",
    "play_url": "https://play.google.com/store/apps/details?id=com.caitlyn.clearnotevoice"
-  },
-  {
-   "key": "stayclock",
-   "name": "Stay Clock",
-   "app_store_id": "6814035888",
-   "category": "utility",
-   "category_label_en": "More",
-   "category_label_zh": "更多",
-   "summary_en": "Stay Clock turns your iPhone or iPad into an always-on desk clock you can read from across the room.",
-   "summary_zh": "Stay Clock 把你的 iPhone 或 iPad 變成一座全天候桌鐘，充電時保持恆亮，隔著房間也看得清楚。101 款錶面隨你換，也有翻頁鐘（其中 100 款以一次性 Lifetime 解鎖）；夜裡可改成純黑底柔和紅字，不刺眼。",
-   "purchase_en": "Free to start · one-time unlock",
-   "purchase_zh": "免費開始 · 一次性解鎖",
-   "support_slug": "stayclock-support",
-   "guide_path": "en-US/stayclock.html",
-   "play_url": "https://play.google.com/store/apps/details?id=com.alice51849.StayClock"
   },
   {
    "key": "studydown",
