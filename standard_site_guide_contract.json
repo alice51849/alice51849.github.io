@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-24T16:33:46.295Z",
+  "generated_at": "2026-11-25T16:44:42.619Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -308,6 +308,12 @@
       "app_key": "aim990",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkz3kq6\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/what-parenting-features-does-lumi-mission-planet-have-for-adults-beyond-the-kids-game-layer.html",
+      "app_key": "lumimission",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5fn33",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl5fn33\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/when-did-i-last-do-it-app-with-undo-and-reminders.html",
