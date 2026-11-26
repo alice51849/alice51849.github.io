@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-25T16:44:42.619Z",
+  "generated_at": "2026-11-26T00:30:22.633Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -212,6 +212,12 @@
       "app_key": "lumibopomofo",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2n6el",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2n6el\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/iphone-app-that-blocks-instagram-while-studying-with-pomodoro-timer.html",
+      "app_key": "lockhour",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2gudr",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2gudr\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/iphone-battery-capacity-app-with-honest-estimates.html",
