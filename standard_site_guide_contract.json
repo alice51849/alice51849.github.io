@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-27T06:42:31.103Z",
+  "generated_at": "2026-11-27T08:29:50.098Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -238,6 +238,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2ti3l\">"
     },
     {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-fully-unlocked-bopomofo-app-with-no-free-tier-restrictions-for-children.html",
+      "app_key": "lumibopomofopro",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2wq4y",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2wq4y\">"
+    },
+    {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/is-there-a-kids-math-app-that-can-generate-printable-worksheets-i-can-use-for-off-screen-practice.html",
       "app_key": "lumimathpro",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl4pn76",
@@ -320,6 +326,12 @@
       "app_key": "gmoney",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkztndr",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbkztndr\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/what-is-the-best-phonics-app-for-a-3-year-old-who-can-t-read-yet.html",
+      "app_key": "lumiletters",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3ewv2",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl3ewv2\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/what-is-the-best-way-to-practice-toeic-part-5-grammar-and-part-7-reading.html",
