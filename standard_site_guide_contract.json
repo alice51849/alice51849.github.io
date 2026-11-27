@@ -1,6 +1,6 @@
 {
   "contract_version": 1,
-  "generated_at": "2026-11-26T00:30:22.633Z",
+  "generated_at": "2026-11-27T06:42:31.103Z",
   "publication": {
     "url": "https://open.cait518.cc/ios-app-guide",
     "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.publication/3mrocqbkyt6mg",
@@ -214,6 +214,12 @@
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2n6el\">"
     },
     {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/i-grew-up-learning-bopomofo-in-taiwan-what-is-the-best-app-to-teach-my-child-who-was-born-in-the-us-the-same-way.html",
+      "app_key": "lumibopomofopro",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mskgsxquozri",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mskgsxquozri\">"
+    },
+    {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/iphone-app-that-blocks-instagram-while-studying-with-pomodoro-timer.html",
       "app_key": "lockhour",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2gudr",
@@ -272,6 +278,12 @@
       "app_key": "lumimath",
       "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl43liw",
       "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl43liw\">"
+    },
+    {
+      "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/my-child-starts-grade-1-in-september-and-doesn-t-know-any-bopomofo-yet-will-they-fall-behind.html",
+      "app_key": "lumibopomofo",
+      "at_uri": "at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2qca3",
+      "link_tag": "<link rel=\"site.standard.document\" href=\"at://did:plc:kboucnzkxzmqmatvhes4xlt4/site.standard.document/3mrocqbl2qca3\">"
     },
     {
       "canonical_url": "https://open.cait518.cc/ios-app-guide/answers/pdf-annotation-app-for-ipad-with-apple-pencil-no-subscription.html",
